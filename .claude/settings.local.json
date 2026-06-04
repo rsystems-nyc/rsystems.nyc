@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(python3 -c ' *)",
+      "WebFetch(domain:macktez.com)",
+      "Skill(schedule)"
+    ]
+  }
+}

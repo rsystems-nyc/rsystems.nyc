@@ -1,0 +1,375 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 20 1900 2620" font-family="Geist,'Helvetica Neue',Arial,sans-serif">
+<defs><style>
+.zone{fill:#FFFFFF;stroke:#D8D4CE;stroke-width:1.5}
+.bubble{fill:#F0ECE6;stroke:#D8D4CE;stroke-width:1.5}
+.cloud{fill:#FBFAF8;stroke:#C9C3BB;stroke-width:1.5}
+.node{fill:#FFFFFF;stroke:#D8D4CE;stroke-width:1.4}
+.node-core{fill:#FFFFFF;stroke:#E8500A;stroke-width:2.2}
+.zlabel{fill:#E8500A;font-size:15px;font-weight:700;letter-spacing:.5px}
+.title{fill:#1A1A1A;font-size:30px;font-weight:700}
+.floor{fill:#9A938A;font-size:11px;font-style:italic}
+.ncode{fill:#1A1A1A;font-size:11.5px;font-weight:700}
+.ntype{fill:#6B6660;font-size:10px}
+.cop{stroke:#9A948C;stroke-width:1.4;fill:none}
+.wifi{stroke:#E8500A;stroke-width:1.7;fill:none;stroke-dasharray:6 5}
+.backup{stroke:#C0463B;stroke-width:2;fill:none}
+.beamlbl{fill:#C0463B;font-size:11px;font-style:italic}
+</style></defs>
+<rect x="80" y="20" width="1900" height="2620" fill="#F4F2EF"/>
+<ellipse cx="1732.0" cy="1361.0" rx="180.0" ry="305.0" class="bubble"/>
+<rect x="1242.5" y="580.0" width="390.0" height="419.0" rx="14" class="zone"/>
+<text x="1256.5" y="602.0" text-anchor="start" class="zlabel">Music Hall (M)</text>
+<rect x="1695.0" y="662.5" width="230.0" height="216.0" rx="14" class="zone"/>
+<text x="1709.0" y="684.5" text-anchor="start" class="zlabel">Transportation Hub</text>
+<rect x="1225.5" y="2010.0" width="230.0" height="216.0" rx="14" class="zone"/>
+<text x="1239.5" y="2032.0" text-anchor="start" class="zlabel">Field (Along Power Lines)</text>
+<rect x="620.0" y="2374.0" width="516.0" height="220.0" rx="14" class="zone"/>
+<text x="634.0" y="2396.0" text-anchor="start" class="zlabel">Spares</text>
+<rect x="1616.0" y="1124.0" width="230.0" height="216.0" rx="14" class="zone"/>
+<text x="1630.0" y="1146.0" text-anchor="start" class="zlabel">Microsoft</text>
+<rect x="1616.5" y="1380.0" width="230.0" height="216.0" rx="14" class="zone"/>
+<text x="1630.5" y="1402.0" text-anchor="start" class="zlabel">Cottage C</text>
+<rect x="560.5" y="1727.0" width="260.0" height="240.0" rx="14" class="zone"/>
+<text x="574.5" y="1749.0" text-anchor="start" class="zlabel">Story Arcade (A)</text>
+<rect x="291.0" y="2000.0" width="369.0" height="350.0" rx="14" class="zone"/>
+<text x="305.0" y="2022.0" text-anchor="start" class="zlabel">DV Tent</text>
+<rect x="120.0" y="300.0" width="550.0" height="791.0" rx="14" class="zone"/>
+<text x="134.0" y="322.0" text-anchor="start" class="zlabel">Building G</text>
+<rect x="1230.0" y="1121.0" width="230.0" height="216.0" rx="14" class="zone"/>
+<text x="1244.0" y="1143.0" text-anchor="start" class="zlabel">Social Space (S)</text>
+<rect x="1230.0" y="2371.0" width="230.0" height="216.0" rx="14" class="zone"/>
+<text x="1244.0" y="2393.0" text-anchor="start" class="zlabel">Great Lawn (L)</text>
+<rect x="120.0" y="1428.0" width="230.0" height="216.0" rx="14" class="zone"/>
+<text x="134.0" y="1450.0" text-anchor="start" class="zlabel">Dome (D)</text>
+<rect x="1159.0" y="1375.0" width="300.0" height="280.0" rx="14" class="zone"/>
+<text x="1173.0" y="1397.0" text-anchor="start" class="zlabel">Power Plant (W)</text>
+<rect x="120.0" y="1124.0" width="230.0" height="216.0" rx="14" class="zone"/>
+<text x="134.0" y="1146.0" text-anchor="start" class="zlabel">Octagon Room (T)</text>
+<rect x="900.5" y="580.0" width="285.0" height="270.0" rx="14" class="zone"/>
+<text x="914.5" y="602.0" text-anchor="start" class="zlabel">Great Hall (H)</text>
+<rect x="334.0" y="60.0" width="210.0" height="210.0" rx="14" class="zone"/>
+<text x="348.0" y="82.0" text-anchor="start" class="zlabel">Building C</text>
+<rect x="440.5" y="1393.0" width="380.0" height="280.0" rx="14" class="zone"/>
+<text x="454.5" y="1415.0" text-anchor="start" class="zlabel">Building K</text>
+<rect x="380.0" y="1120.0" width="304.0" height="227.0" rx="14" class="zone"/>
+<text x="394.0" y="1142.0" text-anchor="start" class="zlabel">Carpenter Shop (P)</text>
+<rect x="870.0" y="1416.0" width="260.0" height="240.0" rx="14" class="zone"/>
+<text x="884.0" y="1438.0" text-anchor="start" class="zlabel">Book Store</text>
+<line x1="330.0" y1="908.0" x2="478.7" y2="1230.5" class="cop"/>
+<line x1="330.0" y1="730.5" x2="330.0" y2="810.0" class="cop"/>
+<line x1="330.0" y1="908.0" x2="330.0" y2="810.0" class="cop"/>
+<line x1="330.0" y1="908.0" x2="576.0" y2="789.5" class="cop"/>
+<line x1="183.0" y1="907.0" x2="330.0" y2="908.0" class="cop"/>
+<line x1="330.0" y1="908.0" x2="439.0" y2="471.0" class="cop"/>
+<line x1="576.0" y1="1018.0" x2="330.0" y2="908.0" class="cop"/>
+<line x1="574.0" y1="911.0" x2="330.0" y2="908.0" class="cop"/>
+<line x1="330.0" y1="908.0" x2="594.2" y2="603.5" class="cop"/>
+<line x1="439.0" y1="471.0" x2="315.5" y2="471.0" class="cop"/>
+<line x1="594.2" y1="603.5" x2="587.7" y2="342.0" class="cop"/>
+<line x1="330.0" y1="908.0" x2="473.0" y2="603.5" class="cop"/>
+<line x1="576.0" y1="1018.0" x2="1212.5" y2="1430.0" class="wifi"/>
+<line x1="1345.0" y1="1508.0" x2="1345.2" y2="1222.0" class="cop"/>
+<line x1="1212.5" y1="1430.0" x2="1345.0" y2="1508.0" class="cop"/>
+<line x1="1342.5" y1="2118.0" x2="1345.0" y2="1508.0" class="backup"/>
+<line x1="635.7" y1="1520.0" x2="1006.7" y2="1527.0" class="cop"/>
+<line x1="635.7" y1="1520.0" x2="532.2" y2="1439.0" class="cop"/>
+<line x1="419.0" y1="2120.0" x2="635.7" y2="1520.0" class="cop"/>
+<line x1="233.7" y1="1527.0" x2="635.7" y2="1520.0" class="cop"/>
+<line x1="635.7" y1="1520.0" x2="690.7" y2="1843.5" class="cop"/>
+<line x1="1437.7" y1="752.0" x2="1328.7" y2="635.5" class="cop"/>
+<line x1="973.5" y1="757.5" x2="973.7" y2="642.0" class="cop"/>
+<line x1="1109.7" y1="757.5" x2="1108.7" y2="635.5" class="cop"/>
+<line x1="574.0" y1="911.0" x2="1437.5" y2="911.0" class="wifi"/>
+<line x1="439.0" y1="471.0" x2="439.0" y2="142.0" class="cop"/>
+<line x1="1437.7" y1="752.0" x2="1546.2" y2="635.5" class="cop"/>
+<line x1="1437.5" y1="911.0" x2="1437.7" y2="752.0" class="cop"/>
+<line x1="1109.7" y1="757.5" x2="1437.7" y2="752.0" class="cop"/>
+<line x1="1676.0" y1="1254.5" x2="1675.5" y2="1164.0" class="cop"/>
+<line x1="1676.0" y1="1254.5" x2="1795.5" y2="1254.5" class="cop"/>
+<line x1="1676.5" y1="1515.0" x2="1676.0" y2="1424.5" class="cop"/>
+<line x1="1676.5" y1="1515.0" x2="1796.0" y2="1515.0" class="cop"/>
+<line x1="641.0" y1="1426.5" x2="641.0" y2="1304.5" class="wifi"/>
+<line x1="630.7" y1="1172.5" x2="478.7" y2="1230.5" class="cop"/>
+<line x1="635.7" y1="1520.0" x2="641.0" y2="1426.5" class="cop"/>
+<line x1="641.0" y1="1304.5" x2="478.7" y2="1230.5" class="cop"/>
+<line x1="478.7" y1="1230.5" x2="235.2" y2="1229.0" class="cop"/>
+<line x1="1342.0" y1="2483.5" x2="1342.5" y2="2118.0" class="cop"/>
+<line x1="419.0" y1="2120.0" x2="1342.5" y2="2118.0" class="cop"/>
+<line x1="1437.7" y1="752.0" x2="1809.7" y2="755.0" class="cop"/>
+<line x1="587.7" y1="342.0" x2="315.5" y2="342.0" class="cop"/>
+<line x1="574.0" y1="2242.0" x2="419.0" y2="2120.0" class="cop"/>
+<line x1="1109.7" y1="757.5" x2="973.5" y2="757.5" class="cop"/>
+<text x="1357.8" y="1813.0" text-anchor="start" class="beamlbl">Backup</text>
+<rect x="380.0" y="2093.5" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 414.0 2105.5 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 432.0 2112.5 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="423.0" y="2131.5" text-anchor="middle" class="ncode">AX1</text>
+<text x="423.0" y="2142.5" text-anchor="middle" class="ntype">PoE Switch</text>
+<rect x="1185.5" y="1402.0" width="86.0" height="56.0" rx="8" class="node"/>
+<path d="M 1220.5 1410.0 l8 7 l-8 7 M 1236.5 1410.0 l-8 7 l8 7" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="1228.5" y="1454.0" text-anchor="middle" class="ntype">Fiber Media Converter</text>
+<rect x="594.5" y="1140.5" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 632.5 1156.5 A 5 5 0 0 1 642.5 1156.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 628.5 1156.5 A 9 9 0 0 1 646.5 1156.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 624.5 1156.5 A 13 13 0 0 1 650.5 1156.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="637.5" cy="1158.5" r="2.2" fill="#8A847C"/>
+<text x="637.5" y="1188.5" text-anchor="middle" class="ncode">P1</text>
+<text x="637.5" y="1200.5" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="199.0" y="1197.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 237.0 1213.0 A 5 5 0 0 1 247.0 1213.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 233.0 1213.0 A 9 9 0 0 1 251.0 1213.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 229.0 1213.0 A 13 13 0 0 1 255.0 1213.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="242.0" cy="1215.0" r="2.2" fill="#8A847C"/>
+<text x="242.0" y="1245.0" text-anchor="middle" class="ncode">T1</text>
+<text x="242.0" y="1257.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<ellipse cx="330.0" cy="730.5" rx="60.0" ry="40.0" class="cloud"/>
+<text x="330.0" y="734.5" text-anchor="middle" class="ntype">Verizon FiOS · Gigabit</text>
+<rect x="315.5" y="776.5" width="86.0" height="67.0" rx="8" class="node"/>
+<rect x="349.5" y="784.5" width="18" height="3" fill="none" stroke="#6B6660" stroke-width="1"/>
+<rect x="349.5" y="788.5" width="18" height="3" fill="none" stroke="#6B6660" stroke-width="1"/>
+<rect x="349.5" y="792.5" width="18" height="3" fill="none" stroke="#6B6660" stroke-width="1"/>
+<text x="358.5" y="839.5" text-anchor="middle" class="ntype">FortiGate Firewall</text>
+<rect x="291.0" y="881.5" width="86.0" height="53.0" rx="8" class="node-core"/>
+<path d="M 325.0 893.5 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 343.0 900.5 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="334.0" y="919.5" text-anchor="middle" class="ncode">GX0</text>
+<text x="334.0" y="930.5" text-anchor="middle" class="ntype">Core Switch · Cisco</text>
+<rect x="400.0" y="444.5" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 434.0 456.5 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 452.0 463.5 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="443.0" y="482.5" text-anchor="middle" class="ncode">GX1</text>
+<text x="443.0" y="493.5" text-anchor="middle" class="ntype">Reception PoE Switch</text>
+<rect x="540.5" y="766.5" width="86.0" height="52.0" rx="8" class="node"/>
+<rect x="574.5" y="774.5" width="18" height="2.4" fill="#6B6660"/>
+<rect x="574.5" y="778.5" width="18" height="2.4" fill="#6B6660"/>
+<rect x="574.5" y="782.5" width="18" height="2.4" fill="#6B6660"/>
+<text x="583.5" y="814.5" text-anchor="middle" class="ntype">Wireless Controller · Ruckus</text>
+<rect x="146.0" y="875.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 184.0 891.0 A 5 5 0 0 1 194.0 891.0" fill="none" stroke="#E8500A" stroke-width="1.6"/>
+<path d="M 180.0 891.0 A 9 9 0 0 1 198.0 891.0" fill="none" stroke="#E8500A" stroke-width="1.6"/>
+<path d="M 176.0 891.0 A 13 13 0 0 1 202.0 891.0" fill="none" stroke="#E8500A" stroke-width="1.6"/>
+<circle cx="189.0" cy="893.0" r="2.2" fill="#E8500A"/>
+<text x="189.0" y="923.0" text-anchor="middle" class="ncode">G1</text>
+<text x="189.0" y="935.0" text-anchor="middle" class="ntype">MDF AP</text>
+<rect x="549.5" y="990.0" width="86.0" height="56.0" rx="8" class="node"/>
+<path d="M 584.5 998.0 l8 7 l-8 7 M 600.5 998.0 l-8 7 l8 7" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="592.5" y="1042.0" text-anchor="middle" class="ntype">Fiber Media Converter</text>
+<rect x="547.0" y="883.0" width="86.0" height="56.0" rx="8" class="node"/>
+<path d="M 582.0 891.0 l8 7 l-8 7 M 598.0 891.0 l-8 7 l8 7" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="590.0" y="935.0" text-anchor="middle" class="ntype">Fiber Media Converter</text>
+<rect x="278.5" y="310.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 316.5 326.0 A 5 5 0 0 1 326.5 326.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 312.5 326.0 A 9 9 0 0 1 330.5 326.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 308.5 326.0 A 13 13 0 0 1 334.5 326.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="321.5" cy="328.0" r="2.2" fill="#8A847C"/>
+<text x="321.5" y="358.0" text-anchor="middle" class="ncode">G4</text>
+<text x="321.5" y="370.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="436.0" y="571.5" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 474.0 587.5 A 5 5 0 0 1 484.0 587.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 470.0 587.5 A 9 9 0 0 1 488.0 587.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 466.0 587.5 A 13 13 0 0 1 492.0 587.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="479.0" cy="589.5" r="2.2" fill="#8A847C"/>
+<text x="479.0" y="619.5" text-anchor="middle" class="ncode">G5</text>
+<text x="479.0" y="631.5" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="1773.5" y="723.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 1811.5 739.0 A 5 5 0 0 1 1821.5 739.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1807.5 739.0 A 9 9 0 0 1 1825.5 739.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1803.5 739.0 A 13 13 0 0 1 1829.5 739.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1816.5" cy="741.0" r="2.2" fill="#8A847C"/>
+<text x="1816.5" y="771.0" text-anchor="middle" class="ncode">L1</text>
+<text x="1816.5" y="783.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="1309.0" y="1190.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 1347.0 1206.0 A 5 5 0 0 1 1357.0 1206.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1343.0 1206.0 A 9 9 0 0 1 1361.0 1206.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1339.0 1206.0 A 13 13 0 0 1 1365.0 1206.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1352.0" cy="1208.0" r="2.2" fill="#8A847C"/>
+<text x="1352.0" y="1238.0" text-anchor="middle" class="ncode">S1</text>
+<text x="1352.0" y="1250.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="597.5" y="1493.5" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 631.5 1505.5 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 649.5 1512.5 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="640.5" y="1531.5" text-anchor="middle" class="ncode">KX1</text>
+<text x="640.5" y="1542.5" text-anchor="middle" class="ntype">PoE Switch</text>
+<rect x="970.5" y="1495.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 1008.5 1511.0 A 5 5 0 0 1 1018.5 1511.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1004.5 1511.0 A 9 9 0 0 1 1022.5 1511.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1000.5 1511.0 A 13 13 0 0 1 1026.5 1511.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1013.5" cy="1513.0" r="2.2" fill="#8A847C"/>
+<text x="1013.5" y="1543.0" text-anchor="middle" class="ncode">K4</text>
+<text x="1013.5" y="1555.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="1306.0" y="2451.0" width="86.0" height="65.0" rx="8" class="node"/>
+<path d="M 1344.0 2467.0 A 5 5 0 0 1 1354.0 2467.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1340.0 2467.0 A 9 9 0 0 1 1358.0 2467.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1336.0 2467.0 A 13 13 0 0 1 1362.0 2467.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1349.0" cy="2469.0" r="2.2" fill="#8A847C"/>
+<text x="1349.0" y="2500.0" text-anchor="middle" class="ncode">K3</text>
+<text x="1349.0" y="2512.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="496.0" y="1407.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 534.0 1423.0 A 5 5 0 0 1 544.0 1423.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 530.0 1423.0 A 9 9 0 0 1 548.0 1423.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 526.0 1423.0 A 13 13 0 0 1 552.0 1423.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="539.0" cy="1425.0" r="2.2" fill="#8A847C"/>
+<text x="539.0" y="1455.0" text-anchor="middle" class="ncode">K1</text>
+<text x="539.0" y="1467.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="197.5" y="1495.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 235.5 1511.0 A 5 5 0 0 1 245.5 1511.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 231.5 1511.0 A 9 9 0 0 1 249.5 1511.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 227.5 1511.0 A 13 13 0 0 1 253.5 1511.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="240.5" cy="1513.0" r="2.2" fill="#8A847C"/>
+<text x="240.5" y="1543.0" text-anchor="middle" class="ncode">K2</text>
+<text x="240.5" y="1555.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="934.5" y="731.0" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 968.5 743.0 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 986.5 750.0 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="977.5" y="769.0" text-anchor="middle" class="ncode">DX1</text>
+<text x="977.5" y="780.0" text-anchor="middle" class="ntype">Cisco Switch</text>
+<rect x="654.5" y="1811.5" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 692.5 1827.5 A 5 5 0 0 1 702.5 1827.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 688.5 1827.5 A 9 9 0 0 1 706.5 1827.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 684.5 1827.5 A 13 13 0 0 1 710.5 1827.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="697.5" cy="1829.5" r="2.2" fill="#8A847C"/>
+<text x="697.5" y="1859.5" text-anchor="middle" class="ncode">A1</text>
+<text x="697.5" y="1871.5" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="1292.5" y="603.5" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 1330.5 619.5 A 5 5 0 0 1 1340.5 619.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1326.5 619.5 A 9 9 0 0 1 1344.5 619.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1322.5 619.5 A 13 13 0 0 1 1348.5 619.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1335.5" cy="621.5" r="2.2" fill="#8A847C"/>
+<text x="1335.5" y="651.5" text-anchor="middle" class="ncode">M1</text>
+<text x="1335.5" y="663.5" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="937.5" y="610.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 975.5 626.0 A 5 5 0 0 1 985.5 626.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 971.5 626.0 A 9 9 0 0 1 989.5 626.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 967.5 626.0 A 13 13 0 0 1 993.5 626.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="980.5" cy="628.0" r="2.2" fill="#8A847C"/>
+<text x="980.5" y="658.0" text-anchor="middle" class="ncode">H2</text>
+<text x="980.5" y="670.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="1072.5" y="603.5" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 1110.5 619.5 A 5 5 0 0 1 1120.5 619.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1106.5 619.5 A 9 9 0 0 1 1124.5 619.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1102.5 619.5 A 13 13 0 0 1 1128.5 619.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1115.5" cy="621.5" r="2.2" fill="#8A847C"/>
+<text x="1115.5" y="651.5" text-anchor="middle" class="ncode">H1</text>
+<text x="1115.5" y="663.5" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="1071.5" y="731.0" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 1105.5 743.0 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 1123.5 750.0 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="1114.5" y="769.0" text-anchor="middle" class="ncode">HX1</text>
+<text x="1114.5" y="780.0" text-anchor="middle" class="ntype">Cisco Switch</text>
+<rect x="1410.5" y="883.0" width="86.0" height="56.0" rx="8" class="node"/>
+<path d="M 1445.5 891.0 l8 7 l-8 7 M 1461.5 891.0 l-8 7 l8 7" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="1453.5" y="935.0" text-anchor="middle" class="ntype">Fiber Media Converter</text>
+<text x="-0.1" y="9.0" text-anchor="start" class="floor">1st Floor</text>
+<text x="-0.8" y="8.0" text-anchor="start" class="floor">2nd Floor</text>
+<text x="-0.1" y="9.0" text-anchor="start" class="floor">2nd Floor</text>
+<rect x="402.8" y="110.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 440.77123695976155 126.0 A 5 5 0 0 1 450.77123695976155 126.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 436.77123695976155 126.0 A 9 9 0 0 1 454.77123695976155 126.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 432.77123695976155 126.0 A 13 13 0 0 1 458.77123695976155 126.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="445.77123695976155" cy="128.0" r="2.2" fill="#8A847C"/>
+<text x="445.8" y="158.0" text-anchor="middle" class="ncode">C1</text>
+<text x="445.8" y="170.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<text x="123.0" y="420.0" text-anchor="start" class="floor">3rd Floor</text>
+<text x="-0.1" y="9.0" text-anchor="start" class="floor">Basement</text>
+<text x="-0.9" y="11.0" text-anchor="start" class="floor">1st Floor</text>
+<text x="-0.1" y="9.0" text-anchor="start" class="floor">Basement</text>
+<text x="0.7" y="8.0" text-anchor="start" class="floor">1st Floor</text>
+<ellipse cx="1675.5" cy="1164.0" rx="60.0" ry="40.0" class="cloud"/>
+<text x="1675.5" y="1168.0" text-anchor="middle" class="ntype">4G LTE</text>
+<rect x="1661.5" y="1221.0" width="86.0" height="67.0" rx="8" class="node"/>
+<rect x="1695.5" y="1229.0" width="18" height="3" fill="none" stroke="#6B6660" stroke-width="1"/>
+<rect x="1695.5" y="1233.0" width="18" height="3" fill="none" stroke="#6B6660" stroke-width="1"/>
+<rect x="1695.5" y="1237.0" width="18" height="3" fill="none" stroke="#6B6660" stroke-width="1"/>
+<text x="1704.5" y="1284.0" text-anchor="middle" class="ntype">Peplink LTE</text>
+<rect x="1758.5" y="1222.5" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 1796.5 1238.5 A 5 5 0 0 1 1806.5 1238.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1792.5 1238.5 A 9 9 0 0 1 1810.5 1238.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1788.5 1238.5 A 13 13 0 0 1 1814.5 1238.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1801.5" cy="1240.5" r="2.2" fill="#8A847C"/>
+<text x="1801.5" y="1282.5" text-anchor="middle" class="ntype">Peplink Router</text>
+<ellipse cx="1676.0" cy="1424.5" rx="60.0" ry="40.0" class="cloud"/>
+<text x="1676.0" y="1428.5" text-anchor="middle" class="ntype">4G LTE</text>
+<rect x="1662.0" y="1481.5" width="86.0" height="67.0" rx="8" class="node"/>
+<rect x="1696.0" y="1489.5" width="18" height="3" fill="none" stroke="#6B6660" stroke-width="1"/>
+<rect x="1696.0" y="1493.5" width="18" height="3" fill="none" stroke="#6B6660" stroke-width="1"/>
+<rect x="1696.0" y="1497.5" width="18" height="3" fill="none" stroke="#6B6660" stroke-width="1"/>
+<text x="1705.0" y="1544.5" text-anchor="middle" class="ntype">Peplink LTE</text>
+<rect x="1759.0" y="1483.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 1797.0 1499.0 A 5 5 0 0 1 1807.0 1499.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1793.0 1499.0 A 9 9 0 0 1 1811.0 1499.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1789.0 1499.0 A 13 13 0 0 1 1815.0 1499.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1802.0" cy="1501.0" r="2.2" fill="#8A847C"/>
+<text x="1802.0" y="1543.0" text-anchor="middle" class="ntype">Pepwave AP</text>
+<text x="1275.0" y="304.0" text-anchor="start" class="title">FoST Network Topology Map</text>
+<rect x="1399.5" y="725.5" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 1433.5 737.5 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 1451.5 744.5 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="1442.5" y="763.5" text-anchor="middle" class="ncode">WX1</text>
+<text x="1442.5" y="774.5" text-anchor="middle" class="ntype">Cisco Switch</text>
+<rect x="1306.0" y="1481.5" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 1340.0 1493.5 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 1358.0 1500.5 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="1349.0" y="1519.5" text-anchor="middle" class="ncode">WX0</text>
+<text x="1349.0" y="1530.5" text-anchor="middle" class="ntype">Switch · existing</text>
+<rect x="620.0" y="1393.0" width="86.0" height="67.0" rx="8" class="node"/>
+<path d="M 663.0 1401.0 l7 12 h-14 z" fill="none" stroke="#E8500A" stroke-width="1.5"/>
+<text x="663.0" y="1456.0" text-anchor="middle" class="ntype">UniFi P2P</text>
+<rect x="620.0" y="1271.0" width="86.0" height="67.0" rx="8" class="node"/>
+<path d="M 663.0 1279.0 l7 12 h-14 z" fill="none" stroke="#E8500A" stroke-width="1.5"/>
+<text x="663.0" y="1334.0" text-anchor="middle" class="ntype">UniFi P2P</text>
+<rect x="1303.5" y="2091.5" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 1337.5 2103.5 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 1355.5 2110.5 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="1346.5" y="2129.5" text-anchor="middle" class="ncode">XX1</text>
+<text x="1346.5" y="2140.5" text-anchor="middle" class="ntype">Cisco Switch</text>
+<rect x="440.5" y="1204.0" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 474.5 1216.0 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 492.5 1223.0 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="483.5" y="1242.0" text-anchor="middle" class="ncode">MX1</text>
+<text x="483.5" y="1253.0" text-anchor="middle" class="ntype">Cisco Switch</text>
+<rect x="537.0" y="2210.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 575.0 2226.0 A 5 5 0 0 1 585.0 2226.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 571.0 2226.0 A 9 9 0 0 1 589.0 2226.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 567.0 2226.0 A 13 13 0 0 1 593.0 2226.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="580.0" cy="2228.0" r="2.2" fill="#8A847C"/>
+<text x="580.0" y="2258.0" text-anchor="middle" class="ncode">G2</text>
+<text x="580.0" y="2270.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="558.0" y="571.5" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 596.0 587.5 A 5 5 0 0 1 606.0 587.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 592.0 587.5 A 9 9 0 0 1 610.0 587.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 588.0 587.5 A 13 13 0 0 1 614.0 587.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="601.0" cy="589.5" r="2.2" fill="#8A847C"/>
+<text x="601.0" y="619.5" text-anchor="middle" class="ncode">X1</text>
+<text x="601.0" y="631.5" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="278.5" y="439.0" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 316.5 455.0 A 5 5 0 0 1 326.5 455.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 312.5 455.0 A 9 9 0 0 1 330.5 455.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 308.5 455.0 A 13 13 0 0 1 334.5 455.0" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="321.5" cy="457.0" r="2.2" fill="#8A847C"/>
+<text x="321.5" y="487.0" text-anchor="middle" class="ncode">G3</text>
+<text x="321.5" y="499.0" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="549.5" y="315.5" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 583.5 327.5 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 601.5 334.5 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="592.5" y="353.5" text-anchor="middle" class="ncode">CX1</text>
+<text x="592.5" y="364.5" text-anchor="middle" class="ntype">PoE Switch</text>
+<rect x="1010.0" y="2444.5" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 1048.0 2460.5 A 5 5 0 0 1 1058.0 2460.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1044.0 2460.5 A 9 9 0 0 1 1062.0 2460.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1040.0 2460.5 A 13 13 0 0 1 1066.0 2460.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1053.0" cy="2462.5" r="2.2" fill="#8A847C"/>
+<text x="1053.0" y="2492.5" text-anchor="middle" class="ncode">M3</text>
+<text x="1053.0" y="2504.5" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="1510.0" y="603.5" width="86.0" height="64.0" rx="8" class="node"/>
+<path d="M 1548.0 619.5 A 5 5 0 0 1 1558.0 619.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1544.0 619.5 A 9 9 0 0 1 1562.0 619.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<path d="M 1540.0 619.5 A 13 13 0 0 1 1566.0 619.5" fill="none" stroke="#8A847C" stroke-width="1.6"/>
+<circle cx="1553.0" cy="621.5" r="2.2" fill="#8A847C"/>
+<text x="1553.0" y="651.5" text-anchor="middle" class="ncode">M2</text>
+<text x="1553.0" y="663.5" text-anchor="middle" class="ntype">Ruckus AP</text>
+<rect x="688.0" y="2457.0" width="86.0" height="53.0" rx="8" class="node"/>
+<path d="M 722.0 2469.0 h14 l-3 -3 m3 3 l-3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<path d="M 740.0 2476.0 h-14 l3 -3 m-3 3 l3 3" fill="none" stroke="#6B6660" stroke-width="1.5"/>
+<text x="731.0" y="2495.0" text-anchor="middle" class="ncode">XX2</text>
+<text x="731.0" y="2506.0" text-anchor="middle" class="ntype">Cisco Switch</text>
+</svg>

@@ -1,0 +1,46 @@
+# RSystems
+
+> Executive-level IT strategy, infrastructure design, and technology consulting for mid-market organizations in New York City. Founded 2011. Engagements from $5,000/month.
+
+RSystems provides senior technical leadership to organizations of 100+ employees that have existing IT coverage but need executive-level technology strategy. We engage at the C-suite level — attending leadership and board meetings, translating business goals into technology decisions, and building multi-year roadmaps that align IT investment with organizational direction. In many engagements RSystems serves as fractional CTO or fractional CISO.
+
+We do not provide managed services, helpdesk support, tier 1 IT support, or day-to-day IT operations. We build the systems and workflows; the client's internal team or MSP partner runs them.
+
+Technically, clients operate in enterprise environments: Microsoft 365, Azure, Apple MDM, VMware, and on-premises or hybrid datacenter. Engagements are NYC-based or with organizations that have a meaningful New York presence.
+
+## Services
+
+### Technology Consulting
+
+- [Strategy & Advisory](https://rsystems.nyc/services/technology-consulting/strategy/): Initial assessments, Virtual CTO, and disaster recovery planning — the entry point for most new client engagements.
+- [AI Transformation](https://rsystems.nyc/services/technology-consulting/ai/): AI readiness assessments, tooling strategy, workflow automation, and agentic AI permissions architecture for teams ready to operationalize AI.
+- [Cloud](https://rsystems.nyc/services/technology-consulting/cloud/): Azure architecture, cloud migration, and hybrid infrastructure design — scoped to workloads, cost-modeled before commitment, documented for long-term operational independence.
+- [Identity & Security](https://rsystems.nyc/services/technology-consulting/identity-security/): JumpCloud, Microsoft Entra, and Intune implementations with Zero Trust policy design and NIST-based cybersecurity assessments.
+- [Networking](https://rsystems.nyc/services/technology-consulting/networking/): Cisco switching, SonicWall firewall, and WiFi infrastructure — designed from first principles, pre-configured before deployment, and fully documented.
+- [Compute & Storage](https://rsystems.nyc/services/technology-consulting/compute-storage/): Dell PowerEdge, Synology NAS, and VMware for organizations where on-premises infrastructure outperforms cloud on performance and total cost of ownership.
+
+### RSystems Management
+
+- [RSystems Management](https://rsystems.nyc/services/management/): Ongoing managed infrastructure for organizations running RSystems-designed environments — covering identity, workstations, network, servers, backup, domain, and cybersecurity awareness.
+
+## Case Studies
+
+- [Redundancy by Design](https://rsystems.nyc/case-studies/redundancy-by-design): High-availability network and shared storage for a 100+ person NYC architecture firm. Six Cisco Catalyst 9300 access switches, dual 9500 core via StackWise Virtual, Synology UC3200 dual-controller SAN. Result: 5–7 Gbps real-world throughput, zero infrastructure downtime since deployment.
+- [Collaborative Systems for Audio](https://rsystems.nyc/case-studies/collaborative-systems-for-audio): Ten-year infrastructure partnership with a leading NYC audio engineering firm — hybrid cloud migration using Windows Server, Synology NAS, and Morro Data; JumpCloud identity deployment; ongoing virtual CTO engagement.
+- [Infrastructure for Cultural Venues](https://rsystems.nyc/case-studies/infrastructure-for-cultural-venues): Ground-up IT infrastructure for a high-profile NYC public venue. Redundant 10G networking with 40G backbone, outdoor-hardened Cisco Catalyst 9000 and Industrial Ethernet equipment, emergency power coordination with FDNY and NYPD, JumpCloud SSO for nearly 100 employees. Delivered on time for opening day.
+- [Manufacturing Scale](https://rsystems.nyc/case-studies/manufacturing-scale): Complete server and network overhaul for an industrial 3D printing leader — executed over a single holiday closure. Result: 400% throughput increase, full 10G utilization, complete system redundancy, consistent documented VLAN assignments throughout.
+- [Directory Modernization](https://rsystems.nyc/case-studies/directory-modernization): Identity infrastructure modernization for a 150-person multinational expanding to 250+ staff. JumpCloud deployment unifying Google Workspace, cloud applications (Slack, Zoom, Jira, Confluence, Microsoft), and workstations. MFA enforced across all access points. Ongoing AWS integration and security audits over four years post-implementation.
+
+## Company
+
+- **Founded:** 2011
+- **Location:** New York City
+- **Minimum engagement:** $5,000/month
+- **Ideal client:** Organizations of 100+ employees with existing IT coverage (internal team or MSP) and executive leadership that takes technology seriously
+- **Not a fit for:** Organizations seeking managed services, helpdesk support, or day-to-day IT operations
+- **Technology platforms:** Microsoft 365, Azure, Entra, Intune, JumpCloud, VMware, Cisco, SonicWall, Synology, Apple MDM, Anthropic Claude, AWS, Dell PowerEdge
+- [About RSystems](https://rsystems.nyc/about)
+- [Technology Consulting](https://rsystems.nyc/services/technology-consulting)
+- [RSystems Management](https://rsystems.nyc/services/management)
+- [Case Studies](https://rsystems.nyc/case-studies)
+- [Contact / Work With Us](https://rsystems.nyc/contact)

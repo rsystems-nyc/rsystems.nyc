@@ -1,0 +1,1242 @@
+export type Block =
+  | { type: "p"; text: string }
+  | { type: "h3"; text: string }
+  | { type: "ul"; items: string[] }
+  | { type: "quote"; text: string; attribution?: string }
+  | { type: "img"; src: string; alt: string; caption?: string; size?: "small" }
+  | { type: "img-pair"; images: { src: string; alt: string; caption?: string }[] }
+  | { type: "specs"; groups: { title: string; items: [string, string][] }[] }
+  | { type: "placeholder"; label: string };
+
+export interface CaseStudySection {
+  label: string;
+  heading?: string;
+  blocks: Block[];
+  bg?: string;
+}
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  subtitle: string;
+  client: string;
+  industry: string;
+  tags: string[];
+  summary: string;
+  featuredImage?: { src: string; alt: string };
+  featuredImagePair?: {
+    before: { src: string; alt: string };
+    after: { src: string; alt: string };
+  };
+  sections: CaseStudySection[];
+  results: string[];
+  seoTitle?: string;
+  seoDescription?: string;
+  canonicalPath?: string;
+  jsonLd?: Record<string, unknown>;
+  pressCitation?: { label: string; href: string };
+}
+
+export const caseStudiesData: CaseStudy[] = [
+  {
+    slug: "redundancy-by-design",
+    title: "Redundancy by Design",
+    subtitle:
+      "Engineering a high-availability infrastructure for a high-throughput creative firm",
+    client: "A leading NYC architecture firm",
+    industry: "Architecture",
+    tags: ["Infrastructure Architecture", "Network Design", "Storage", "VMware"],
+    summary:
+      "Ground-up network and storage infrastructure built for the throughput demands of CAD and BIM workflows — with zero infrastructure downtime since deployment and 5–7 Gbps real-world file transfer speeds.",
+    featuredImage: {
+      src: "https://macktez.com/wp-content/uploads/2026/03/Case-Study-Network-Topology-Map-600dpi_.png",
+      alt: "Network topology diagram showing full redundancy across all layers",
+    },
+    sections: [
+      {
+        label: "The Challenge",
+        heading: "Legacy infrastructure built for a smaller firm",
+        blocks: [
+          {
+            type: "p",
+            text: "A leading New York City architecture firm scaling to over 100 employees needed infrastructure capable of handling the high-concurrency, high-throughput demands of their design workflow. Staff worked directly from shared storage with large CAD and BIM files — and the legacy Windows Server environment couldn't keep up.",
+          },
+          {
+            type: "p",
+            text: "The goal wasn't incremental improvement. It was a ground-up infrastructure built on the principle that every layer must be redundant — network, compute, and storage — with no single point of failure tolerated anywhere in the stack.",
+          },
+        ],
+      },
+      {
+        label: "Network Architecture",
+        heading: "A fully redundant switching fabric",
+        blocks: [
+          { type: "h3", text: "Access Layer" },
+          {
+            type: "p",
+            text: "Six Cisco Catalyst 9300 switches — approximately 300 ports total — form the access layer, leveraging StackPower technology to share power across the stack domain. Each switch remains fully operational even if both of its local PSUs fail simultaneously, eliminating an entire category of single points of failure at the access edge.",
+          },
+          { type: "h3", text: "Core Layer" },
+          {
+            type: "p",
+            text: "Dual Cisco Catalyst 9500 switches operate as a unified virtual chassis via StackWise Virtual, delivering 80 Gbps inter-chassis throughput. All 12 access-to-core uplinks function as a single EtherChannel bundle across both chassis — true cross-chassis link aggregation with no spanning tree blocking.",
+          },
+          { type: "h3", text: "Firewall" },
+          {
+            type: "p",
+            text: "A SonicWall NSA 4700 pair operates in active/passive high availability, rated for sustained 10 Gbps inspection throughput. Failover is automatic and stateful — no manual intervention, no traffic disruption.",
+          },
+        ],
+      },
+      {
+        label: "Wireless",
+        heading: "Enterprise Wi-Fi 6 with virtualized controllers",
+        blocks: [
+          {
+            type: "p",
+            text: "Ruckus Wi-Fi 6 access points are tiered by coverage requirements: R850 (8×8:8 MU-MIMO) in high-density zones, R650 and R610 in conference rooms. Controller-directed roaming continuously evaluates RSSI and SNR metrics to prevent clients from holding connections to distant APs — a common source of degraded performance in large floorplate deployments.",
+          },
+          {
+            type: "p",
+            text: "Ruckus SmartZone controllers were virtualized on the existing Dell/VMware cluster, eliminating $20,000 in dedicated controller hardware spend without compromising any management or roaming capability.",
+          },
+        ],
+      },
+      {
+        label: "Storage",
+        heading: "Dual-controller SAN with 80 Gbps aggregate bandwidth",
+        blocks: [
+          {
+            type: "specs",
+            groups: [
+              {
+                title: "Primary: Synology UC3200",
+                items: [
+                  ["Controllers", "Dual active-active iSCSI with nanosecond failover"],
+                  ["Drives", "8 × 16TB SAS HDD + 4 × 1.92TB SSD cache tier"],
+                  ["Interfaces", "8 × 10GbE iSCSI (80 Gbps aggregate bandwidth)"],
+                  ["Failover", "Active-active with transparent path switch on failure"],
+                ],
+              },
+              {
+                title: "Secondary: Synology SA3200D",
+                items: [
+                  ["Controllers", "Active/passive"],
+                  ["Roles", "Cloud replication to AWS S3, DNS services"],
+                  ["Replication", "Continuous sync from primary"],
+                ],
+              },
+              {
+                title: "Multipath I/O (MPIO)",
+                items: [
+                  ["Configuration", "ALUA MPIO for intelligent path selection"],
+                  ["Round-Robin threshold", "1 I/O operation (default: 1,000)"],
+                  [
+                    "EtherChannel hashing",
+                    "Coordinated across network and vSwitch layers",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "Compute",
+        heading: "VMware cluster on Dell PowerEdge",
+        blocks: [
+          {
+            type: "p",
+            text: "Three Dell PowerEdge R650 servers run VMware ESXi 7 under Essentials Plus licensing — approximately $7,000 total. Each host is configured with 128GB RAM and six 10GbE NICs: three dedicated to iSCSI storage traffic, three bonded for VM network traffic.",
+          },
+          {
+            type: "p",
+            text: "vMotion enables zero-downtime live migration of virtual machines between hosts. Distributed Resource Scheduler rebalances workloads automatically. Anti-affinity rules prevent service pairs from co-locating on the same host, so a single host failure never takes down both sides of a redundant service.",
+          },
+          {
+            type: "p",
+            text: "For context: hyperconverged platforms capable of meeting these throughput and redundancy requirements would have carried a price tag exceeding $100,000 per node.",
+          },
+        ],
+      },
+    ],
+    results: [
+      "Zero infrastructure downtime since deployment",
+      "5–7 Gbps real-world internal file transfer throughput — comparable to local NVMe storage, delivered over shared SAN",
+      "All 12 access-to-core uplinks active simultaneously with no spanning tree blocking",
+      "SmartZone virtualization eliminated $20,000 in dedicated controller hardware",
+      "Full VMware cluster deployed under $7,000 in licensing costs",
+    ],
+  },
+
+  {
+    slug: "collaborative-systems-for-audio",
+    title: "Collaborative Systems for Audio",
+    subtitle:
+      "A decade-long infrastructure partnership with a NYC audio engineering firm",
+    client: "A NYC-based audio engineering firm",
+    industry: "Media & Entertainment",
+    tags: ["Hybrid Cloud", "Identity & Access", "Virtual CTO"],
+    summary:
+      "A ten-year infrastructure partnership with a leading NYC audio engineering firm — spanning hybrid cloud migration, pandemic response, and an ongoing virtual CTO engagement that keeps the firm years ahead of industry practice.",
+    featuredImage: {
+      src: "https://macktez.com/wp-content/uploads/2024/11/sonic_union_studio.png",
+      alt: "NYC audio engineering studio",
+    },
+    sections: [
+      {
+        label: "Background",
+        heading: "A decade-long technical partnership",
+        blocks: [
+          {
+            type: "p",
+            text: "This NYC-based audio engineering firm collaborates with leading creative agencies and global brands. Over more than ten years, RSystems has partnered with the firm's internal technical team across an evolving set of infrastructure challenges — security protocols, network efficiency, infrastructure redundancy, and disaster recovery.",
+          },
+          {
+            type: "p",
+            text: "That partnership has expanded the firm's network capabilities, modernized server infrastructure, implemented application virtualization, designed a new studio facility, and built critical data redundancy and internet failover systems.",
+          },
+        ],
+      },
+      {
+        label: "The Challenge",
+        heading: "The pandemic exposed the limits of on-premises storage",
+        blocks: [
+          {
+            type: "p",
+            text: "Prior to 2020, the firm relied on physical servers to manage substantial amounts of shared data. RSystems had already deployed Synology NAS technology with redundant data across two studio locations via site-to-site VPN — solid infrastructure for in-office work.",
+          },
+          {
+            type: "p",
+            text: "Then the pandemic hit. Remote workers faced severe challenges transferring the large files at the core of audio production. What had been a resilient on-premises architecture became a bottleneck the moment people left the building.",
+          },
+          {
+            type: "quote",
+            text: "RSystems helped us understand hybrid cloud solutions — blob storage, deduplication, backup schemes. They had the expertise to implement it too.",
+            attribution: "The firm's co-founder",
+          },
+        ],
+      },
+      {
+        label: "The Solution",
+        heading: "Hybrid storage and cloud-based identity",
+        blocks: [
+          {
+            type: "p",
+            text: "RSystems architected and deployed a hybrid storage environment combining Windows Server, Synology NAS, and Morro Data synchronization technology. The result: real-time file accessibility from any location, dependable backups, and a scalable foundation for future growth.",
+          },
+          {
+            type: "p",
+            text: "For remote workforce support, RSystems implemented JumpCloud — a cloud-based directory platform managing user and device authentication across the firm's entire environment.",
+          },
+          {
+            type: "p",
+            text: "Both systems operate under a shared administration model. The firm handles daily operations; RSystems provides oversight, manages integrations, and functions as a virtual CTO — bridging the gap between the firm's internal technical team and the strategic infrastructure decisions that require senior-level guidance.",
+          },
+        ],
+      },
+    ],
+    results: [
+      "Real-time file accessibility for remote workers across all studio locations",
+      "Unified cloud-based identity and device management via JumpCloud",
+      "Ongoing virtual CTO engagement — infrastructure strategy aligned with business objectives",
+      "Strengthened client confidence in security posture and equipment reliability",
+      "\"Staying a few years ahead of best practices\" — the firm's co-founder",
+    ],
+  },
+
+  {
+    slug: "infrastructure-for-cultural-venues",
+    title: "Infrastructure for Cultural Venues",
+    subtitle:
+      "From blank page to opening day — ground-up IT for a high-profile public venue",
+    client: "A high-profile performance art venue",
+    industry: "Culture & Public Space",
+    tags: ["Infrastructure Architecture", "Network Design", "Identity & Access"],
+    summary:
+      "A ground-up IT infrastructure engagement for one of New York City's most ambitious public venues — redundant 10G networking, outdoor-hardened Cisco equipment, emergency power coordination with FDNY and NYPD, and JumpCloud identity for nearly 100 employees, delivered on time for opening day.",
+    featuredImage: {
+      src: "https://www.macktez.com/wp-content/uploads/2021/09/image3.jpg",
+      alt: "High-profile NYC performance venue",
+    },
+    sections: [
+      {
+        label: "How It Started",
+        heading: "A modest engagement that grew into something else",
+        blocks: [
+          {
+            type: "p",
+            text: "The organization behind this high-profile NYC performance venue initially sought modest assistance: subscription management, workstation recommendations, and basic desktop support. When they relocated near their construction site, RSystems was invited to design a local office network.",
+          },
+          {
+            type: "p",
+            text: "That initial engagement expanded into a comprehensive review of the venue's IT architecture — a project that would ultimately touch every system on the site.",
+          },
+        ],
+      },
+      {
+        label: "The Challenge",
+        heading: "An equipment list that didn't exist",
+        blocks: [
+          {
+            type: "quote",
+            text: "RSystems asked us for an equipment list, but it didn't exist.",
+            attribution: "The venue's Park Operations Manager",
+          },
+          {
+            type: "p",
+            text: "RSystems discovered critical gaps in the preliminary IT plan: unspecified network equipment, no network topology design, no environmental considerations for outdoor installation, and no redundancy planning for power failures.",
+          },
+          {
+            type: "p",
+            text: "For a major public venue, power redundancy isn't optional — it's a public safety requirement. Emergency communications must stay online regardless of what happens to commercial power. Drawing on prior experience with comparable New York City public infrastructure projects, RSystems recognized this immediately and escalated the scope accordingly.",
+          },
+          {
+            type: "p",
+            text: "After a year-long effort to secure Verizon service proved unsuccessful, RSystems leveraged existing relationships with Pilot Fiber to negotiate a dedicated connectivity arrangement for the site.",
+          },
+          {
+            type: "quote",
+            text: "It turns out the internet is connected to everything.",
+            attribution: "The venue's Park Operations Manager",
+          },
+        ],
+      },
+      {
+        label: "The Solution",
+        heading: "Redundant infrastructure built for public exposure",
+        blocks: [
+          {
+            type: "p",
+            text: "RSystems collaborated with FDNY and NYPD to design redundant power systems with substantial backup battery capacity, satisfying emergency communications requirements. Every aspect of the outdoor installation was engineered for the specific conditions of a public waterfront site — waterproofing, temperature management, and installation topography.",
+          },
+          {
+            type: "p",
+            text: "For the venue's operational staff, RSystems deployed JumpCloud — creating a single sign-on environment integrating email, conferencing, access control, and HR systems across the entire organization. Nearly 100 workstations were onboarded securely ahead of opening day.",
+          },
+          {
+            type: "img",
+            src: "https://www.macktez.com/wp-content/uploads/2021/09/image5.jpg",
+            alt: "Network installation in progress at the venue",
+          },
+          {
+            type: "img",
+            src: "https://www.macktez.com/wp-content/uploads/2021/09/image4.jpg",
+            alt: "Equipment installation detail",
+          },
+        ],
+      },
+    ],
+    results: [
+      "10G fully redundant network with 40G backbone — delivered on time for opening day",
+      "Cisco Catalyst 9000 Series switches for wireless systems throughout the venue",
+      "Cisco Industrial Ethernet Series for exposed outdoor locations",
+      "Nearly 100 workstations deployed with secure remote onboarding",
+      "JumpCloud SSO environment integrating email, conferencing, access control, and HR",
+      "Emergency power systems designed in coordination with FDNY and NYPD",
+    ],
+  },
+
+  {
+    slug: "makerbot-overhaul",
+    title: "Untangling the Spaghetti Monster",
+    subtitle:
+      "A ground-up infrastructure overhaul for a leader in industrial 3D printing — embedded for months, rebuilt over a single holiday",
+    client: "MakerBot",
+    industry: "Manufacturing & Technology",
+    tags: [
+      "Manufacturing & Technology",
+      "Infrastructure Architecture",
+      "Network Design",
+      "VMware",
+      "Server Room",
+      "Storage",
+    ],
+    summary:
+      "Months embedded inside MakerBot learning their infrastructure before overhauling it over a single holiday closure — 40 VMs rebuilt, 400% throughput increase, complete redundancy, and offsite backup replication, all executed without disrupting production operations.",
+    seoTitle: "Untangling the Spaghetti Monster — Infrastructure Overhaul | RSystems NYC",
+    seoDescription:
+      "How RSystems spent months embedded inside MakerBot learning their infrastructure before overhauling it over a single holiday closure — 40 VMs rebuilt, 400% throughput increase, complete redundancy, and offsite backup replication, all executed without disrupting production operations.",
+    canonicalPath: "/case-studies/makerbot-overhaul",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline":
+        "Untangling the Spaghetti Monster — A Ground-Up Infrastructure Overhaul for MakerBot",
+      "description":
+        "How RSystems spent months embedded inside MakerBot learning their infrastructure before overhauling it over a single holiday closure — 40 VMs rebuilt, 400% throughput increase, complete redundancy, and offsite backup replication.",
+      "url": "https://rsystems.nyc/case-studies/makerbot-overhaul",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+        "areaServed": { "@type": "City", "name": "New York City" },
+      },
+    },
+    featuredImage: {
+      src: "/assets/mkb.jpeg",
+      alt: "Server room after infrastructure overhaul",
+    },
+    featuredImagePair: {
+      before: {
+        src: "/assets/manufacturing-before.jpg",
+        alt: "MakerBot server room before infrastructure overhaul",
+      },
+      after: {
+        src: "/assets/manufacturing-after.jpg",
+        alt: "MakerBot server room after infrastructure overhaul",
+      },
+    },
+    sections: [
+      {
+        label: "At a Glance",
+        blocks: [
+          {
+            type: "specs",
+            groups: [
+              {
+                title: "",
+                items: [
+                  [
+                    "Client",
+                    "MakerBot — a leader in industrial 3D printing and additive manufacturing",
+                  ],
+                  [
+                    "Problem",
+                    "A production environment running 40 virtual machines across a dozen departments — on undocumented infrastructure that nobody fully understood — that had grown too complex and too critical to fix without first spending months learning exactly how it worked.",
+                  ],
+                  [
+                    "Services",
+                    "Infrastructure assessment and full documentation · embedded on-site consulting · VMware and storage architecture · server procurement and build · network remediation · backup strategy with offsite replication · cable management · vendor coordination (VMware, Dell, Cisco, APC)",
+                  ],
+                  [
+                    "Platforms",
+                    "VMware ESXi · Cisco Catalyst switching · APC Symmetra UPS · Dell server hardware · shared SAN storage",
+                  ],
+                  [
+                    "Outcome",
+                    "400% throughput increase. Complete system redundancy. Offsite backup replication. New servers built from the ground up. A fully documented environment — and a server room no one is ashamed of anymore.",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "The Discovery",
+        heading: "A spaghetti monster in the server room",
+        blocks: [
+          {
+            type: "p",
+            text: "The COO was at a holiday party when the network went down. An IT staff member reached him and suggested he come take a look at the server room. He had never been in it before.",
+          },
+          {
+            type: "p",
+            text: "What he found was a wall of tangled cables, unlabeled patch panels, and equipment arranged in no particular order. A spaghetti monster. He had always trusted that the infrastructure was broadly under control. Standing in that room, he understood that it wasn't — and that it hadn't been for some time.",
+          },
+          {
+            type: "p",
+            text: "The network issues that had been blamed on the ISP for years were not ISP issues. VLAN assignments were undocumented. Ports in the patch panels weren't connected to anything. 10G interfaces capable of driving the throughput the business needed sat running at a fraction of their capacity. There was no system redundancy. Any hardware failure would take down services across the company with no clear path to recovery.",
+          },
+          {
+            type: "p",
+            text: "He called us.",
+          },
+          {
+            type: "quote",
+            text: "Ports in the patch panels weren't connected to the network. Troubleshooting required extensive guesswork about network configurations.",
+            attribution: "Senior IT Support Engineer",
+          },
+        ],
+      },
+      {
+        label: "The Scope",
+        heading: "Forty virtual machines and no map",
+        blocks: [
+          {
+            type: "p",
+            text: "The scale of the environment was significant — and the absence of documentation made it more daunting than it needed to be.",
+          },
+          {
+            type: "p",
+            text: "The infrastructure ran multiple VMware ESXi hosts with shared SAN storage, supporting 40 virtual machines that spanned every function in the business: mechanical engineering, electrical engineering, software development, materials science, marketing, sales, customer support, finance, and legal. The network ran on Cisco Catalyst switches. Power was backed by APC Symmetra UPS units — but with no redundancy designed into the system, a UPS failure was a production failure.",
+          },
+          {
+            type: "p",
+            text: "Every department depended on this environment. None of them knew how it actually worked. Neither, in a meaningful sense, did anyone else — because it had never been properly documented.",
+          },
+          {
+            type: "p",
+            text: "Before we could fix it, we had to learn it.",
+          },
+        ],
+      },
+      {
+        label: "The Approach",
+        heading: "Embedded for months before touching a thing",
+        blocks: [
+          {
+            type: "p",
+            text: "We didn't begin by making changes. We began by becoming the people who understood the environment better than anyone else.",
+          },
+          {
+            type: "p",
+            text: "For months, we worked embedded within their team — on-site, inside the business, alongside their IT staff. We traced every cable. We documented every virtual machine, every VLAN, every storage volume, every dependency. We talked to the vendors: VMware, Dell, Cisco, APC — working through configurations and capabilities with the people who built the systems, making sure our understanding was correct before we committed it to paper.",
+          },
+          {
+            type: "p",
+            text: "By the time we were done with the assessment, we were the authoritative experts on their infrastructure. We knew it better than it had ever been known. And with that foundation, we could plan a complete overhaul — not one that required guesswork, but one that was designed down to the individual cable run.",
+          },
+        ],
+      },
+      {
+        label: "The Execution",
+        heading: "Taking Humpty Dumpty apart over Christmas",
+        blocks: [
+          {
+            type: "p",
+            text: "The execution window was the Christmas holiday closure. With the entire company away, we had a clear runway to do the work without disruption to production operations.",
+          },
+          {
+            type: "p",
+            text: "We took the environment completely apart and rebuilt it from scratch.",
+          },
+          {
+            type: "p",
+            text: "New servers, procured and configured to spec. The virtual machine estate rebuilt on a properly architected VMware foundation with redundancy designed in from the start. Storage arrays reconfigured. A new backup strategy implemented — with offsite replication to a nearby datacenter, so that a failure on-site was no longer also a data loss event. Network remediation throughout: VLAN assignments rationalized, documented, and consistent. Cisco Catalyst switching properly configured to actually use the 10G capacity the hardware had always been capable of.",
+          },
+          {
+            type: "p",
+            text: "And the cables — every run organized, dressed with braided sleeves and velcro, labeled, and traced. Not for aesthetics, but because an environment you can read is an environment you can troubleshoot, and an environment you can troubleshoot is one that never has to be a mystery again.",
+          },
+          {
+            type: "img",
+            src: "/assets/mkb.jpeg",
+            alt: "MakerBot server room after infrastructure overhaul",
+          },
+        ],
+      },
+    ],
+    results: [
+      "400% throughput increase — immediate, on the first morning back after the holiday",
+      "Full utilization of 10G switching that had been running at a fraction of its capacity for years",
+      "Complete system redundancy — no single points of failure across compute, storage, or power",
+      "Offsite backup replication to a nearby datacenter — a site failure is no longer a data loss event",
+      "New server hardware, built and configured from the ground up",
+      "40 virtual machines rebuilt on a properly architected VMware foundation",
+      "Consistent, documented VLAN assignments throughout the environment",
+      "Full infrastructure documentation — for the first time in the company's history",
+      "A cable plant anyone on the team can read and trace",
+      "\"Now set up for the future, and no longer ashamed to show people the server room.\" — COO",
+      "\"The immediate thing I noticed was I was a hell of a lot less anxious in there.\" — Senior IT Support Engineer",
+    ],
+  },
+
+  {
+    slug: "directory-modernization",
+    title: "Directory Modernization",
+    subtitle:
+      "Scalable identity infrastructure for a growing multinational",
+    client: "A multinational organization",
+    industry: "Enterprise",
+    tags: ["Identity & Access", "Cloud Strategy"],
+    summary:
+      "Identity infrastructure modernization for a 150-person multinational expanding toward 250+ staff — JumpCloud deployment unifying Google, cloud applications, and workstations, with ongoing AWS integration support and security audits over four years.",
+    featuredImage: {
+      src: "https://macktez.com/wp-content/uploads/2024/02/undraw_Software_engineer_re_tnjc-1-576x368.png",
+      alt: "Directory modernization illustration",
+    },
+    sections: [
+      {
+        label: "The Challenge",
+        heading: "Identity sprawl ahead of a major expansion",
+        blocks: [
+          {
+            type: "p",
+            text: "A multinational organization with 150 employees had operated without proper directory management or a unified identity solution. During the startup phase, the informality was manageable. With a planned expansion to 250+ staff, it had become untenable.",
+          },
+          {
+            type: "p",
+            text: "Fragmented user profiles across Google and multiple platforms created inefficiencies in onboarding, security gaps during offboarding, and complicated procedures for granting or revoking application access. Each new hire and each departure meant manual work across disconnected systems.",
+          },
+        ],
+      },
+      {
+        label: "The Solution",
+        heading: "JumpCloud as the organizational identity layer",
+        blocks: [
+          {
+            type: "p",
+            text: "RSystems recommended JumpCloud as the central identity provider — a cloud-based platform capable of unifying the organization's Google environment, cloud applications, and physical workstations under a single directory.",
+          },
+          {
+            type: "ul",
+            items: [
+              "JumpCloud deployed as identity provider with Google username imports",
+              "Multi-factor authentication mandated across all access points",
+              "Cloud applications integrated: Slack, Zoom, Jira, Confluence, Trello, Personio, and Microsoft",
+              "Workstations bound to JumpCloud with synchronized local credentials",
+            ],
+          },
+          {
+            type: "p",
+            text: "Implementation required sanitizing existing Google user data and standardizing usernames across platforms. Cloud service federation rolled out in phases with user guidance. Workstation binding received individualized attention to preserve existing home directories and user preferences — a detail that matters when you're asking 150 people to change how they log in.",
+          },
+        ],
+      },
+    ],
+    results: [
+      "Within 18 months, the organization grew from 250 staff to over 1,000 — and the infrastructure scaled without missing a beat",
+      "Single directory managing Google, cloud applications, and workstations",
+      "MFA enforced across all JumpCloud access points",
+      "Ongoing AWS integration support and security audits over four years post-implementation",
+      "Onboarding and offboarding reduced from multi-system manual process to single-platform workflow",
+    ],
+  },
+
+  {
+    slug: "charity-water-gala",
+    title: "The Night $4.6 Million Moved Over Wi-Fi",
+    subtitle:
+      "Event network infrastructure for the charity:water Gala at the Metropolitan Museum of Art",
+    client: "charity:water",
+    industry: "Events & Culture",
+    tags: ["Events & Culture", "Wireless", "Network Design", "Nonprofit", "Event Technology"],
+    summary:
+      "Event network for the charity:water Gala at the Metropolitan Museum of Art — Ruckus high-density wireless, FortiGate firewall, and on-site radio coordination supporting 500 devices across two spaces. $4.59 million raised in a single evening; zero network issues.",
+    seoTitle: "The Night $4.6 Million Moved Over Wi-Fi | RSystems NYC",
+    seoDescription:
+      "How RSystems engineered the event network for the charity:water Gala at the Metropolitan Museum of Art — Ruckus high-density wireless, FortiGate firewall, and on-site radio coordination supporting 500 devices and $4.59 million raised in a single evening.",
+    canonicalPath: "/case-studies/charity-water-gala",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline":
+        "The Night $4.6 Million Moved Over Wi-Fi — Event Network for the charity:water Gala at the Metropolitan Museum of Art",
+      "description":
+        "How RSystems engineered the event network for the charity:water Gala at the Metropolitan Museum of Art — Ruckus high-density wireless, FortiGate firewall, and on-site radio coordination supporting 500 devices and $4.59 million raised in a single evening.",
+      "url": "https://rsystems.nyc/case-studies/charity-water-gala",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+        "areaServed": { "@type": "City", "name": "New York City" },
+      },
+      "about": {
+        "@type": "Event",
+        "name": "charity:water Gala",
+        "organizer": { "@type": "Organization", "name": "charity:water" },
+        "location": {
+          "@type": "Place",
+          "name": "The Metropolitan Museum of Art, Temple of Dendur",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "New York City",
+            "addressRegion": "NY",
+            "addressCountry": "US",
+          },
+        },
+      },
+    },
+    featuredImage: {
+      src: "/assets/charity_water_ball.jpg",
+      alt: "The charity:water Gala at the Metropolitan Museum of Art",
+    },
+    sections: [
+      {
+        label: "At a Glance",
+        blocks: [
+          {
+            type: "specs",
+            groups: [
+              {
+                title: "",
+                items: [
+                  [
+                    "Client",
+                    "charity:water — a nonprofit bringing clean water to communities in developing countries",
+                  ],
+                  [
+                    "Venue",
+                    "The Metropolitan Museum of Art, Temple of Dendur in the Sackler Wing, New York City",
+                  ],
+                  [
+                    "Problem",
+                    "Support hundreds of simultaneous high-stakes devices — guest iPads used for donations and real-time projection systems — through a dense urban RF environment, during a single high-pressure evening where wireless failure meant fundraising failure.",
+                  ],
+                  [
+                    "Services",
+                    "RF environment assessment · equipment specification and procurement · on-premises wireless controller deployment · firewall and traffic management · event production coordination · on-site network operations",
+                  ],
+                  [
+                    "Platforms",
+                    "Ruckus wireless APs and ZoneDirector controller · FortiGate firewall · Metropolitan Museum fiber WAN uplink",
+                  ],
+                  [
+                    "Outcome",
+                    "500-device-capacity network, zero issues on the night. 400 guests raised $4.59 million for clean water in Cambodia and Ethiopia — the network was invisible, as intended.",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "The Event",
+        heading: "A fundraising gala where the network was the mechanism",
+        blocks: [
+          {
+            type: "p",
+            text: "Inside the Metropolitan Museum of Art, in the glass-ceilinged Sackler Wing, sits the Temple of Dendur — a 2,000-year-old Egyptian temple surrounded by a reflecting pool, framing the New York night sky above. It is one of the most extraordinary rooms available for an event in the world.",
+          },
+          {
+            type: "p",
+            text: "charity:water chose it as the backdrop for their annual black-tie gala: 400 guests, Christie's auctioneers on stage, real-time donation totals projected onto the museum walls, the room ringed with neon-yellow jerry cans — charity:water's signature symbol of the water crisis. An iPad sat at every table, loaded with a personal story about a specific family in Ethiopia, waiting to unlock at the right moment in the program.",
+          },
+          {
+            type: "p",
+            text: "At the center of all of it was a wireless network. The iPads guests used to make donations. The live-projection system tracking cumulative giving in real time. The simultaneous unlock that asked every table to give at once. Every one of those systems needed reliable, high-capacity wireless to function — and in a room where an iPad freezing mid-program would have interrupted a fundraising mechanism raising millions in minutes, \"probably fine\" was not an acceptable standard.",
+          },
+          {
+            type: "p",
+            text: "The evening raised $4.59 million — enough to bring clean water to 153,000 people.",
+          },
+          {
+            type: "img",
+            src: "/assets/charity_water_ball_ipads.jpg",
+            alt: "Guests using iPads to donate at the charity:water Gala, Metropolitan Museum of Art",
+            caption: "Photo: Adam Mason Photography",
+          },
+        ],
+      },
+      {
+        label: "The Challenge",
+        heading: "Dense city, dense room, no margin for error",
+        blocks: [
+          {
+            type: "p",
+            text: "Event wireless in New York City is harder than event wireless almost anywhere else. The RF environment is saturated — neighboring networks, adjacent events, and the interference profile of a dense urban building all compete for the same spectrum. Add several hundred devices associating simultaneously in a single space, with traffic that spikes sharply at specific program moments, and the failure modes become very specific and very predictable. A network sized for average load falls over at peak. Access points that work during setup behave differently when the room fills. Traffic that looks fine during testing looks completely different when five hundred devices are contending at once.",
+          },
+          {
+            type: "p",
+            text: "Planning for those moments — not average conditions — was the whole exercise.",
+          },
+        ],
+      },
+      {
+        label: "The Approach",
+        heading: "Spec for the spike, test before the night",
+        blocks: [
+          {
+            type: "p",
+            text: "The first step was traffic modeling: estimating the number of concurrent devices, the traffic profile at peak moments in the program, and the density requirements for the two primary spaces — the Temple of Dendur and the Great Hall. With that baseline, we specified equipment sized for the peak, not the average, with a spare access point on standby.",
+          },
+          {
+            type: "p",
+            text: "The wireless layer was built on top-of-the-line Ruckus access points, chosen specifically for their performance in high-density environments, managed by an on-premises Ruckus controller. Running a local controller rather than relying on cloud management meant the network had no external dependencies during the event — no cloud path, no external service that could go wrong at the wrong moment. A FortiGate firewall sat at the perimeter, handling traffic shaping and security. The WAN uplink ran over fiber from the Metropolitan Museum's own network infrastructure — a clean, high-capacity connection already in place at the venue.",
+          },
+          {
+            type: "p",
+            text: "Two access points covered the Temple of Dendur. Two covered the Great Hall. The fifth was on the shelf, ready to swap in if anything failed. Everything was tested before the guests arrived. By the time doors opened, every failure mode we could anticipate had already been found and resolved.",
+          },
+        ],
+      },
+      {
+        label: "On the Night",
+        heading: "Radios on, ready for anything",
+        blocks: [
+          {
+            type: "p",
+            text: "For the duration of the event, one team member was on-site and on radio with the event production team — aware of every moment in the schedule that would drive a traffic spike, coordinating in real time with the people running the program. A second team member was standing by off-site in case of emergency.",
+          },
+          {
+            type: "p",
+            text: "Nothing required them. The issues had been found during testing, not during the gala. The network ran the evening without intervention, absorbed the spikes, and stayed invisible — which is exactly what a good event network is supposed to do.",
+          },
+        ],
+      },
+      {
+        label: "The Partnership",
+        heading: "Equipment donated as an in-kind contribution",
+        blocks: [
+          {
+            type: "p",
+            text: "RSystems loaned the full equipment stack — FortiGate firewall, Ruckus wireless controller, access points, and switching — to charity:water at no cost, as an in-kind donation valued at over $11,000. The professional fees covered the design, coordination, installation, and on-site operations. The hardware was our contribution to the mission.",
+          },
+          {
+            type: "p",
+            text: "The work we do at events like this — making sure a wireless network behaves for a few hours inside a museum — is in direct service of something much larger. The funds raised that evening will bring clean water to communities in Cambodia and Ethiopia for generations. We were glad to play a small part in making that night work.",
+          },
+        ],
+      },
+    ],
+    results: [
+      "500-device-capacity wireless network across two spaces in one of the most RF-dense cities in the world",
+      "Enterprise-grade Ruckus access points and on-premises controller — no cloud dependencies during the event",
+      "FortiGate firewall with traffic shaping at the perimeter",
+      "Fiber WAN uplink via the Metropolitan Museum's own infrastructure",
+      "Full traffic modeling and peak-load planning before equipment was specified",
+      "On-site network operations and radio coordination with event production throughout the evening",
+      "Zero issues on the night — all failure modes resolved during pre-event testing",
+      "Full equipment stack donated as an in-kind contribution at no cost to charity:water",
+    ],
+  },
+
+  {
+    slug: "windows-tools-for-a-mac-design-firm",
+    title: "A GPU in Azure, a Mac on Every Desk",
+    subtitle:
+      "GPU-accelerated cloud desktops for Bluebeam and Revit, without a single Windows machine on premises",
+    client: "Architecture and design professional corporation, Mac-first, distributed workforce",
+    industry: "Architecture & Design",
+    tags: [
+      "Architecture & Design",
+      "Azure Virtual Desktop",
+      "Cloud Workstations",
+      "GPU Computing",
+      "Infrastructure as Code",
+    ],
+    summary:
+      "GPU-accelerated Azure Virtual Desktop for a Mac-only architecture firm — Bluebeam Revu and Autodesk Revit at full resolution and full speed, with Entra ID-native identity, Terraform IaC, and no Windows hardware on premises.",
+    seoTitle: "A GPU in Azure, a Mac on Every Desk | RSystems NYC",
+    seoDescription:
+      "How RSystems deployed GPU-accelerated Azure Virtual Desktop for a Mac-only architecture firm — enabling Bluebeam and Revit over H.264/AVC hardware-encoded RDP, with Entra ID-native identity and full Terraform IaC, serving 20+ users with no Windows hardware on premises.",
+    canonicalPath: "/case-studies/windows-tools-for-a-mac-design-firm",
+    featuredImage: {
+      src: "/assets/MN_image.png",
+      alt: "Mac workstation with Azure Virtual Desktop open in window",
+    },
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline":
+        "A GPU in Azure, a Mac on Every Desk — GPU-Accelerated Azure Virtual Desktop for Bluebeam and Revit",
+      "description":
+        "How RSystems deployed GPU-accelerated Azure Virtual Desktop for a Mac-only architecture firm — enabling Bluebeam and Revit over H.264/AVC hardware-encoded RDP, with Entra ID-native identity and full Terraform IaC, serving 20+ users with no Windows hardware on premises.",
+      "url": "https://rsystems.nyc/case-studies/windows-tools-for-a-mac-design-firm",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+        "areaServed": { "@type": "City", "name": "New York City" },
+      },
+      "about": {
+        "@type": "Service",
+        "name": "Azure Virtual Desktop Deployment",
+        "provider": {
+          "@type": "Organization",
+          "name": "RSystems NYC",
+          "url": "https://rsystems.nyc",
+        },
+      },
+    },
+    sections: [
+      {
+        label: "At a Glance",
+        blocks: [
+          {
+            type: "specs",
+            groups: [
+              {
+                title: "",
+                items: [
+                  [
+                    "Client",
+                    "Architecture and design professional corporation, Mac-first, distributed workforce",
+                  ],
+                  [
+                    "Problem",
+                    "A design practice running entirely on Macs that depends on Windows-only CAD and BIM tools — Bluebeam Revu and Autodesk Revit — with no Windows hardware and no appetite to buy or manage it.",
+                  ],
+                  [
+                    "Services",
+                    "Azure Virtual Desktop design and deployment · GPU VM selection and configuration · RDP codec optimization for hardware-accelerated remote graphics · Entra ID-native identity and RBAC · infrastructure as code (Terraform) · user training and documentation · ongoing platform management",
+                  ],
+                  [
+                    "Platforms",
+                    "Azure Virtual Desktop · Azure GPU VMs · Microsoft Entra ID · Terraform · Bluebeam Revu · Autodesk Revit",
+                  ],
+                  [
+                    "Outcome",
+                    "A production environment serving 20+ users across a distributed team, with up to five concurrent sessions running Bluebeam and Revit at full resolution and full speed — no Windows hardware, no VPN, no on-premises footprint.",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "The Brief",
+        heading: "Immersive design tools on a Mac-only team",
+        blocks: [
+          {
+            type: "p",
+            text: "MN Design Professional Corporation runs on Macs. That's a deliberate choice — the hardware is excellent, the workflow fits — but it creates a hard wall when the practice's most important software doesn't run on macOS. Bluebeam Revu and Autodesk Revit are Windows-only. The firm needed both, reliably, across a distributed team that had no Windows machines and no plans to acquire any.",
+          },
+          {
+            type: "p",
+            text: "The ask was straightforward: give Mac users access to Windows CAD tools. The engineering to make that work well — especially at the resolution and performance these applications demand — was more involved.",
+          },
+        ],
+      },
+      {
+        label: "The Challenge",
+        heading: "The wrong answer is just a VM",
+        blocks: [
+          {
+            type: "p",
+            text: "Cloud desktops for CAD workflows aren't a standard compute problem. Bluebeam and Revit are GPU-accelerated applications. They render large drawings, navigate complex 3D models, and push significant pixel counts. A general-purpose cloud VM — the kind optimized for CPU and memory — will run these applications, but slowly and at degraded quality. Users notice immediately when a remote session feels like a remote session, and that experience gap is usually the reason a VDI deployment fails.",
+          },
+          {
+            type: "p",
+            text: "The right answer was a GPU-equipped virtual machine, sized specifically for visualization workloads with dedicated GPU memory. But specifying the right hardware is only half the problem. The other half is getting the GPU's output to the user over a Remote Desktop connection at full fidelity.",
+          },
+        ],
+      },
+      {
+        label: "The Solution",
+        heading: "Making the GPU work over RDP",
+        blocks: [
+          {
+            type: "p",
+            text: "By default, Remote Desktop Protocol renders the display on the CPU and streams a compressed result. Even on a GPU-equipped VM, standard RDP configuration doesn't use the GPU for session rendering — to actually leverage the hardware, you have to explicitly configure the RDP stack to use it.",
+          },
+          {
+            type: "p",
+            text: "This meant enabling hardware-accelerated video encoding in the host pool's RDP properties and configuring the session to use H.264/AVC encoding with the GPU encoder engaged. Once in place, the session host used the GPU not just to run the application but to encode the display stream — producing a sharper, higher-framerate result with significantly less network overhead than a CPU-encoded session. For CAD work, the difference is tangible: panning a Revit model or marking up a large PDF in Bluebeam became smooth rather than stuttered. Users on Mac clients, connecting through the Windows App, were getting a GPU-rendered Windows desktop at full quality.",
+          },
+          {
+            type: "p",
+            text: "The host pool was also configured for Entra ID SSO directly in the RDP properties, so users authenticate once and land in the desktop without a second credential prompt.",
+          },
+        ],
+      },
+      {
+        label: "The Build",
+        heading: "Built as code",
+        blocks: [
+          {
+            type: "p",
+            text: "The entire environment was deployed from a Terraform codebase, with remote state managed in Terraform Cloud. The hub network, subnets, security groups, session hosts, RBAC assignments, backup configuration, and AVD host pool are all in source control and reproducible from scratch — nothing was clicked together in the Azure portal.",
+          },
+          {
+            type: "p",
+            text: "The network is segmented across five subnets including a fully isolated zone with outbound internet access blocked at the security group level. Infrastructure access is whitelisted to known IPs only. Session hosts are placed on the private subnet, configured automatically on first boot, and registered to the host pool without manual intervention. VM backups run on a regular schedule with both daily and weekly retention.",
+          },
+          {
+            type: "p",
+            text: "Everything is tagged Managed-By: Terraform. Changes go through the codebase, not the console.",
+          },
+        ],
+      },
+      {
+        label: "Identity & Access",
+        heading: "Entra ID-native, no domain required",
+        blocks: [
+          {
+            type: "p",
+            text: "There are no domain controllers in this design. No hybrid join, no on-premises Active Directory dependency. Session hosts are joined directly to Entra ID, and access is managed through two security groups — one for users and one for administrators — with role-based access scoped appropriately to each.",
+          },
+          {
+            type: "p",
+            text: "Users connect from the Windows App on their Mac, authenticate via their Microsoft account, and land on a Windows 11 desktop. From the user's side: no domain, no VPN, no Windows hardware — just a fast Windows desktop in a window on their Mac.",
+          },
+        ],
+      },
+      {
+        label: "In Production",
+        heading: "From proof of concept to 20+ users",
+        blocks: [
+          {
+            type: "p",
+            text: "The deployment started as a deliberate minimum: a single GPU VM shared by a small group of users, running at pay-as-you-go rates while the firm evaluated whether cloud desktops could actually replace local Windows workstations for this kind of work. The goal was to validate the workflow before committing to it.",
+          },
+          {
+            type: "p",
+            text: "It validated. The combination of GPU-accelerated session encoding and a properly sized host pool delivered an experience the team found genuinely workable for daily use. The environment was expanded to support the full distributed team — now 20+ users, with the pool sized for up to five concurrent sessions and depth-first load balancing to keep resource usage efficient. Azure reservation pricing replaced pay-as-you-go rates, reducing VM costs substantially from the evaluation period.",
+          },
+          {
+            type: "p",
+            text: "The Terraform codebase made the expansion straightforward: adding session hosts is a variable change and a terraform apply, not a manual provisioning process.",
+          },
+        ],
+      },
+    ],
+    results: [
+      "Production environment for 20+ users across a distributed, Mac-only team",
+      "GPU-accelerated Windows 11 cloud desktops running Bluebeam Revu and Revit at full resolution",
+      "H.264/AVC hardware-encoded RDP — GPU used for both application rendering and display stream encoding",
+      "Entra ID-native identity — no domain controller, no VPN, no Windows hardware on premises",
+      "Full Terraform codebase with remote state — the entire environment in source control, reproducible from scratch",
+      "Segmented network with isolated security zone and IP-whitelisted infrastructure access",
+      "Automated backup and recovery configuration",
+      "User and admin documentation; training for all users",
+    ],
+  },
+
+  {
+    slug: "fost-fest",
+    title: "A Festival Campus, Fully Connected",
+    subtitle: "Festival-grade network engineering for FoST Fest at Snug Harbor",
+    client: "Future of Storytelling (FoST)",
+    industry: "Events & Culture",
+    tags: ["Network Design", "Wireless", "Event Technology", "Infrastructure Architecture"],
+    summary:
+      "A complete temporary event network for FoST Fest at Snug Harbor — spanning twelve landmarked buildings and a Great Lawn tent across an 83-acre campus, thousands of concurrent high-bandwidth VR/AR devices, self-healing redundant topology, and zero dead air across the full run.",
+    seoTitle: "FoST Fest — Festival-Grade Event Network | RSystems NYC",
+    seoDescription:
+      "How RSystems engineered a temporary, resilient festival network for FoST Fest at Snug Harbor Cultural Center — FortiGate firewall, Cisco switching, Ruckus wireless, a 600-foot outdoor Ethernet relay to the Great Lawn tent, and a self-healing topology that absorbed live failures invisibly.",
+    canonicalPath: "/case-studies/fost-fest",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "A Festival Campus, Fully Connected — Network Engineering for FoST Fest at Snug Harbor",
+      "description":
+        "A temporary multi-day festival network for FoST Fest at Snug Harbor Cultural Center — spanning a dozen landmarked buildings and open-field tents, thousands of concurrent VR/AR devices, and a self-healing redundant topology that absorbed live failures invisibly.",
+      "url": "https://rsystems.nyc/case-studies/fost-fest",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+        "areaServed": { "@type": "City", "name": "New York City" },
+      },
+      "about": {
+        "@type": "Event",
+        "name": "FoST Fest",
+        "organizer": { "@type": "Organization", "name": "Future of Storytelling" },
+        "location": {
+          "@type": "Place",
+          "name": "Snug Harbor Cultural Center & Botanical Garden",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Staten Island",
+            "addressRegion": "NY",
+            "addressCountry": "US",
+          },
+        },
+      },
+    },
+    featuredImage: {
+      src: "/assets/Fost_2018_photo.jpg",
+      alt: "FoST Fest 2018 at Snug Harbor Cultural Center",
+    },
+    sections: [
+      {
+        label: "At a Glance",
+        blocks: [
+          {
+            type: "specs",
+            groups: [
+              {
+                title: "",
+                items: [
+                  ["Client", "Future of Storytelling (FoST), an immersive media festival"],
+                  ["Venue", "Snug Harbor Cultural Center & Botanical Garden, Staten Island — 83 acres"],
+                  [
+                    "Problem",
+                    "Knit a dozen historic, landmarked buildings and open-field tents, spread across an 83-acre campus, into one resilient network capable of carrying thousands of high-bandwidth VR/AR devices, for a temporary, multi-day public event with zero tolerance for downtime.",
+                  ],
+                  [
+                    "Services",
+                    "Temporary event network design · fiber and structured cabling · outdoor wireless · wireless point-to-point backhaul · self-healing redundant topology · on-site NOC and production coordination",
+                  ],
+                  [
+                    "Platforms",
+                    "FortiGate firewall · Cisco switching · Ruckus wireless APs and controller · UniFi point-to-point · dedicated fiber WAN with cellular LTE failover",
+                  ],
+                  [
+                    "Outcome",
+                    "Thousands of concurrent high-data devices supported across the campus. Live link failures absorbed invisibly by the self-healing design. The festival ran without a hitch.",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "The Brief",
+        heading: "Immersive storytelling on a campus that was never wired for it",
+        bg: "bg-[#F4F2EF]",
+        blocks: [
+          {
+            type: "p",
+            text: "FoST Fest is the public face of the Future of Storytelling — a festival built around the newest VR, AR, AI, mixed-reality, haptics, and interactive-film work, with more than 100 exhibits and dozens of world and US premieres. After its New York debut, it moved to Snug Harbor on Staten Island: a sprawling cultural campus of nineteenth-century landmark buildings, gardens, and open lawns.",
+          },
+          {
+            type: "p",
+            text: "That setting is the entire problem. Immersive storytelling is bandwidth-hungry — headsets, sensors, live-streamed installations, and packed auditoriums — and it was scattered across a dozen buildings and tents that were never wired to talk to each other. Everything had to be temporary, everything had to come down cleanly afterward, and for the run of the festival it could not go down. A frozen headset or a dead access point in front of a thousand people isn't a support ticket; it's the show breaking.",
+          },
+          {
+            type: "img",
+            src: "/assets/fost_map.png",
+            alt: "Map of Snug Harbor Cultural Center & Botanical Garden showing the 83-acre campus layout",
+          },
+          {
+            type: "p",
+            text: "Every building on that map needed a network drop. Every tent, every outdoor installation, every auditorium filling with people running bandwidth-hungry headsets. The topology below is what we built to cover it.",
+          },
+          {
+            type: "img",
+            src: "/assets/FoST_Network_Topology_generic.svg",
+            alt: "FoST Fest campus network topology diagram showing all buildings, backhaul links, fiber runs, wireless point-to-point shots, and the Pelican case relay to the Great Lawn tent",
+          },
+        ],
+      },
+      {
+        label: "The Build",
+        heading: "Weeks in the basements and attics",
+        blocks: [
+          {
+            type: "img",
+            src: "/assets/FoST_Buildign_G_Cellar.JPG",
+            alt: "Basement of Building G at Snug Harbor during the FoST Fest network installation",
+            size: "small",
+          },
+          {
+            type: "p",
+            text: "The festival ran for days. The network took weeks.",
+          },
+          {
+            type: "p",
+            text: "Long before the first attendee arrived, we were in the basements and attics of the Snug Harbor buildings pulling fiber and Ethernet, setting switches and access points, and landing data drops at every installation across the campus. A dedicated fiber gigabit circuit was brought in as the clean uplink — no contention with house systems, no surprises — with a cellular LTE connection standing by as an automatic backup if the primary ever dropped. From a central MDF in the main building, fiber runs reached out to the outlying halls, and each major building was given its own PoE distribution switch and its own cluster of access points sized to what that space actually needed.",
+          },
+          {
+            type: "p",
+            text: "None of that placement was guesswork. Every exhibit had different data demands — some just needed Wi-Fi for a handful of headsets, others were pulling live high-bandwidth feeds — so the build was planned drop by drop, in close coordination with each installation and with event production. By show time everyone on the team carried a radio.",
+          },
+        ],
+      },
+      {
+        label: "Field Engineering",
+        heading: "Reaching the tent",
+        blocks: [
+          {
+            type: "p",
+            text: "The hardest single drop wasn't a building. It was the middle of a field.",
+          },
+          {
+            type: "p",
+            text: "The main stage and a cluster of demos lived under a large tent on the Great Lawn — hundreds of feet from the nearest building, across open grass, with no infrastructure of any kind. We reached it the way you reach anything that far over copper: in stages. A roughly 300-foot outdoor Ethernet run left the nearest building and terminated at a sealed Pelican case tucked into the brush at the edge of the lawn. Inside that case sat a PoE-powered switch acting as a midspan relay. From there, a second 300-foot run carried the link the rest of the way out to the tent.",
+          },
+          {
+            type: "p",
+            text: "Two hops, six hundred feet, one waterproof case in the bushes — and a fully live network node in the center of a field.",
+          },
+          {
+            type: "img",
+            src: "/assets/Fost_Pelican.JPG",
+            alt: "Sealed Pelican case PoE relay deployed at the edge of the Great Lawn at Snug Harbor",
+          },
+        ],
+      },
+      {
+        label: "The Architecture",
+        heading: "Built to fail gracefully",
+        blocks: [
+          {
+            type: "p",
+            text: "A temporary outdoor network has a lot of ways to break. A buried run gets nicked, a media converter overheats in the sun, someone trips a cable behind a booth. The design assumed all of it.",
+          },
+          {
+            type: "p",
+            text: "The backbone was deliberately built with more than one path between key points. Spanning Tree Protocol ran across the switching fabric with the core pinned as the root bridge, so the topology had a single, predictable brain deciding which links were active and which were standing by. Where a building was reached by fiber, it was also reachable by a wireless point-to-point shot — directional antennas aimed building-to-building as a hot backup. The wired path was always preferred; if it dropped, the network reconverged onto the wireless link and traffic kept moving. The internet uplink had the same logic: fiber first, cellular LTE as the fallback.",
+          },
+          {
+            type: "p",
+            text: "That's the whole philosophy: hardwired first, wireless as the safety net, and a loop-aware fabric that's allowed to have multiple paths precisely so it can lose one and keep running. Redundancy that nobody in the audience would ever see working.",
+          },
+        ],
+      },
+      {
+        label: "Under Load",
+        heading: "The stress test",
+        blocks: [
+          {
+            type: "p",
+            text: "The moment every event network secretly dreads came in one of the auditoriums.",
+          },
+          {
+            type: "p",
+            text: "A speaker, mid-presentation, turned to a thousand people and said some version of \"okay, now everyone take out your phones and connect to the Wi-Fi.\" A thousand devices associating at once is, functionally, a friendly denial-of-service attack on your own wireless. One access point in the room hit its ceiling and seized. The others — same SSID, same controller, overlapping coverage — picked up the load and kept the room online. The talk continued. Nobody in the audience knew anything had happened.",
+          },
+          {
+            type: "p",
+            text: "That outcome wasn't luck. It came from over-provisioning the wireless with enterprise-grade access points, designing for overlapping coverage rather than minimum coverage, and running a local controller so the APs behaved as one coordinated system instead of a dozen islands fighting each other.",
+          },
+        ],
+      },
+      {
+        label: "Equipment",
+        heading: "The kit",
+        blocks: [
+          {
+            type: "p",
+            text: "Everything was enterprise-grade and everything lived in flight cases, built to be deployed fast, run hard for days, and strike clean:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Firewall — FortiGate at the perimeter, behind a dedicated fiber gigabit circuit with cellular LTE failover",
+              "Switching — Cisco PoE switches at the core and in each building, running Spanning Tree with a pinned root bridge",
+              "Wireless — Ruckus access points, indoor and outdoor, managed by a local Ruckus controller",
+              "Backhaul — fiber between core buildings, with UniFi point-to-point antennas as wireless failover",
+              "Field reach — a sealed Pelican-case PoE relay extending two 300-foot outdoor runs to the Great Lawn tent",
+              "Power — protected, conditioned power throughout",
+            ],
+          },
+        ],
+      },
+      {
+        label: "Production",
+        heading: "Production as one team",
+        blocks: [
+          {
+            type: "p",
+            text: "A festival network isn't really an IT project — it's a production department that happens to run on packets. The build only worked because it was planned alongside the people mounting the exhibits and the people running the show: which booth needed what, where the crowds would be, when the auditoriums would fill, who to raise on the radio when something needed to move.",
+          },
+          {
+            type: "p",
+            text: "It came down as cleanly as it went up. Across the run of the festival and thousands of devices, the network did the one thing a live event demands of it: it disappeared. No dead air.",
+          },
+          {
+            type: "img",
+            src: "/assets/Fost_Cocktail_Hour.png",
+            alt: "FoST Fest cocktail hour at Snug Harbor Cultural Center",
+          },
+        ],
+      },
+    ],
+    results: [
+      "Thousands of concurrent high-data devices supported across an 83-acre campus",
+      "Live link failures absorbed invisibly by the self-healing redundant topology",
+      "Wireless controller coordination prevented auditorium overload from reaching the audience",
+      "600-foot outdoor Ethernet relay reached the Great Lawn tent with a single sealed Pelican case midspan",
+      "Network struck cleanly after the festival — no permanent infrastructure, no trace",
+      "The festival ran without a hitch",
+    ],
+  },
+];
