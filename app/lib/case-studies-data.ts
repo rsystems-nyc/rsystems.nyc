@@ -1239,4 +1239,363 @@ export const caseStudiesData: CaseStudy[] = [
       "The festival ran without a hitch",
     ],
   },
+
+  {
+    slug: "duality-group",
+    title: "Built for Scale",
+    subtitle:
+      "Redesigning a cloud environment for a quantitative trading firm — from inherited complexity to infrastructure as code",
+    client: "Duality Group",
+    industry: "Finance & Trading Technology",
+    tags: [
+      "Finance & Trading Technology",
+      "AWS Architecture",
+      "Network Design",
+      "Infrastructure as Code",
+      "Security",
+      "Fortinet",
+    ],
+    summary:
+      "A complete rebuild of an overbuilt, incentive-misaligned AWS environment for quantitative trading firm Duality Group — four isolated accounts, every subnet and routing rule defined in Terraform, active/passive FortiGate HA at the network edge, encrypted VPN connectivity to market data and execution partners, and a lower monthly bill than the environment it replaced.",
+    seoTitle: "Built for Scale — Cloud Infrastructure for Duality Group | RSystems NYC",
+    seoDescription:
+      "How RSystems replaced an overbuilt, incentive-misaligned AWS environment for quantitative trading firm Duality Group — rebuilding from first principles in Terraform across four accounts, with FortiGate HA, encrypted market data connectivity, and a lower monthly bill than the environment it replaced.",
+    canonicalPath: "/case-studies/duality-group",
+    featuredImage: {
+      src: "/assets/dual.jpg",
+      alt: "AWS cloud infrastructure architecture — Duality Group",
+    },
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Built for Scale — Cloud Infrastructure Redesign for Duality Group",
+      "description":
+        "A complete rebuild of an overbuilt, incentive-misaligned AWS environment for quantitative trading firm Duality Group — four isolated accounts, every resource defined in Terraform, active/passive FortiGate HA, encrypted market data connectivity, and a lower monthly bill than the environment it replaced.",
+      "url": "https://rsystems.nyc/case-studies/duality-group",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+        "areaServed": { "@type": "City", "name": "New York City" },
+      },
+      "about": {
+        "@type": "Organization",
+        "name": "Duality Group",
+        "description": "A quantitative trading firm with business-critical infrastructure reliability requirements",
+        "areaServed": { "@type": "City", "name": "New York City" },
+      },
+    },
+    sections: [
+      {
+        label: "At a Glance",
+        blocks: [
+          {
+            type: "specs",
+            groups: [
+              {
+                title: "",
+                items: [
+                  [
+                    "Client",
+                    "Duality Group — a quantitative trading firm operating in an environment where infrastructure reliability is a business-critical concern, not a quality-of-life one.",
+                  ],
+                  [
+                    "Problem",
+                    "An AWS environment inherited from a previous managed service provider whose contract was structured as a percentage of Duality's cloud spend — a billing model that made complexity profitable, and left behind an overbuilt, poorly rationalized, and expensive environment.",
+                  ],
+                  [
+                    "Services",
+                    "AWS architecture · multi-account design · Terraform infrastructure as code · network design · FortiGate virtual firewall deployment · encrypted VPN connectivity · security monitoring and observability",
+                  ],
+                  [
+                    "Platforms",
+                    "AWS (VPC, Transit Gateway, Fargate, Route 53, VPC Endpoints) · Terraform · Fortinet FortiGate (virtual) · Terraform Cloud",
+                  ],
+                  [
+                    "Outcome",
+                    "A fully code-defined, multi-account AWS environment that is reproducible from scratch, costs less than what it replaced, and is significantly more capable.",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "The Challenge",
+        heading: "An environment built for someone else's incentives",
+        blocks: [
+          {
+            type: "p",
+            text: "Duality Group is a quantitative trading firm operating in a space where infrastructure reliability is not a quality-of-life concern — it is a business-critical one. Latency matters. Uptime matters. The integrity of data connections to market data providers and downstream execution partners matters in ways that are immediate and financial.",
+          },
+          {
+            type: "p",
+            text: "The environment they inherited had been built by another managed service provider — one whose contract was structured as a percentage of Duality's AWS spend. That billing model created a perverse incentive: complexity wasn't a problem to be solved, it was a revenue mechanism. The result was an overbuilt, poorly rationalized environment that was expensive, fragile, and difficult to reason about.",
+          },
+          {
+            type: "p",
+            text: "The goal wasn't to patch it. It was to replace it entirely — with an environment designed from first principles, built entirely in code, and capable of scaling with the demands of a growing trading operation.",
+          },
+        ],
+      },
+      {
+        label: "Architecture",
+        heading: "Multi-account, multi-environment from the ground up",
+        blocks: [
+          {
+            type: "p",
+            text: "The new environment is organized across discrete AWS accounts — infrastructure, development, UAT, and production — each isolated, consistently structured, and managed entirely in Terraform. Every subnet, routing rule, firewall policy, and access control is version-controlled and reproducible. Configuration drift is impossible by design.",
+          },
+          {
+            type: "p",
+            text: "A Transit Gateway in the infrastructure account serves as the backbone, with all inter-environment routing flowing through a single, centrally managed hub. Shared services — DNS resolution, firewall, identity — live in the infrastructure account and are consumed by all other environments through controlled, auditable paths.",
+          },
+        ],
+      },
+      {
+        label: "Network Design",
+        heading: "Subnets purpose-built for containerized workloads",
+        blocks: [
+          {
+            type: "p",
+            text: "Each environment is subdivided into distinct subnet tiers: public-facing, application, data, and a dedicated container tier for Fargate workloads. The container subnets are intentionally oversized — providing thousands of available addresses per availability zone — because Duality's trading workloads need room to scale horizontally without re-addressing infrastructure.",
+          },
+          {
+            type: "p",
+            text: "The data tier, where databases live, is kept fully isolated with its own routing and access controls. Nothing reaches it that isn't explicitly permitted. AWS service traffic is routed through private VPC endpoints, keeping it off the public internet entirely.",
+          },
+        ],
+      },
+      {
+        label: "Firewall",
+        heading: "Active/passive FortiGate high availability",
+        blocks: [
+          {
+            type: "p",
+            text: "All traffic into and out of AWS flows through a pair of Fortinet FortiGate virtual appliances deployed in the infrastructure account across separate availability zones. They run in active/passive high availability — if the active unit fails, the passive takes over automatically, with no manual intervention and no traffic disruption.",
+          },
+          {
+            type: "p",
+            text: "The FortiGates were procured with full security licensing and support contracts — a predictable, fixed annual cost, rather than a variable expense that grows with cloud spend.",
+          },
+        ],
+      },
+      {
+        label: "External Connectivity",
+        heading: "Encrypted tunnels to market data and execution partners",
+        blocks: [
+          {
+            type: "p",
+            text: "Duality's trading operation depends on reliable, low-latency connectivity to a major market data provider for trade data, and to downstream partners for trade execution. Both connections are handled as encrypted VPN tunnels terminated at the FortiGate layer — traffic that never traverses the public internet unprotected. The firewall manages all policy enforcement for these connections: what is permitted in, what is permitted out, and how it routes once inside.",
+          },
+          {
+            type: "p",
+            text: "Internal DNS resolution is centrally managed in the infrastructure account and shared across all environments, so every account resolves internal hostnames consistently without duplicating infrastructure.",
+          },
+        ],
+      },
+      {
+        label: "Security & Observability",
+        heading: "Defense in depth, managed as code",
+        blocks: [
+          {
+            type: "p",
+            text: "Threat detection, API audit logging, resource configuration history, and encryption key management are all enabled across every account from day one — centrally aggregated, consistently configured, and defined in code alongside everything else. Every VPC generates flow logs. Nothing in the environment is undocumented or unobserved.",
+          },
+        ],
+      },
+    ],
+    results: [
+      "A fully code-defined AWS environment across four accounts — reproducible, version-controlled, and auditable",
+      "Container subnets built for horizontal scale, with capacity to grow without architectural changes",
+      "Active/passive FortiGate high availability with automatic failover and no single point of failure at the network edge",
+      "Encrypted connectivity to market data and execution partners, terminated at the firewall and never exposed to the internet",
+      "All environments connected through a centralized routing hub, with shared DNS and security services flowing from a single infrastructure account",
+      "Security monitoring, audit logging, and configuration tracking running across all environments from day one",
+      "A lower monthly AWS bill than the environment it replaced — despite being significantly more capable",
+    ],
+  },
+
+  {
+    slug: "easterseals-nj-intune",
+    title: "Automating Device Management with Intune",
+    subtitle:
+      "Building a zero-touch provisioning pipeline for a 45-location healthcare nonprofit — from fully manual to Autopilot at scale",
+    client: "Easterseals New Jersey",
+    industry: "Healthcare & Nonprofit",
+    tags: ["Healthcare & Nonprofit", "Microsoft Intune", "Windows Autopilot", "Device Management", "Security", "Entra ID"],
+    summary:
+      "A complete zero-touch provisioning pipeline for new devices and an automated re-enrollment path for existing ones — across 45 locations, 60+ Wi-Fi networks, and dozens of deployed applications — for a HIPAA-regulated nonprofit with 775 endpoints working toward HITRUST certification.",
+    featuredImage: {
+      src: "/assets/esnj.png",
+      alt: "Easterseals New Jersey — device enrollment and IT provisioning",
+    },
+    seoTitle: "Automating Device Management with Intune — Easterseals NJ | RSystems NYC",
+    seoDescription:
+      "How RSystems built a zero-touch Windows Autopilot and Intune provisioning pipeline for Easterseals New Jersey — a 45-location healthcare nonprofit with 775 endpoints — deploying security baselines, application packages, and Wi-Fi credentials across the full fleet through iterative development with the internal IT team.",
+    canonicalPath: "/case-studies/easterseals-nj-intune",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Automating Device Management with Intune — Zero-Touch Provisioning for Easterseals New Jersey",
+      "description":
+        "How RSystems built a zero-touch Windows Autopilot and Intune provisioning pipeline for Easterseals New Jersey — a 45-location healthcare nonprofit with 775 endpoints in a HIPAA-regulated environment working toward HITRUST certification.",
+      "url": "https://rsystems.nyc/case-studies/easterseals-nj-intune",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+        "areaServed": { "@type": "State", "name": "New Jersey" },
+      },
+      "about": {
+        "@type": "Organization",
+        "name": "Easterseals New Jersey",
+        "description": "A large nonprofit providing services to persons with disabilities across 45 locations in New Jersey",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "NJ",
+          "addressCountry": "US",
+        },
+      },
+    },
+    sections: [
+      {
+        label: "At a Glance",
+        blocks: [
+          {
+            type: "specs",
+            groups: [
+              {
+                title: "",
+                items: [
+                  [
+                    "Client",
+                    "Easterseals New Jersey — a large nonprofit providing services to persons with disabilities across 45 locations in New Jersey, with 775 endpoints in a HIPAA-regulated environment working toward HITRUST certification.",
+                  ],
+                  [
+                    "Problem",
+                    "A growing organization running entirely on on-premises Active Directory with no device management pipeline — where every workstation was provisioned by hand, every user was a local administrator, and the IT team's time was consumed by manual configuration work that should have been automatic.",
+                  ],
+                  [
+                    "Services",
+                    "Windows Autopilot and Intune design and deployment · security baseline development · PowerShell scripting and remediation · application deployment pipeline · vendor and reseller coordination (CDW) · Wi-Fi credential deployment · iterative development with internal IT team",
+                  ],
+                  [
+                    "Platforms",
+                    "Microsoft Intune · Windows Autopilot · Microsoft Entra ID · Microsoft Defender · LAPS · CDW",
+                  ],
+                  [
+                    "Outcome",
+                    "A complete zero-touch provisioning pipeline for new devices and an automated re-enrollment path for existing ones — across 45 locations, 60+ Wi-Fi networks, and dozens of deployed applications — with an IT team that spends significantly less time manually configuring workstations.",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "The Organization",
+        heading: "A statewide nonprofit with a small IT team and a large footprint",
+        bg: "bg-[#F4F2EF]",
+        blocks: [
+          {
+            type: "p",
+            text: "Easterseals New Jersey provides a wide range of services to people with disabilities across the state — therapy, employment, early intervention, residential programs, and more. They operate out of 45 locations, support roughly 775 endpoints, and handle protected health information across multiple clinical systems. Their IT team is small relative to the footprint they cover, which makes every hour spent on manual provisioning an hour not spent on something more valuable.",
+          },
+          {
+            type: "p",
+            text: "Their environment at the start of the engagement was built on on-premises Active Directory, with no modern device management pipeline. Windows workstations were domain-joined by hand, configured by hand, and deployed by hand. There was no LAPS — every local admin account used the same credentials. Security baselines were applied inconsistently, if at all. Everyone was a local administrator on their own machine.",
+          },
+          {
+            type: "p",
+            text: "For a healthcare organization working toward HITRUST certification and handling HIPAA-regulated data, the gap between their current posture and where they needed to be was significant.",
+          },
+        ],
+      },
+      {
+        label: "The Challenge",
+        heading: "Scale, complexity, and a live environment",
+        blocks: [
+          {
+            type: "p",
+            text: "This was not a greenfield deployment. Easterseals NJ was operating a full clinical and administrative environment — line-of-business applications serving every department, remote access for dozens of locations, and multiple EHR systems. The work had to happen around the organization’s operations, not instead of them.",
+          },
+          {
+            type: "p",
+            text: "The scale added its own complexity. Forty-five locations meant 60-plus distinct Wi-Fi networks, each with their own SSID and credentials, all of which needed to be pushed to endpoints automatically. Application requirements spanned a wide range — from standard productivity tools to specialty clinical software used at the point of care. Each one was a custom package to build, test, deploy, and maintain.",
+          },
+          {
+            type: "p",
+            text: "And the device estate itself was split: new machines going forward could be enrolled automatically, but roughly 275 existing domain-joined PCs also needed a path into the new system without requiring someone to physically touch each one.",
+          },
+        ],
+      },
+      {
+        label: "The Approach",
+        heading: "Iterative, in partnership with the internal team",
+        bg: "bg-[#F4F2EF]",
+        blocks: [
+          {
+            type: "p",
+            text: "The engagement was structured as a series of weekly working sessions with Easterseals NJ’s IT team — not a one-time deployment, but a collaborative development process. Policies were built, tested on a small group of devices, refined, and expanded incrementally. Each week added capability; each cycle caught issues before they reached the broader fleet.",
+          },
+          {
+            type: "p",
+            text: "That cadence mattered. A policy conflict in BitLocker configuration, a hostname rename script that ran faster than a remote support tool could sync its device name, a screensaver setting that needed a registry workaround — these are the kinds of issues that only surface in a real environment with real machines. Working iteratively meant they were resolved with a handful of test devices, not with the full fleet.",
+          },
+          {
+            type: "p",
+            text: "The internal IT team was a genuine partner throughout. They knew the environment, the applications, the edge cases. The work was built with them, not handed off to them.",
+          },
+        ],
+      },
+      {
+        label: "The Build",
+        heading: "What was built",
+        blocks: [
+          {
+            type: "p",
+            text: "The Autopilot pipeline runs in two directions. New Windows devices purchased through CDW are automatically registered in Autopilot at the time of purchase — zero-touch enrollment, out of the box. For existing machines, a PowerShell script ingests the hardware hash and registers the device in Autopilot, so it can be factory reset and re-enrolled through the same automated flow. The IT team can now wipe and redeploy a workstation without manually configuring anything.",
+          },
+          {
+            type: "p",
+            text: "A full security baseline was deployed across the fleet: LAPS for automated local admin password rotation, BitLocker encryption with recovery keys escrowed in Intune, strong MFA enforced via Microsoft Authenticator, Microsoft Defender replacing the legacy endpoint protection, URL blocking configured in Defender for restricted domains, and a full transition of local administrator rights away from end users.",
+          },
+          {
+            type: "p",
+            text: "An application pipeline delivers dozens of packages to every enrolled device — productivity software, clinical tools, remote support, browsers, and printer configurations — all deployed and maintained through Intune without manual installation.",
+          },
+          {
+            type: "p",
+            text: "Configuration policies complete the picture: Wi-Fi credentials pushed to all 60-plus SSID locations using dynamic group targeting, power and sleep settings standardized across the fleet, screensaver and lock screen enforced with Easterseals NJ branding, interactive logon message deployed with policy acknowledgment language, and every device renamed automatically to its serial number on enrollment.",
+          },
+          {
+            type: "p",
+            text: "A staged Windows 11 upgrade pipeline was coordinated alongside the Autopilot work — upgrade rings rolled out incrementally, with user communications and IT team training to minimize disruption.",
+          },
+        ],
+      },
+    ],
+    results: [
+      "Full Windows Autopilot enrollment pipeline — zero-touch for new devices, hash-ingestion re-enrollment for roughly 275 existing domain-joined PCs",
+      "CDW vendor coordination for automatic Autopilot registration on all new hardware purchases",
+      "Intune security baseline: LAPS, BitLocker with escrowed recovery keys, Microsoft Defender, strong MFA, local admin removal",
+      "Dozens of application packages deployed and maintained via Intune without manual installation",
+      "Wi-Fi credential deployment across 60+ locations using dynamic group targeting",
+      "Windows 11 upgrade pipeline with staged rollout rings",
+      "Iterative development in weekly partnership with the internal IT team",
+    ],
+  },
 ];

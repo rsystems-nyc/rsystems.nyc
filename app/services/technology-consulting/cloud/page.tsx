@@ -180,6 +180,30 @@ export default function CloudPage() {
         </div>
       </section>
 
+      {/* Case Study */}
+      <section className="bg-[#F4F2EF] border-t border-[#1A1A1A]/[0.06]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+            <div className="lg:col-span-3">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">Case Study</p>
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-[#1A1A1A]/40 mb-3">Finance &amp; Trading Technology</p>
+              <h3 className="text-xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-2">Built for Scale</h3>
+              <p className="text-sm text-[#1A1A1A]/55 leading-relaxed mb-5">
+                Rebuilding a quantitative trading firm&apos;s AWS environment from first principles — four isolated accounts, every resource defined in Terraform, active/passive FortiGate HA, and a lower monthly bill than the environment it replaced.
+              </p>
+              <Link href="/case-studies/duality-group" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] transition-colors">
+                Read Case Study
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-[#0F1117] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
