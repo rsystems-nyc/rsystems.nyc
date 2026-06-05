@@ -97,11 +97,16 @@ const techConsultingCategories = [
   },
 ];
 
+
+const ourWorkLinks = [
+  { href: "/industries", label: "Industries" },
+  { href: "/case-studies", label: "Case Studies" },
+];
+
 const aboutLinks = [
-  { href: "/about", label: "Overview" },
   { href: "/about/leadership", label: "Leadership" },
-  { href: "/about/our-work", label: "Our Work" },
-  { href: "/about/pulsar-map", label: "Our Story" },
+  { href: "/about/track-record", label: "Track Record" },
+  { href: "/about/our-story", label: "Our Story" },
   { href: "/careers", label: "Careers" },
 ];
 
@@ -109,6 +114,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [mgmtOpen, setMgmtOpen] = useState(false);
   const [tcOpen, setTcOpen] = useState(false);
+  const [ourWorkOpen, setOurWorkOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -160,24 +166,37 @@ export default function Nav() {
             </button>
           </div>
 
-          <Link href="/case-studies" className="text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors">
-            Case Studies
-          </Link>
-
-          <Link href="/prospective-client" className="text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors">
-            Work With Us
-          </Link>
-
           <div className="relative group">
             <button
               type="button"
+              className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
+            >
+              Our Work
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px">
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <div className="absolute top-full left-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
+              <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
+                {ourWorkLinks.map((link) => (
+                  <Link key={link.href} href={link.href} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="relative group">
+            <Link
+              href="/about"
               className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
             >
               About
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px">
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </button>
+            </Link>
             <div className="absolute top-full right-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
               <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
                 {aboutLinks.map((link) => (
@@ -188,6 +207,10 @@ export default function Nav() {
               </div>
             </div>
           </div>
+
+          <Link href="/prospective-client" className="text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors">
+            Work With Us
+          </Link>
 
           <Link href="/contact" className="text-sm font-medium bg-[#E8500A] text-white px-4 py-2 rounded hover:bg-[#E8500A]/85 transition-colors">
             Let&apos;s Talk
@@ -295,7 +318,8 @@ export default function Nav() {
                 </div>
               </div>
 
-            </div>
+
+</div>
           </div>
         </div>
       )}
@@ -420,13 +444,44 @@ export default function Nav() {
             )}
           </div>
 
-          <Link
-            href="/case-studies"
-            className="text-base text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors py-3 border-b border-black/[0.08]"
-            onClick={() => setOpen(false)}
-          >
-            Case Studies
-          </Link>
+          {/* Our Work accordion */}
+          <div className="border-b border-black/[0.08]">
+            <button
+              type="button"
+              className="w-full flex items-center justify-between py-3 text-base text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setOurWorkOpen((prev) => !prev)}
+            >
+              Our Work
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 10 10"
+                fill="none"
+                aria-hidden="true"
+                style={{ transform: ourWorkOpen ? "rotate(180deg)" : undefined, transition: "transform 0.2s" }}
+              >
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {ourWorkOpen && (
+              <div className="pb-2">
+                <Link
+                  href="/industries"
+                  className="block py-2.5 text-sm text-[#1A1A1A]/40 pl-4 hover:text-[#1A1A1A] transition-colors border-b border-black/[0.05]"
+                  onClick={() => setOpen(false)}
+                >
+                  Industries
+                </Link>
+                <Link
+                  href="/case-studies"
+                  className="block py-2.5 text-sm text-[#1A1A1A]/40 pl-4 hover:text-[#1A1A1A] transition-colors border-b border-black/[0.05]"
+                  onClick={() => setOpen(false)}
+                >
+                  Case Studies
+                </Link>
+              </div>
+            )}
+          </div>
 
           {/* About accordion */}
           <div className="border-b border-black/[0.08]">
@@ -449,6 +504,13 @@ export default function Nav() {
             </button>
             {aboutOpen && (
               <div className="pb-2">
+                <Link
+                  href="/about"
+                  className="block py-2.5 text-sm text-[#E8500A] font-semibold border-b border-black/[0.05]"
+                  onClick={() => setOpen(false)}
+                >
+                  Overview
+                </Link>
                 {aboutLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -462,6 +524,14 @@ export default function Nav() {
               </div>
             )}
           </div>
+
+          <Link
+            href="/prospective-client"
+            className="text-base text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors py-3 border-b border-black/[0.08]"
+            onClick={() => setOpen(false)}
+          >
+            Work With Us
+          </Link>
 
           <Link
             href="/contact"

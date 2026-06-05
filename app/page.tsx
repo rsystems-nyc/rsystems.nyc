@@ -164,6 +164,29 @@ export default function Home() {
         </Link>
       </section>
 
+      {/* Industries teaser */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10 lg:pb-12">
+        <div className="border border-[#1A1A1A]/[0.07] rounded-xl p-6 lg:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-[#F4F2EF]">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-1">
+              Who We Serve
+            </p>
+            <p className="text-base font-semibold text-[#1A1A1A]">
+              Deep familiarity across 13 verticals — from quantitative trading and post-production to nonprofits, healthcare, and event production.
+            </p>
+          </div>
+          <Link
+            href="/industries"
+            className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[#E8500A] hover:text-[#E8500A]/75 transition-colors"
+          >
+            Explore industry expertise
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        </div>
+      </section>
+
       {/* Technology Platforms */}
       <section className="border-t border-[#1A1A1A]/[0.07] pt-10 pb-10 lg:pt-12 lg:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

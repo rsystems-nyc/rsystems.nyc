@@ -136,7 +136,7 @@ export const servicesData: ServiceData[] = [
       "At the same time, onboarding a new hire or offboarding a departing employee is often a manual, inconsistent process that creates access gaps and audit exposure. Every exception is a liability.",
     ],
     approach: [
-      "We implement identity and device management with a Zero Trust foundation: every user, every device, verified. That means conditional access policies tuned to your actual environment, Autopilot zero-touch enrollment for new hardware, and platform SSO across Mac and Windows.",
+      "We implement identity and device management with a Zero Trust foundation: every user, every device, verified. That means conditional access policies tuned to your actual environment, Autopilot and Apple ADE zero-touch enrollment for new hardware, and platform SSO across Mac and Windows.",
       "For onboarding and offboarding, we build the actual automated workflows — not a policy document that describes what should happen, but a system that ensures it does, every time. We transfer knowledge to your team so they can manage and extend what we build.",
     ],
     deliverables: [
@@ -151,9 +151,9 @@ export const servicesData: ServiceData[] = [
           "Conditional access policies, MFA enforcement, and security baselines built on Zero Trust principles — with migration paths from on-premises to cloud-native or hybrid.",
       },
       {
-        title: "Autopilot & Device Enrollment",
+        title: "Autopilot, ADE & Device Enrollment",
         description:
-          "Zero-touch device enrollment via Autopilot, application deployment strategies, and platform SSO for both Mac and Windows environments.",
+          "Zero-touch device enrollment via Autopilot (Windows) and Apple ADE and Business Manager (Mac and iOS), application deployment strategies, and platform SSO for both Mac and Windows environments.",
       },
       {
         title: "Automated Onboarding & Offboarding",
