@@ -46,7 +46,7 @@ const techConsultingCategories = [
     href: "/services/technology-consulting/strategy/",
     links: [
       { href: "/services/technology-consulting/initial-assessment", label: "Initial Assessment" },
-      { href: "/services/technology-consulting/virtual-cto", label: "Virtual CTO" },
+      { href: "/services/technology-consulting/fractional-cto", label: "Fractional CTO" },
       { href: "/services/technology-consulting/disaster-recovery-plan-development", label: "Disaster Recovery Planning" },
     ],
   },
@@ -102,6 +102,12 @@ const ourWorkLinks = [
   { href: "/case-studies", label: "Case Studies" },
 ];
 
+const resourcesLinks = [
+  { href: "/resources/university", label: "University" },
+  { href: "/resources/free-resources", label: "Free Resources" },
+  { href: "/resources/faq", label: "FAQ" },
+];
+
 const aboutLinks = [
   { href: "/about/leadership", label: "Leadership" },
   { href: "/about/track-record", label: "Track Record" },
@@ -114,6 +120,7 @@ export default function Nav() {
   const [mgmtOpen, setMgmtOpen] = useState(false);
   const [tcOpen, setTcOpen] = useState(false);
   const [ourWorkOpen, setOurWorkOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -178,6 +185,27 @@ export default function Nav() {
             <div className="absolute top-full left-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
               <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
                 {ourWorkLinks.map((link) => (
+                  <Link key={link.href} href={link.href} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="relative group">
+            <Link
+              href="/resources"
+              className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
+            >
+              Resources
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px">
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+            <div className="absolute top-full left-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
+              <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[160px]">
+                {resourcesLinks.map((link) => (
                   <Link key={link.href} href={link.href} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
                     {link.label}
                   </Link>
@@ -474,6 +502,48 @@ export default function Nav() {
                 >
                   Case Studies
                 </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Resources accordion */}
+          <div className="border-b border-black/[0.08]">
+            <button
+              type="button"
+              className="w-full flex items-center justify-between py-3 text-base text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setResourcesOpen((prev) => !prev)}
+            >
+              Resources
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 10 10"
+                fill="none"
+                aria-hidden="true"
+                style={{ transform: resourcesOpen ? "rotate(180deg)" : undefined, transition: "transform 0.2s" }}
+              >
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {resourcesOpen && (
+              <div className="pb-2">
+                <Link
+                  href="/resources"
+                  className="block py-2.5 text-sm text-[#E8500A] font-semibold border-b border-black/[0.05]"
+                  onClick={() => setOpen(false)}
+                >
+                  Overview
+                </Link>
+                {resourcesLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block py-2.5 text-sm text-[#1A1A1A]/40 pl-4 hover:text-[#1A1A1A] transition-colors border-b border-black/[0.05]"
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             )}
           </div>

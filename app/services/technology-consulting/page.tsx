@@ -27,8 +27,8 @@ const categories = [
         tagline: "A structured audit of your current technology and workflows — the foundation of every RSystems engagement.",
       },
       {
-        name: "Virtual CTO",
-        href: "/services/technology-consulting/virtual-cto",
+        name: "Fractional CTO",
+        href: "/services/technology-consulting/fractional-cto",
         tagline: "Fractional CTO/CIO leadership — technology strategy, roadmaps, and C-suite advisory without the full-time overhead.",
       },
       {

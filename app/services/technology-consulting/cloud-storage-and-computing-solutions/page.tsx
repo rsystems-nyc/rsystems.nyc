@@ -130,28 +130,6 @@ export default function CloudStorageComputingPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Let&apos;s talk about your project.
-              </h2>
-              <p className="mt-3 text-white/50 text-base">
-                Schedule a conversation with the RSystems team.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="flex-shrink-0 inline-block text-sm font-medium bg-[#E8500A] text-white px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
-            >
-              Schedule a Conversation
-            </Link>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { servicesData } from "@/app/lib/services-data";
 import { caseStudiesData } from "@/app/lib/case-studies-data";
+import { articles } from "@/app/resources/university/articles";
 
 const BASE_URL = "https://rsystems.nyc";
 
@@ -57,7 +58,7 @@ const techConsultingRoutes = [
   "/services/technology-consulting/disaster-recovery-plan-development",
   "/services/technology-consulting/cybersecurity-assessment",
   "/services/technology-consulting/wifi-assessment",
-  "/services/technology-consulting/virtual-cto",
+  "/services/technology-consulting/fractional-cto",
   "/services/technology-consulting/ai-transformation",
 ];
 
@@ -65,6 +66,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
     { url: `${BASE_URL}/services`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/resources`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE_URL}/resources/free-resources`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE_URL}/resources/university`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE_URL}/resources/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/about/leadership`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/about/track-record`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
@@ -109,6 +114,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "/industries" ? 0.85 : 0.75,
   }));
 
+  const universitySitemapRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
+    url: `${BASE_URL}/resources/university/${a.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticRoutes,
     ...managementSitemapRoutes,
@@ -116,5 +128,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...legacyServiceRoutes,
     ...caseStudyRoutes,
     ...industrySitemapRoutes,
+    ...universitySitemapRoutes,
   ];
 }

@@ -163,8 +163,8 @@ export const servicesData: ServiceData[] = [
     ],
   },
   {
-    slug: "virtual-cto",
-    name: "Virtual CTO / CISO",
+    slug: "fractional-cto",
+    name: "Fractional CTO / CISO",
     heroHeadline: "Senior technical leadership, engaged at the level your organization needs.",
     tagline:
       "Fractional CTO and CISO engagements for organizations that need executive-level technology leadership without a full-time hire.",

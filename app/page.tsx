@@ -33,7 +33,7 @@ const consultingCategories = [
     href: "/services/technology-consulting/strategy/",
     name: "Strategy & Advisory",
     description:
-      "Initial assessments, virtual CTO engagements, and disaster recovery planning — the strategic foundation every organization needs before making major technology decisions.",
+      "Initial assessments, fractional CTO engagements, and disaster recovery planning — the strategic foundation every organization needs before making major technology decisions.",
   },
   {
     href: "/services/technology-consulting/ai/",

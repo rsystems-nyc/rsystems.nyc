@@ -24,8 +24,8 @@ const services = [
     tagline: "A structured audit of your current technology and workflows — the foundation of every RSystems engagement.",
   },
   {
-    name: "Virtual CTO",
-    href: "/services/technology-consulting/virtual-cto",
+    name: "Fractional CTO",
+    href: "/services/technology-consulting/fractional-cto",
     tagline: "Fractional CTO/CIO leadership — technology strategy, roadmaps, and C-suite advisory without the full-time overhead.",
   },
   {
@@ -145,7 +145,7 @@ export default function StrategyAdvisoryPage() {
                   RSystems starts every engagement with a structured assessment — we don&apos;t recommend solutions before we understand the environment. The Initial Assessment produces a full picture of your hardware, software, credentials, policies, and active pain points. From there, recommendations are grounded in what your organization actually needs, not a generic roadmap applied from the outside.
                 </p>
                 <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                  For organizations that need ongoing strategic leadership, our Virtual CTO engagements provide C-suite level technical judgment without the cost or organizational weight of a full-time executive hire. We develop technology roadmaps, represent technology in leadership conversations, and serve as the strategic layer above your internal IT team or MSP partner — available as the engagement requires.
+                  For organizations that need ongoing strategic leadership, our Fractional CTO engagements provide C-suite level technical judgment without the cost or organizational weight of a full-time executive hire. We develop technology roadmaps, represent technology in leadership conversations, and serve as the strategic layer above your internal IT team or MSP partner — available as the engagement requires.
                 </p>
               </div>
             </div>
@@ -181,19 +181,6 @@ export default function StrategyAdvisoryPage() {
                 <p className="text-sm text-[#1A1A1A]/45 leading-relaxed">{cat.description}</p>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Let&apos;s talk about your project.</h2>
-              <p className="mt-3 text-white/50 text-base">Schedule a conversation with the RSystems team.</p>
-            </div>
-            <Link href="/contact" className="flex-shrink-0 inline-block text-sm font-medium bg-[#E8500A] text-white px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors">Schedule a Conversation</Link>
           </div>
         </div>
       </section>

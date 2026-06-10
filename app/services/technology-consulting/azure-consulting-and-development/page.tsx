@@ -145,56 +145,55 @@ export default function AzureConsultingPage() {
         </div>
       </section>
 
-      {/* Related Case Study */}
+      {/* Related Case Studies */}
       <section className="bg-white border-t border-[#1A1A1A]/[0.07]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]">
-                Case Study
+                Case Studies
               </p>
             </div>
-            <div className="lg:col-span-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <p className="text-base font-semibold text-[#1A1A1A] leading-snug mb-1">
-                  A GPU in Azure, a Mac on Every Desk
-                </p>
-                <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
-                  GPU-accelerated Azure Virtual Desktop for a Mac-only architecture firm — Bluebeam and Revit at full speed, Entra ID-native identity, full Terraform IaC, no Windows hardware on premises.
-                </p>
+            <div className="lg:col-span-7 flex flex-col gap-8">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <p className="text-base font-semibold text-[#1A1A1A] leading-snug mb-1">
+                    Replacing a 10-Year-Old Data Center — Without Replacing the Hardware
+                  </p>
+                  <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
+                    Multi-region Azure infrastructure, disaster recovery, and Terraform automation for the National Audubon Society — DR requirements met at a fraction of a hardware refresh.
+                  </p>
+                </div>
+                <Link
+                  href="/case-studies/audubon-azure"
+                  className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
+                >
+                  Read Case Study
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
               </div>
-              <Link
-                href="/case-studies/windows-tools-for-a-mac-design-firm"
-                className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
-              >
-                Read Case Study
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
+              <div className="border-t border-[#1A1A1A]/[0.07] pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <p className="text-base font-semibold text-[#1A1A1A] leading-snug mb-1">
+                    A GPU in Azure, a Mac on Every Desk
+                  </p>
+                  <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
+                    GPU-accelerated Azure Virtual Desktop for a Mac-only architecture firm — Bluebeam and Revit at full speed, Entra ID-native identity, full Terraform IaC, no Windows hardware on premises.
+                  </p>
+                </div>
+                <Link
+                  href="/case-studies/windows-tools-for-a-mac-design-firm"
+                  className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
+                >
+                  Read Case Study
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Let&apos;s talk about your project.
-              </h2>
-              <p className="mt-3 text-white/50 text-base">
-                Schedule a conversation with the RSystems team.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="flex-shrink-0 inline-block text-sm font-medium bg-[#E8500A] text-white px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
-            >
-              Schedule a Conversation
-            </Link>
           </div>
         </div>
       </section>

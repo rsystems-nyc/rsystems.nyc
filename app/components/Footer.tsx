@@ -16,7 +16,7 @@ export default function Footer() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
 
           {/* Column 1: Brand */}
           <div>
@@ -74,7 +74,31 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Services + Client Portal pinned to bottom */}
+          {/* Column 3: Resources */}
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+              Resources
+            </p>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/resources/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources/university/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  University
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources/faq/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Services + Client Portal pinned to bottom */}
           <div className="flex flex-col">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">

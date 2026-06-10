@@ -40,8 +40,8 @@ const relatedLinks: Record<string, RelatedLink[]> = {
     { href: "/services/technology-consulting/network-infrastructure-design", label: "Network Infrastructure Design", tagline: "Comprehensive review and redesign for performance, security, and scalability." },
     { href: "/services/management/server", label: "Server Management", tagline: "Remote diagnostics, patching, and health monitoring for on-premises servers." },
   ],
-  "virtual-cto": [
-    { href: "/services/technology-consulting/virtual-cto", label: "Virtual CTO", tagline: "Fractional CTO/CIO leadership — strategy, roadmaps, and C-suite advisory." },
+  "fractional-cto": [
+    { href: "/services/technology-consulting/fractional-cto", label: "Fractional CTO", tagline: "Fractional CTO/CIO leadership — strategy, roadmaps, and C-suite advisory." },
     { href: "/services/technology-consulting/initial-assessment", label: "Initial Assessment", tagline: "A structured audit of your current technology — the foundation of every engagement." },
     { href: "/services/technology-consulting/disaster-recovery-plan-development", label: "Disaster Recovery Plan Development", tagline: "DRP with RTO/RPO definitions, recovery procedures, and backup strategy." },
     { href: "/services/technology-consulting/cybersecurity-assessment", label: "Cybersecurity Assessment", tagline: "NIST-based assessment with gap analysis and remediation roadmap." },
@@ -225,30 +225,6 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </section>
       )}
-
-      {/* CTA */}
-      <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <div className="lg:col-span-8">
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight leading-snug">
-                Ready to talk through your environment?
-              </h2>
-              <p className="mt-4 text-base text-white/50 leading-relaxed max-w-xl">
-                Every engagement starts with a conversation. We&apos;ll ask the right questions, identify the highest-value work, and be direct about what we can and can&apos;t help with.
-              </p>
-            </div>
-            <div className="lg:col-span-4 lg:text-right">
-              <Link
-                href="/contact"
-                className="inline-block text-sm font-medium bg-[#E8500A] text-white px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
-              >
-                Let&apos;s Talk
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
     </main>
   );

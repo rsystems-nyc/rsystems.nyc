@@ -42,7 +42,7 @@ const relatedCategories = [
   {
     href: "/services/technology-consulting/strategy",
     name: "Strategy & Advisory",
-    description: "Initial assessments, Virtual CTO, and disaster recovery planning.",
+    description: "Initial assessments, Fractional CTO, and disaster recovery planning.",
   },
   {
     href: "/services/technology-consulting/compute-storage",
@@ -187,32 +187,34 @@ export default function CloudPage() {
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">Case Study</p>
             </div>
-            <div className="lg:col-span-7">
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-[#1A1A1A]/40 mb-3">Finance &amp; Trading Technology</p>
-              <h3 className="text-xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-2">Built for Scale</h3>
-              <p className="text-sm text-[#1A1A1A]/55 leading-relaxed mb-5">
-                Rebuilding a quantitative trading firm&apos;s AWS environment from first principles — four isolated accounts, every resource defined in Terraform, active/passive FortiGate HA, and a lower monthly bill than the environment it replaced.
-              </p>
-              <Link href="/case-studies/duality-group" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] transition-colors">
-                Read Case Study
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
+            <div className="lg:col-span-7 flex flex-col gap-8">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#1A1A1A]/40 mb-3">Finance &amp; Trading Technology</p>
+                <h3 className="text-xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-2">Built for Scale</h3>
+                <p className="text-sm text-[#1A1A1A]/55 leading-relaxed mb-5">
+                  Rebuilding a quantitative trading firm&apos;s AWS environment from first principles — four isolated accounts, every resource defined in Terraform, active/passive FortiGate HA, and a lower monthly bill than the environment it replaced.
+                </p>
+                <Link href="/case-studies/duality-group" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] transition-colors">
+                  Read Case Study
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </div>
+              <div className="border-t border-[#1A1A1A]/[0.07] pt-8">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#1A1A1A]/40 mb-3">Nonprofits &amp; Conservation</p>
+                <h3 className="text-xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-2">Replacing a 10-Year-Old Data Center — Without Replacing the Hardware</h3>
+                <p className="text-sm text-[#1A1A1A]/55 leading-relaxed mb-5">
+                  Multi-region Azure infrastructure, disaster recovery, and Terraform automation for the National Audubon Society — DR requirements met at a fraction of a hardware refresh.
+                </p>
+                <Link href="/case-studies/audubon-azure" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] transition-colors">
+                  Read Case Study
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Let&apos;s talk about your project.</h2>
-              <p className="mt-3 text-white/50 text-base">Schedule a conversation with the RSystems team.</p>
-            </div>
-            <Link href="/contact" className="flex-shrink-0 inline-block text-sm font-medium bg-[#E8500A] text-white px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors">Schedule a Conversation</Link>
           </div>
         </div>
       </section>

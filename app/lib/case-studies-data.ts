@@ -278,9 +278,9 @@ export const caseStudiesData: CaseStudy[] = [
       "A decade-long infrastructure partnership with a NYC audio engineering firm",
     client: "A NYC-based audio engineering firm",
     industry: "Media & Entertainment",
-    tags: ["Hybrid Cloud", "Identity & Access", "Virtual CTO"],
+    tags: ["Hybrid Cloud", "Identity & Access", "Fractional CTO"],
     summary:
-      "A ten-year infrastructure partnership with a leading NYC audio engineering firm — spanning hybrid cloud migration, pandemic response, and an ongoing virtual CTO engagement that keeps the firm years ahead of industry practice.",
+      "A ten-year infrastructure partnership with a leading NYC audio engineering firm — spanning hybrid cloud migration, pandemic response, and an ongoing fractional CTO engagement that keeps the firm years ahead of industry practice.",
     featuredImage: {
       src: "https://macktez.com/wp-content/uploads/2024/11/sonic_union_studio.png",
       alt: "NYC audio engineering studio",
@@ -333,7 +333,7 @@ export const caseStudiesData: CaseStudy[] = [
           },
           {
             type: "p",
-            text: "Both systems operate under a shared administration model. The firm handles daily operations; RSystems provides oversight, manages integrations, and functions as a virtual CTO — bridging the gap between the firm's internal technical team and the strategic infrastructure decisions that require senior-level guidance.",
+            text: "Both systems operate under a shared administration model. The firm handles daily operations; RSystems provides oversight, manages integrations, and functions as a fractional CTO — bridging the gap between the firm's internal technical team and the strategic infrastructure decisions that require senior-level guidance.",
           },
         ],
       },
@@ -341,7 +341,7 @@ export const caseStudiesData: CaseStudy[] = [
     results: [
       "Real-time file accessibility for remote workers across all studio locations",
       "Unified cloud-based identity and device management via JumpCloud",
-      "Ongoing virtual CTO engagement — infrastructure strategy aligned with business objectives",
+      "Ongoing fractional CTO engagement — infrastructure strategy aligned with business objectives",
       "Strengthened client confidence in security posture and equipment reliability",
       "\"Staying a few years ahead of best practices\" — the firm's co-founder",
     ],

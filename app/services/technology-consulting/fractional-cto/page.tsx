@@ -5,11 +5,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: { absolute: "Fractional CTO & Virtual CIO Services NYC | RSystems" },
   description: "Senior technology leadership without the full-time overhead. RSystems provides fractional CTO and virtual CIO services — strategy, roadmaps, vendor evaluation, and C-suite advisory.",
-  alternates: { canonical: "https://rsystems.nyc/services/technology-consulting/virtual-cto/" },
+  alternates: { canonical: "https://rsystems.nyc/services/technology-consulting/fractional-cto/" },
   openGraph: {
     title: "Fractional CTO & Virtual CIO Services NYC | RSystems",
     description: "Senior technology leadership without the full-time overhead. RSystems provides fractional CTO and virtual CIO services — strategy, roadmaps, vendor evaluation, and C-suite advisory.",
-    url: "https://rsystems.nyc/services/technology-consulting/virtual-cto/",
+    url: "https://rsystems.nyc/services/technology-consulting/fractional-cto/",
   },
   twitter: {
     title: "Fractional CTO & Virtual CIO Services NYC | RSystems",
@@ -68,13 +68,13 @@ export default function VirtualCTOPage() {
             <span>/</span>
             <Link href="/services/technology-consulting/strategy" className="hover:text-white/60 transition-colors">Strategy & Advisory</Link>
             <span>/</span>
-            <span className="text-white/50">Virtual CTO</span>
+            <span className="text-white/50">Fractional CTO</span>
           </div>
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
             Technology Consulting
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
-            Virtual CTO
+            Fractional CTO
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
             Fractional CTO and CIO leadership — technology strategy, roadmaps, and
@@ -100,7 +100,7 @@ export default function VirtualCTOPage() {
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
                 Many organizations cannot afford or don&apos;t require a dedicated full-time
                 CTO or CIO, yet still need technology oversight, strategic planning, and
-                security management at a senior level. RSystems provides virtual CTO and
+                security management at a senior level. RSystems provides fractional CTO and
                 CIO services to fill that gap — drawing on direct technical experience
                 across infrastructure, security, cloud, and identity.
               </p>
@@ -121,7 +121,7 @@ export default function VirtualCTOPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
-                Virtual CTO Responsibilities
+                Fractional CTO Responsibilities
               </p>
               <ul className="space-y-3">
                 {responsibilities.map((item) => (
@@ -172,28 +172,6 @@ export default function VirtualCTOPage() {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Let&apos;s talk about your project.
-              </h2>
-              <p className="mt-3 text-white/50 text-base">
-                Schedule a conversation with the RSystems team.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="flex-shrink-0 inline-block text-sm font-medium bg-[#E8500A] text-white px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
-            >
-              Schedule a Conversation
-            </Link>
           </div>
         </div>
       </section>
