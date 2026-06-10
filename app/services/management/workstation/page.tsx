@@ -66,15 +66,15 @@ export default function WorkstationManagementPage() {
           <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-white/30 mb-10 flex-wrap">
             <Link href="/services" className="hover:text-white/60 transition-colors">Services</Link>
             <span>/</span>
-            <Link href="/services/management" className="hover:text-white/60 transition-colors">RSystems Management</Link>
+            <Link href="/services/management" className="hover:text-white/60 transition-colors">Managed Services</Link>
             <span>/</span>
-            <span className="text-white/50">Workstation Management</span>
+            <span className="text-white/50">Endpoint Management</span>
           </div>
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
-            RSystems Management
+            Managed Services
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
-            Workstation Management
+            Endpoint Management
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
             Automated patching, antivirus, asset management, and security policy

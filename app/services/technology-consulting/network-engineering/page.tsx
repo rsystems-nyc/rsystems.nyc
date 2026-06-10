@@ -3,17 +3,20 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Cisco Network Engineering & Switching Design | RSystems" },
-  description: "RSystems designs and deploys Cisco switching infrastructure — physical network layout, VLAN segmentation, redundancy configuration, and complete documentation.",
+  title: { absolute: "Network Design & Engineering | RSystems NYC" },
+  description:
+    "RSystems designs and deploys physical network infrastructure — new builds from first principles and remediation of existing environments. Cisco switching, VLAN architecture, redundancy, and complete documentation.",
   alternates: { canonical: "https://rsystems.nyc/services/technology-consulting/network-engineering/" },
   openGraph: {
-    title: "Cisco Network Engineering & Switching Design | RSystems",
-    description: "RSystems designs and deploys Cisco switching infrastructure — physical network layout, VLAN segmentation, redundancy configuration, and complete documentation.",
+    title: "Network Design & Engineering | RSystems NYC",
+    description:
+      "RSystems designs and deploys physical network infrastructure — new builds from first principles and remediation of existing environments. Cisco switching, VLAN architecture, redundancy, and complete documentation.",
     url: "https://rsystems.nyc/services/technology-consulting/network-engineering/",
   },
   twitter: {
-    title: "Cisco Network Engineering & Switching Design | RSystems",
-    description: "RSystems designs and deploys Cisco switching infrastructure — physical network layout, VLAN segmentation, redundancy configuration, and complete documentation.",
+    title: "Network Design & Engineering | RSystems NYC",
+    description:
+      "RSystems designs and deploys physical network infrastructure — new builds from first principles and remediation of existing environments. Cisco switching, VLAN architecture, redundancy, and complete documentation.",
   },
 };
 
@@ -27,21 +30,85 @@ const physicalDesign = [
 ];
 
 const ciscoServices = [
-  "Cisco Business series deployment for cost-effective environments",
-  "Cisco Catalyst enterprise switch installation and configuration for mission-critical uptime",
+  "Cisco Business series for cost-effective environments",
+  "Cisco Catalyst enterprise switching for mission-critical uptime",
   "Redundant power and failover configuration",
   "Remote pre-configuration and shipping",
   "Coordination with local contractors",
   "Cisco licensing and support contract guidance",
 ];
 
+const whatImproves = [
+  "Performance and reliability",
+  "Security posture",
+  "Redundancy for critical devices",
+  "Clarity of path to scale",
+  "Organizational productivity",
+];
+
+const whatWeDeliver = [
+  "Network topology documentation",
+  "VLAN schedules",
+  "Rack diagrams",
+  "Patch schedules",
+  "Hardware procurement and configuration",
+  "Deployment and cutover management",
+];
+
 const approach = [
-  { step: "01", title: "Assessment", body: "Evaluate existing infrastructure, identify deficiencies, and understand traffic patterns and organizational requirements." },
-  { step: "02", title: "Strategic Planning", body: "Design the architecture — VLAN structure, uplink sizing, hardware selection, and rack layout — before a single cable is touched." },
-  { step: "03", title: "Pre-Configuration", body: "Equipment is configured and tested at RSystems before deployment to minimize on-site time and risk." },
-  { step: "04", title: "Installation", body: "On-site deployment with minimal operational disruption — typically executed over a single maintenance window." },
-  { step: "05", title: "Documentation", body: "Every connection, VLAN, and configuration decision documented so your team can manage and extend the network confidently." },
-  { step: "06", title: "Ongoing Support", body: "Post-deployment monitoring, firmware guidance, and RSystems availability for questions as your environment evolves." },
+  {
+    step: "01",
+    title: "Assessment",
+    body: "Evaluate existing infrastructure, identify deficiencies, and understand traffic patterns and organizational requirements.",
+  },
+  {
+    step: "02",
+    title: "Strategic Planning",
+    body: "Design the architecture — VLAN structure, uplink sizing, hardware selection, and rack layout — before a single cable is touched.",
+  },
+  {
+    step: "03",
+    title: "Pre-Configuration",
+    body: "Equipment is configured and tested at RSystems before deployment to minimize on-site time and risk.",
+  },
+  {
+    step: "04",
+    title: "Installation",
+    body: "On-site deployment with minimal operational disruption — typically executed over a single maintenance window.",
+  },
+  {
+    step: "05",
+    title: "Documentation",
+    body: "Every connection, VLAN, and configuration decision documented so your team can manage and extend the network confidently.",
+  },
+  {
+    step: "06",
+    title: "Ongoing Support",
+    body: "Post-deployment monitoring, firmware guidance, and RSystems availability for questions as your environment evolves.",
+  },
+];
+
+const caseStudies = [
+  {
+    title: "Redundancy by Design",
+    body: "Zero-compromise infrastructure covering networking, wireless, compute, and storage — with redundancy as a first-order constraint.",
+    href: "/case-studies/redundancy-by-design",
+  },
+  {
+    title: "Untangling the Spaghetti Monster",
+    body: "Complete network remediation for a 3D printing company — VLANs rationalized and documented, 10G capacity fully utilized, 400% throughput increase on day one.",
+    href: "/case-studies/makerbot-overhaul",
+  },
+  {
+    title: "Festival-Grade Network Engineering",
+    body: "A self-healing temporary network for FoST Fest at Snug Harbor — twelve landmarked buildings, a Great Lawn tent 600 feet from the nearest switch, thousands of concurrent devices.",
+    href: "/case-studies/fost-fest",
+  },
+  {
+    title: "The Night $4.6 Million Moved Over Wi-Fi",
+    body: "Event network design for the charity:water Gala at the Metropolitan Museum of Art — traffic-modeled for peak load, tested before the night, invisible on the night.",
+    href: "/case-studies/charity-water-gala",
+  },
 ];
 
 export default function NetworkEngineeringPage() {
@@ -67,18 +134,17 @@ export default function NetworkEngineeringPage() {
             <span>/</span>
             <Link href="/services/technology-consulting/networking" className="hover:text-white/60 transition-colors">Networking</Link>
             <span>/</span>
-            <span className="text-white/50">Network Engineering</span>
+            <span className="text-white/50">Network Design &amp; Engineering</span>
           </div>
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
             Technology Consulting
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
-            Network Engineering
+            Network Design &amp; Engineering
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
-            Physical network design and Cisco hardware deployment — designed from
-            first principles, pre-configured before it arrives, and documented
-            so your team can manage it.
+            New builds from first principles and remediation of existing environments — Cisco switching,
+            VLAN architecture, redundancy, and documentation that actually reflects what was installed.
           </p>
         </div>
       </section>
@@ -94,22 +160,28 @@ export default function NetworkEngineeringPage() {
             </div>
             <div className="lg:col-span-7 space-y-5">
               <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight leading-snug">
-                Most office networks weren&apos;t designed — they were assembled.
+                Most networks weren&apos;t designed — they were assembled. And then they grew haphazardly.
               </h2>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                Every office network has a switch at its center, and most of them
-                are installed the same way: cables run in every direction, configuration
-                left at factory defaults, and a rack that nobody can trace. RSystems
-                builds networks using Cisco switching equipment for reliability and
-                industry-standard operating systems — designed intentionally rather
-                than accumulated over time.
+                Every office network has a switch at its center, and most of them arrived the same way:
+                cables run in every direction, configuration left at factory defaults, and a rack nobody
+                can trace. Small networks accumulate over time rather than being designed intentionally —
+                creating security gaps, performance bottlenecks, and infrastructure that&apos;s difficult
+                to support or extend.
+              </p>
+              <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
+                RSystems handles both sides of this problem. For new environments, we design and deploy
+                Cisco switching infrastructure from first principles — pre-configured before it ships,
+                installed cleanly, documented completely. For existing environments, we review everything
+                — hardware, software, configuration, and third-party services — and deliver a comprehensive
+                redesign that addresses what&apos;s actually wrong.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services */}
+      {/* What We Address */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -128,7 +200,7 @@ export default function NetworkEngineeringPage() {
             </div>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
-                Cisco Hardware & Deployment
+                Cisco Hardware &amp; Deployment
               </p>
               <ul className="space-y-3">
                 {ciscoServices.map((item) => (
@@ -143,18 +215,52 @@ export default function NetworkEngineeringPage() {
         </div>
       </section>
 
-      {/* Approach */}
+      {/* What Improves / What We Deliver */}
       <section className="bg-[#F4F2EF]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+                What Improves
+              </p>
+              <ul className="space-y-3">
+                {whatImproves.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+                What We Deliver
+              </p>
+              <ul className="space-y-3">
+                {whatWeDeliver.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Approach */}
+      <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
             Our Approach
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
-            How RSystems approaches network engineering engagements.
+            How RSystems approaches network engagements.
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
             {approach.map((item) => (
-              <div key={item.step} className="bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
+              <div key={item.step} className="bg-white p-7 hover:bg-[#F4F2EF] transition-colors">
                 <p className="text-[11px] font-semibold text-[#E8500A] mb-3">{item.step}</p>
                 <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">{item.title}</h3>
                 <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">{item.body}</p>
@@ -164,62 +270,25 @@ export default function NetworkEngineeringPage() {
         </div>
       </section>
 
-      {/* Case Study Callout */}
-      <section className="bg-white">
+      {/* Case Studies */}
+      <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
           <div className="border-t border-[#1A1A1A]/[0.08] divide-y divide-[#1A1A1A]/[0.06]">
-            <div className="py-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12">
-              <div className="flex-1 min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">Case Study</p>
-                <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">See This In Practice</h3>
-                <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">This work is documented in our Redundancy by Design case study — a zero-compromise infrastructure covering networking, wireless, compute, and storage, with redundancy as a first-order constraint.</p>
+            {caseStudies.map((cs) => (
+              <div key={cs.href} className="py-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12">
+                <div className="flex-1 min-w-0">
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">Case Study</p>
+                  <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">{cs.title}</h3>
+                  <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">{cs.body}</p>
+                </div>
+                <Link
+                  href={cs.href}
+                  className="flex-shrink-0 text-sm font-semibold text-[#E8500A] hover:text-[#E8500A]/75 transition-colors whitespace-nowrap"
+                >
+                  Read the Case Study →
+                </Link>
               </div>
-              <a href="https://rsystems.nyc/case-studies/redundancy-by-design" className="flex-shrink-0 text-sm font-semibold text-[#E8500A] hover:text-[#E8500A]/75 transition-colors whitespace-nowrap">
-                Read the Case Study →
-              </a>
-            </div>
-            <div className="py-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12">
-              <div className="flex-1 min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">Case Study</p>
-                <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">Festival-Grade Network Engineering</h3>
-                <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">See how RSystems engineered a self-healing temporary network for FoST Fest at Snug Harbor — spanning twelve landmarked buildings, a Great Lawn tent 600 feet from the nearest switch, and thousands of concurrent VR/AR devices.</p>
-              </div>
-              <a href="https://rsystems.nyc/case-studies/fost-fest" className="flex-shrink-0 text-sm font-semibold text-[#E8500A] hover:text-[#E8500A]/75 transition-colors whitespace-nowrap">
-                Read the Case Study →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Case Study */}
-      <section className="bg-white border-t border-[#1A1A1A]/[0.07]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
-            <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]">
-                Case Study
-              </p>
-            </div>
-            <div className="lg:col-span-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <p className="text-base font-semibold text-[#1A1A1A] leading-snug mb-1">
-                  The Night $4.6 Million Moved Over Wi-Fi
-                </p>
-                <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
-                  Event network design for the charity:water Gala at the Metropolitan Museum of Art — traffic-modeled for peak load, tested before the night, invisible on the night.
-                </p>
-              </div>
-              <Link
-                href="/case-studies/charity-water-gala"
-                className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
-              >
-                Read Case Study
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>

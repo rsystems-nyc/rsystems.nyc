@@ -212,6 +212,7 @@ export const industriesData: Industry[] = [
     platforms: ["AutoCAD", "Autodesk Revit", "Bluebeam Revu", "Enscape", "Azure Virtual Desktop", "Microsoft 365", "Synology", "Dell Precision", "Apple Silicon"],
     relatedWork: [
       { href: "/case-studies/windows-tools-for-a-mac-design-firm", label: "GPU Workstations for a Mac Architecture Firm" },
+      { href: "/case-studies/redundancy-by-design", label: "Zero Downtime Since Deployment — Enterprise Infrastructure for a Leading NYC Architecture Firm" },
     ],
     seoTitle: "IT for Architecture & Design Firms | RSystems NYC",
     seoDescription: "RSystems understands the infrastructure requirements of architecture and design practices — GPU workstations, cloud-hosted AutoCAD and Revit on Azure Virtual Desktop, shared storage for large BIM datasets, and Autodesk license management.",
@@ -259,7 +260,9 @@ export const industriesData: Industry[] = [
     relatedWork: [
       { href: "/case-studies/easterseals-nj-intune", label: "Automating Device Management — Easterseals NJ" },
       { href: "/case-studies/charity-water-gala", label: "Keeping a Gala Online — charity:water" },
-      { href: "/case-studies/little-island", label: "Little Island", placeholder: true },
+      { href: "/case-studies/little-island", label: "Little Island" },
+      { href: "/case-studies/audubon-corkscrew", label: "The Network Behind the Boardwalk — Corkscrew Swamp Sanctuary" },
+      { href: "/case-studies/audubon-azure", label: "Replacing a 10-Year-Old Data Center — National Audubon Society" },
     ],
     seoTitle: "IT for Nonprofits & Mission-Driven Organizations | RSystems NYC",
     seoDescription: "RSystems provides IT leadership and managed services for nonprofits — TechSoup and Microsoft/Google nonprofit programs, device management, multi-year technology roadmaps, and support for distributed, mission-driven organizations.",

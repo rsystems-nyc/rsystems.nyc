@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — RSystems",
+  title: "About RSystems NYC | Executive IT Leadership & Consulting",
   description:
-    "RSystems is a New York City-based Executive IT Leadership & Consulting firm. Senior infrastructure expertise and technology strategy since 2025.",
+    "RSystems is a New York City-based executive IT leadership and consulting firm — providing technology strategy, infrastructure architecture, and senior-level managed services for organizations that need deep expertise without a full-time hire.",
+  openGraph: {
+    title: "About RSystems NYC | Executive IT Leadership & Consulting",
+    description:
+      "RSystems is a New York City-based executive IT leadership and consulting firm — providing technology strategy, infrastructure architecture, and senior-level managed services for organizations that need deep expertise without a full-time hire.",
+    url: "https://rsystems.nyc/about/",
+  },
+  twitter: {
+    title: "About RSystems NYC | Executive IT Leadership & Consulting",
+    description:
+      "RSystems is a New York City-based executive IT leadership and consulting firm — providing technology strategy, infrastructure architecture, and senior-level managed services for organizations that need deep expertise without a full-time hire.",
+  },
 };
 
 const reasons = [
@@ -64,10 +75,9 @@ export default function AboutPage() {
                 A focused firm, not a generalist shop.
               </h2>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                RSystems was founded in New York City in 2025 with a clear focus: provide
+                RSystems was founded in New York City with a clear focus: provide
                 the kind of senior technical leadership that growing and established
-                organizations need but rarely find. Not a managed service provider. Not a
-                staffing firm. Not a generalist IT shop that does everything for everyone.
+                organizations need but rarely find.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
                 We engage at the C-suite level — working directly with CFOs, COOs, CTOs,
@@ -78,13 +88,21 @@ export default function AboutPage() {
                 needs without the overhead of a full-time hire.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
+                We also provide ongoing managed services for organizations that need
+                senior-level platform administration and back-end infrastructure
+                management on a retainer basis — identity platforms, cloud infrastructure,
+                server and storage administration, and security tooling. When we do
+                provide end-user support, it&apos;s for executives and technically complex
+                situations that warrant a senior practitioner. Routine help desk and
+                tier 1 requests are better served by a dedicated MSP staffed for that
+                work — and we&apos;re glad to recommend one.
+              </p>
+              <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
                 We work best with organizations tackling high-impact infrastructure
                 projects — the kind that deliver lasting value and require deep experience
                 to execute well. For established organizations, we partner on strategic
                 work alongside your existing IT team. For growing companies, we help build
-                a solid foundation from day one. For smaller teams that are serious about
-                infrastructure, we implement foundational systems and connect you with
-                trusted partners for ongoing support.
+                a solid foundation from day one.
               </p>
             </div>
           </div>

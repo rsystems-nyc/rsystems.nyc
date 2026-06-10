@@ -3,9 +3,9 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Track Record — RSystems",
+  title: "Track Record | RSystems NYC",
   description:
-    "Over 15+ years, Reilly has consulted for hundreds of organizations across industries — from startups to multinational companies to ultra-high net worth individuals.",
+    "A selection of the organizations Reilly has worked with over 15+ years — through RSystems and through prior engagements — across industries and at every scale.",
 };
 
 const clients: { industry: string; entries: { name: string; url: string }[] }[] = [
@@ -119,6 +119,12 @@ const clients: { industry: string; entries: { name: string; url: string }[] }[] 
       { name: "Modellus Novus", url: "https://mndpc.com/" },
     ],
   },
+  {
+    industry: "Biotech",
+    entries: [
+      { name: "Ecovative", url: "https://ecovative.com/" },
+    ],
+  },
 ];
 
 export default function TrackRecordPage() {
@@ -138,9 +144,10 @@ export default function TrackRecordPage() {
             Track Record
           </h1>
           <p className="mt-5 text-lg text-white/50 max-w-2xl leading-relaxed">
-            Over 15+ years, Reilly has consulted for hundreds of organizations
-            across industries — from startups to multinational companies to
-            ultra-high net worth individuals.
+            Over 15 years, Reilly has worked with hundreds of organizations
+            across industries — through RSystems and through prior engagements —
+            from early-stage startups to multinational companies. A selection
+            is listed below.
           </p>
         </div>
       </section>

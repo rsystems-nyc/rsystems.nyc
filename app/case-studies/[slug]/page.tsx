@@ -30,15 +30,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       type: "article",
       ...(cs.canonicalPath && { url: `https://rsystems.nyc${cs.canonicalPath}` }),
-      ...(cs.featuredImage && {
-        images: [{ url: cs.featuredImage.src, alt: cs.featuredImage.alt }],
+      ...((cs.ogImage ?? cs.featuredImage) && {
+        images: [{ url: cs.ogImage ?? cs.featuredImage!.src, alt: cs.featuredImage?.alt ?? "" }],
       }),
     },
     twitter: {
       card: "summary_large_image",
       title: ogTitle,
       description,
-      ...(cs.featuredImage && { images: [cs.featuredImage.src] }),
+      ...((cs.ogImage ?? cs.featuredImage) && { images: [cs.ogImage ?? cs.featuredImage!.src] }),
     },
   };
 }
@@ -344,6 +344,23 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Closing image */}
+      {cs.closingImage && (
+        <section className="bg-[#F4F2EF]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+            <div className="relative overflow-hidden w-full rounded-lg">
+              <Image
+                src={cs.closingImage.src}
+                alt={cs.closingImage.alt}
+                width={1200}
+                height={800}
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Press citation */}
       {cs.pressCitation && (

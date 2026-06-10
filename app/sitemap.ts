@@ -44,7 +44,6 @@ const techConsultingRoutes = [
   "/services/technology-consulting/compute-storage",
   "/services/technology-consulting/initial-assessment",
   "/services/technology-consulting/network-engineering",
-  "/services/technology-consulting/network-infrastructure-design",
   "/services/technology-consulting/azure-consulting-and-development",
   "/services/technology-consulting/synology-storage-consulting",
   "/services/technology-consulting/dell-poweredge-server-solutions",

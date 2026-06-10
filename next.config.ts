@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "macktez.com" },
       { protocol: "https", hostname: "www.macktez.com" },
+      { protocol: "https", hostname: "media.audubon.org" },
+      { protocol: "https", hostname: "azure.microsoft.com" },
     ],
   },
 };

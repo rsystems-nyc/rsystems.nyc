@@ -19,14 +19,9 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    name: "Network Engineering",
+    name: "Network Design & Engineering",
     href: "/services/technology-consulting/network-engineering",
-    tagline: "Physical network design and Cisco hardware deployment for reliable, high-performance environments.",
-  },
-  {
-    name: "Network Infrastructure Design",
-    href: "/services/technology-consulting/network-infrastructure-design",
-    tagline: "Comprehensive review and redesign of your network infrastructure for performance, security, and scalability.",
+    tagline: "New builds from first principles and remediation of existing environments — Cisco switching, VLAN architecture, redundancy, and complete documentation.",
   },
   {
     name: "Firewall & Network Security",

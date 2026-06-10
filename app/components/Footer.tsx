@@ -47,6 +47,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/industries/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Industries
+                </Link>
+              </li>
+              <li>
                 <Link href="/case-studies/" className="text-sm text-white/50 hover:text-white transition-colors">
                   Case Studies
                 </Link>
@@ -54,11 +59,6 @@ export default function Footer() {
               <li>
                 <Link href="/about/track-record/" className="text-sm text-white/50 hover:text-white transition-colors">
                   Track Record
-                </Link>
-              </li>
-              <li>
-                <Link href="/prospective-client/" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Work With Us
                 </Link>
               </li>
               <li>
@@ -88,7 +88,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/services/management/" className="text-sm text-white/50 hover:text-white transition-colors">
-                    RSystems Management
+                    Managed Services
                   </Link>
                 </li>
               </ul>

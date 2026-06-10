@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const bundledServices = [
   "Identity Management",
-  "Workstation Management",
+  "Endpoint Management",
   "Backup Management",
   "Domain Management",
   "Network Management",
@@ -33,7 +33,7 @@ const baseLicense = [
 
 const perIdentityLicense = [
   "Identity Management License",
-  "Workstation Management License",
+  "Endpoint Management License",
   "Backup Management License",
 ];
 
@@ -56,18 +56,18 @@ export default function CoreSuitePage() {
           <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-white/30 mb-10 flex-wrap">
             <Link href="/services" className="hover:text-white/60 transition-colors">Services</Link>
             <span>/</span>
-            <Link href="/services/management" className="hover:text-white/60 transition-colors">RSystems Management</Link>
+            <Link href="/services/management" className="hover:text-white/60 transition-colors">Managed Services</Link>
             <span>/</span>
             <span className="text-white/50">Core Suite</span>
           </div>
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
-            RSystems Management
+            Managed Services
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
             Core Suite
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
-            The complete RSystems Management bundle — all five management services
+            The complete Managed Services bundle — all five management services
             in a single subscription with consolidated billing.
           </p>
         </div>
@@ -89,8 +89,8 @@ export default function CoreSuitePage() {
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
                 When holistic improvements to a client&apos;s IT infrastructure, digital
                 security, and organizational systems are desired, we recommend
-                enrolling in the RSystems Management Core Suite. The Core Suite
-                bundles all RSystems Management services into a single subscription
+                enrolling in the Managed Services Core Suite. The Core Suite
+                bundles all Managed Services services into a single subscription
                 with a base organizational fee plus per-identity pricing.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">

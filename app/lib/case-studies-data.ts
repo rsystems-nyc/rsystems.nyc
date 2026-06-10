@@ -32,25 +32,64 @@ export interface CaseStudy {
   results: string[];
   seoTitle?: string;
   seoDescription?: string;
+  ogImage?: string;
   canonicalPath?: string;
   jsonLd?: Record<string, unknown>;
+  closingImage?: { src: string; alt: string };
   pressCitation?: { label: string; href: string };
 }
 
 export const caseStudiesData: CaseStudy[] = [
   {
     slug: "redundancy-by-design",
-    title: "Redundancy by Design",
+    title: "Zero Downtime Since Deployment — Enterprise Infrastructure for a Leading NYC Architecture Firm",
     subtitle:
-      "Engineering a high-availability infrastructure for a high-throughput creative firm",
+      "A ground-up, zero-compromise infrastructure built with redundancy as a first-order constraint — network, compute, storage, wireless, and access control, with no single point of failure tolerated anywhere in the stack.",
     client: "A leading NYC architecture firm",
-    industry: "Architecture",
-    tags: ["Infrastructure Architecture", "Network Design", "Storage", "VMware"],
+    industry: "Architecture & Design",
+    tags: [
+      "Infrastructure Architecture",
+      "Network Design",
+      "Storage",
+      "VMware",
+      "Access Control",
+      "Ruckus Wi-Fi 6",
+    ],
     summary:
-      "Ground-up network and storage infrastructure built for the throughput demands of CAD and BIM workflows — with zero infrastructure downtime since deployment and 5–7 Gbps real-world file transfer speeds.",
+      "Ground-up redundant infrastructure for a 100-person architecture firm — Cisco switching, Ruckus Wi-Fi 6, VMware cluster, dual-controller SAN, PDK access control, and 10 Gbps WAN. Zero downtime since deployment.",
     featuredImage: {
-      src: "https://macktez.com/wp-content/uploads/2026/03/Case-Study-Network-Topology-Map-600dpi_.png",
-      alt: "Network topology diagram showing full redundancy across all layers",
+      src: "/assets/PI_Network_Topology.png",
+      alt: "Network topology diagram — Pembrooke & Ives full-stack redundant infrastructure",
+    },
+    seoTitle:
+      "Zero Downtime Since Deployment — Enterprise Infrastructure for a Leading NYC Architecture Firm | RSystems NYC",
+    ogImage: "https://rsystems.nyc/assets/PI_Network_Topology.png",
+    seoDescription:
+      "RSystems designed a ground-up, zero-compromise infrastructure for a 100-person NYC architecture firm — fully redundant networking, enterprise SAN, VMware cluster, Ruckus Wi-Fi 6, PDK access control with Entra provisioning, and a 10 Gbps WAN. Zero infrastructure downtime since deployment.",
+    canonicalPath: "/case-studies/redundancy-by-design",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline:
+        "Zero Downtime Since Deployment — Enterprise Infrastructure for a Leading NYC Architecture Firm",
+      description:
+        "RSystems designed a ground-up, zero-compromise infrastructure for a 100-person NYC architecture firm — fully redundant networking, enterprise SAN, VMware cluster, Ruckus Wi-Fi 6, PDK access control with Entra provisioning, and a 10 Gbps WAN. Zero infrastructure downtime since deployment.",
+      author: {
+        "@type": "Organization",
+        name: "RSystems NYC",
+        url: "https://rsystems.nyc",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "RSystems NYC",
+        url: "https://rsystems.nyc",
+      },
+      about: {
+        "@type": "Organization",
+        name: "A leading NYC architecture firm",
+      },
+      keywords:
+        "architecture firm infrastructure, Cisco Catalyst 9300, Cisco Catalyst 9500, SonicWall NSA 4700, Ruckus Wi-Fi 6, VMware ESXi, Dell PowerEdge, Synology UC3200, PDK access control, Entra ID, disaster recovery, high availability",
     },
     sections: [
       {
@@ -59,11 +98,11 @@ export const caseStudiesData: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "A leading New York City architecture firm scaling to over 100 employees needed infrastructure capable of handling the high-concurrency, high-throughput demands of their design workflow. Staff worked directly from shared storage with large CAD and BIM files — and the legacy Windows Server environment couldn't keep up.",
+            text: "When a premier New York City architecture firm scaled past 100 employees and relocated to a new headquarters, their legacy bare-metal Windows Server environment could no longer support the high-concurrency, high-throughput demands of their design workflow. Staff worked directly off shared storage rather than copying files locally — a workflow pattern that ruthlessly exposes any latency or bandwidth weakness in the underlying infrastructure. Large-format CAD and BIM assets, real-time multi-user collaboration, and uninterrupted application availability were non-negotiable requirements.",
           },
           {
             type: "p",
-            text: "The goal wasn't incremental improvement. It was a ground-up infrastructure built on the principle that every layer must be redundant — network, compute, and storage — with no single point of failure tolerated anywhere in the stack.",
+            text: "RSystems was engaged to architect a ground-up, zero-compromise infrastructure covering wired networking, wireless, compute, storage, and access control. Redundancy was a first-order design constraint at every layer: redundant power, controllers, chassis, and paths throughout. The goal wasn't incremental improvement — it was an environment that could absorb any single component failure without interruption.",
           },
         ],
       },
@@ -74,31 +113,63 @@ export const caseStudiesData: CaseStudy[] = [
           { type: "h3", text: "Access Layer" },
           {
             type: "p",
-            text: "Six Cisco Catalyst 9300 switches — approximately 300 ports total — form the access layer, leveraging StackPower technology to share power across the stack domain. Each switch remains fully operational even if both of its local PSUs fail simultaneously, eliminating an entire category of single points of failure at the access edge.",
+            text: "Six Cisco Catalyst 9300 switches form the access layer as a single logical stack, providing nearly 300 ports across the office floor. The top stack member — a multi-gigabit variant — is dedicated exclusively to wireless access point uplinks, supporting 5 Gbps per AP uplink with headroom for future 10 Gbps capacity. The stack was specified with 8-port 10GbE expansion modules to provide significant uplink headroom beyond what the licensing tier requires.",
+          },
+          {
+            type: "p",
+            text: "Beyond data-plane stacking (each inter-switch link operates at 480 Gbps, dual cables per switch providing 960 Gbps of intra-stack capacity), Cisco StackPower connects the power supplies of all stacked switches into a single logical power domain. A switch member remains fully operational even if both of its local PSUs fail simultaneously, provided the aggregate pool has sufficient capacity from neighboring members. Every switch carries dual PSUs on independent 30-amp UPS circuits — defense-in-depth at the power layer.",
           },
           { type: "h3", text: "Core Layer" },
           {
             type: "p",
-            text: "Dual Cisco Catalyst 9500 switches operate as a unified virtual chassis via StackWise Virtual, delivering 80 Gbps inter-chassis throughput. All 12 access-to-core uplinks function as a single EtherChannel bundle across both chassis — true cross-chassis link aggregation with no spanning tree blocking.",
+            text: "Dual Cisco Catalyst 9500 switches operate via StackWise Virtual — a unified control plane in which both chassis are simultaneously active and authoritative. Neither chassis can enter a split-brain state. From the perspective of any connected device, the two physical switches are a single logical entity.",
           },
-          { type: "h3", text: "Firewall" },
           {
             type: "p",
-            text: "A SonicWall NSA 4700 pair operates in active/passive high availability, rated for sustained 10 Gbps inspection throughput. Failover is automatic and stateful — no manual intervention, no traffic disruption.",
+            text: "This enables true cross-chassis EtherChannel: all 12 access-to-core uplinks function as a single bundle, providing 120 Gbps of aggregate bandwidth between layers with simultaneous throughput and link-level redundancy — and no spanning tree blocking. Both core switches carry redundant PSUs on independent circuits.",
+          },
+          { type: "h3", text: "Firewall & WAN" },
+          {
+            type: "p",
+            text: "A SonicWall NSA 4700 pair operates in active/passive HA, selected specifically for its ability to sustain full deep-packet inspection at 10 Gbps line rate. The site runs a 10 Gbps primary WAN circuit with a 1 Gbps backup — the 4700 was sized to ensure the firewall is never the throughput ceiling at either circuit speed. Downstream connectivity from each firewall to the core uses four bonded 10GbE links (40 Gbps per firewall). Failover is automatic and stateful, typically converging within 2–3 seconds. Both units carry redundant power on independent circuits.",
+          },
+          { type: "h3", text: "Thermal Management" },
+          {
+            type: "p",
+            text: "The server room presented a challenge common in built-out office environments: extending dedicated precision cooling would have required tens of thousands of dollars in additional ductwork and chiller capacity — not viable given the space geometry. RSystems specified and installed a dedicated HVAC unit within the server room with a hot-aisle/cold-aisle design: cold supply air directed at rack front faces, hot exhaust captured and ducted into an adjacent room. Stable operating temperatures have been maintained since deployment.",
           },
         ],
       },
       {
         label: "Wireless",
-        heading: "Enterprise Wi-Fi 6 with virtualized controllers",
+        heading: "Enterprise Wi-Fi 6 in a hostile RF environment",
         blocks: [
           {
             type: "p",
-            text: "Ruckus Wi-Fi 6 access points are tiered by coverage requirements: R850 (8×8:8 MU-MIMO) in high-density zones, R650 and R610 in conference rooms. Controller-directed roaming continuously evaluates RSSI and SNR metrics to prevent clients from holding connections to distant APs — a common source of degraded performance in large floorplate deployments.",
+            text: "The firm's open floor plan — glass partitions, reflective surfaces, dense client populations in continuous motion — presents a genuinely hostile RF environment. RSystems over-specified radio capacity relative to theoretical client density so that practical performance remained top-tier even as conditions diverged from lab ideals.",
           },
           {
             type: "p",
-            text: "Ruckus SmartZone controllers were virtualized on the existing Dell/VMware cluster, eliminating $20,000 in dedicated controller hardware spend without compromising any management or roaming capability.",
+            text: "A tiered Ruckus Wi-Fi 6 deployment was specified by per-zone density:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Ruckus R850 (8×8:8 MU-MIMO) in high-density open-plan design zones and primary desk clusters — the 8-stream radio capacity is critical for managing co-channel interference where many clients are simultaneously active in a small area",
+              "Ruckus R650 / R610 in conference rooms and corridor coverage zones",
+            ],
+          },
+          {
+            type: "p",
+            text: "All APs were cabled with dual Cat6a cables supporting 10GbE, ensuring neither cabling nor hardware becomes a bottleneck on a 5–10 year refresh cycle.",
+          },
+          {
+            type: "p",
+            text: "Rather than purchasing physical SmartZone controller appliances (~$10,000 per unit at time of deployment), RSystems virtualized redundant SmartZone instances as VMs on the Dell/VMware cluster — eliminating $20,000 in dedicated controller hardware without sacrificing any management or roaming capability. VM-level HA and vMotion portability are added benefits.",
+          },
+          {
+            type: "p",
+            text: "The controller-managed roaming model is central to wireless performance in this environment. Without a controller, roaming decisions are left to client devices — leading to the sticky client problem, where a laptop holds a degraded AP signal rather than handing off to a stronger one. SmartZone continuously monitors per-client RSSI and SNR across the AP fabric and issues directed disassociations, seamlessly transitioning clients to the optimal AP during active video calls or large file transfers. This orchestration is invisible to the user.",
           },
         ],
       },
@@ -106,38 +177,27 @@ export const caseStudiesData: CaseStudy[] = [
         label: "Storage",
         heading: "Dual-controller SAN with 80 Gbps aggregate bandwidth",
         blocks: [
+          { type: "h3", text: "Primary SAN — Synology UC3200" },
           {
-            type: "specs",
-            groups: [
-              {
-                title: "Primary: Synology UC3200",
-                items: [
-                  ["Controllers", "Dual active-active iSCSI with nanosecond failover"],
-                  ["Drives", "8 × 16TB SAS HDD + 4 × 1.92TB SSD cache tier"],
-                  ["Interfaces", "8 × 10GbE iSCSI (80 Gbps aggregate bandwidth)"],
-                  ["Failover", "Active-active with transparent path switch on failure"],
-                ],
-              },
-              {
-                title: "Secondary: Synology SA3200D",
-                items: [
-                  ["Controllers", "Active/passive"],
-                  ["Roles", "Cloud replication to AWS S3, DNS services"],
-                  ["Replication", "Continuous sync from primary"],
-                ],
-              },
-              {
-                title: "Multipath I/O (MPIO)",
-                items: [
-                  ["Configuration", "ALUA MPIO for intelligent path selection"],
-                  ["Round-Robin threshold", "1 I/O operation (default: 1,000)"],
-                  [
-                    "EtherChannel hashing",
-                    "Coordinated across network and vSwitch layers",
-                  ],
-                ],
-              },
-            ],
+            type: "p",
+            text: "Selected specifically for its dual active-active iSCSI controllers. Each controller has its own processor, RAM, and dedicated network interfaces. Path failover on controller failure occurs at the hardware level with nanosecond-range latency — no controller election, no convergence delay, no VM I/O timeout. Both controllers serve I/O continuously.",
+          },
+          {
+            type: "p",
+            text: "Disk configuration: 8 × 16TB SAS HDD with 4 × 1.92TB SAS SSD read/write cache tier. The cache tier handles small-block, high-IOPS workloads; spinning disk handles large sequential transfers. The tiering engine dynamically promotes and demotes data based on access patterns.",
+          },
+          {
+            type: "p",
+            text: "iSCSI connectivity: 8 discrete 10GbE interfaces, each with a unique IP address, all running Jumbo Frames (MTU 9000) — 80 Gbps of raw iSCSI bandwidth. Each ESXi host uses 3 dedicated 10GbE NICs for iSCSI, providing 9 host-side paths in aggregate, closely matched to the 8 appliance-side paths. The network fabric was deliberately over-provisioned relative to the storage appliance's maximum sustainable I/O throughput — the disk array is the ceiling, not the network. That is by design.",
+          },
+          {
+            type: "p",
+            text: "Three precision tuning optimizations were applied: ALUA MPIO for intelligent path selection that avoids unnecessary inter-controller traffic; Round-Robin IOPS threshold reduced from 1,000 to 1 (distributing I/O across all 8 active paths simultaneously rather than allowing a single path to carry disproportionate load); and EtherChannel hashing algorithms coordinated across Cisco switch and VMware vSwitch layers to ensure balanced traffic distribution across all physical links.",
+          },
+          { type: "h3", text: "Secondary SAN — Synology SA3200D" },
+          {
+            type: "p",
+            text: "Active/passive dual-controller unit serving as backup target and extended services platform. The SA3200D was chosen over a second UC3200 for its support of native cloud replication to AWS S3, DNS services, and additional data management capabilities required by the firm's workflow. The trade-off — a few seconds of failover latency versus nanoseconds on the primary — is acceptable on the backup tier where brief interruptions are tolerable.",
           },
         ],
       },
@@ -147,25 +207,67 @@ export const caseStudiesData: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "Three Dell PowerEdge R650 servers run VMware ESXi 7 under Essentials Plus licensing — approximately $7,000 total. Each host is configured with 128GB RAM and six 10GbE NICs: three dedicated to iSCSI storage traffic, three bonded for VM network traffic.",
+            text: "Three Dell PowerEdge R650 servers form the compute cluster, each configured with 128GB RAM (half-filled slots reserved for future expansion) and 6 × 10GbE SFP+ NICs: 3 dedicated to iSCSI storage traffic, 3 bonded via EtherChannel for VM data traffic, vMotion, and management.",
           },
           {
             type: "p",
-            text: "vMotion enables zero-downtime live migration of virtual machines between hosts. Distributed Resource Scheduler rebalances workloads automatically. Anti-affinity rules prevent service pairs from co-locating on the same host, so a single host failure never takes down both sides of a redundant service.",
+            text: "The cluster runs VMware ESXi 7 under Essentials Plus licensing — a one-time perpetual purchase of approximately $7,000 covering up to three hosts. This licensing tier includes vMotion and DRS, both central to the cluster's operational model.",
+          },
+          {
+            type: "p",
+            text: "vMotion enables live migration of running VMs between hosts with zero downtime — firmware updates, hardware replacements, and maintenance can be performed during business hours by migrating workloads off the target host first.",
+          },
+          {
+            type: "p",
+            text: "DRS monitors real-time CPU and RAM utilization and automatically rebalances workloads across hosts. The cluster is sized to sustain full workload capacity with any single host offline.",
+          },
+          {
+            type: "p",
+            text: "Anti-affinity rules prevent redundant service pairs from co-locating on the same host. Without them, DRS might place both domain controllers on the same physical chassis — defeating the redundancy entirely. Anti-affinity rules are defined for all critical service pairs, including domain controllers and the SmartZone controller pair.",
+          },
+          {
+            type: "p",
+            text: "The cluster supports Active Directory, file sharing, wireless controllers, cloud sync agents, a Network Video Recorder for the office camera system, print servers, and additional line-of-business VMs. All VM storage is centralized on the shared SAN — replicated and backed up, not siloed on individual host disks.",
           },
           {
             type: "p",
             text: "For context: hyperconverged platforms capable of meeting these throughput and redundancy requirements would have carried a price tag exceeding $100,000 per node.",
+          },
+          {
+            type: "img",
+            src: "/assets/pi_rack.jpeg",
+            alt: "Server rack at Pembrooke & Ives — Dell PowerEdge cluster, Cisco switching, and SAN storage",
+          },
+        ],
+      },
+      {
+        label: "Access Control",
+        heading: "Cloud-managed access control, provisioned through Entra",
+        blocks: [
+          {
+            type: "p",
+            text: "RSystems deployed PDK as the firm's physical access control platform, integrated directly with Microsoft Entra ID (Azure AD) as the identity source of truth.",
+          },
+          {
+            type: "p",
+            text: "The integration eliminates a manual provisioning step that is easy to miss and costly to overlook. When a new employee is added to Entra, PDK automatically creates their access control profile and sends them an invite to enroll their smartphone as a credential. No fob to issue, no IT ticket to file, no separate admin console to manage.",
+          },
+          {
+            type: "p",
+            text: "Staff use their phones at door readers via NFC and Bluetooth Low Energy — a faster and more reliable experience than physical credentials, and one that scales gracefully as the organization grows. Offboarding is equally automatic: removing a user from Entra revokes their building access without any additional action.",
           },
         ],
       },
     ],
     results: [
       "Zero infrastructure downtime since deployment",
-      "5–7 Gbps real-world internal file transfer throughput — comparable to local NVMe storage, delivered over shared SAN",
-      "All 12 access-to-core uplinks active simultaneously with no spanning tree blocking",
+      "5–7 Gbps real-world internal file transfer throughput — on par with local NVMe, delivered over shared SAN",
+      "10 Gbps primary WAN with 1 Gbps backup — SonicWall NSA 4700 HA pair sustains full DPI at 10 Gbps line rate",
+      "All 12 access-to-core uplinks active simultaneously — no spanning tree blocking",
+      "80 Gbps aggregate iSCSI bandwidth from primary SAN to VMware cluster",
       "SmartZone virtualization eliminated $20,000 in dedicated controller hardware",
       "Full VMware cluster deployed under $7,000 in licensing costs",
+      "PDK access control provisioned automatically through Entra — phones as credentials, zero manual issuance",
     ],
   },
 
@@ -246,94 +348,173 @@ export const caseStudiesData: CaseStudy[] = [
   },
 
   {
-    slug: "infrastructure-for-cultural-venues",
-    title: "Infrastructure for Cultural Venues",
+    slug: "little-island",
+    title: "Little Island — Built from the Waterline Up",
     subtitle:
-      "From blank page to opening day — ground-up IT for a high-profile public venue",
-    client: "A high-profile performance art venue",
-    industry: "Culture & Public Space",
-    tags: ["Infrastructure Architecture", "Network Design", "Identity & Access"],
+      "From a startup office in Chelsea to opening-day infrastructure for 1.7 million visitors",
+    client: "Little Island",
+    industry: "Parks & Public Space",
+    tags: [
+      "Infrastructure Architecture",
+      "Network Design",
+      "Identity & Access",
+      "Systems Integration",
+      "Emergency Preparedness",
+    ],
     summary:
-      "A ground-up IT infrastructure engagement for one of New York City's most ambitious public venues — redundant 10G networking, outdoor-hardened Cisco equipment, emergency power coordination with FDNY and NYPD, and JumpCloud identity for nearly 100 employees, delivered on time for opening day.",
+      "Ground-up IT infrastructure for NYC's most ambitious new public park — network architecture, identity, Dante audio, Genetec, emergency systems, and 1.7M visitors in year one.",
     featuredImage: {
       src: "https://www.macktez.com/wp-content/uploads/2021/09/image3.jpg",
-      alt: "High-profile NYC performance venue",
+      alt: "Little Island park, Hudson River, New York City",
+    },
+    seoTitle: "Little Island — Built from the Waterline Up | RSystems NYC",
+    seoDescription:
+      "RSystems designed and deployed the full IT infrastructure for Little Island — ground-up network architecture, identity, emergency systems, and deep systems integration across a $260M+ public park build, delivered on time for 1.7 million visitors.",
+    canonicalPath: "/case-studies/little-island",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Little Island — Built from the Waterline Up",
+      "description":
+        "RSystems designed and deployed the full IT infrastructure for Little Island, including ground-up network architecture, JumpCloud identity, Genetec access control, Dante audio networking, and emergency systems coordination with FDNY, NYPD, and the Hudson River Park Trust.",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "about": { "@type": "Organization", "name": "Little Island" },
+      "keywords":
+        "Little Island, network infrastructure, JumpCloud, Genetec, Dante audio, parks technology, NYC, emergency communications",
     },
     sections: [
       {
         label: "How It Started",
-        heading: "A modest engagement that grew into something else",
+        heading: "A modest engagement at the edge of Manhattan",
         blocks: [
           {
             type: "p",
-            text: "The organization behind this high-profile NYC performance venue initially sought modest assistance: subscription management, workstation recommendations, and basic desktop support. When they relocated near their construction site, RSystems was invited to design a local office network.",
+            text: "Little Island was one of New York's most anticipated civic projects — a $260M+ gift from Barry Diller and Diane von Furstenberg to the city, constructed on 132 concrete tulip-shaped piers off the Hudson shore in Chelsea. When the organization behind the park needed basic office support — subscription cleanup, workstation recommendations, occasional help desk — RSystems showed up. What followed was two years of deep technical involvement in one of the most complex ground-up IT builds in the city.",
           },
           {
             type: "p",
-            text: "That initial engagement expanded into a comprehensive review of the venue's IT architecture — a project that would ultimately touch every system on the site.",
+            text: "RSystems was engaged to set up a small office for the park's startup team near the construction site. A few questions about connecting that office across West Side Highway to the park led to a request to review the WiFi specification the general contractor had provided. That review surfaced something significant: the underlying network had not been designed.",
           },
         ],
       },
       {
-        label: "The Challenge",
-        heading: "An equipment list that didn't exist",
-        blocks: [
-          {
-            type: "quote",
-            text: "RSystems asked us for an equipment list, but it didn't exist.",
-            attribution: "The venue's Park Operations Manager",
-          },
-          {
-            type: "p",
-            text: "RSystems discovered critical gaps in the preliminary IT plan: unspecified network equipment, no network topology design, no environmental considerations for outdoor installation, and no redundancy planning for power failures.",
-          },
-          {
-            type: "p",
-            text: "For a major public venue, power redundancy isn't optional — it's a public safety requirement. Emergency communications must stay online regardless of what happens to commercial power. Drawing on prior experience with comparable New York City public infrastructure projects, RSystems recognized this immediately and escalated the scope accordingly.",
-          },
-          {
-            type: "p",
-            text: "After a year-long effort to secure Verizon service proved unsuccessful, RSystems leveraged existing relationships with Pilot Fiber to negotiate a dedicated connectivity arrangement for the site.",
-          },
-          {
-            type: "quote",
-            text: "It turns out the internet is connected to everything.",
-            attribution: "The venue's Park Operations Manager",
-          },
-        ],
-      },
-      {
-        label: "The Solution",
-        heading: "Redundant infrastructure built for public exposure",
+        label: "The Advisory Role",
+        heading: "Working inside a $260M design/build",
         blocks: [
           {
             type: "p",
-            text: "RSystems collaborated with FDNY and NYPD to design redundant power systems with substantial backup battery capacity, satisfying emergency communications requirements. Every aspect of the outdoor installation was engineered for the specific conditions of a public waterfront site — waterproofing, temperature management, and installation topography.",
+            text: "By 2019, RSystems was embedded as the technical advisor to the full project team — working alongside general contractor Hunter Roberts, Standard Architects, and IAC executive Jason Stewart, who served as Barry Diller's personal representative and project executive throughout the build.",
           },
           {
             type: "p",
-            text: "For the venue's operational staff, RSystems deployed JumpCloud — creating a single sign-on environment integrating email, conferencing, access control, and HR systems across the entire organization. Nearly 100 workstations were onboarded securely ahead of opening day.",
+            text: "Arup, the engineering firm that had developed the initial IT plans, had since departed the project. Their work included solid WiFi coverage planning but left critical gaps: no network topology, no specified switching equipment, no environmental hardening for an outdoor marine installation, and — critically — no power redundancy. For a public space of this profile, that last omission wasn't a design preference. It was a public safety deficiency.",
+          },
+          {
+            type: "p",
+            text: "RSystems reviewed the full architectural and engineering plan set, identified every system with a network dependency, and rebuilt the IT infrastructure design from scratch. That review extended well beyond networking: fire alarm integration, security camera alignment, conduit routing for future cable pulls, and close coordination with MEP contractors on power and environmental controls. When problems were found — a fire alarm system that wasn't connected to the network, security cameras that weren't aligned correctly — RSystems escalated them, even when scope disputes made that uncomfortable.",
+          },
+          {
+            type: "quote",
+            text: "He identified the problems and the solutions.",
+            attribution: "Jason Stewart, Project Executive, Little Island",
+          },
+          {
+            type: "p",
+            text: "Park Operations Manager Kathryn Lewis, who oversaw the park's technical operational readiness for opening, described the dependency simply: \"It turns out the internet is connected to everything.\"",
           },
           {
             type: "img",
             src: "https://www.macktez.com/wp-content/uploads/2021/09/image5.jpg",
-            alt: "Network installation in progress at the venue",
+            alt: "Network installation in progress at Little Island",
+          },
+        ],
+      },
+      {
+        label: "What Was Connected",
+        heading: "Every operational system ran through the network",
+        blocks: [
+          {
+            type: "p",
+            text: "Little Island is not a typical office. It operates 365 days a year with 24/7 staffing, two indoor/outdoor performance venues, public programming, food and beverage operations, and large-scale events. Nearly every operational system on the site had a network dependency — and RSystems was responsible for making sure each one worked.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Building management and MEP systems — environmental monitoring and controls across the site",
+              "Theatrical lighting and production audio — including Dante-based audio networking across both performance venues",
+              "Genetec — access control and IP camera infrastructure for the entire park",
+              "Digital signage — public-facing displays and wayfinding",
+              "Ticketing and point-of-sale — for events, programming, and food and beverage operations",
+              "Radios and two-way communications — for operations and emergency coordination",
+              "Irrigation controls — for the park's extensive horticultural systems",
+              "Financial and HR platforms — integrated through the identity layer",
+            ],
+          },
+          {
+            type: "p",
+            text: "Every system was tied together through a unified identity infrastructure via JumpCloud, providing centralized access control, auditing, and single sign-on across dozens of SAML and OIDC-integrated applications.",
+          },
+        ],
+      },
+      {
+        label: "Emergency Systems",
+        heading: "Designed for the worst day",
+        blocks: [
+          {
+            type: "p",
+            text: "For a public space on the Hudson River with large venue capacity, emergency infrastructure wasn't an afterthought — it was a design constraint baked in from the start. RSystems coordinated directly with FDNY, NYPD, and the Hudson River Park Trust to align Little Island's emergency communications infrastructure with external response procedures.",
+          },
+          {
+            type: "p",
+            text: "Working with the park's electrical team, RSystems identified excess conduit already installed in the site and designed a redundant power architecture with substantial battery backup capacity — enough to sustain emergency communications through a complete commercial power failure. Every aspect of the outdoor installation was engineered for the specific demands of a waterfront public space: waterproofing, temperature extremes, humidity, and marine exposure.",
+          },
+          {
+            type: "p",
+            text: "Getting connectivity to the site was its own challenge. After a year-long effort to secure Verizon service came up empty, RSystems leveraged a longstanding relationship with Pilot Fiber to arrange dedicated internet service for the park — a custom arrangement that required direct relationship capital and would not have been available through a standard procurement process.",
           },
           {
             type: "img",
             src: "https://www.macktez.com/wp-content/uploads/2021/09/image4.jpg",
-            alt: "Equipment installation detail",
+            alt: "Equipment installation detail at Little Island",
+          },
+        ],
+      },
+      {
+        label: "Identity & Access",
+        heading: "From 7 employees to 200+ in under a year",
+        blocks: [
+          {
+            type: "p",
+            text: "When RSystems first engaged with Little Island, the organization had fewer than ten people. By opening day, the park had grown to more than 200 employees and contractors spanning operations, programming, food and beverage, and technical roles — all of whom needed to be onboarded, credentialed, and managed at scale.",
+          },
+          {
+            type: "p",
+            text: "RSystems designed the identity infrastructure to absorb that growth. JumpCloud was deployed as the organizational directory — a single source of truth for every employee, with integrations to every business application and secure onboarding and offboarding for a team growing faster than most organizations can manage. Nearly 100 portable workstations were deployed with remote onboarding capability, so new hires could be brought online without hands-on setup, regardless of where they started.",
           },
         ],
       },
     ],
     results: [
-      "10G fully redundant network with 40G backbone — delivered on time for opening day",
-      "Cisco Catalyst 9000 Series switches for wireless systems throughout the venue",
-      "Cisco Industrial Ethernet Series for exposed outdoor locations",
-      "Nearly 100 workstations deployed with secure remote onboarding",
-      "JumpCloud SSO environment integrating email, conferencing, access control, and HR",
-      "Emergency power systems designed in coordination with FDNY and NYPD",
+      "10G fully redundant network with 40G backbone — live for opening day, May 21, 2021",
+      "Cisco Catalyst 9000 Series switching for wireless systems throughout the venue",
+      "Cisco Industrial Ethernet Series for exposed outdoor and marine-environment locations",
+      "JumpCloud identity infrastructure — SAML and OIDC integrations across dozens of applications",
+      "Genetec access control and IP camera system",
+      "Dante audio networking for two performance venues",
+      "Emergency power architecture coordinated with FDNY, NYPD, and Hudson River Park Trust",
+      "Pilot Fiber dedicated connectivity — negotiated custom arrangement",
+      "~100 workstations deployed with secure remote onboarding",
+      "Full systems integration: BMS, MEP, theatrical, signage, ticketing, POS, irrigation, radios, financial, and HR",
+      "1.7M+ visitors in the park's first year",
     ],
   },
 
@@ -1596,6 +1777,311 @@ export const caseStudiesData: CaseStudy[] = [
       "Wi-Fi credential deployment across 60+ locations using dynamic group targeting",
       "Windows 11 upgrade pipeline with staged rollout rings",
       "Iterative development in weekly partnership with the internal IT team",
+    ],
+  },
+
+  {
+    slug: "audubon-corkscrew",
+    title: "Campus-Wide Wireless for a Remote Nature Preserve",
+    subtitle:
+      "A point-to-multipoint wireless network for the National Audubon Society's Corkscrew Swamp Sanctuary — designed in New York, built in Florida, delivering 200 Mbps where major carriers declined to serve.",
+    client: "National Audubon Society",
+    industry: "Nonprofits & Conservation",
+    tags: [
+      "Wireless Infrastructure",
+      "Network Architecture",
+      "Remote Deployment",
+      "SonicWall · Cisco · Unifi",
+    ],
+    summary:
+      "Campus-wide wireless connectivity for the National Audubon Society's Corkscrew Swamp Sanctuary — remote deployment, zero carriers willing to serve, 200 Mbps delivered.",
+    featuredImage: {
+      src: "https://media.audubon.org/2025-03/Corkscrew%20%201732%20%20RJ%20Wiley%20.jpg",
+      alt: "Corkscrew Swamp Sanctuary boardwalk, National Audubon Society, Florida",
+    },
+    seoTitle: "Campus-Wide Wireless for a Remote Nature Preserve — RSystems NYC",
+    seoDescription:
+      "RSystems designed and deployed a point-to-multipoint wireless campus network for the National Audubon Society's Corkscrew Swamp Sanctuary — a remote Florida nature preserve that major carriers wouldn't serve. Delivered remotely, on time, and at a fraction of the cost of a traditional enterprise build.",
+    canonicalPath: "/case-studies/audubon-corkscrew",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Network Behind the Boardwalk",
+      "description":
+        "RSystems designed and deployed campus-wide wireless connectivity for Corkscrew Swamp Sanctuary, a remote National Audubon Society preserve in rural Florida — using a point-to-multipoint architecture, SonicWall, Cisco, and Unifi to deliver 200 Mbps campus-wide where major carriers wouldn't go.",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "about": { "@type": "Organization", "name": "National Audubon Society" },
+      "keywords":
+        "Corkscrew Swamp Sanctuary, Audubon Society, wireless network, point-to-multipoint, SonicWall, Cisco, Unifi, remote network deployment, nonprofit technology, Florida",
+    },
+    sections: [
+      {
+        label: "Background",
+        heading: "A sanctuary that couldn't get online",
+        blocks: [
+          {
+            type: "p",
+            text: "Corkscrew Swamp Sanctuary is one of the most significant conservation sites in North America — a remote nature preserve in rural Florida operated by the National Audubon Society, home to the largest old-growth bald cypress forest in the country and a premier bird-watching destination. The preserve depends on reliable connectivity for conservation work, education, visitor operations, and staff communications. For years, it had none.",
+          },
+          {
+            type: "p",
+            text: "Major carriers declined to serve the site. Earlier efforts to establish connectivity stalled repeatedly: permitting disputes with local authorities, vendor failures, and a project intermediary that went bankrupt mid-build — leaving an ISP that had invested in infrastructure unpaid and forced to withdraw. When a local provider eventually installed a 100-foot monopole on site, the sanctuary's buildings were still not wired. The physical assets were there. A functioning network was not.",
+          },
+          {
+            type: "p",
+            text: "RSystems was brought in to finish what others couldn't.",
+          },
+        ],
+      },
+      {
+        label: "The Challenge",
+        heading: "Years of stalled infrastructure, solved in months",
+        blocks: [
+          {
+            type: "p",
+            text: "The task was to turn fragmented, abandoned physical assets into a reliable, scalable campus network — distributed across multiple buildings separated by wetlands, dense tree cover, and roughly a kilometer of open preserve.",
+          },
+          {
+            type: "p",
+            text: "The technical constraints were significant. The 5 GHz radio spectrum in the area included DFS channels shared with FAA and weather radar systems, which can force radios to vacate channels without warning. One building was partially obstructed by tree canopy. The entire project had to be designed, configured, and managed remotely — from over 1,000 miles away in New York City — while a Florida-based vendor handled crane work, mounting, and physical cabling.",
+          },
+          {
+            type: "p",
+            text: "On hardware: RSystems selected Unifi for the RF and access point layer, not because it carries no risk — Unifi's software QA is inconsistent, firmware updates have introduced bugs, and rollback options are limited — but because the price-to-performance ratio was the right call for this application, with that risk explicitly understood and managed. Core routing and switching used SonicWall and Cisco, where reliability is non-negotiable.",
+          },
+          {
+            type: "img",
+            src: "/assets/corkscrew_Site_Map.png",
+            alt: "Site map of Corkscrew Swamp Sanctuary showing campus buildings and wireless coverage",
+          },
+        ],
+      },
+      {
+        label: "The Solution",
+        heading: "The monopole becomes the hub",
+        blocks: [
+          {
+            type: "p",
+            text: "RSystems designed a point-to-multipoint wireless architecture using the existing monopole as the central distribution point for the entire campus.",
+          },
+          {
+            type: "p",
+            text: "Comcast fiber was brought to the site and terminated into a SonicWall firewall at the base of the tower. Behind the firewall, a 48-port Cisco PoE switch and UPS served as the distribution core. All of this equipment was installed inside a NEMA-rated outdoor rack with HVAC at the monopole base — weatherproofed and thermally protected for Florida's heat, humidity, and outdoor conditions.",
+          },
+          {
+            type: "p",
+            text: "On the monopole itself, four Unifi Bridge Pro 90° antennas were mounted high on the tower. Their overlapping coverage sectors created approximately 270° of usable RF coverage across the preserve — operating in the 5 GHz band at effective ranges well within the antennas' 5 km capacity, giving ample signal margin for every building.",
+          },
+          {
+            type: "p",
+            text: "Each building on the property received a matching Unifi point-to-point radio aimed back at the appropriate sector on the monopole. Inside each structure, that radio fed a PoE switch, which powered indoor Unifi access points for local WiFi coverage. Additional PoE capacity was reserved at every site for future systems — cameras, environmental sensors, or additional coverage — without requiring any changes to the core network.",
+          },
+          {
+            type: "img",
+            src: "/assets/corkscrew_Antennas.jpg",
+            alt: "Unifi Bridge Pro antennas mounted on monopole at Corkscrew Swamp Sanctuary",
+          },
+        ],
+      },
+      {
+        label: "Remote Execution",
+        heading: "Designed in New York, built in Florida",
+        blocks: [
+          {
+            type: "p",
+            text: "RSystems pre-configured all Unifi hardware before shipping equipment to the site. The Cloud Controller was used for ongoing management — not a physical Cloud Key, which would have introduced another point of failure in an already remote environment.",
+          },
+          {
+            type: "p",
+            text: "For the physical installation, RSystems provided the local Florida vendor with detailed documentation including precise compass bearings and mounting locations for each antenna — designed to be executed with a crane, by a crew that had never seen the network design. The antenna placement worked.",
+          },
+          {
+            type: "p",
+            text: "Channel and power optimization came next. RSystems tuned the 5 GHz spectrum carefully, navigating DFS channel constraints and local interference sources, and working through the adoption and reboot cycles typical of Unifi commissioning. The Visitor Center — initially delivering 5–10 Mbps due to signal overlap and interference — reached 200 Mbps after optimization.",
+          },
+          {
+            type: "img",
+            src: "/assets/corkscrew_ptp7.jpg",
+            alt: "Point-to-point radio installed at the Conservation Office, Corkscrew Swamp Sanctuary",
+          },
+          {
+            type: "img",
+            src: "/assets/corkscrew_Topology.drawio.svg",
+            alt: "Network topology — Corkscrew Swamp Sanctuary point-to-multipoint wireless architecture",
+          },
+        ],
+      },
+    ],
+    results: [
+      "Point-to-multipoint wireless campus network serving all buildings across the preserve",
+      "SonicWall firewall + 48-port Cisco PoE switch in NEMA outdoor rack with HVAC at monopole base",
+      "Four Unifi Bridge Pro 90° sectors providing ~270° coverage across the 5 GHz band",
+      "Per-building point-to-point backhaul + PoE switch + Unifi WAPs for local coverage",
+      "200 Mbps real-world WiFi throughput campus-wide (1 Gbps fiber delivered to monopole)",
+      "Visitor Center improved from 5–10 Mbps to 200 Mbps after RF optimization",
+      "Unifi Cloud Controller for centralized remote management",
+      "Domotz for ongoing monitoring and alerting",
+      "Future-ready: extra PoE capacity at every building for cameras and sensors; Starlink failover planned",
+      "Full execution managed remotely from NYC with local Florida vendor for crane and cabling work",
+    ],
+    closingImage: {
+      src: "https://media.audubon.org/2025-03/boardwalk%20morning-crop.jpg",
+      alt: "Morning on the boardwalk at Corkscrew Swamp Sanctuary",
+    },
+  },
+  {
+    slug: "audubon-azure",
+    title: "Replacing a 10-Year-Old Data Center — Without Replacing the Hardware",
+    subtitle:
+      "Multi-region Azure infrastructure, disaster recovery, and infrastructure-as-code for a nationally distributed conservation organization with a global growth roadmap.",
+    client: "National Audubon Society",
+    industry: "Nonprofits & Conservation",
+    tags: [
+      "Azure",
+      "Terraform",
+      "Disaster Recovery",
+      "Cloud Migration",
+      "Infrastructure-as-Code",
+    ],
+    summary:
+      "Multi-region Azure infrastructure, disaster recovery, and Terraform automation for the National Audubon Society — DR requirements met at a fraction of a hardware refresh.",
+    featuredImage: {
+      src: "https://azure.microsoft.com/en-us/blog/wp-content/uploads/2022/03/acdf7d3b-44b6-4095-bee0-376c1014eccb.webp",
+      alt: "Inside a Microsoft Azure datacenter",
+    },
+    seoTitle:
+      "Replacing a 10-Year-Old Data Center Without Replacing the Hardware — RSystems NYC",
+    seoDescription:
+      "RSystems designed and built a multi-region Azure infrastructure for the National Audubon Society — disaster recovery, Virtual WAN, Azure Site Recovery, and Terraform automation — replacing an aging Cologix VMware stack without a hardware refresh.",
+    canonicalPath: "/case-studies/audubon-azure",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline:
+        "Replacing a 10-Year-Old Data Center Without Replacing the Hardware",
+      description:
+        "RSystems designed and built a multi-region Azure infrastructure for the National Audubon Society — including Azure Virtual WAN, Azure Site Recovery, Terraform infrastructure-as-code, and multi-region disaster recovery — replacing an aging Cologix VMware stack at a fraction of the cost of a hardware refresh.",
+      author: {
+        "@type": "Organization",
+        name: "RSystems NYC",
+        url: "https://rsystems.nyc",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "RSystems NYC",
+        url: "https://rsystems.nyc",
+      },
+      about: {
+        "@type": "Organization",
+        name: "National Audubon Society",
+      },
+      keywords:
+        "National Audubon Society, Azure, Terraform, disaster recovery, Azure Site Recovery, Virtual WAN, infrastructure-as-code, cloud migration, nonprofit technology",
+    },
+    sections: [
+      {
+        label: "Background",
+        heading: "A colocation stack past its expiration date",
+        blocks: [
+          {
+            type: "p",
+            text: "The National Audubon Society's core IT infrastructure had run for over a decade out of the Cologix colocation facility in New Jersey — VMware-based, aging, and overdue for replacement. The organization also had a substantial AWS footprint, a growing remote workforce, and plans for international expansion.",
+          },
+          {
+            type: "p",
+            text: "The existing backup solution covered data protection but not disaster recovery. In practical terms, that gap was showing up in insurance premiums. Audubon needed a DR-capable infrastructure that could protect their most critical systems, support an eventual migration away from Cologix, and scale to serve a globally distributed organization — without the cost and ceiling of another hardware refresh.",
+          },
+        ],
+      },
+      {
+        label: "The Decision",
+        heading: "Cloud as infrastructure, not just storage",
+        blocks: [
+          {
+            type: "p",
+            text: "A direct hardware replacement at Cologix would have been expensive, extended the life of systems already scheduled for retirement, and still left the DR gap unresolved. Azure offered a different path: build the disaster recovery infrastructure first, establish the migration pathway second, and design the whole thing to scale globally from day one.",
+          },
+          {
+            type: "p",
+            text: "RSystems recommended a phased, iterative engagement — a fixed monthly scope with collaborative prioritization rather than a rigid fixed-price contract — given the number of architectural unknowns at the start of the project. Everything would be built and validated in an isolated development subscription before touching production.",
+          },
+        ],
+      },
+      {
+        label: "The Approach",
+        heading: "Infrastructure-as-code from day one",
+        blocks: [
+          {
+            type: "p",
+            text: "Rather than configuring Azure through the portal, RSystems built the entire infrastructure in Terraform — the industry-standard platform for infrastructure-as-code. That decision had compounding benefits throughout the engagement.",
+          },
+          {
+            type: "p",
+            text: "During development, Terraform let the team tear down the entire build between sessions, eliminating idle compute costs. When architectural decisions changed, a single script edit and a rebuild replaced what would otherwise have been hours of manual reconfiguration. And when it comes time to extend the infrastructure into a new region, the same modules that built the primary environment can be reused with minimal modification.",
+          },
+        ],
+      },
+      {
+        label: "What Was Built",
+        heading: "Phase by phase, over six months",
+        blocks: [
+          {
+            type: "p",
+            text: "The project ran across five phases:",
+          },
+          {
+            type: "h3",
+            text: "Network Connectivity",
+          },
+          {
+            type: "p",
+            text: "Azure Virtual WAN (vWAN) was deployed as the networking foundation. Rather than manually maintaining point-to-point peering rules between Azure regions, Cologix, and AWS, vWAN creates a central hub that handles any-any routing automatically. Traffic between Azure and Cologix, between Azure and AWS, and between Azure regions all routes through vWAN — over Microsoft's private fiber backbone, not the public internet. The architecture was designed to accommodate additional regional hubs without redesigning the core.",
+          },
+          {
+            type: "h3",
+            text: "Azure Site Recovery",
+          },
+          {
+            type: "p",
+            text: "ASR was configured for three scenarios: VMware-to-Azure failover (protecting the Cologix stack), Azure-to-VMware failback, and Azure-to-Azure replication across regions. This is the \"pilot light\" model — protected VMs replicate continuously, but Azure runs no active compute in the secondary region until a failover is triggered. The cost is storage only — approximately $25 per VM per month — compared to running a full parallel environment. For an organization with dozens of protected systems, the economics are compelling.",
+          },
+          {
+            type: "h3",
+            text: "Virtual Machines",
+          },
+          {
+            type: "p",
+            text: "A pair of domain controllers and a pair of Okta sync agents were deployed natively in Azure, establishing the identity foundation for cloud-hosted workloads. The Terraform modules built for this phase are reusable for every future VM deployment.",
+          },
+          {
+            type: "h3",
+            text: "Production",
+          },
+          {
+            type: "p",
+            text: "Protected VMs in Cologix began replicating to Azure, meeting the disaster recovery and insurance requirements that initiated the project. The lift-and-shift pathway — moving workloads fully into Azure — was established and ready for execution.",
+          },
+        ],
+      },
+    ],
+    results: [
+      "Multi-region Azure infrastructure built entirely in Terraform, from scratch",
+      "Azure Virtual WAN connecting two Azure regions, Cologix VMware, and AWS in a single routing mesh",
+      "Azure Site Recovery configured for VMware-to-Azure, Azure-to-VMware, and Azure-to-Azure disaster recovery",
+      "DR and insurance requirements met at ~$25/VM/month",
+      "Domain controllers and Okta sync agents deployed natively in Azure",
+      "Infrastructure designed for future regional expansion without core redesign",
+      "Reusable Terraform modules for all future VM, network, and DR deployments",
+      "Phased delivery over six months, on time and on budget",
     ],
   },
 ];

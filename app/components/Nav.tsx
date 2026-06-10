@@ -18,7 +18,7 @@ const managementCategories = [
     href: "/services/management/identity/",
     links: [
       { href: "/services/management/identity", label: "Identity Management" },
-      { href: "/services/management/workstation", label: "Workstation Management" },
+      { href: "/services/management/workstation", label: "Endpoint Management" },
     ],
   },
   {
@@ -80,8 +80,7 @@ const techConsultingCategories = [
     label: "Networking",
     href: "/services/technology-consulting/networking/",
     links: [
-      { href: "/services/technology-consulting/network-engineering", label: "Network Engineering" },
-      { href: "/services/technology-consulting/network-infrastructure-design", label: "Network Infrastructure Design" },
+      { href: "/services/technology-consulting/network-engineering", label: "Network Design & Engineering" },
       { href: "/services/technology-consulting/firewall-and-network-security", label: "Firewall & Network Security" },
       { href: "/services/technology-consulting/wifi-assessment", label: "WiFi Assessment" },
     ],
@@ -208,12 +207,8 @@ export default function Nav() {
             </div>
           </div>
 
-          <Link href="/prospective-client" className="text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors">
-            Work With Us
-          </Link>
-
           <Link href="/contact" className="text-sm font-medium bg-[#E8500A] text-white px-4 py-2 rounded hover:bg-[#E8500A]/85 transition-colors">
-            Let&apos;s Talk
+            Contact
           </Link>
         </nav>
 
@@ -282,14 +277,14 @@ export default function Nav() {
                 </div>
               </div>
 
-              {/* RSystems Management */}
+              {/* Managed Services */}
               <div className="p-5">
                 <Link
                   href="/services/management"
                   className="block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3 hover:text-[#E8500A]/70 transition-colors"
                   onClick={() => setServicesOpen(false)}
                 >
-                  RSystems Management
+                  Managed Services
                 </Link>
                 <div>
                   {managementCategories.map((cat, i) => (
@@ -391,14 +386,14 @@ export default function Nav() {
             )}
           </div>
 
-          {/* RSystems Management accordion */}
+          {/* Managed Services accordion */}
           <div className="border-b border-black/[0.08]">
             <button
               type="button"
               className="w-full flex items-center justify-between py-3 text-base text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors"
               onClick={() => setMgmtOpen((prev) => !prev)}
             >
-              RSystems Management
+              Managed Services
               <svg
                 width="14"
                 height="14"
@@ -504,13 +499,6 @@ export default function Nav() {
             </button>
             {aboutOpen && (
               <div className="pb-2">
-                <Link
-                  href="/about"
-                  className="block py-2.5 text-sm text-[#E8500A] font-semibold border-b border-black/[0.05]"
-                  onClick={() => setOpen(false)}
-                >
-                  Overview
-                </Link>
                 {aboutLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -526,19 +514,11 @@ export default function Nav() {
           </div>
 
           <Link
-            href="/prospective-client"
-            className="text-base text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors py-3 border-b border-black/[0.08]"
-            onClick={() => setOpen(false)}
-          >
-            Work With Us
-          </Link>
-
-          <Link
             href="/contact"
             className="mt-4 text-center text-sm font-medium bg-[#E8500A] text-white px-4 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
             onClick={() => setOpen(false)}
           >
-            Let&apos;s Talk
+            Contact
           </Link>
         </nav>
       </div>
