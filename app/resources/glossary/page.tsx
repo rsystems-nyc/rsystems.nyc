@@ -1,14 +1,15 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import UniversityFilter from "./UniversityFilter";
+import { GlossaryData } from "./glossary-data";
+import GlossaryAccordion from "./GlossaryAccordion";
 
 export const metadata: Metadata = {
-  title: "RSystems University — RSystems NYC",
-  description: "Deep dives on the technology concepts we explain most often to clients.",
-  alternates: { canonical: "https://rsystems.nyc/resources/university" },
+  title: "Glossary — RSystems NYC",
+  description: "Plain-language definitions of the terms that come up most often in infrastructure and IT strategy engagements.",
+  alternates: { canonical: "https://rsystems.nyc/resources/glossary" },
 };
 
-export default function UniversityPage() {
+export default function GlossaryPage() {
   return (
     <main className="flex-1">
 
@@ -29,16 +30,20 @@ export default function UniversityPage() {
             Resources
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
-            RSystems University
+            Glossary
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
-            Deep dives on the concepts we explain most often. No jargon, no filler — just what you
-            need to know to make better technology decisions.
+            Plain-language definitions of the terms that come up most often — organized by topic, not alphabet.
           </p>
         </div>
       </section>
 
-      <UniversityFilter />
+      {/* Accordion */}
+      <section className="bg-[#F4F2EF]">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+          <GlossaryAccordion data={GlossaryData} />
+        </div>
+      </section>
 
     </main>
   );

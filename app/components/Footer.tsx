@@ -91,8 +91,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/resources/faq/" className="text-sm text-white/50 hover:text-white transition-colors">
-                  FAQ
+                <Link href="/resources/glossary/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Glossary
                 </Link>
               </li>
             </ul>

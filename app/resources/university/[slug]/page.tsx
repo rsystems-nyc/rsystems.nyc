@@ -16,7 +16,12 @@ function escHtml(s: string): string {
 function inlineFmt(s: string): string {
   return escHtml(s)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    .replace(/`([^`]+)`/g, "<code>$1</code>");
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/!\[([^\]]*)\]\(([^|)]+?)(?:\|(\d+%))?\)/g, (_, alt, src, width) =>
+      `<img src="${src}" alt="${alt}" style="max-width:${width || '100%'};border-radius:8px;margin:1rem auto;display:block;" />`
+    )
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/\*([^*\n]+)\*/g, "<em>$1</em>");
 }
 
 function parseListBlock(lines: string[]): string {
@@ -54,6 +59,13 @@ function renderBlock(block: string, codes: string[]): string {
       })
       .filter(Boolean)
       .join("\n");
+  }
+
+  // Standalone image block — supports optional |50% width modifier e.g. ![alt](url|50%)
+  const imgBlock = block.match(/^!\[([^\]]*)\]\(([^|)]+?)(?:\|(\d+%))?\)$/);
+  if (imgBlock) {
+    const [, alt, src, width] = imgBlock;
+    return `<img src="${src}" alt="${alt}" style="max-width:${width || '100%'};border-radius:8px;margin:1rem auto;display:block;" />`;
   }
 
   if (block.startsWith("## ")) return `<h2>${inlineFmt(block.slice(3).trim())}</h2>`;
@@ -117,10 +129,10 @@ function getRelated(article: (typeof articles)[number]) {
   if (explicit && explicit.length >= 3) return explicit.slice(0, 3);
 
   const sameCategory = articles.filter(
-    (a) => a.slug !== article.slug && a.category === article.category
+    (a) => a.slug !== article.slug && a.categories.some((c) => article.categories.includes(c))
   );
   const others = articles.filter(
-    (a) => a.slug !== article.slug && a.category !== article.category
+    (a) => a.slug !== article.slug && !a.categories.some((c) => article.categories.includes(c))
   );
   const pool = [...sameCategory, ...others];
   return pool.slice(0, 3);
@@ -159,7 +171,7 @@ export default async function UniversityArticlePage({ params }: Props) {
       <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
         <header className="mb-10">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
-            {article.category}
+            {article.categories.join(" · ")}
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A1A] leading-[1.1] tracking-tight">
             {article.title}
@@ -198,7 +210,7 @@ export default async function UniversityArticlePage({ params }: Props) {
                   className="group flex flex-col bg-[#F4F2EF] rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-6"
                 >
                   <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">
-                    {rel.category}
+                    {rel.categories[0]}
                   </p>
                   <h3 className="text-base font-bold text-[#1A1A1A] leading-snug mb-3 group-hover:text-[#E8500A] transition-colors flex-1">
                     {rel.title}

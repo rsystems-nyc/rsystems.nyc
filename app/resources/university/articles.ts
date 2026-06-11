@@ -1,7 +1,7 @@
 export interface Article {
   slug: string
   title: string
-  category: string
+  categories: string[]
   description: string
   content: string // markdown string — rendered via renderMarkdown in [slug]/page.tsx
   related?: string[] // optional array of slugs
@@ -12,7 +12,7 @@ export const articles: Article[] = [
   {
     slug: "directory-services",
     title: "Directory Services",
-    category: "Identity",
+    categories: ["Identity"],
     description: "The major players, what they actually do, and how to choose between them.",
     content: `## What a Directory Service Does
 
@@ -44,11 +44,13 @@ JumpCloud is a cloud-native directory-as-a-service. It manages users, devices, a
 
 For many small and mid-sized organizations, JumpCloud is the right answer: no infrastructure to maintain, true cross-platform device management, built-in SSO, and per-seat pricing that scales with headcount.
 
-Best suited for: organizations with 10–500 users, mixed Mac/Windows environments, cloud-first infrastructure, or teams without an on-premises footprint that would justify Active Directory.
+JumpCloud is our preferred directory recommendation for most organizations. It's significantly easier to deploy and maintain than Microsoft or Okta, more nimble in product development, and competitive on features for the vast majority of real-world use cases. Teams of any size — from 10-person startups to 1,000+ person organizations — can run JumpCloud effectively, and it handles mixed Mac/Windows/Linux environments natively from day one.
 
 ### Okta
 
 Okta is purpose-built for identity federation and SSO at scale. It excels at being the identity layer across a large, complex application portfolio — connecting hundreds of SaaS tools, enforcing access policies, and managing identity lifecycle events. It's less a device directory and more an identity federation platform.
+
+Okta was first to market on cloud-based enterprise SSO and has built the largest ecosystem of third-party integrations in the industry — on par with Entra ID today, and ahead for many years. It's the most powerful choice for organizations that need extremely complex provisioning logic, very large user populations (10,000+), or highly automated identity workflows across hundreds of applications with nuanced security rules.
 
 Best suited for: larger organizations with complex application portfolios and existing device management infrastructure, or where the primary problem is SSO across many applications rather than managing the device fleet.
 
@@ -56,7 +58,7 @@ Best suited for: larger organizations with complex application portfolios and ex
 
 Google Workspace can function as a lightweight identity provider for Google-first organizations. Google accounts support SAML/OIDC-based SSO, and Cloud Identity provides basic MDM. For a small organization already on Workspace, it may be enough — but it's not a full-featured directory.
 
-Best suited for: small teams fully on Google Workspace that don't need cross-platform device management.
+Best suited for: tiny startups already fully on Workspace that have no plans to grow beyond ~10 people. Not a real enterprise directory solution — treat it as a starting point, not a destination.
 
 ## How to Choose
 
@@ -69,7 +71,9 @@ Windows-only shops have a natural path to Active Directory or Entra ID. Cross-pl
 On-premises infrastructure → Active Directory is proven. Cloud-first or hybrid → Entra ID (Microsoft-centric) or JumpCloud (platform-agnostic) are better fits.
 
 **How complex is your application portfolio?**
-Five applications: any directory works. Fifty applications with varying SSO requirements: the sophistication of your identity layer starts to matter. Okta or a well-configured Entra ID become more compelling.
+JumpCloud handles 50 applications well. The threshold isn't app count — it's the nature of your requirements. If you have standard SSO needs, JumpCloud is the right answer. If you have genuinely unusual fringe cases — complex conditional provisioning logic, integration with legacy enterprise systems, very large headcount automation requirements — Okta and Entra ID start to edge out ahead.
+
+**Our recommended order:** JumpCloud for most organizations → Entra ID for Microsoft-committed shops → Okta for large enterprises with complex identity requirements.
 
 ## A Note on Migration
 
@@ -82,7 +86,7 @@ The most common migration paths we see: on-premises AD → JumpCloud (for cross-
   {
     slug: "network-fundamentals",
     title: "Network Fundamentals",
-    category: "Networking",
+    categories: ["Networking"],
     description: "How your network actually works, what each device does, and what you get as you spend more.",
     content: `## The Basics
 
@@ -104,13 +108,19 @@ DHCP assigns more than just your IP: it also tells you the subnet mask, the gate
 
 When your iPhone joins home WiFi, the DHCP server on your router assigns a local IP. When your modem connects to the ISP, their DHCP server assigns your public IP. Two different DHCP servers, two different "rooms."
 
-## DNS: The Phone Book
+## DNS: The Public Ledger
 
-The Domain Name System translates names into numbers — rsystems.nyc into the IP address your browser actually connects to. It's like a phone book, or more specifically, a network of people each holding a phone book.
+At its simplest, DNS is a phone book — it translates names (rsystems.nyc) into numbers (an IP address). But it's more than that: DNS is a public ledger. Anyone in the world can query your DNS records and read exactly what you've published.
 
-When you ask your DNS server "Where is rsystems.nyc?" it looks in its own records. If it doesn't know, it asks another DNS server. If that one doesn't know, it works up the hierarchy until it finds the answer and returns it.
+The main record types you'll encounter:
+- **A record**: maps a hostname to an IPv4 address (rsystems.nyc → 1.2.3.4)
+- **CNAME**: maps a name to another name (www.rsystems.nyc → rsystems.nyc)
+- **MX**: specifies where email for your domain should be delivered
+- **TXT**: a text string — used for email authentication (SPF, DKIM, DMARC), domain verification, and other purposes
 
-Your local DNS server knows your internal resources (server.yourcompany.com = 192.168.1.10). For everything else, it asks upstream.
+Your local DNS server knows your internal resources (server.yourcompany.com = 192.168.1.10). For everything else, it asks upstream. When none of the servers in the chain know the answer, it works back to the root of the DNS hierarchy until it finds the authoritative source.
+
+We go much deeper on DNS — including email authentication and BIMI — in the [DNS, SPF, DKIM, and DMARC](/resources/university/dns-email-authentication) and [DNS and BIMI](/resources/university/dns-bimi) lessons.
 
 ## MAC Addresses and ARP
 
@@ -130,26 +140,29 @@ What you get as you spend more:
 - Management features: VLANs, link aggregation, QoS
 - Redundant power supplies and fans
 - Stacking capability
+- Better build quality, longer expected service life, and vendor support contracts that matter when something fails at 2 AM
 
-**Consumer ($50–$500):** No VLANs, limited visibility. Fine for a home or tiny office. **Business ($500–$5,000):** Fully managed, VLAN support, PoE. Cisco Business, Netgear Insight. **Enterprise ($5,000+):** Chassis-based, StackWise, redundant power. Cisco Catalyst 9300/9500 is the benchmark.
+**Consumer ($50–$500):** No VLANs, limited visibility. Fine for a home or tiny office. **Business ($500–$5,000):** Fully managed, VLAN support, PoE. Cisco Business. **Enterprise ($5,000+):** Chassis-based, StackWise, redundant power. Cisco Catalyst 9300/9500 is the benchmark.
 
 ### The Firewall
 
-The firewall sits between your network and the internet, enforcing rules about what traffic is allowed. It provides NAT (how your private internal addresses appear as a single public IP), and in modern implementations, inspects traffic for threats.
+The firewall sits between your network and the internet, enforcing rules about what traffic is allowed. It provides Network Address Translation (NAT) — how your private internal addresses appear as a single public IP — and in modern implementations, inspects traffic for threats.
 
-What you get as you spend more: higher inspection throughput, more sophisticated threat intelligence, SSL inspection, HA redundancy options.
+What you get as you spend more: higher inspection throughput, more sophisticated threat intelligence, SSL inspection, high-availability (HA) redundancy options.
 
-**SMB ($200–$2,000):** SonicWall TZ, Fortinet FortiGate 60F. Proper stateful inspection, VPN, basic IPS. **Enterprise ($2,000+):** SonicWall NSA/NSsp, Palo Alto. Full threat inspection at multi-gigabit speeds.
+**SMB ($1,000–$7,500):** SonicWall TZ, Fortinet FortiGate 60F. Proper stateful inspection, VPN, basic IPS. **Enterprise ($7,500+):** SonicWall NSA/NSsp, Palo Alto. Full threat inspection at multi-gigabit speeds.
 
 ### The Access Point
 
 Access points bridge wired and wireless. They connect to your switch via ethernet and create the WiFi your devices connect to.
 
-What you get as you spend more: better antenna design, more radio chains (2×2 vs 4×4 MIMO), capacity for more concurrent clients, and controller-managed roaming that prevents devices from clinging to distant APs.
+What you get as you spend more: better antenna design, more radio chains (2×2 vs 4×4 MIMO — where 2×2 means 2 transmit and 2 receive antennas — 4×4 doubles that capacity for both sending and receiving simultaneously), capacity for more concurrent clients, and controller-managed roaming that prevents devices from clinging to distant APs.
+
+For a deep dive on how WiFi actually works, see [WiFi: How It Works and Why It's Hard](/resources/university/wifi).
 
 ## VLANs
 
-A VLAN creates a logical network segment on the same physical infrastructure. Common deployments:
+A Virtual Local Area Network (VLAN) is a logical separator — it creates a logical network segment on the same physical infrastructure. Common deployments:
 - **Corporate VLAN:** laptops, servers — full internal access
 - **Guest WiFi VLAN:** internet only, isolated from internal resources
 - **IoT VLAN:** cameras, access control, building systems — isolated from everything
@@ -159,7 +172,7 @@ VLANs require managed switches and a firewall handling inter-VLAN routing. Witho
 
 ## Ports
 
-When devices on a network communicate, they use ports — think of them like radio channels on a walkie-talkie. Port 80 is web traffic (HTTP). Port 443 is encrypted web (HTTPS). Port 22 is SSH. Port 548 is AFP file sharing. Ports let a single device run multiple services simultaneously, and let firewalls control which services are accessible from where.
+When devices on a network communicate, they use ports — think of them like radio channels on a walkie-talkie. Port 80 is web traffic (HTTP). Port 443 is encrypted web (HTTPS). Port 22 is SSH. Port 445 is SMB file sharing (Windows file shares and network drives). Ports let a single device run multiple services simultaneously, and let firewalls control which services are accessible from where.
 
 Port forwarding is how you expose an internal service to the outside world: tell the firewall to forward all traffic arriving on port 80 to 192.168.1.214 (your internal web server). Without that rule, external traffic hits the firewall and has no idea who to talk to.
 
@@ -174,7 +187,7 @@ The cost difference is redundancy (no single points of failure), inspection thro
   {
     slug: "wifi",
     title: "WiFi: How It Works and Why It's Hard",
-    category: "Networking",
+    categories: ["Networking"],
     description: "Radio physics, the consumer vs. enterprise gap, and what good WiFi design looks like.",
     content: `## Why WiFi Is Harder Than It Looks
 
@@ -182,19 +195,27 @@ WiFi looks simple because it's invisible. That invisibility is precisely what ma
 
 ## The Physics
 
+![Electromagnetic wave animation showing electric and magnetic field oscillation](https://upload.wikimedia.org/wikipedia/commons/9/99/EM-Wave.gif|50%)
+
 WiFi is radio — electromagnetic waves at specific frequencies carrying your data through the air. These waves have a dual nature: they sometimes behave like particles (traveling in straight lines like a bullet) and sometimes like waves (spreading outward, penetrating matter, bouncing off surfaces).
 
 That dual nature is critical to developing intuition about wireless in the real world. A 5GHz signal behaves more particle-like — straighter paths, more absorption by walls. A 2.4GHz signal behaves more wave-like — longer range, better wall penetration, more susceptibility to interference from other sources using the same frequencies.
 
+(If you've encountered the double-slit experiment in physics, this is the same wave-particle duality at work — and it's directly relevant to why WiFi behaves differently in different environments.)
+
 ## The Frequency Bands
 
-**2.4 GHz:** Longer range, better penetration through walls and floors. Only 3 non-overlapping channels in the US. Heavily congested — shared with microwaves (water's resonant frequency is 2.45GHz, which is why microwaves work), Bluetooth, baby monitors, and cordless phones. Lower maximum speeds. Legacy band, but many older devices are 2.4GHz only.
+![Electromagnetic spectrum diagram showing radio wave frequencies including the 2.4GHz, 5GHz, and 6GHz WiFi bands](/assets/em_spectrum_transparent.png)
+
+**2.4 GHz:** Longer range, better wall penetration. Only 3 non-overlapping channels. Heavily congested — shared with Bluetooth, microwave ovens (water resonates at 2.45GHz, which is literally why microwaves cook food), baby monitors, Sonos speakers, and every neighbor's WiFi. In NYC and other dense urban environments, 2.4GHz is like being in an apartment building where every unit is blasting music at full volume with no sound insulation anywhere — you hear all of it. Everyone's signal is everyone else's noise. This is why we almost always prefer 5GHz.
 
 **5 GHz:** Shorter range, worse wall penetration. 25 non-overlapping channels (including DFS channels shared with radar). Much higher speeds, much less congestion. The modern primary band.
 
 **6 GHz (WiFi 6E):** Very short range. Completely clean spectrum with no legacy device interference. Highest speeds. Limited to high-end enterprise hardware and modern client devices.
 
 ## Why Channels Matter
+
+![WiFi channel overlap diagram showing 2.4GHz channels 1-11 with only 1, 6, and 11 non-overlapping](https://upload.wikimedia.org/wikipedia/commons/8/8c/2.4_GHz_Wi-Fi_channels_%28802.11b%2Cg_WLAN%29.svg)
 
 A channel is a narrow slice of the frequency spectrum. The 2.4GHz band has only 11 channels in the US but only channels 1, 6, and 11 are non-overlapping — the rest cause adjacent-channel interference. In a dense office building with dozens of neighboring WiFi networks, every AP is fighting for one of three usable channels. This is why 2.4GHz feels congested in NYC in a way that 5GHz doesn't.
 
@@ -233,14 +254,14 @@ General principles:
 
 ## When Consumer WiFi Is Adequate
 
-A 5-person team in a single open-plan space with no compliance requirements: consumer mesh WiFi works fine. The inflection point where it stops being adequate is usually around 15–20 simultaneous heavy users, any meaningful segmentation requirement, or environments with challenging RF characteristics (large floor plates, concrete construction, multiple stories).`,
+A 5-person team in a single open-plan space: consumer mesh WiFi works fine. The inflection point where it stops being adequate is usually around 15–20 simultaneous heavy users, any meaningful segmentation requirement, or environments with challenging RF characteristics (large floor plates, concrete construction, multiple stories).`,
   },
 
   // ── Article 4 ───────────────────────────────────────────────────────────────
   {
     slug: "dns-email-authentication",
     title: "DNS, SPF, DKIM, and DMARC",
-    category: "DNS",
+    categories: ["DNS"],
     description: "Your email reputation depends on getting this right. Here's how it all connects.",
     content: `## DNS: The Foundation
 
@@ -265,6 +286,8 @@ Your domain's DNS records are stored on authoritative nameservers controlled by 
 
 Every DNS record has a TTL — Time to Live — the number of seconds that resolvers should cache the answer before checking again. A TTL of 3600 means cached for one hour. Lower TTLs mean faster propagation of changes but more load on nameservers. Before a planned DNS migration, lower your TTLs 24–48 hours in advance. Restore them after.
 
+In Route 53, you can set TTL as low as 60 seconds — which means DNS changes propagate nearly instantly. There's no reason to leave TTL at 3600 or higher except during periods of stability. Set it low and leave it low.
+
 ## SPF: The Authorized Senders List
 
 SPF (Sender Policy Framework) is a TXT record that specifies which mail servers are authorized to send email claiming to be from your domain. The goal is to prevent other servers from sending email as you.
@@ -280,7 +303,7 @@ The challenge: you likely have multiple legitimate email sources. Your mail serv
 
 ## DKIM: The Cryptographic Signature
 
-DKIM (DomainKeys Identified Mail) cryptographically signs outgoing email. Your mail server signs each message with a private key. The corresponding public key is published in DNS. Receiving servers verify the signature — confirming the message came from your domain and wasn't altered in transit.
+DKIM (DomainKeys Identified Mail) works like a wax seal on a letter — but one where the stamp that created the seal is publicly posted in your DNS. When your mail server sends a message, it applies a cryptographic signature using a private key only it holds. The recipient checks the signature against your public key, published as a TXT record in DNS. If the signature verifies, the message genuinely came from your server and wasn't tampered with in transit. If someone forges the message, the seal breaks — and the forgery is detectable.
 
 DKIM survives email forwarding. SPF doesn't (forwarded email looks like it came from the forwarding server, not yours). This makes DKIM the more reliable signal.
 
@@ -325,20 +348,28 @@ Without proper DMARC configuration:
 With p=reject properly implemented:
 - Spoofing your domain is blocked at the receiving server
 - Deliverability improves across the board
-- Your domain qualifies for BIMI`,
+- Your domain qualifies for BIMI. (Covered in the next lesson — [DNS and BIMI](/resources/university/dns-bimi).)`,
   },
 
   // ── Article 5 ───────────────────────────────────────────────────────────────
   {
     slug: "dns-bimi",
     title: "DNS and BIMI",
-    category: "DNS",
+    categories: ["DNS"],
     description: "Display your logo in the inbox — what it takes and whether it's worth it.",
     content: `## What BIMI Does
 
 BIMI — Brand Indicators for Message Identification — lets organizations that have implemented DMARC enforcement display their logo directly in the inbox. When a BIMI-enabled email client (Gmail, Yahoo Mail, and others) receives a message from a BIMI-configured domain, your logo appears next to the sender name.
 
 The practical effect: legitimate emails become visually identifiable at a glance, and phishing attempts that can't pass your DMARC checks cannot display your logo.
+
+![BIMI logo displayed in Gmail inbox next to sender name — Chase Bank example](https://macktez.com/wp-content/uploads/2025/02/Chase-BIMI.png)
+
+*BIMI verification as it appears in Gmail.*
+
+![Email client inbox showing multiple BIMI-verified brand logos alongside sender names](https://macktez.com/wp-content/uploads/2025/02/BIMI-example.webp)
+
+*An inbox with multiple BIMI-verified senders (credit: Mailhardener).*
 
 ## Prerequisites
 
@@ -348,11 +379,15 @@ BIMI requires:
 3. Your logo in a specific SVG format (SVG Tiny 1.2 profile)
 4. A BIMI DNS TXT record
 
-## The Verified Mark Certificate
+## VMC vs. CMC: Two Certificate Options
 
-VMCs require trademark registration. The certificate authority verifies that you own the trademark rights to the logo you're displaying. This is what prevents anyone from claiming to display another company's logo.
+There are now two certificate types available for BIMI:
 
-VMCs typically cost $1,000–$1,500 per year. The trademark verification process adds a few weeks to setup. This is the primary friction point — if your logo isn't trademarked, you'll need to complete that process first.
+**VMC (Verified Mark Certificate)** — requires a registered trademark on your logo. Issued by DigiCert or Entrust. Typically $1,000–$1,500/year. The trademark verification process takes several weeks.
+
+**CMC (Common Mark Certificate)** — does not require a registered trademark. Requires only that your logo is "distinctive" (i.e., meaningfully associated with your brand). Also issued by DigiCert or Entrust, similar pricing. This is the path for organizations that haven't trademarked their logo — and for most SMBs, it's the right starting point.
+
+The practical implication: trademark registration is no longer a prerequisite for BIMI. If you have a distinctive logo and your DMARC is at p=reject, you can pursue BIMI with a CMC today.
 
 ## The BIMI DNS Record
 
@@ -375,7 +410,7 @@ For most organizations: only after you have DMARC fully enforced. The DMARC work
   {
     slug: "virtualization",
     title: "Virtualization and Cloud",
-    category: "Cloud & Infrastructure",
+    categories: ["Cloud & Infrastructure"],
     description: "Private vs. public cloud, VMware vs. Azure/AWS/GCP, and where each workload belongs.",
     content: `## The Hypervisor
 
@@ -425,16 +460,31 @@ The on-premises vs. cloud debate is often framed as binary. It isn't. The right 
 - The workload is variable — cloud pay-per-use makes sense
 - You want to eliminate hardware refresh cycles and capital expense
 
-Most organizations end up hybrid: on-premises for core infrastructure, latency-sensitive workloads, and predictable capacity — cloud for burst capacity, DR, and applications that benefit from managed services.`,
+Many organizations end up hybrid: on-premises for core infrastructure, latency-sensitive workloads, and predictable capacity — cloud for burst capacity, DR, and applications that benefit from managed services.
+
+**Azure Site Recovery** is worth mentioning specifically: it replicates on-premises VMs to Azure, providing geographically redundant disaster recovery for roughly $25/VM/month plus storage costs. For organizations with existing on-premises VMware that want to reduce their footprint, this provides bi-directional DR infrastructure, geo-redundancy, and a credible exit ramp from on-premises — at a cost that's difficult to replicate with dedicated hardware.
+
+## GPU VMs, Local AI, and Agentic Workloads
+
+One of the most interesting emerging use cases for on-premises and cloud VMs is AI inference. GPU-equipped VMs — available from all three major cloud providers, and deployable on-premises with NVIDIA hardware — can run large language models locally, without sending data to external APIs. For organizations with data privacy requirements, or that want to run automated AI workflows at scale, local inference changes the economics.
+
+Separately: tools like Claude Code make VM capacity significantly more useful for development and automation. Spinning up a sandboxed VM, having an agent build and test something inside it, then discarding the VM is a workflow that requires available compute capacity — and rewards organizations that have it.
+
+For real-world examples of infrastructure decisions, see our [case studies](/case-studies).`,
+    related: ["remote-connectivity"],
   },
 
   // ── Article 7 ───────────────────────────────────────────────────────────────
   {
     slug: "remote-connectivity",
     title: "Remote Connectivity",
-    category: "Networking",
+    categories: ["Networking"],
     description: "S2S VPN, P2S VPN, SSL VPN, and Zero Trust — the differences that matter.",
-    content: `## Site-to-Site VPN (S2S)
+    content: `Your internal network is private by design. File servers, databases, network cameras, AWS VPCs, Azure VNets — these are resources you want accessible to the right people, but not exposed to the open internet. VPN is the traditional answer: create an encrypted tunnel that extends private network access to remote users or remote locations, without punching holes in your perimeter.
+
+There are several types of VPN with meaningfully different characteristics. Understanding which to use — and when to move beyond VPN entirely — is the goal of this article.
+
+## Site-to-Site VPN (S2S)
 
 Site-to-site VPN connects two networks permanently. It's the technology used when two physical locations — offices, a branch and headquarters, an office and a data center — need to communicate as if on the same local network.
 
@@ -445,6 +495,8 @@ How it works: VPN-capable firewalls at both locations negotiate an encrypted IPs
 IPsec uses a two-phase approach. Phase I establishes a secure management tunnel — the two firewalls negotiate and agree on encryption parameters (hashing algorithm, authentication method, Diffie-Hellman group, tunnel lifetime, encryption cipher) and exchange keys using Internet Key Exchange (IKE). Once Phase I is up, Phase II establishes the data tunnel through which actual traffic flows.
 
 The Diffie-Hellman key exchange is what allows two parties who've never met to agree on a shared secret key without an eavesdropper being able to derive it — even if they observe the entire negotiation. This is fundamental to IPsec's security.
+
+If you find the Diffie-Hellman key exchange genuinely fascinating — and we think you should — [this video](https://www.youtube.com/watch?v=3QnD2c4Xovk) is the best explanation we've found. Once you understand it, you'll immediately see why increasing the DH group number (Group 2 → Group 14 → Group 20) and lowering the Phase I lifetime dramatically improves the security of an IPsec tunnel — each renegotiation generates a fresh key, and higher DH groups use larger prime numbers that are computationally harder to crack.
 
 S2S use cases:
 - Branch office to headquarters
@@ -491,7 +543,7 @@ In practice, most organizations need both: S2S for the connection to a data cent
   {
     slug: "fiber-optics",
     title: "Fiber Optics",
-    category: "Cabling",
+    categories: ["Cabling"],
     description: "When to use it, what you're buying, and how single-mode and multi-mode differ.",
     content: `## How Fiber Works
 
@@ -499,21 +551,26 @@ Fiber optic cabling carries data as pulses of light through glass or plastic fib
 
 The physics: light enters a fiber strand and travels through it via total internal reflection — a phenomenon where light hitting the boundary between the glass core and the surrounding cladding at a shallow enough angle bounces completely back into the core rather than passing through. The light stays trapped in the glass, bouncing its way along the fiber across long distances.
 
+![Diagram showing total internal reflection — light ray bouncing inside fiber optic core at angles below the critical angle](/assets/fiber-optic-tir.jpg|70%)
+
 That light represents binary data in a Morse-code fashion: light on for 1, light off for 0, pulsed at extremely high frequencies. A laser or LED transceiver generates the pulses; a receiving transceiver detects them and converts them back to electrical signals the network equipment can use.
 
 ## Single-Mode vs. Multi-Mode
 
 **Single-mode fiber (SMF):**
-- Very thin core (9 microns)
+- Very thin core (9 microns — for scale: a human hair is roughly 70 microns in diameter — single-mode fiber's core is about 8× thinner)
 - A single light path travels through the fiber
 - Extremely low signal attenuation — spans 40km+ without amplification
+
+Single-mode fiber is also the medium that connects the world at scale. Every transatlantic internet cable is single-mode fiber. Every cell tower connects back to the telecom network via fiber. The phone call you make, the video you stream, the email you send — all of it rides fiber at some point in its journey. At the extreme end, research labs have demonstrated transmission speeds of roughly 80× faster than today's commercial deployments over a single strand.
+
 - Requires precise, laser-based transceivers
 - Higher per-transceiver cost
 - Standard grades: OS1 (tight-buffered, indoor), OS2 (loose tube, outdoor/longer runs)
 - Used for: telecom infrastructure, WAN links, campus backbone between buildings
 
 **Multi-mode fiber (MMF):**
-- Larger core (50 microns for modern OM grades)
+- Larger core (50 microns for modern OM grades — still thinner than a human hair, but 5–6× larger than single-mode)
 - Multiple light paths travel simultaneously
 - Higher attenuation — practical range is 300m–2km depending on speed
 - Works with LED-based or VCSEL transceivers (less expensive)
@@ -542,20 +599,24 @@ Common form factors:
 **Fiber is right when:**
 - Run length exceeds ~90m (copper's structured cabling limit)
 - The path crosses between buildings (copper has ground potential issues; fiber is electrically isolated)
-- EMI is a concern (near industrial equipment, MRI machines)
+- EMI is a concern (near industrial motors, generators, or high-voltage electrical equipment)
 - Bandwidth requirements at distance exceed what copper supports
 
 **Copper is typically preferred when:**
 - Runs are under 90m
 - PoE is needed — fiber cannot carry power
-- Cost is a constraint and copper meets the speed/distance requirements`,
+- Cost is a constraint and copper meets the speed/distance requirements
+
+## Watch
+
+[How fiber optics work — video explainer](https://www.youtube.com/watch?v=N4fbAEp55lA)`,
   },
 
   // ── Article 9 ───────────────────────────────────────────────────────────────
   {
     slug: "copper-cabling",
     title: "Copper Cabling: Cat5e, Cat6, and Cat6A",
-    category: "Cabling",
+    categories: ["Cabling"],
     description: "What the differences actually mean for new installations and PoE environments.",
     content: `## The Standards
 
@@ -599,7 +660,7 @@ The labor cost to re-cable an office — pulling cables, coring walls, terminati
   {
     slug: "autopilot",
     title: "Windows Autopilot",
-    category: "Microsoft",
+    categories: ["Microsoft", "MDM"],
     description: "Zero-touch device deployment — what it requires, what it delivers, and when it's worth it.",
     content: `## How Autopilot Works
 
@@ -647,12 +708,12 @@ For an organization deploying 5 laptops per year, the upfront configuration inve
   // ── Article 11 ──────────────────────────────────────────────────────────────
   {
     slug: "apple-business-manager",
-    title: "Apple Business Manager and ADE",
-    category: "Apple",
+    title: "Apple Business (formerly Apple Business Manager)",
+    categories: ["Apple", "MDM"],
     description: "The foundation of enterprise Apple management — what it enables and how to get started.",
-    content: `## What ABM Enables
+    content: `## What Apple Business Enables
 
-Apple Business Manager (ABM) is Apple's enterprise portal for organizations deploying Apple devices. Without it, you're managing iPhones, iPads, and Macs like a consumer — manually enrolling each device, buying apps through personal Apple IDs, and losing control when someone factory resets a device.
+Apple Business (formerly Apple Business Manager / ABM) is Apple's enterprise portal for organizations deploying Apple devices. Apple rebranded to simply "Apple Business" in 2024. Without it, you're managing iPhones, iPads, and Macs like a consumer — manually enrolling each device, buying apps through personal Apple IDs, and losing control when someone factory resets a device.
 
 ### Automated Device Enrollment (ADE)
 
@@ -666,11 +727,19 @@ Organizations can purchase app licenses in bulk and deploy them to managed devic
 
 ### Managed Apple IDs
 
-ABM lets organizations create Apple IDs that belong to the organization rather than the individual. Managed Apple IDs give employees access to iCloud and Apple collaboration features using organizational credentials you control.
+Apple Business lets organizations create Apple IDs that belong to the organization, not the individual. Managed Apple IDs give employees access to iCloud, FaceTime, and Apple collaboration features using organizational credentials you control — and can revoke.
+
+A key limitation: Managed Apple IDs cannot be used with the consumer App Store. Apps must be deployed through the Apps and Books program. This is intentional — it keeps personal and organizational identities cleanly separated.
+
+If your organization uses JumpCloud or Entra ID as your identity provider, you can federate those identities into Apple Business directly. When a new employee is provisioned in your directory, a Managed Apple ID can be created automatically. When they leave, removing them from your IdP revokes access to Apple Business as well — no separate offboarding step.
+
+This federation also enables personal device BYOD in a meaningful way: an employee can sign into their personal iPhone with their Managed Apple ID alongside their personal Apple ID, enabling User Enrollment (see the [Device Trust & BYOD](/resources/university/device-trust-byod) article) without any organizational visibility into personal data.
 
 ## MDM Integration
 
-ABM is a portal and device registration system, not the management system itself. You still need an MDM platform:
+Apple Business ships with a basic built-in MDM capability. It works — but it's only appropriate for the smallest, simplest deployments. Any organization with more than a handful of devices, or with policies beyond the basics, should use a dedicated third-party MDM platform.
+
+Apple Business is a portal and device registration system, not the management system itself. You still need an MDM platform:
 
 - **Jamf Pro:** Enterprise standard for Apple management. Powerful, extensible, expensive. Right for organizations with 100+ Apple devices or complex Mac management requirements.
 - **Jamf Now:** Simpler, lower cost, adequate for many smaller deployments.
@@ -681,18 +750,34 @@ ABM is a portal and device registration system, not the management system itself
 
 Devices must be purchased through an Apple Authorized Reseller or directly from Apple (Business Store) to be automatically registered in ABM. Devices purchased at retail Apple Stores or Amazon are not pre-registered.
 
-You can add these manually via Apple Configurator 2 on a Mac, but it requires physical access to each device. For any significant Apple deployment, establish a purchase relationship with an authorized reseller before buying hardware.`,
+You can add these manually via Apple Configurator 2 on a Mac, but it requires physical access to each device. For any significant Apple deployment, establish a purchase relationship with an authorized reseller before buying hardware.
+
+## The Zero-Touch Custom Store
+
+When Apple Business is fully configured with IdP federation and an authorized reseller relationship, you can unlock one of the most compelling end-to-end experiences in device management: a custom-branded Apple Business Store.
+
+The workflow:
+1. Your IT team logs into Apple Business and sets up a custom storefront
+2. Any staff member can visit the store, sign in with their Managed Apple ID (backed by your IdP), and place an order for approved hardware
+3. The order ships directly to the employee from Apple
+4. When the device powers on, it automatically enrolls in your MDM, pulls its configuration, installs required apps, and is ready for work
+
+No IT staff touching the machine. No imaging station. No shipping to the office first. The employee orders, receives, powers on, signs in, and works. This is the Apple-first vision of device deployment done properly.`,
   },
 
   // ── Article 12 ──────────────────────────────────────────────────────────────
   {
     slug: "device-trust-byod",
     title: "Device Trust and Apple BYOD",
-    category: "Security",
+    categories: ["Security", "Apple", "Google", "MDM"],
     description: "Enforcing access policy on personal devices without requiring full MDM enrollment.",
     content: `## What Device Trust Means
 
-Device trust is the policy principle that organizational resources should only be accessible from managed, known devices. A personal device connecting to company email has no IT controls — it could be unpatched, compromised, or shared. Device trust is how you enforce the boundary between managed and unmanaged access.
+Device trust is the policy principle that organizational resources should only be accessible from managed, known devices. The challenge is that organizational data lives on personal devices constantly — employees check email on personal iPhones, read Slack on personal iPads, and access documents on home laptops. This is the reality of modern work.
+
+The risk is real and multidimensional. Malicious actors can compromise a personal device and pivot to corporate resources. Employees can accidentally leak data through personal apps, backups, or cloud sync. And when someone leaves the organization — voluntarily or otherwise — how do you ensure that corporate data leaves with them? How do you remotely destroy confidential documents on a device you never managed and don't control?
+
+Employees, reasonably, don't want the answer to be "give IT full control of my personal phone." Nobody wants their employer to see their text messages, photos, or personal browsing history. Apple designed a framework specifically to resolve this tension.
 
 ## The BYOD Challenge
 
@@ -707,7 +792,11 @@ Apple designed a framework specifically for this.
 
 ## Apple User Enrollment for BYOD
 
-Apple's User Enrollment is an MDM enrollment mode designed specifically for personal devices. The critical distinction: it creates a cryptographic separation between personal and managed data on the device. MDM can only see and manage organizational data — it cannot:
+Apple's User Enrollment is an MDM enrollment mode designed specifically for personal devices. The critical distinction: it creates a cryptographic separation between personal and managed data on the device.
+
+Think of it as a bubble inside the phone. Everything the organization puts in — apps, data, email accounts, certificates, configurations — lives in the bubble. Anything the org put in, the org can take back out. Anything outside the bubble — personal apps, photos, messages, personal Apple ID — the org cannot see or touch. When an employee leaves, IT pops the bubble. Everything organizational disappears. Everything personal remains untouched.
+
+MDM can only see and manage organizational data — it cannot:
 - View personal apps or photos
 - Wipe the entire device (only organizational data can be erased)
 - Track personal location or usage
@@ -722,18 +811,31 @@ For organizations that want device trust without full MDM enrollment, conditiona
 
 Microsoft Entra ID Conditional Access, JumpCloud's conditional access policies, and Okta's device trust features can check for: minimum OS version, disk encryption, screen lock enforcement, absence of jailbreak — and block access from non-compliant devices. No MDM enrollment required.
 
-This is the practical BYOD approach for many organizations: set a minimum bar, enforce it at the access control layer, and block devices that can't meet it — without requiring employees to enroll personal devices in corporate MDM.`,
+This is the practical BYOD approach for many organizations: set a minimum bar, enforce it at the access control layer, and block devices that can't meet it — without requiring employees to enroll personal devices in corporate MDM.
+
+## The Full Solution: IdP + Apple Business + User Enrollment
+
+If your organization has a full JumpCloud or Entra ID tenant with Apple Business configured and Managed Apple IDs provisioned, User Enrollment on personal iPhones becomes nearly seamless: the employee signs into their personal device with their Managed Apple ID, enrollment happens automatically, and the bubble is created. When they leave, IdP offboarding destroys the bubble.
+
+This is a genuine solution to one of the hardest problems IT has faced for years. It's not perfect, but it's the best available answer to "how do we support BYOD without compromising privacy or security."
+
+**Contractors** remain a harder problem. Contractors often resist any form of MDM enrollment, and because they're not permanent employees, the organizational investment in their device management is harder to justify. Conditional access — verifying minimum device health without enrollment — is often the practical answer for contractors.
+
+**Platform note:** BYOD via User Enrollment works well on iOS today. macOS doesn't yet have an equivalent — Apple hasn't shipped a macOS User Enrollment mode that provides the same clean personal/organizational separation. We expect this to change, but until it does, Mac BYOD remains either full MDM enrollment or no enrollment. Chrome Device Trust (covered in the [next article](/resources/university/managed-chrome)) is a useful partial solution for Mac BYOD scenarios.`,
+    related: ["autopilot", "managed-chrome"],
   },
 
   // ── Article 13 ──────────────────────────────────────────────────────────────
   {
     slug: "managed-chrome",
     title: "Managed Chrome",
-    category: "Google",
+    categories: ["Google", "MDM"],
     description: "Browser policy management and Chrome OS — what you can control and when it matters.",
-    content: `## Two Flavors of Chrome Management
+    content: `## Managed Browser vs. Profile vs. Chrome OS
 
-Chrome management comes in two distinct flavors: managing the Chrome browser on any operating system, and managing Chrome OS on Chromebooks. Both are administered through Google Admin Console and require Google Workspace or Cloud Identity licensing.
+Most of the time when we're talking about Managed Chrome, we're talking about one of two things: a managed Chrome browser (Chrome running on any OS, with IT-enforced policies applied to the browser itself) or a managed Chrome profile (a user-level identity that, when signed in, applies organizational policies to that browser session).
+
+Chrome OS management is a separate topic — important for schools and organizations with dedicated Chrome OS hardware or digital signage deployments, but less common in typical business environments. We cover it briefly at the end of this article.
 
 ## Chrome Browser Cloud Management (CBCM)
 
@@ -746,6 +848,8 @@ If your users run Chrome on Windows or Mac, you can manage that browser without 
 
 This is particularly relevant where Chrome is the primary work browser, or where specific extensions (corporate intranet bookmarks, enterprise password manager extensions, DLP tools) need to be deployed consistently.
 
+A practical example: using CBCM, you can force-install the JumpCloud Go extension on every managed Chrome browser in your organization. JumpCloud Go enables passwordless authentication and device-level trust verification — when a user opens Chrome and the extension is present, JumpCloud can verify both the identity and the device before granting access to connected applications.
+
 ## Chrome Profile Management
 
 Chrome profiles let users maintain separate browser environments for different contexts. With managed Chrome, you can require employees to use a specific profile signed in with their organizational Google account for work activities.
@@ -754,12 +858,7 @@ The result: clean separation between work and personal browsing — work stays i
 
 ## Chrome OS / Chromebook Management
 
-For Chromebook fleets, Google Admin Console provides:
-- **Forced enrollment:** Chromebooks registered through reseller can auto-enroll when first activated (similar to Apple ADE or Autopilot)
-- **App and extension deployment:** push Chrome apps, Android apps, and extensions
-- **User and device policies:** different settings for different organizational units
-- **Network configuration:** WiFi profiles, VPN, certificate management
-- **Kiosk mode:** lock devices to a single application for shared-use deployments
+For Chromebook fleets, Google Admin Console provides forced enrollment (Chromebooks registered through a reseller can auto-enroll when first activated, similar to Apple ADE or Autopilot), app and extension deployment, and kiosk mode to lock devices to a single application for shared-use or digital signage deployments.
 
 ## When Chrome Management Matters
 
@@ -769,14 +868,29 @@ Clear use cases:
 - Specific Chrome extensions that must be present on all devices
 - Organizations requiring browser-level visibility for security monitoring
 
-For standard knowledge work environments without specific compliance requirements, browser management adds a layer but isn't the highest-priority configuration. Core security needs — device management, identity, access control — are better addressed at the OS and directory level first. For regulated environments, or anywhere browser behavior needs to be controlled and auditable, Managed Chrome is a meaningful addition.`,
+For standard knowledge work environments without specific compliance requirements, browser management adds a layer but isn't the highest-priority configuration. Core security needs — device management, identity, access control — are better addressed at the OS and directory level first. For regulated environments, or anywhere browser behavior needs to be controlled and auditable, Managed Chrome is a meaningful addition.
+
+## Chrome Device Trust and BYOD Macs
+
+Here's where Managed Chrome becomes a meaningful BYOD solution for Mac and Windows.
+
+JumpCloud (and similar platforms) can enforce a policy that says: you cannot access our applications unless you're signed into Chrome with your managed profile. And separately: you cannot add or set up a new managed Chrome profile without IT lifting a restriction first.
+
+The practical flow:
+1. Employee gets a new Mac (personal or org-owned)
+2. They install Chrome and try to sign in with their work account
+3. The policy blocks new profile creation until IT approves
+4. IT approves, employee signs in, device is now registered
+5. IT re-applies the restriction
+
+The result: even if someone's username, password, and MFA codes were all stolen, an attacker couldn't use them without also having physical access to a pre-approved device with a registered Chrome profile. This is device trust without full MDM enrollment — the missing piece that makes Mac BYOD workable while Apple finishes building their native solution.`,
   },
 
   // ── Article 14 ──────────────────────────────────────────────────────────────
   {
     slug: "1password",
     title: "1Password",
-    category: "Security",
+    categories: ["Security", "Identity"],
     description: "Why every organization should have it, what it actually does, and practical examples.",
     content: `## The Problem It Solves
 
@@ -800,6 +914,16 @@ Beyond basic storage:
 - **Audit log:** who accessed what credentials, when
 - **Guest access:** give external contractors access to specific credentials without full team membership — revoke when the engagement ends
 - **Watchtower:** alerts when stored credentials appear in breach databases
+
+## Passkeys and the Passwordless Future
+
+1Password is increasingly the platform for managing passkeys — the credential standard designed to replace passwords entirely. Passkeys use cryptographic key pairs: your device holds a private key, the service holds a public key, and authentication happens without transmitting a password that could be stolen or phished.
+
+1Password stores and syncs passkeys across your devices, making it the single place for both traditional passwords (for sites that haven't upgraded yet) and passkeys (for those that have). For many users today, 1Password enables a primarily passwordless workflow — you still have 1Password, but the credentials inside it are increasingly passkeys rather than passwords.
+
+## IdP Integration
+
+1Password integrates with JumpCloud, Microsoft Entra ID, Okta, and other identity providers via SCIM. When a new employee is added to your directory, 1Password can automatically provision their account and grant access to the correct vaults. When they leave and their IdP account is disabled, their 1Password access is cut programmatically — no manual offboarding step, no window where a departed employee retains access to organizational credentials.
 
 ## The Shared Credential Problem It Solves
 
@@ -826,13 +950,15 @@ With 1Password vaults: service accounts — the GitHub organization login, the A
   {
     slug: "sig-lite",
     title: "The SIG Lite Questionnaire",
-    category: "Security",
+    categories: ["Security"],
     description: "What enterprise customers are asking and how to respond accurately.",
     content: `## What the SIG Lite Is
 
 The Standardized Information Gathering (SIG) questionnaire is a security assessment tool developed by the Shared Assessments Program. The SIG Lite is the abbreviated version — typically 140–200 questions — used by enterprise customers, financial institutions, and regulated organizations to assess the security posture of vendors and service providers.
 
 If you serve enterprise clients, you will receive a SIG Lite.
+
+**A note before you start:** If an enterprise customer is asking about your security posture, the best credential you can provide is a SOC 2 Type II report — an independent third-party audit of your controls. Most enterprise clients will accept a clean SOC 2 in lieu of a filled-out SIG Lite. But not all organizations have undergone a SOC 2 audit, and the SIG Lite remains a practical, widely-accepted alternative.
 
 ## The 17 Sections
 
@@ -920,66 +1046,63 @@ Organizations that respond efficiently have already built their documentation li
 6. Vendor Management Policy
 7. Patch Management Policy
 
-If you don't have these, the SIG Lite is a forcing function to build them — which is actually the right outcome.`,
+If you don't have these, the SIG Lite is a forcing function to build them — which is actually the right outcome.
+
+## Download a Blank Copy
+
+We've prepared a clean, fillable version of the SIG Lite — with all example answers removed — that you can use to respond to vendor assessment requests.
+
+[Download SIG Lite (PDF)](/downloads/sig-lite-rsystems.pdf)
+
+Free to use. No signup required.`,
   },
 
   // ── Article 16 ──────────────────────────────────────────────────────────────
   {
-    slug: "security-questionnaires",
-    title: "Security Questionnaires",
-    category: "Security",
-    description: "What every questionnaire is really asking, and how to build the documentation that makes answering them easy.",
-    content: `## Why They Exist
+    slug: "cybersecurity-self-assessment",
+    title: "Cybersecurity Self-Assessment",
+    categories: ["Security"],
+    description: "Understand your own security posture — a structured NIST CSF-based assessment for small and mid-sized organizations.",
+    content: `## Why a Cybersecurity Self-Assessment
 
-Enterprise customers need to understand the risk their vendors introduce. A data breach at a small service provider can become a breach at the large enterprise they serve — this is how many high-profile incidents have unfolded. Regulatory frameworks (SOC 2, HIPAA, PCI-DSS, NYDFS) increasingly require organizations to assess vendors systematically. Cyber insurance applications have become substantially more detailed for the same reason.
+Every organization should understand its own security posture — not just when a customer asks, but as a standing practice. A structured self-assessment gives you a baseline, identifies gaps, and provides a roadmap for improvement.
 
-## Common Formats
+The drivers vary: your cyber insurance underwriter is asking harder questions at renewal. A new enterprise customer requires evidence of your security program. Your board wants a briefing. Or you simply want to hold yourself accountable. All are valid. The assessment is worth doing regardless of who's asking.
 
-- **SIG / SIG Lite** — Shared Assessments standard
-- **CAIQ** — Cloud Security Alliance; cloud-specific
-- **VSA** — Vendor Security Alliance questionnaire
-- **Custom questionnaires** — individual enterprise customers, based on their own risk framework
-- **Cyber insurance applications** — increasingly thorough, particularly regarding ransomware controls
-- **NIST-based assessments** — covering Identify, Protect, Detect, Respond, Recover
+We recommend completing this assessment once per year — and updating your answers whenever significant changes occur to your technology environment.
 
-## What Every Questionnaire Is Really Asking
+## SOC 2 and ISO 27001: Excellent, But Not For Most
 
-Regardless of format, questionnaires consistently assess these domains:
+SOC 2 Type II and ISO 27001 are the gold standards of security assurance. SOC 2 involves an independent auditor examining your controls over a period of time (typically 6–12 months) and issuing a report that enterprise customers will accept in lieu of questionnaires. ISO 27001 is an international certification of your information security management system.
 
-**Identity and Access Management:** Who has access to what? Is access least-privilege? How is access reviewed and revoked? Is MFA enforced? How is privileged access managed?
+Both are genuinely excellent — and neither is appropriate for most organizations. The investment in time, process, and audit fees is significant. For companies at the scale where these credentials are required (typically enterprise B2B SaaS, healthcare, financial services), they're worth pursuing. For most SMBs, NIST CSF is a more practical starting point.
 
-**Data Security:** What data do you store? How is it classified? Encrypted at rest and in transit? Where is it stored? What are the retention and disposal policies?
+## NIST Cybersecurity Framework
 
-**Network Security:** How is the network segmented? What perimeter security exists? How is traffic monitored and logged?
+The National Institute of Standards and Technology's Cybersecurity Framework (NIST CSF) organizes security into five functions:
 
-**Endpoint Security:** What controls exist on devices that access company systems? EDR/antivirus? MDM enrollment? Disk encryption? Screen lock?
+**Identify** — What assets, data, and systems exist? Who is responsible for security? What risks have been identified?
 
-**Vulnerability Management:** How are vulnerabilities identified? What is the patching timeline? Is there a vulnerability scanning program?
+**Protect** — How are systems and data protected? MFA, encryption, access controls, patching, backups, training.
 
-**Incident Response:** Is there a documented plan? What is the breach notification process? Has the plan been tested?
+**Detect** — What monitoring is in place? How would you know if something went wrong?
 
-**Business Continuity:** Backup procedures and frequencies? Has recovery been tested? What are RTO and RPO targets?
+**Respond** — What happens when an incident occurs? Is there a plan? Has it been tested?
 
-**Third-Party Risk:** How do you assess the security posture of your own vendors?
+**Recover** — How do you restore operations after an incident? What are your RTO and RPO targets?
 
-## Building Your Documentation Library
+These five functions cover the full lifecycle of security — prevention, detection, and response.
 
-Organizations that respond quickly and accurately have already built their documentation:
-1. **Information Security Policy** — the parent document that sets intent and governance
-2. **Access Control Policy** — how access is requested, granted, reviewed, and revoked
-3. **Data Classification Policy** — how different categories of data are handled
-4. **Incident Response Plan** — procedures for detecting, containing, and reporting incidents
-5. **Business Continuity / DR Plan** — backup procedures, recovery objectives, testing cadence
-6. **Vendor Management Policy** — how you assess your own third-party providers
-7. **Acceptable Use Policy** — what employees can do with company systems
-8. **Patch Management Policy** — how and when systems are updated
+## Our Free Assessment
 
-This documentation serves two purposes: it demonstrates to customers that security has been thoughtfully considered, and it forces your organization to actually define and implement these controls rather than assuming they exist because someone is informally doing the right thing.
+We developed a structured self-assessment based on NIST CSF, adapted for the practical reality of small and mid-sized organizations. It covers all five NIST functions with 51 questions designed to be answerable by anyone familiar with your organization's technology environment.
 
-## On Honesty
+It's free. No signup required. Take it at your own pace.
 
-Inflating your security posture on a questionnaire creates two problems. If you represent controls you don't have and experience a breach, the inaccurate representation becomes part of the incident. And enterprise customers who perform rigorous assessments will find the gaps during due diligence anyway.
+[Download Cybersecurity Assessment (PDF)](/downloads/cybersecurity-assessment-rsystems.pdf)
 
-Most sophisticated enterprise customers would rather work with a vendor who has clearly identified their gaps and has a roadmap to close them than one who overstated their posture and can't substantiate it under scrutiny.`,
+We recommend completing it as honestly as you can — "I don't know" is a valid and useful answer. Then update your answers 1–2 times per year. Over time, you'll see your posture improve, and you'll have documentation of that progress.
+
+If you need help interpreting the results, understanding what changes to prioritize, or turning the gaps into a remediation plan — that's exactly what RSystems does. [Let's talk](/contact).`,
   },
 ]

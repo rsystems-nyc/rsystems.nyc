@@ -105,7 +105,7 @@ const ourWorkLinks = [
 const resourcesLinks = [
   { href: "/resources/university", label: "University" },
   { href: "/resources/free-resources", label: "Free Resources" },
-  { href: "/resources/faq", label: "FAQ" },
+  { href: "/resources/glossary", label: "Glossary" },
 ];
 
 const aboutLinks = [

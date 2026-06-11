@@ -18,6 +18,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.macktez.com" },
       { protocol: "https", hostname: "media.audubon.org" },
       { protocol: "https", hostname: "azure.microsoft.com" },
+      { protocol: "https", hostname: "upload.wikimedia.org" },
+      { protocol: "https", hostname: "community.fs.com" },
     ],
   },
 };

@@ -14,17 +14,70 @@ type Block =
 interface Resource {
   id: string
   title: string
+  label?: string
   blocks: Block[]
+  downloadUrl?: string
   comingSoon?: boolean
 }
 
 const resources: Resource[] = [
   {
-    id: "coming-soon",
-    title: "Coming Soon",
-    comingSoon: true,
+    id: "cybersecurity-self-assessment",
+    title: "Cybersecurity Self-Assessment",
+    label: "Free Download",
+    downloadUrl: "/assets/cybersecurity-assessment-rsystems.pdf",
     blocks: [
-      { type: "p", text: "Additional resource coming shortly." },
+      {
+        type: "p",
+        text: "A structured self-assessment for evaluating your organization's current cybersecurity posture. Use it before a board conversation about security investment, before engaging a consultant, or as part of an annual review.",
+      },
+      { type: "p", text: "Covers the baseline security domains most organizations need to address:" },
+      {
+        type: "ul",
+        items: [
+          "Identity and access management",
+          "Endpoint protection",
+          "Network security",
+          "Data handling and classification",
+          "Incident response readiness",
+          "Vendor and third-party risk",
+        ],
+      },
+      {
+        type: "p",
+        text: "The goal isn't a score. It's a starting point for a productive conversation about where your organization actually stands — and what needs attention before the next incident or audit.",
+      },
+    ],
+  },
+  {
+    id: "sig-lite",
+    title: "SIG Lite — Vendor Security Questionnaire",
+    label: "Free Download",
+    downloadUrl: "/assets/sig-lite-rsystems.pdf",
+    blocks: [
+      {
+        type: "p",
+        text: "The Standardized Information Gathering (SIG) questionnaire is the industry standard for vendor security assessments. The SIG Lite is a streamlined version designed for lower-risk vendor relationships — comprehensive enough to be meaningful, lean enough to actually get completed.",
+      },
+      {
+        type: "p",
+        text: "Use it when you're building a vendor risk management program, when your customers are asking about your security posture, or when you need to evaluate a new vendor relationship without the overhead of the full SIG.",
+      },
+      { type: "p", text: "Core domains covered:" },
+      {
+        type: "ul",
+        items: [
+          "Data protection and classification",
+          "Access control and identity management",
+          "Incident detection and response",
+          "Business continuity and disaster recovery",
+          "Physical and environmental security",
+        ],
+      },
+      {
+        type: "p",
+        text: "This is the right starting point for most organizations. The full SIG is available when the engagement or regulatory requirements warrant it.",
+      },
     ],
   },
   {
@@ -98,6 +151,35 @@ const resources: Resource[] = [
     ],
   },
   {
+    id: "apple-business",
+    title: "Apple Business",
+    blocks: [
+      {
+        type: "p",
+        text: "Apple Business is a free platform from Apple that gives organizations centralized control over Apple devices, managed identities, app distribution, and — as of its current iteration — a full built-in MDM solution. Everything you need to manage a fleet of Apple hardware is included at no cost.",
+      },
+      { type: "p", text: "What's included at no cost:" },
+      {
+        type: "ul",
+        items: [
+          "Full MDM — device policy enforcement, app management, configuration profiles, and compliance reporting built directly into the platform, no third-party MDM required",
+          "Up to 500 Managed Apple IDs with your organization's domain — functioning corporate Apple accounts with iCloud Mail, separate from any personal Apple IDs your staff may have",
+          "Automated Device Enrollment — new iPhones, iPads, and Macs enroll into management the moment they're powered on, without IT touching the device",
+          "Volume Purchase Program — centrally purchase and distribute apps across your organization, with licenses that return to the pool when a user leaves",
+          "Integration with third-party MDMs — Jamf, Intune, Mosyle, Kandji, and others remain supported for organizations that need their extended capabilities",
+        ],
+      },
+      {
+        type: "p",
+        text: "On Managed Apple IDs: each one comes with an @yourdomain.com iCloud Mail address. For organizations that need Apple accounts for device management but don't want employees using personal Apple IDs on corporate hardware, this is the right answer. The 500-account limit covers most mid-market organizations without any cost.",
+      },
+      {
+        type: "p",
+        text: "If your organization has Apple devices and isn't using Apple Business, you're managing those devices manually. Setup requires a D-U-N-S number for verification, which most organizations already have. Apple's verification process typically takes a few business days.",
+      },
+    ],
+  },
+  {
     id: "aws-route-53",
     title: "AWS Route 53 for DNS",
     blocks: [
@@ -164,6 +246,39 @@ const resources: Resource[] = [
       },
     ],
   },
+  {
+    id: "github",
+    title: "GitHub — Free Tier and Nonprofit Access",
+    blocks: [
+      {
+        type: "p",
+        text: "GitHub's free tier is more capable than most organizations realize, and eligible nonprofits can access GitHub Team at no cost. If you're running version control on anything — code, configuration, infrastructure-as-code, documentation — GitHub Free covers a significant portion of what most teams actually need.",
+      },
+      { type: "p", text: "GitHub Free for organizations includes:" },
+      {
+        type: "ul",
+        items: [
+          "Unlimited public and private repositories with unlimited collaborators",
+          "2,000 GitHub Actions minutes per month — sufficient for most small-team CI/CD pipelines",
+          "500 MB of Packages storage",
+          "GitHub Issues and Projects for lightweight project tracking",
+          "Dependabot alerts for known vulnerabilities in your dependencies",
+        ],
+      },
+      {
+        type: "p",
+        text: "GitHub Copilot Free — As of late 2024, GitHub offers a free tier of Copilot with 2,000 code completions and 50 chat messages per month, no credit card required. For organizations evaluating AI-assisted development before committing to a paid seat, this is a low-friction starting point. GitHub Copilot Business ($19/user/month) adds organization-wide policy controls and audit logs.",
+      },
+      {
+        type: "p",
+        text: "GitHub for Nonprofits — Registered 501(c)(3) organizations can apply for GitHub Team at no cost through GitHub's nonprofit program. GitHub Team (normally $4/user/month) adds protected branches, required reviewers, code owners, and 3,000 Actions minutes per month — meaningful upgrades for teams with any kind of review or deployment workflow. Apply through GitHub's nonprofit portal; verification typically takes a few business days.",
+      },
+      {
+        type: "p",
+        text: "Where it fits: if your organization manages any infrastructure as code — Terraform, Ansible, Bicep, or similar — GitHub is the natural home for it. Version control on infrastructure configuration is one of the highest-leverage practices an IT team can adopt, and the free tier removes the cost barrier entirely.",
+      },
+    ],
+  },
 ]
 
 function ResourceCard({ resource }: { resource: Resource }) {
@@ -175,7 +290,7 @@ function ResourceCard({ resource }: { resource: Resource }) {
         </p>
       ) : (
         <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
-          Resource
+          {resource.label ?? "Resource"}
         </p>
       )}
       <h2
@@ -211,6 +326,33 @@ function ResourceCard({ resource }: { resource: Resource }) {
           );
         })}
       </div>
+      {resource.downloadUrl && (
+        <div className="mt-8 pt-6 border-t border-[#1A1A1A]/[0.07]">
+          <a
+            href={resource.downloadUrl}
+            download
+            className="inline-flex items-center gap-2.5 bg-[#E8500A] text-white text-sm font-semibold px-5 py-3 rounded-lg hover:bg-[#D04508] transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download PDF
+          </a>
+        </div>
+      )}
     </div>
   );
 }

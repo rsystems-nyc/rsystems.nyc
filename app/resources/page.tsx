@@ -25,11 +25,11 @@ const sections = [
     cta: "Read Articles",
   },
   {
-    title: "FAQ",
-    body: "Direct answers to the questions that come up in almost every engagement.",
-    href: "/resources/faq",
-    tag: "12 questions",
-    cta: "Read Answers",
+    title: "Glossary",
+    body: "Plain-language definitions of the terms that come up most often — organized by topic, not alphabet.",
+    href: "/resources/glossary",
+    tag: "25 terms",
+    cta: "Browse Glossary",
   },
 ];
 
