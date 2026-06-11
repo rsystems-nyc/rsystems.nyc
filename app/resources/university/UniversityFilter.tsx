@@ -9,6 +9,7 @@ function categoryClass(_category: string): string {
 }
 
 const CATEGORY_ORDER = [
+  "AI",
   "Networking",
   "Cabling",
   "DNS",

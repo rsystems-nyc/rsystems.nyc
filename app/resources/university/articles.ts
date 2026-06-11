@@ -8,6 +8,145 @@ export interface Article {
 }
 
 export const articles: Article[] = [
+  // ── AI: Understanding AI ─────────────────────────────────────────────────────
+  {
+    slug: "understanding-ai",
+    title: "Understanding AI: From Hardware to Agents",
+    categories: ["AI"],
+    description: "CPUs, GPUs, LLMs, and the tools that connect them — a practical guide to how AI works and how to use it to automate real work.",
+    content: `## The hardware that makes AI run
+
+### CPUs vs GPUs
+
+A CPU (Central Processing Unit) is the general-purpose brain of a computer. Modern CPUs have anywhere from 8 to 64 cores, each capable of handling complex, varied tasks in sequence. They're fast, flexible, and designed to do the enormous variety of things a computer needs to do: run the operating system, manage network connections, handle file operations, execute business logic. CPUs are generalists.
+
+AI training and inference require something fundamentally different. Training a language model is, at its core, a problem of matrix multiplication — performing the same relatively simple mathematical operation across billions of numbers, simultaneously, billions of times. CPUs handle this poorly. They were architected for breadth and complexity, not for doing one thing at massive, uniform scale.
+
+A GPU (Graphics Processing Unit) was designed to render video frames — which requires transforming millions of pixels simultaneously using the same geometric operations. The architecture that makes GPUs excellent at graphics makes them extraordinarily well-suited for AI: thousands of simpler cores executing the same instruction in parallel, at scale.
+
+This parallel architecture is why NVIDIA became the defining hardware company of the AI era. Their CUDA software platform gave researchers a practical way to harness GPU parallelism for neural network training years before competitors had comparable stacks. Training a frontier model like GPT-4 or Claude requires thousands of high-end GPUs running continuously for weeks. Running a model to generate responses (inference) is less intensive but still GPU-heavy at scale.
+
+For a genuinely fascinating engineering deep dive into how modern GPUs are designed and why the architecture works the way it does, [this video](https://www.youtube.com/watch?v=MiUHjLxm3V0) is one of the best we've seen.
+
+For organizations considering local AI deployment, the GPU question becomes practical. A consumer GPU with 16GB of VRAM can run capable open-source models locally for private data workflows. A workstation GPU with 48GB handles significantly larger models. The economics of local inference are improving rapidly.
+
+### RAM
+
+RAM is where a model lives during operation. Running a language model requires loading its weights — the billions of parameters encoding its learned patterns — into memory where the GPU can access them quickly. A 7-billion-parameter model in compressed format requires roughly 14GB of RAM. A 70-billion-parameter model needs roughly 140GB. RAM capacity determines which models you can run and how many simultaneous sessions you can serve.
+
+For cloud-based AI — Claude.ai, ChatGPT.com, Gemini — this is entirely invisible. The provider handles it. For local model deployment, it becomes a hardware planning constraint worth understanding.
+
+### Storage
+
+SSDs matter for AI primarily at model load time — moving weights from disk into memory quickly — and for storing model files. For most organizational AI use through cloud APIs, storage is not a meaningful variable. For local deployments serving multiple users, it becomes one.
+
+## What a large language model actually is
+
+An LLM is a mathematical model trained to predict what text should come next, given a sequence of input text. That sounds deceptively simple. The discovery that made modern AI possible was that a model trained with sufficient data, at sufficient scale, to predict text extremely well also develops capabilities that weren't explicitly trained — the ability to follow logical chains, write and debug code, translate languages, answer questions it was never directly shown, and generalize to novel problems.
+
+The training process: feed the model enormous quantities of text, have it predict the next token, compare that prediction to the actual next token, and adjust the model's internal parameters slightly to improve the prediction. Repeat across trillions of tokens. The parameters that emerge encode something that functions like understanding and reasoning — even though the training objective was simply "predict the next word."
+
+**Tokens** are the units LLMs process — roughly three-quarters of a word on average. "Electromagnetic" is one token. Every input you give a model and everything it generates are measured in tokens. Token counts affect cost, processing time, and the model's ability to handle long documents in a single session.
+
+**Context window** is the amount of text a model can hold in working memory at once — your full conversation history, any documents you've shared, and the current exchange. Early models had context windows of a few thousand tokens, roughly a few pages of text. Current Claude models measure context in hundreds of thousands of tokens — large enough for an entire codebase, a lengthy legal document, or hours of conversation history. You can give a model a large, complex document and ask questions about any part of it without summarizing or chunking it first.
+
+**System prompts** are instructions given to a model before a conversation begins, setting its behavior and constraints. When you use Claude.ai, Anthropic provides one. When an organization builds a product on the Claude API, they write their own. The system prompt is what turns a general-purpose model into a purpose-specific tool.
+
+## ChatGPT, Gemini, and Claude
+
+These three represent the current leading conversational AI platforms. They are all genuinely capable. The differences are real and worth understanding.
+
+### ChatGPT (OpenAI)
+
+The model that introduced most people to modern AI. ChatGPT has the broadest public recognition, the most extensive plugin ecosystem, and strong general-purpose capability across writing, analysis, coding, and conversation. GPT-4o handles text, images, audio, and multimodal tasks.
+
+Where it excels: general writing and communication, creative generation, breadth of integrations, and familiarity as an entry point for teams new to AI.
+
+For organizations committed to Microsoft, Copilot for Microsoft 365 is often the more relevant recommendation — it builds GPT-4 directly into Word, Excel, Teams, and Outlook. If your team already lives in those tools, the integration frequently matters more than which underlying model is technically ahead.
+
+### Gemini (Google)
+
+Google's model has a natural home in Google Workspace. Gemini integrated natively into Gmail, Docs, Sheets, and Drive gives the AI access to your organizational data without additional integration work. For a Google Workspace-first organization, that native access often outweighs differences in raw model capability.
+
+Where it excels: Google Workspace integration, multimodal tasks, organizations where data already lives in Google's ecosystem. For Workspace shops, Gemini for tasks involving Drive and Gmail is frequently the pragmatic recommendation.
+
+### Claude (Anthropic)
+
+Claude is the model we use daily — for our own operations, for client work, and for everything on this site. Our preference is earned rather than assumed.
+
+In our experience across all three platforms, Claude is the most capable for complex reasoning, long-document analysis, code generation, and — most importantly — agentic use cases where the model is taking real actions in the world rather than just generating text. MCP, the protocol connecting AI models to external systems, was developed by Anthropic and is most mature in the Claude ecosystem.
+
+Anthropic was founded by former OpenAI researchers with a specific focus on AI safety. That focus is visible in Claude's behavior in ways that matter for production deployments: it's more calibrated about uncertainty, less prone to confident confabulation, and more thoughtful about the downstream consequences of actions when operating autonomously.
+
+Where it excels: complex reasoning, code generation and debugging, long-context tasks, autonomous agent workflows, and safety-conscious production deployments.
+
+**The honest position:** use multiple models for what each does best. ChatGPT or Copilot for Outlook drafting in Microsoft environments. Gemini for Drive and Gmail. Claude for complex reasoning, code, or anything autonomous. These are not in competition for your exclusive loyalty, and treating them as such leaves capability on the table.
+
+## The tools
+
+### Chat interfaces
+
+Claude.ai, ChatGPT.com, and Gemini.google.com are the most accessible entry point — web-based conversational interfaces requiring no setup.
+
+The ceiling: chat interfaces are conversational. The model can tell you what to do but cannot do it for you. It can draft a provisioning script but not run it. For tasks that require taking action in real systems, the interface alone is insufficient.
+
+### Claude for Chrome
+
+Claude for Chrome is a browser extension that gives Claude visibility into what's on your screen and the ability to interact with web pages — filling forms, clicking buttons, navigating between pages, reading content without manual copying.
+
+The significance: web-based tools that expose no API become automatable. Any admin console a human can navigate through a browser, Claude for Chrome can navigate as well. This closes the gap between "systems with proper API integrations" and "everything else that has a web interface."
+
+### Claude Code
+
+Claude Code runs in your terminal with access to your local filesystem, the ability to execute shell commands, and the ability to read, write, and modify code files. It's designed for software development but applies to any task involving files and system operations.
+
+The model can read an entire codebase, understand its structure, implement requested changes across multiple files, run the tests, and iterate on errors — without being walked through the code manually. The RSystems website was built this way.
+
+### IDE integrations
+
+GitHub Copilot, the Claude extension for VS Code, Cursor, and similar tools bring AI directly into the development environment. The model has context of your open file, project structure, and recent edits — providing suggestions inline and answering questions about the code without leaving the editor.
+
+For active development, IDE integration is often more practical than Claude Code for ongoing work — ambient assistance woven into an existing workflow rather than a separate agent session.
+
+## MCP: The bridge between models and systems
+
+MCP (Model Context Protocol) is an open standard, developed by Anthropic, for connecting AI models to external tools and systems. Rather than every AI integration requiring custom code, MCP provides a common interface: the model issues a structured tool call, the MCP server executes it against the real system, and returns the result.
+
+The practical effect: any platform that publishes an MCP server becomes something any compatible model can operate. JumpCloud, Slack, Google Drive, GitHub, HubSpot, and dozens of other platforms have MCP servers. Each one gives the model hands into that system — the ability to read data and take real actions.
+
+The limitation: official MCP servers expose a curated subset of each platform's API. The JumpCloud MCP has roughly a dozen tools. The JumpCloud API has hundreds of endpoints. For production automation, that gap matters — which is why custom MCP development is a meaningful part of making agents genuinely capable rather than merely promising.
+
+**How a tool call works:** when an AI model is working through a task, it can recognize when it needs capabilities outside its training. It issues a structured tool call — essentially, "call this function with these parameters." The MCP server receives it, executes the corresponding API call, and returns the result. The model incorporates that result and continues to the next step.
+
+A single onboarding task might involve twenty sequential tool calls — check if the user exists, create the account, assign group membership, set device policy, send the welcome message, create the shared folder, log the completion. Each one is a roundtrip through an MCP server to a live system.
+
+## Putting it together
+
+The real capability emerges from combining the tools. A chat interface or system prompt defines the task. MCP servers give the model access to the platforms involved. Claude for Chrome handles anything requiring browser interaction. Claude Code handles anything requiring filesystem access or command execution.
+
+### A brief example: new hire onboarding
+
+A new employee completes an onboarding form. The response appears in a Google Sheet an MCP server monitors. Claude reads the new hire's details and works through the onboarding sequence:
+
+Via JumpCloud MCP: creates the user account, assigns directory group membership, applies the device enrollment policy, triggers the invitation email. Via Slack MCP: posts a welcome message and adds them to department channels. Via Google Drive MCP: creates their home folder and shares the onboarding document.
+
+Most of the process is done. But the organization uses Adobe Creative Cloud for Teams — not enterprise — and Adobe's admin console has no MCP server and no accessible API for this workflow. The only path is the web interface at adminconsole.adobe.com.
+
+Claude for Chrome picks up here: navigates to the console, finds the product license screen, adds the new user, and confirms the assignment.
+
+The entire sequence — across JumpCloud, Slack, Drive, and Adobe — completes without an administrator touching a single panel. MCP handles every system with a proper integration. Claude for Chrome handles the rest. Together they cover nearly any web-accessible platform.
+
+## Where to start
+
+The most effective starting point is usually the simplest: one tool, configured properly, deployed to a team that will use it, against one workflow that saves real and measurable time.
+
+For most organizations that means a properly configured Claude Teams or Enterprise account with SSO, followed by identifying the first workflow where AI genuinely changes how the work gets done — not sounds impressive, but actually changes it.
+
+The more sophisticated stack — custom MCP servers, agent identity architecture, audit infrastructure — follows naturally once the foundational tooling is in place and teams understand what these models can actually do.
+
+If you're not sure where to start, that's the most common situation. [Get in touch](/contact) and we'll figure out what makes sense for your organization.`,
+  },
+
   // ── Article 1 ───────────────────────────────────────────────────────────────
   {
     slug: "directory-services",
@@ -821,7 +960,7 @@ This is a genuine solution to one of the hardest problems IT has faced for years
 
 **Contractors** remain a harder problem. Contractors often resist any form of MDM enrollment, and because they're not permanent employees, the organizational investment in their device management is harder to justify. Conditional access — verifying minimum device health without enrollment — is often the practical answer for contractors.
 
-**Platform note:** BYOD via User Enrollment works well on iOS today. macOS doesn't yet have an equivalent — Apple hasn't shipped a macOS User Enrollment mode that provides the same clean personal/organizational separation. We expect this to change, but until it does, Mac BYOD remains either full MDM enrollment or no enrollment. Chrome Device Trust (covered in the [next article](/resources/university/managed-chrome)) is a useful partial solution for Mac BYOD scenarios.`,
+**Platform note:** BYOD via User Enrollment works well on iOS today. macOS doesn't yet have an equivalent — Apple hasn't shipped a macOS User Enrollment mode that provides the same clean personal/organizational separation. We expect this to change, but until it does, Mac BYOD remains either full MDM enrollment or no enrollment. Chrome Device Trust (covered in the [next article](/resources/university/managed-chrome)) is a useful BYOD solution for Mac, Windows, and Linux.`,
     related: ["autopilot", "managed-chrome"],
   },
 
@@ -870,20 +1009,20 @@ Clear use cases:
 
 For standard knowledge work environments without specific compliance requirements, browser management adds a layer but isn't the highest-priority configuration. Core security needs — device management, identity, access control — are better addressed at the OS and directory level first. For regulated environments, or anywhere browser behavior needs to be controlled and auditable, Managed Chrome is a meaningful addition.
 
-## Chrome Device Trust and BYOD Macs
+## Chrome Device Trust and Desktop BYOD
 
-Here's where Managed Chrome becomes a meaningful BYOD solution for Mac and Windows.
+Here's where Managed Chrome becomes a meaningful BYOD solution for Mac, Windows, and Linux.
 
 JumpCloud (and similar platforms) can enforce a policy that says: you cannot access our applications unless you're signed into Chrome with your managed profile. And separately: you cannot add or set up a new managed Chrome profile without IT lifting a restriction first.
 
 The practical flow:
-1. Employee gets a new Mac (personal or org-owned)
+1. Employee gets a new personal or org-owned device (Mac, Windows PC, or Linux)
 2. They install Chrome and try to sign in with their work account
 3. The policy blocks new profile creation until IT approves
 4. IT approves, employee signs in, device is now registered
 5. IT re-applies the restriction
 
-The result: even if someone's username, password, and MFA codes were all stolen, an attacker couldn't use them without also having physical access to a pre-approved device with a registered Chrome profile. This is device trust without full MDM enrollment — the missing piece that makes Mac BYOD workable while Apple finishes building their native solution.`,
+The result: even if someone's username, password, and MFA codes were all stolen, an attacker couldn't use them without also having physical access to a pre-approved device with a registered Chrome profile. This is device trust without full MDM enrollment — a practical BYOD solution that works across every major desktop OS.`,
   },
 
   // ── Article 14 ──────────────────────────────────────────────────────────────
@@ -1104,5 +1243,161 @@ It's free. No signup required. Take it at your own pace.
 We recommend completing it as honestly as you can — "I don't know" is a valid and useful answer. Then update your answers 1–2 times per year. Over time, you'll see your posture improve, and you'll have documentation of that progress.
 
 If you need help interpreting the results, understanding what changes to prioritize, or turning the gaps into a remediation plan — that's exactly what RSystems does. [Let's talk](/contact).`,
+  },
+
+  // ── Article 17 ──────────────────────────────────────────────────────────────
+  {
+    slug: "mfa-and-phishing-resistance",
+    title: "MFA Types, FIDO2, and Phishing-Resistant Authentication",
+    categories: ["Security", "Identity"],
+    description: "SMS, TOTP, push notifications, passkeys, and FIDO2 — what each one actually is, how it can fail, and why phishing-resistant authentication is becoming the requirement.",
+    related: ["sig-lite", "cybersecurity-self-assessment", "directory-services"],
+    content: `## Why MFA exists
+
+Passwords alone are a failed security model. Not because they're a bad idea in principle, but because of how people actually use them: reused across dozens of services, discovered in data breaches, guessed through credential stuffing, phished through convincing fake login pages. The credential breach pipeline is industrial in scale. Billions of username/password combinations are actively traded, and automated tools test them against every major service continuously.
+
+Multi-factor authentication adds a second requirement beyond the password — something that changes, something physically in your possession, or something tied to your biometrics. The idea is that a stolen password alone is no longer sufficient. The attacker also needs the second factor.
+
+That idea is sound. But not all implementations of it provide equal protection. The differences between MFA types matter significantly more than most people realize.
+
+## The three authentication factors
+
+Authentication factors fall into three categories:
+
+**Something you know** — a password, a PIN, a security question answer. Anything memorized.
+
+**Something you have** — a physical device, a cryptographic key, a phone receiving a code. Anything in your possession.
+
+**Something you are** — biometrics. A fingerprint, a face scan, a retinal pattern.
+
+MFA means combining at least two of these. Most implementations combine something you know (a password) with something you have (a phone or hardware key). The second factor is the variable — and that is where the real security differences live.
+
+## SMS codes
+
+How it works: when you log in, the service generates a random six-digit code and texts it to your registered phone number. You enter the code to complete authentication. The assumption is that only you have access to your phone number.
+
+The problem is that assumption is fragile in several distinct ways.
+
+**SIM swapping** is the most common attack. An attacker calls your mobile carrier, impersonates you using personal information gathered from data breaches or social media, and convinces the carrier to transfer your phone number to a SIM card they control. Your phone loses service. Their phone starts receiving your calls and texts — including your authentication codes.
+
+This is not theoretical. Twitter's CEO Jack Dorsey had his account compromised via SIM swap in 2019. Thousands of Coinbase customers lost funds when attackers bypassed SMS 2FA through the same method. Cryptocurrency exchanges have been targeted repeatedly because the financial reward justifies the social engineering effort.
+
+**SS7 vulnerabilities** affect the 40-year-old Signaling System No. 7 protocol that telecom networks use to coordinate call and message routing. Attackers with access to the SS7 network — nation-state actors and sophisticated criminal groups — can redirect SMS messages without touching the carrier. The subscriber never knows.
+
+**Real-time phishing** is the third failure mode, and it applies to SMS and several other MFA types. An attacker builds a convincing fake login page. The victim enters their credentials. The attacker's server immediately replays those credentials to the real site. The real site sends an SMS code to the victim's phone. The fake site asks the victim to enter the code. The victim enters it. The attacker relays it within seconds. Authentication succeeds.
+
+SMS MFA stops attackers who have your password but not your phone. It does not stop SIM swappers, SS7 attackers, or anyone running a real-time phishing relay. NIST deprecated SMS-based OTP as a primary authentication mechanism in their SP 800-63B guidelines. Use it only as a last-resort fallback when better options are unavailable.
+
+## TOTP: time-based one-time passwords
+
+TOTP (defined in RFC 6238) is the MFA type behind Google Authenticator, Authy, 1Password codes, and most authenticator apps.
+
+**How it works:** when you enable TOTP on a service, you scan a QR code that encodes a shared secret known to both the service and your authenticator app. From that point, both your app and the service's server independently compute the same six-digit code using a formula that combines the shared secret with the current timestamp divided into 30-second windows. Because they both know the secret and both know the time, they arrive at the same code independently without any communication. The code changes every 30 seconds, and most services allow a 90-second grace window for clock drift.
+
+**What TOTP fixes:** SIM swapping does not work because your codes are not flowing through the telecom network. SS7 attacks do not work for the same reason. The shared secret lives in your authenticator app. This is a meaningful upgrade from SMS.
+
+**What TOTP does not fix:** real-time phishing. The same relay attack that works against SMS codes works against TOTP codes. Your 30-second window is more than enough time for an automated relay to pass the code from the fake site to the real site. The technical term is AiTM — Adversary-in-the-Middle. Phishing toolkits specifically designed to defeat TOTP in real time (Evilginx2, Modlishka, and others) are openly documented and widely used. TOTP is substantially better than SMS. It is not phishing-resistant.
+
+## The authenticator apps
+
+### Google Authenticator
+
+The most widely recognized TOTP app. It works correctly and requires no account. The original limitation was significant: secrets were stored only on the device with no backup. Lose your phone, lose every TOTP code you had set up, with no recovery path except calling each service individually.
+
+Google added optional cloud sync in 2023. The implementation drew criticism from security researchers: secrets were initially transmitted without end-to-end encryption, meaning they were readable to Google's infrastructure. Google has since added E2E encrypted sync as an option, but the default remains unencrypted unless you opt in. For personal use, Google Authenticator is adequate. For enterprise contexts or high-value accounts, there are better options.
+
+### 1Password
+
+1Password handles TOTP as one of its stored item types, alongside usernames and passwords. Two things make it meaningfully better than a standalone authenticator app.
+
+First, integration. 1Password fills your TOTP code automatically alongside your password in the same autofill action. You do not switch apps, read a code off your phone screen, and type it manually. The code appears in the browser extension in the same moment as the password. For users, this removes the friction that causes people to disable or bypass MFA.
+
+Second, storage. Your TOTP secrets are end-to-end encrypted, backed up, and synced across all your devices. Lose a phone, lose nothing. Get a new device, instant setup.
+
+The theoretical objection — that storing TOTP in the same vault as your password technically reduces from two factors to one — is valid in principle. In practice, a 1Password user with TOTP enabled is substantially more secure than one who abandons MFA because the friction is too high. 1Password also stores passkeys natively, making it the most practical cross-platform passkey manager currently available.
+
+### Microsoft Authenticator
+
+The natural choice for Microsoft-centric organizations. It handles TOTP for any compatible service, but its primary value is as the push notification and passwordless authentication method for Microsoft Entra ID.
+
+Its key security feature: **number matching**. When a push notification is sent, the login screen displays a two-digit number the user must enter into the Authenticator app before approving. This nearly eliminates push bombing attacks — more on why in the next section. Microsoft Authenticator also supports passkey authentication and passwordless phone sign-in for Entra ID. If your organization runs Microsoft 365, this app is standard issue.
+
+### Okta Verify
+
+The enterprise equivalent of Microsoft Authenticator for Okta-centric organizations. Push notifications with rich context — the service, device, and location of the login attempt — TOTP generation, and Okta FastPass, a passwordless mechanism using a device-bound cryptographic key.
+
+Okta Verify integrates with Okta's device trust signals: the app can attest whether the device is enrolled in MDM, meets minimum OS version requirements, and has disk encryption enabled. Okta's conditional access policies can require these signals before granting authentication. If your identity provider is Okta, Okta Verify is the companion app to deploy.
+
+### JumpCloud Protect
+
+JumpCloud's authenticator app for JumpCloud-managed accounts. Push notification approval, TOTP generation, and integration with JumpCloud's conditional access and device trust infrastructure. Everything surfaces in the same admin console, the same user lifecycle workflows, and the same device trust policies you're already managing. If your directory is JumpCloud, JumpCloud Protect is the natural companion — and the standard configuration RSystems implements for JumpCloud clients.
+
+## Push notifications: better UX, new attack surface
+
+Push-based MFA replaces code-typing entirely. You attempt to log in, the service sends a push notification to the registered app on your phone, you tap Approve or Deny, and authentication completes or fails.
+
+**What push fixes:** no code to type means no code to steal. An AiTM phishing relay can capture your username and password but cannot intercept a push notification sent to your phone. The notification includes contextual information — the service requesting access, your IP location, the device — that helps you detect suspicious requests.
+
+**What push introduces:** MFA fatigue attacks, also called push bombing. The technique is simple. The attacker has your credentials. They attempt to log in repeatedly, generating a continuous stream of push notifications to your phone. Users receiving unexpected authentication requests will often eventually approve one to make it stop — especially late at night, or if they assume it is a technical glitch.
+
+In 2022, Uber was compromised via exactly this method. The attacker had an employee's credentials, sent push notifications repeatedly, then sent a WhatsApp message pretending to be Uber IT, explained the requests were legitimate, and asked the employee to approve. The employee approved. The attacker was in.
+
+**Number matching** is the primary mitigation. The login screen displays a two-digit number the user must enter into the authenticator app before approval is granted. An attacker triggering push notifications cannot know what number appears on the legitimate login screen. A user receiving an unsolicited push with a number field and no corresponding number on their screen knows immediately something is wrong. CISA specifically recommends number matching as a requirement for all push-based MFA deployments.
+
+Push MFA with number matching is meaningfully more secure than TOTP. It is not phishing-resistant in all scenarios, but it raises attack complexity significantly.
+
+## FIDO2, WebAuthn, and hardware keys
+
+FIDO2 is the authentication standard that achieves something the previous methods cannot: cryptographic phishing resistance. Not improved resistance. Structural impossibility.
+
+**How it works:** when you register a FIDO2 credential with a service, your authenticator — a hardware key or your device's secure enclave — generates a public/private key pair specifically for that service's domain. The public key is sent to and stored by the service. The private key never leaves your authenticator. It is generated on the hardware and cannot be exported.
+
+When you authenticate, the service sends a cryptographic challenge. Your authenticator signs it with the private key tied to that specific domain. The service verifies the signature against the stored public key. Authentication succeeds.
+
+**Why phishing cannot work:** the key pair is bound to the specific origin at the cryptographic level. A FIDO2 credential registered for accounts.google.com will not sign a challenge from accounts.go0gle.com. The authenticator checks the exact domain. This is not a UI warning the user might dismiss. It is a cryptographic operation that fails if the domain does not match. There is no user decision, and therefore no user error.
+
+After Google required hardware security keys for all employees in 2017, they had zero successful phishing-based account compromises across their workforce. Not reduced — zero. The architecture does not permit it.
+
+**YubiKey** is the most widely deployed FIDO2 hardware authenticator. A small USB or NFC device, a YubiKey stores credentials on secure hardware. Tap it to a USB port or to an NFC reader on your phone and authentication completes. The private keys generated on a YubiKey cannot be extracted from the hardware — even if someone takes the physical key, the credentials inside are not readable. YubiKeys are the appropriate choice for privileged accounts and high-security requirements.
+
+## Passkeys: FIDO2 for everyone
+
+Passkeys are FIDO2 credentials that live in software rather than dedicated hardware — specifically, in your device's secure enclave (Apple's Secure Enclave, Android's StrongBox, Windows Hello's TPM) or a credential manager like 1Password.
+
+The cryptographic mechanism is identical to a hardware key. The difference is portability and usability.
+
+A passkey stored in iCloud Keychain is available across all your Apple devices. A passkey stored in 1Password is available on every device where you use 1Password — Mac, Windows, iOS, Android — regardless of platform. This matters because native platform passkey implementations are platform-locked: iCloud Keychain passkeys do not work on Windows, and Google Password Manager passkeys do not work on iOS. 1Password passkeys work everywhere 1Password works, making it the most practical path to broad passkey adoption in mixed device environments.
+
+**Device-bound vs. synced passkeys:** a passkey on a hardware key exists only on that physical device. A passkey in iCloud Keychain exists across all your Apple devices. Synced passkeys trade a degree of isolation for significant usability. Whether synced passkeys in E2E encrypted storage meet your organization's requirements is worth evaluating explicitly.
+
+**The user experience:** you never create, remember, or type a password for a passkey-protected service. Authentication is a biometric confirmation — Face ID, Touch ID, Windows Hello — and you are in. Phishing-resistant by design. Simpler than a password. Better security and better UX simultaneously. This is why every major platform and most major services are actively adopting passkeys.
+
+## The security hierarchy
+
+Weakest to strongest, and why:
+
+**SMS codes** — stops naive credential stuffing. Vulnerable to SIM swap, SS7, and real-time phishing. Use only as fallback.
+
+**TOTP authenticator codes** — removes telecom attack surface. Still vulnerable to AiTM phishing. Correct choice when FIDO2 is unavailable.
+
+**Push notifications without number matching** — better UX, same phishing vulnerability plus push bombing risk. Insufficient without number matching.
+
+**Push notifications with number matching** — substantially mitigates push bombing. Still not cryptographically phishing-resistant but raises attack complexity significantly.
+
+**FIDO2 hardware keys** — phishing-resistant by design. Correct for privileged accounts, administrators, and executives. Requires physical device management.
+
+**Passkeys** — same cryptographic guarantee as hardware keys, better usability, platform-synced. The emerging standard for all accounts.
+
+## Why phishing-resistant is becoming the requirement
+
+The most sophisticated attacks today specifically target MFA. Evilginx2, one of the most documented AiTM frameworks, is openly available and designed to relay TOTP codes and session tokens in real time. The baseline attack — credentials plus TOTP code via phishing relay, then session token theft — bypasses SMS and TOTP completely. The session persists even after the code expires.
+
+The US government's response has been explicit. CISA's binding operational directive specifies that SMS and TOTP are no longer considered sufficient for federal systems and that phishing-resistant MFA is the required standard for privileged access. Enterprise cyber insurance applications increasingly ask which MFA types are deployed and whether phishing-resistant authentication is enforced. The industry is moving in this direction not because of principle but because non-phishing-resistant MFA is failing at scale.
+
+The practical roadmap for most organizations:
+
+Ensure MFA is required for all accounts — any MFA is substantially better than none. Move from SMS to TOTP or push-based MFA. Require number matching on all push deployments. Deploy passkeys or hardware keys for privileged access, administrators, and executives. Adopt passkeys as the standard for all users as platform support matures — which it is doing rapidly.
+
+1Password, JumpCloud, Microsoft, Okta, and Google all support passkeys today. The path exists, the tooling exists, and the attacks against weaker methods are only becoming more automated and accessible. The question is when to require phishing-resistant authentication, not whether it is viable.`,
   },
 ]

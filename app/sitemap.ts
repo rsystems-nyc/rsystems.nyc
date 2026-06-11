@@ -35,6 +35,14 @@ const managementRoutes = [
   "/services/management/awareness",
 ];
 
+const aiRoutes = [
+  "/services/ai",
+  "/services/ai/ai-enablement",
+  "/services/ai/mcp-tooling",
+  "/services/ai/agent-governance",
+  "/services/ai/audit-accountability",
+];
+
 const techConsultingRoutes = [
   "/services/technology-consulting",
   "/services/technology-consulting/strategy",
@@ -86,6 +94,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const aiSitemapRoutes: MetadataRoute.Sitemap = aiRoutes.map((path) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
   const techConsultingSitemapRoutes: MetadataRoute.Sitemap = techConsultingRoutes.map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
@@ -123,6 +138,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
+    ...aiSitemapRoutes,
     ...managementSitemapRoutes,
     ...techConsultingSitemapRoutes,
     ...legacyServiceRoutes,

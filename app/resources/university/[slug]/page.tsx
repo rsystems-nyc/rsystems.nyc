@@ -20,7 +20,11 @@ function inlineFmt(s: string): string {
     .replace(/!\[([^\]]*)\]\(([^|)]+?)(?:\|(\d+%))?\)/g, (_, alt, src, width) =>
       `<img src="${src}" alt="${alt}" style="max-width:${width || '100%'};border-radius:8px;margin:1rem auto;display:block;" />`
     )
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, text, href) =>
+      /^https?:\/\//.test(href)
+        ? `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`
+        : `<a href="${href}">${text}</a>`
+    )
     .replace(/\*([^*\n]+)\*/g, "<em>$1</em>");
 }
 

@@ -51,10 +51,13 @@ const techConsultingCategories = [
     ],
   },
   {
-    label: "AI",
-    href: "/services/technology-consulting/ai/",
+    label: "AI & Automation",
+    href: "/services/ai",
     links: [
-      { href: "/services/technology-consulting/ai-transformation", label: "AI Enablement" },
+      { href: "/services/ai/ai-enablement", label: "AI Enablement" },
+      { href: "/services/ai/mcp-tooling", label: "MCP Tooling" },
+      { href: "/services/ai/agent-governance", label: "Agent Governance & PAM" },
+      { href: "/services/ai/audit-accountability", label: "Audit & Accountability" },
     ],
   },
   {
