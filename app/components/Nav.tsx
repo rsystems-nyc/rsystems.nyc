@@ -154,8 +154,9 @@ export default function Nav() {
         <nav className="ml-auto hidden md:flex items-center gap-8">
 
           <div onMouseEnter={openServices} onMouseLeave={closeServices}>
-            <button
-              type="button"
+            <Link
+              href="/services"
+              onClick={() => setServicesOpen(false)}
               className={`flex items-center gap-1 text-sm transition-colors ${
                 servicesOpen ? "text-[#1A1A1A]" : "text-[#1A1A1A]/50 hover:text-[#1A1A1A]"
               }`}
@@ -172,19 +173,19 @@ export default function Nav() {
               >
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </button>
+            </Link>
           </div>
 
           <div className="relative group">
-            <button
-              type="button"
+            <Link
+              href="/our-work"
               className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
             >
               Our Work
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px">
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </button>
+            </Link>
             <div className="absolute top-full left-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
               <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
                 {ourWorkLinks.map((link) => (
@@ -491,6 +492,13 @@ export default function Nav() {
             </button>
             {ourWorkOpen && (
               <div className="pb-2">
+                <Link
+                  href="/our-work"
+                  className="block py-2.5 text-sm text-[#E8500A] font-semibold border-b border-black/[0.05]"
+                  onClick={() => setOpen(false)}
+                >
+                  Overview
+                </Link>
                 <Link
                   href="/industries"
                   className="block py-2.5 text-sm text-[#1A1A1A]/40 pl-4 hover:text-[#1A1A1A] transition-colors border-b border-black/[0.05]"

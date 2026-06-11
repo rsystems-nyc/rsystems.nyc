@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { articles } from "../articles";
+import { caseStudiesData } from "@/app/lib/case-studies-data";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -149,6 +150,10 @@ export default async function UniversityArticlePage({ params }: Props) {
 
   const related = getRelated(article);
 
+  const relatedCaseStudies = article.relatedCaseStudies
+    ?.map((s) => caseStudiesData.find((cs) => cs.slug === s))
+    .filter(Boolean) as typeof caseStudiesData;
+
   return (
     <main className="flex-1 bg-[#F4F2EF]">
 
@@ -198,6 +203,49 @@ export default async function UniversityArticlePage({ params }: Props) {
           <p className="text-sm text-[#1A1A1A]/35 italic">Full article coming soon.</p>
         )}
       </article>
+
+      {/* See it in practice */}
+      {relatedCaseStudies && relatedCaseStudies.length > 0 && (
+        <section className="border-t border-[#1A1A1A]/[0.08] bg-[#F4F2EF]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-8">
+              See It In Practice
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relatedCaseStudies.map((cs) => (
+                <Link
+                  key={cs.slug}
+                  href={`/case-studies/${cs.slug}`}
+                  className="group flex flex-col bg-white rounded-xl border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-6"
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">
+                    {cs.industry}
+                  </p>
+                  <h3 className="text-base font-bold text-[#1A1A1A] leading-snug mb-1 group-hover:text-[#E8500A] transition-colors">
+                    {cs.title}
+                  </h3>
+                  <p className="text-[12px] text-[#1A1A1A]/40 mb-3">{cs.client}</p>
+                  <p className="text-sm text-[#1A1A1A]/55 leading-relaxed flex-1 mb-4">
+                    {cs.summary}
+                  </p>
+                  <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/60 group-hover:text-[#E8500A] transition-colors">
+                    Read Case Study
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path
+                        d="M4 1l5 5-5 5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related articles */}
       {related.length > 0 && (

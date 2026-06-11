@@ -47,14 +47,7 @@ export const caseStudiesData: CaseStudy[] = [
       "A ground-up, zero-compromise infrastructure built with redundancy as a first-order constraint — network, compute, storage, wireless, and access control, with no single point of failure tolerated anywhere in the stack.",
     client: "A leading NYC architecture firm",
     industry: "Architecture & Design",
-    tags: [
-      "Infrastructure Architecture",
-      "Network Design",
-      "Storage",
-      "VMware",
-      "Access Control",
-      "Ruckus Wi-Fi 6",
-    ],
+    tags: ["Networking", "Cloud & Infrastructure", "Security", "Identity"],
     summary:
       "Ground-up redundant infrastructure for a 100-person architecture firm — Cisco switching, Ruckus Wi-Fi 6, VMware cluster, dual-controller SAN, PDK access control, and 10 Gbps WAN. Zero downtime since deployment.",
     featuredImage: {
@@ -278,7 +271,7 @@ export const caseStudiesData: CaseStudy[] = [
       "A decade-long infrastructure partnership with a NYC audio engineering firm",
     client: "A NYC-based audio engineering firm",
     industry: "Media & Entertainment",
-    tags: ["Hybrid Cloud", "Identity & Access", "Fractional CTO"],
+    tags: ["Cloud & Infrastructure", "Identity"],
     summary:
       "A ten-year infrastructure partnership with a leading NYC audio engineering firm — spanning hybrid cloud migration, pandemic response, and an ongoing fractional CTO engagement that keeps the firm years ahead of industry practice.",
     featuredImage: {
@@ -354,13 +347,7 @@ export const caseStudiesData: CaseStudy[] = [
       "From a startup office in Chelsea to opening-day infrastructure for 1.7 million visitors",
     client: "Little Island",
     industry: "Parks & Public Space",
-    tags: [
-      "Infrastructure Architecture",
-      "Network Design",
-      "Identity & Access",
-      "Systems Integration",
-      "Emergency Preparedness",
-    ],
+    tags: ["Networking", "Cloud & Infrastructure", "Identity"],
     summary:
       "Ground-up IT infrastructure for NYC's most ambitious new public park — network architecture, identity, Dante audio, Genetec, emergency systems, and 1.7M visitors in year one.",
     featuredImage: {
@@ -525,14 +512,7 @@ export const caseStudiesData: CaseStudy[] = [
       "A ground-up infrastructure overhaul for a leader in industrial 3D printing — embedded for months, rebuilt over a single holiday",
     client: "MakerBot",
     industry: "Manufacturing & Technology",
-    tags: [
-      "Manufacturing & Technology",
-      "Infrastructure Architecture",
-      "Network Design",
-      "VMware",
-      "Server Room",
-      "Storage",
-    ],
+    tags: ["Networking", "Cloud & Infrastructure"],
     summary:
       "Months embedded inside MakerBot learning their infrastructure before overhauling it over a single holiday closure — 40 VMs rebuilt, 400% throughput increase, complete redundancy, and offsite backup replication, all executed without disrupting production operations.",
     seoTitle: "Untangling the Spaghetti Monster — Infrastructure Overhaul | RSystems NYC",
@@ -726,7 +706,7 @@ export const caseStudiesData: CaseStudy[] = [
       "Scalable identity infrastructure for a growing multinational",
     client: "A multinational organization",
     industry: "Enterprise",
-    tags: ["Identity & Access", "Cloud Strategy"],
+    tags: ["Identity", "Cloud & Infrastructure"],
     summary:
       "Identity infrastructure modernization for a 150-person multinational expanding toward 250+ staff — JumpCloud deployment unifying Google, cloud applications, and workstations, with ongoing AWS integration support and security audits over four years.",
     featuredImage: {
@@ -788,7 +768,7 @@ export const caseStudiesData: CaseStudy[] = [
       "Event network infrastructure for the charity:water Gala at the Metropolitan Museum of Art",
     client: "charity:water",
     industry: "Events & Culture",
-    tags: ["Events & Culture", "Wireless", "Network Design", "Nonprofit", "Event Technology"],
+    tags: ["Networking"],
     summary:
       "Event network for the charity:water Gala at the Metropolitan Museum of Art — Ruckus high-density wireless, FortiGate firewall, and on-site radio coordination supporting 500 devices across two spaces. $4.59 million raised in a single evening; zero network issues.",
     seoTitle: "The Night $4.6 Million Moved Over Wi-Fi | RSystems NYC",
@@ -982,13 +962,7 @@ export const caseStudiesData: CaseStudy[] = [
       "GPU-accelerated cloud desktops for Bluebeam and Revit, without a single Windows machine on premises",
     client: "Architecture and design professional corporation, Mac-first, distributed workforce",
     industry: "Architecture & Design",
-    tags: [
-      "Architecture & Design",
-      "Azure Virtual Desktop",
-      "Cloud Workstations",
-      "GPU Computing",
-      "Infrastructure as Code",
-    ],
+    tags: ["Cloud & Infrastructure", "Microsoft"],
     summary:
       "GPU-accelerated Azure Virtual Desktop for a Mac-only architecture firm — Bluebeam Revu and Autodesk Revit at full resolution and full speed, with Entra ID-native identity, Terraform IaC, and no Windows hardware on premises.",
     seoTitle: "A GPU in Azure, a Mac on Every Desk | RSystems NYC",
@@ -1179,7 +1153,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle: "Festival-grade network engineering for FoST Fest at Snug Harbor",
     client: "Future of Storytelling (FoST)",
     industry: "Events & Culture",
-    tags: ["Network Design", "Wireless", "Event Technology", "Infrastructure Architecture"],
+    tags: ["Networking"],
     summary:
       "A complete temporary event network for FoST Fest at Snug Harbor — spanning twelve landmarked buildings and a Great Lawn tent across an 83-acre campus, thousands of concurrent high-bandwidth VR/AR devices, self-healing redundant topology, and zero dead air across the full run.",
     seoTitle: "FoST Fest — Festival-Grade Event Network | RSystems NYC",
@@ -1428,14 +1402,7 @@ export const caseStudiesData: CaseStudy[] = [
       "Redesigning a cloud environment for a quantitative trading firm — from inherited complexity to infrastructure as code",
     client: "Duality Group",
     industry: "Finance & Trading Technology",
-    tags: [
-      "Finance & Trading Technology",
-      "AWS Architecture",
-      "Network Design",
-      "Infrastructure as Code",
-      "Security",
-      "Fortinet",
-    ],
+    tags: ["Cloud & Infrastructure", "Networking", "Security"],
     summary:
       "A complete rebuild of an overbuilt, incentive-misaligned AWS environment for quantitative trading firm Duality Group — four isolated accounts, every subnet and routing rule defined in Terraform, active/passive FortiGate HA at the network edge, encrypted VPN connectivity to market data and execution partners, and a lower monthly bill than the environment it replaced.",
     seoTitle: "Built for Scale — Cloud Infrastructure for Duality Group | RSystems NYC",
@@ -1610,7 +1577,7 @@ export const caseStudiesData: CaseStudy[] = [
       "Building a zero-touch provisioning pipeline for a 45-location healthcare nonprofit — from fully manual to Autopilot at scale",
     client: "Easterseals New Jersey",
     industry: "Healthcare & Nonprofit",
-    tags: ["Healthcare & Nonprofit", "Microsoft Intune", "Windows Autopilot", "Device Management", "Security", "Entra ID"],
+    tags: ["MDM", "Identity", "Security", "Microsoft"],
     summary:
       "A complete zero-touch provisioning pipeline for new devices and an automated re-enrollment path for existing ones — across 45 locations, 60+ Wi-Fi networks, and dozens of deployed applications — for a HIPAA-regulated nonprofit with 775 endpoints working toward HITRUST certification.",
     featuredImage: {
@@ -1787,12 +1754,7 @@ export const caseStudiesData: CaseStudy[] = [
       "A point-to-multipoint wireless network for the National Audubon Society's Corkscrew Swamp Sanctuary — designed in New York, built in Florida, delivering 200 Mbps where major carriers declined to serve.",
     client: "National Audubon Society",
     industry: "Nonprofits & Conservation",
-    tags: [
-      "Wireless Infrastructure",
-      "Network Architecture",
-      "Remote Deployment",
-      "SonicWall · Cisco · Unifi",
-    ],
+    tags: ["Networking"],
     summary:
       "Campus-wide wireless connectivity for the National Audubon Society's Corkscrew Swamp Sanctuary — remote deployment, zero carriers willing to serve, 200 Mbps delivered.",
     featuredImage: {
@@ -1945,13 +1907,7 @@ export const caseStudiesData: CaseStudy[] = [
       "Multi-region Azure infrastructure, disaster recovery, and infrastructure-as-code for a nationally distributed conservation organization with a global growth roadmap.",
     client: "National Audubon Society",
     industry: "Nonprofits & Conservation",
-    tags: [
-      "Azure",
-      "Terraform",
-      "Disaster Recovery",
-      "Cloud Migration",
-      "Infrastructure-as-Code",
-    ],
+    tags: ["Cloud & Infrastructure"],
     summary:
       "Multi-region Azure infrastructure, disaster recovery, and Terraform automation for the National Audubon Society — DR requirements met at a fraction of a hardware refresh.",
     featuredImage: {
@@ -2082,6 +2038,185 @@ export const caseStudiesData: CaseStudy[] = [
       "Infrastructure designed for future regional expansion without core redesign",
       "Reusable Terraform modules for all future VM, network, and DR deployments",
       "Phased delivery over six months, on time and on budget",
+    ],
+  },
+  {
+    slug: "audubon-wireless-tuning",
+    title: "Upgrade, Survey, Tune",
+    subtitle:
+      "Replacing eight aging access points at Audubon's NYC headquarters — and using heat mapping to confirm the new ones were in the right places.",
+    client: "National Audubon Society",
+    industry: "Nonprofit · Wireless Infrastructure",
+    tags: ["Networking"],
+    summary:
+      "Replaced eight aging access points, surveyed the result, and tuned placement and channel configuration based on what the data showed.",
+    featuredImage: {
+      src: "/assets/07-audubon-key-photo.png",
+      alt: "NetSpot 5GHz heat map of Audubon's NYC headquarters showing wireless signal coverage",
+    },
+    seoTitle:
+      "Wireless Infrastructure Upgrade & Heat Mapping — National Audubon Society — RSystems NYC",
+    seoDescription:
+      "We replaced eight aging access points at Audubon's NYC headquarters, surveyed the result with a heat map, and tuned placement and channel configuration based on what the data showed.",
+    canonicalPath: "/case-studies/audubon-wireless-tuning",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline:
+        "Upgrade, Survey, Tune — Wireless Infrastructure for the National Audubon Society",
+      description:
+        "We replaced eight aging access points at Audubon's NYC headquarters, surveyed the result with a heat map, and tuned placement and channel configuration based on what the data showed.",
+      author: {
+        "@type": "Organization",
+        name: "RSystems NYC",
+        url: "https://rsystems.nyc",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "RSystems NYC",
+        url: "https://rsystems.nyc",
+      },
+      about: { "@type": "Organization", name: "National Audubon Society" },
+      keywords:
+        "wireless infrastructure, UniFi, heat mapping, NetSpot, WiFi survey, 6GHz, nonprofit technology, Audubon Society, channel planning, access point placement",
+    },
+    sections: [
+      {
+        label: "The Upgrade",
+        heading: "The upgrade",
+        blocks: [
+          {
+            type: "p",
+            text: "Audubon's New York headquarters runs on a UniFi wireless infrastructure managed by RSystems. The existing fleet of eight access points had reached end of useful life — newer hardware offered meaningfully better performance across 2.4, 5, and 6GHz, with improved multi-gigabit backhaul support and stronger performance in dense RF environments like midtown Manhattan.",
+          },
+          {
+            type: "p",
+            text: "We replaced all eight APs with new UniFi hardware, re-cabling where needed to ensure each access point retained its multi-gigabit wired uplink. Once the new hardware was online and enrolled in the controller, we walked the floor with a spectrum analyzer to see what we'd actually built.",
+          },
+          {
+            type: "img",
+            src: "/assets/01-audubon-floor-plan.jpg",
+            alt: "Annotated floor plan of Audubon's NYC headquarters showing access point locations and patch panel port assignments",
+            caption:
+              "Annotated floor plan with access point locations and port assignments — the reference document for the survey and all subsequent placement decisions.",
+          },
+        ],
+      },
+      {
+        label: "The Survey",
+        heading: "The survey",
+        blocks: [
+          {
+            type: "p",
+            text: "We conducted a full wireless heat map of the floor using NetSpot, walking a calibrated zigzag pattern across the entire space with a 6GHz-capable laptop. The methodology matters here — zigzag movement with overlapping sample areas produces real measured data at every point rather than the interpolated guesswork that straight-line walking creates. We ran the survey during working hours to capture the RF environment as it actually exists, with neighboring networks active and devices connected.",
+          },
+          {
+            type: "p",
+            text: "The output was heat maps for each frequency band — raw signal strength (RSSI) and signal-to-noise ratio (SNR) — overlaid on a dimensionally accurate floor plan with each AP labeled and located.",
+          },
+        ],
+      },
+      {
+        label: "What the Data Showed",
+        heading: "What the data showed",
+        blocks: [
+          {
+            type: "p",
+            text: "5GHz coverage had a gap in the southwest corner of the floor. The new APs were providing good coverage across most of the space, but weaker signal in that area — a function of how the initial placement distributed coverage. All APs were already broadcasting at high power. The answer was better positioning, not more power.",
+          },
+          {
+            type: "img",
+            src: "/assets/02-audubon-5ghz-coverage.png",
+            alt: "NetSpot 5GHz heat map with adjusted gradient showing weaker coverage in the southwest corner of the floor",
+            caption:
+              "5GHz signal coverage with tightened gradient scale — the southwest corner reads cooler than the rest of the floor, identifying the area most in need of repositioning.",
+          },
+          {
+            type: "p",
+            text: "2.4GHz signal strength looked reasonable at first glance — adequate coverage across most of the floor. Raw signal alone is an incomplete picture.",
+          },
+          {
+            type: "img",
+            src: "/assets/03-audubon-2ghz-signal.png",
+            alt: "NetSpot 2.4GHz raw signal strength heat map showing broadly adequate coverage across the floor",
+            caption:
+              "2.4GHz raw signal strength — coverage looks acceptable across most of the floor.",
+          },
+          {
+            type: "p",
+            text: "When we examined signal-to-noise ratio — often the more meaningful metric for real-world performance under load — the picture was poor throughout. The scan found 70+ named WiFi networks visible from this floor, and several hundred more too weak to identify. This is the reality of 2.4GHz in dense Manhattan: a shared, congested medium regardless of how well your own equipment is configured. The finding confirmed that steering staff toward 5GHz and 6GHz wherever possible is the right direction.",
+          },
+          {
+            type: "img",
+            src: "/assets/04-audubon-2ghz-snr.png",
+            alt: "NetSpot 2.4GHz signal-to-noise ratio heat map showing poor SNR across the entire floor despite adequate raw signal",
+            caption:
+              "2.4GHz signal-to-noise ratio — poor across the entire floor. Over 70 named networks and hundreds more unnamed ones are visible from this space. Raw signal means little when the noise floor is this high.",
+          },
+          {
+            type: "p",
+            text: "The background RF scan of 5GHz revealed a more specific problem: a neighboring tenant's access points on the floor above were broadcasting strong signals across channels we were using. At their loudest they registered at -61 dBm — extremely loud for a neighboring network — running 80MHz channel widths that consumed a meaningful slice of the available 5GHz spectrum. Our APs nearest that interference needed to be on channels as far from theirs as possible.",
+          },
+          {
+            type: "img",
+            src: "/assets/05-audubon-5ghz-neighbor-interference.png",
+            alt: "UniFi AirView 5GHz spectrum scan showing neighboring access points with strong signal levels on 80MHz wide channels",
+            caption:
+              "UniFi AirView 5GHz scan — neighboring access points visible at -61 dBm, running 80MHz channels that consume a significant portion of the available 5GHz spectrum. Manual channel assignment was needed to steer our APs into quieter frequencies.",
+          },
+          {
+            type: "p",
+            text: "6GHz was clean. Near-zero external interference across the entire band. The Audubon Staff SSID is 6GHz enabled, and staff on 6GHz-capable hardware are operating in clear spectrum with no competition from neighboring networks.",
+          },
+          {
+            type: "img",
+            src: "/assets/06-audubon-6ghz-coverage.png",
+            alt: "NetSpot 6GHz heat map showing strong, uniform coverage across the entire floor with near-zero external interference",
+            caption:
+              "6GHz signal coverage — strong and consistent across the entire floor, with near-zero interference from neighboring networks. The cleanest band on this floor by a significant margin.",
+          },
+        ],
+      },
+      {
+        label: "The Adjustments",
+        heading: "The adjustments",
+        blocks: [
+          {
+            type: "p",
+            text: "The survey data drove a focused set of changes. Four of the eight new APs were relocated to improve coverage distribution and address the southwest gap. Two additional APs were added at positions the heat map identified as coverage gaps that repositioning alone would not fully resolve — bringing the total to ten. Audubon's IT team handled the physical moves and cabling, with RSystems on a call for coordination and documentation.",
+          },
+          {
+            type: "p",
+            text: "With the hardware in its final positions, RSystems configured manual channel assignments across all ten access points — hardcoding 2.4, 5, and 6GHz channels on each AP so that the units nearest the neighboring tenant's interference operate on non-overlapping frequencies. Leaving channel selection to the controller's automatic logic does not account for a specific neighbor's specific interference profile. Manual assignment does.",
+          },
+          {
+            type: "p",
+            text: "A follow-up review confirmed improved 5GHz coverage with the southwest gap addressed, and validated excellent 6GHz coverage throughout — the cleanest band on the floor and the most headroom for future growth as 6GHz-capable hardware becomes standard.",
+          },
+        ],
+      },
+      {
+        label: "The Result",
+        heading: "The result",
+        blocks: [
+          {
+            type: "p",
+            text: "Ten access points, properly placed, properly channeled, with documented topology and a validated heat map on file. When the next round of hardware questions comes up, or a neighboring tenant changes their configuration, there is a baseline to compare against.",
+          },
+          {
+            type: "p",
+            text: "The heat map survey is not an optional step in a wireless deployment — it is how you confirm that what you installed actually does what you intended. Moving hardware is significantly cheaper before cables are run and APs are ceiling-mounted than after.",
+          },
+        ],
+      },
+    ],
+    results: [
+      "Eight aging access points replaced with new UniFi hardware with multi-gigabit wired uplinks",
+      "Full wireless heat map conducted across 2.4, 5, and 6GHz bands using calibrated zigzag methodology",
+      "Southwest 5GHz coverage gap identified and resolved — four APs repositioned, two added, fleet brought to ten",
+      "Manual channel assignments hardcoded on all ten APs to avoid neighboring tenant interference on 5GHz",
+      "6GHz confirmed near-zero interference across the entire floor — cleanest band by a significant margin",
+      "Documented floor plan with final AP locations and port assignments on file as a baseline for future changes",
     ],
   },
 ];

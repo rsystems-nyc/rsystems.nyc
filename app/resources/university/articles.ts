@@ -5,6 +5,7 @@ export interface Article {
   description: string
   content: string // markdown string — rendered via renderMarkdown in [slug]/page.tsx
   related?: string[] // optional array of slugs
+  relatedCaseStudies?: string[]
 }
 
 export const articles: Article[] = [
@@ -219,6 +220,7 @@ JumpCloud handles 50 applications well. The threshold isn't app count — it's t
 Changing your directory is not trivial. Every application tied to SSO, every device policy, every user lifecycle workflow is rooted in it. The time to choose thoughtfully is before you need to migrate.
 
 The most common migration paths we see: on-premises AD → JumpCloud (for cross-platform, cloud-first organizations) and AD → Entra ID (for Microsoft-committed shops). Both are manageable with proper planning, but both require careful handling of application integrations and device management on the receiving end.`,
+    relatedCaseStudies: ["directory-modernization"],
   },
 
   // ── Article 2 ───────────────────────────────────────────────────────────────
@@ -320,6 +322,7 @@ Port forwarding is how you expose an internal service to the outside world: tell
 Minimum viable network: one managed switch, one firewall, one access point. Proper small business network: managed switch stack, business-grade firewall, controller-managed APs, VLANs. Enterprise network: redundant switch chassis, HA firewall pair, enterprise APs, QoS, full monitoring.
 
 The cost difference is redundancy (no single points of failure), inspection throughput (performance under load), and management granularity (visibility and control over what's actually happening).`,
+    relatedCaseStudies: ["redundancy-by-design", "little-island", "makerbot-overhaul"],
   },
 
   // ── Article 3 ───────────────────────────────────────────────────────────────
@@ -394,6 +397,7 @@ General principles:
 ## When Consumer WiFi Is Adequate
 
 A 5-person team in a single open-plan space: consumer mesh WiFi works fine. The inflection point where it stops being adequate is usually around 15–20 simultaneous heavy users, any meaningful segmentation requirement, or environments with challenging RF characteristics (large floor plates, concrete construction, multiple stories).`,
+    relatedCaseStudies: ["audubon-wireless-tuning", "audubon-corkscrew", "charity-water-gala", "fost-fest"],
   },
 
   // ── Article 4 ───────────────────────────────────────────────────────────────
@@ -611,6 +615,7 @@ Separately: tools like Claude Code make VM capacity significantly more useful fo
 
 For real-world examples of infrastructure decisions, see our [case studies](/case-studies).`,
     related: ["remote-connectivity"],
+    relatedCaseStudies: ["makerbot-overhaul", "windows-tools-for-a-mac-design-firm", "duality-group"],
   },
 
   // ── Article 7 ───────────────────────────────────────────────────────────────
@@ -842,6 +847,7 @@ Autopilot is not an imaging solution. It provisions from a factory-state Windows
 ## The Economics
 
 For an organization deploying 5 laptops per year, the upfront configuration investment may not pay off. For an organization deploying 50+ devices annually, the time savings are significant: an IT staff member spending 2 hours per device on traditional imaging versus 30 minutes per Autopilot device (mostly unattended) — at scale, that's a material reduction in IT labor cost per device.`,
+    relatedCaseStudies: ["easterseals-nj-intune"],
   },
 
   // ── Article 11 ──────────────────────────────────────────────────────────────
@@ -962,6 +968,7 @@ This is a genuine solution to one of the hardest problems IT has faced for years
 
 **Platform note:** BYOD via User Enrollment works well on iOS today. macOS doesn't yet have an equivalent — Apple hasn't shipped a macOS User Enrollment mode that provides the same clean personal/organizational separation. We expect this to change, but until it does, Mac BYOD remains either full MDM enrollment or no enrollment. Chrome Device Trust (covered in the [next article](/resources/university/managed-chrome)) is a useful BYOD solution for Mac, Windows, and Linux.`,
     related: ["autopilot", "managed-chrome"],
+    relatedCaseStudies: ["easterseals-nj-intune"],
   },
 
   // ── Article 13 ──────────────────────────────────────────────────────────────
@@ -1252,6 +1259,7 @@ If you need help interpreting the results, understanding what changes to priorit
     categories: ["Security", "Identity"],
     description: "SMS, TOTP, push notifications, passkeys, and FIDO2 — what each one actually is, how it can fail, and why phishing-resistant authentication is becoming the requirement.",
     related: ["sig-lite", "cybersecurity-self-assessment", "directory-services"],
+    relatedCaseStudies: ["easterseals-nj-intune", "directory-modernization"],
     content: `## Why MFA exists
 
 Passwords alone are a failed security model. Not because they're a bad idea in principle, but because of how people actually use them: reused across dozens of services, discovered in data breaches, guessed through credential stuffing, phished through convincing fake login pages. The credential breach pipeline is industrial in scale. Billions of username/password combinations are actively traded, and automated tools test them against every major service continuously.
