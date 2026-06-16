@@ -238,7 +238,6 @@ export default function ContactPage() {
                 What to budget for.
               </h2>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                Engagements typically start at <span className="text-[#1A1A1A] font-semibold">$5,000</span>.
                 The scope and duration depend on the initiative — a focused infrastructure
                 project looks different from an ongoing fractional CTO engagement, and
                 both are scoped accordingly.
@@ -333,9 +332,6 @@ export default function ContactPage() {
                 title="Schedule a conversation with RSystems"
               />
             </div>
-            <p className="mt-5 text-sm text-[#1A1A1A]/40 leading-relaxed">
-              Engagements typically start at $5,000.
-            </p>
           </div>
 
         </div>

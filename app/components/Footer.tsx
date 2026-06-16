@@ -47,13 +47,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/industries/" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Industries
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies/" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Case Studies
+                <Link href="/about/leadership/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Leadership
                 </Link>
               </li>
               <li>
@@ -62,13 +57,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/careers/" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Careers
+                <Link href="/industries/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Industries
                 </Link>
               </li>
               <li>
-                <Link href="/contact/" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Contact
+                <Link href="/case-studies/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Case Studies
                 </Link>
               </li>
             </ul>
@@ -88,11 +83,6 @@ export default function Footer() {
               <li>
                 <Link href="/resources/university/" className="text-sm text-white/50 hover:text-white transition-colors">
                   University
-                </Link>
-              </li>
-              <li>
-                <Link href="/resources/glossary/" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Glossary
                 </Link>
               </li>
             </ul>

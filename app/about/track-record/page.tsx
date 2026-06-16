@@ -125,6 +125,12 @@ const clients: { industry: string; entries: { name: string; url: string }[] }[] 
       { name: "Ecovative", url: "https://ecovative.com/" },
     ],
   },
+  {
+    industry: "Media & Entertainment / Broadcasting",
+    entries: [
+      { name: "Global", url: "https://www.global.com" },
+    ],
+  },
 ];
 
 export default function TrackRecordPage() {

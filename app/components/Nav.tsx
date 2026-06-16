@@ -125,16 +125,16 @@ export default function Nav() {
   const [ourWorkOpen, setOurWorkOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [activeDesktopDropdown, setActiveDesktopDropdown] = useState<string | null>(null);
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  function openServices() {
+  function openDesktopDropdown(name: string) {
     if (leaveTimer.current) clearTimeout(leaveTimer.current);
-    setServicesOpen(true);
+    setActiveDesktopDropdown(name);
   }
 
-  function closeServices() {
-    leaveTimer.current = setTimeout(() => setServicesOpen(false), 150);
+  function closeDesktopDropdown() {
+    leaveTimer.current = setTimeout(() => setActiveDesktopDropdown(null), 150);
   }
 
   return (
@@ -153,12 +153,12 @@ export default function Nav() {
 
         <nav className="ml-auto hidden md:flex items-center gap-8">
 
-          <div onMouseEnter={openServices} onMouseLeave={closeServices}>
+          <div onMouseEnter={() => openDesktopDropdown('services')} onMouseLeave={closeDesktopDropdown}>
             <Link
               href="/services"
-              onClick={() => setServicesOpen(false)}
+              onClick={() => setActiveDesktopDropdown(null)}
               className={`flex items-center gap-1 text-sm transition-colors ${
-                servicesOpen ? "text-[#1A1A1A]" : "text-[#1A1A1A]/50 hover:text-[#1A1A1A]"
+                activeDesktopDropdown === 'services' ? "text-[#1A1A1A]" : "text-[#1A1A1A]/50 hover:text-[#1A1A1A]"
               }`}
             >
               Services
@@ -169,74 +169,83 @@ export default function Nav() {
                 fill="none"
                 aria-hidden="true"
                 className="mt-px"
-                style={{ transform: servicesOpen ? "rotate(180deg)" : undefined, transition: "transform 0.15s" }}
+                style={{ transform: activeDesktopDropdown === 'services' ? "rotate(180deg)" : undefined, transition: "transform 0.15s" }}
               >
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
           </div>
 
-          <div className="relative group">
+          <div className="relative" onMouseEnter={() => openDesktopDropdown('ourwork')} onMouseLeave={closeDesktopDropdown}>
             <Link
               href="/our-work"
-              className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setActiveDesktopDropdown(null)}
+              className={`flex items-center gap-1 text-sm transition-colors ${activeDesktopDropdown === 'ourwork' ? "text-[#1A1A1A]" : "text-[#1A1A1A]/50 hover:text-[#1A1A1A]"}`}
             >
               Our Work
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px" style={{ transform: activeDesktopDropdown === 'ourwork' ? "rotate(180deg)" : undefined, transition: "transform 0.15s" }}>
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className="absolute top-full left-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
-              <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
-                {ourWorkLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
-                    {link.label}
-                  </Link>
-                ))}
+            {activeDesktopDropdown === 'ourwork' && (
+              <div className="absolute top-full left-0 z-50 pt-2">
+                <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
+                  {ourWorkLinks.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={() => setActiveDesktopDropdown(null)} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
-          <div className="relative group">
+          <div className="relative" onMouseEnter={() => openDesktopDropdown('resources')} onMouseLeave={closeDesktopDropdown}>
             <Link
               href="/resources"
-              className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setActiveDesktopDropdown(null)}
+              className={`flex items-center gap-1 text-sm transition-colors ${activeDesktopDropdown === 'resources' ? "text-[#1A1A1A]" : "text-[#1A1A1A]/50 hover:text-[#1A1A1A]"}`}
             >
               Resources
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px" style={{ transform: activeDesktopDropdown === 'resources' ? "rotate(180deg)" : undefined, transition: "transform 0.15s" }}>
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className="absolute top-full left-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
-              <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[160px]">
-                {resourcesLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
-                    {link.label}
-                  </Link>
-                ))}
+            {activeDesktopDropdown === 'resources' && (
+              <div className="absolute top-full left-0 z-50 pt-2">
+                <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[160px]">
+                  {resourcesLinks.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={() => setActiveDesktopDropdown(null)} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
-          <div className="relative group">
+          <div className="relative" onMouseEnter={() => openDesktopDropdown('about')} onMouseLeave={closeDesktopDropdown}>
             <Link
               href="/about"
-              className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setActiveDesktopDropdown(null)}
+              className={`flex items-center gap-1 text-sm transition-colors ${activeDesktopDropdown === 'about' ? "text-[#1A1A1A]" : "text-[#1A1A1A]/50 hover:text-[#1A1A1A]"}`}
             >
               About
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px" style={{ transform: activeDesktopDropdown === 'about' ? "rotate(180deg)" : undefined, transition: "transform 0.15s" }}>
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className="absolute top-full right-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
-              <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
-                {aboutLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
-                    {link.label}
-                  </Link>
-                ))}
+            {activeDesktopDropdown === 'about' && (
+              <div className="absolute top-full right-0 z-50 pt-2">
+                <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
+                  {aboutLinks.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={() => setActiveDesktopDropdown(null)} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           <Link href="/contact" className="text-sm font-medium bg-[#E8500A] text-white px-4 py-2 rounded hover:bg-[#E8500A]/85 transition-colors">
@@ -264,11 +273,11 @@ export default function Nav() {
         </button>
       </div>
 
-      {servicesOpen && (
+      {activeDesktopDropdown === 'services' && (
         <div
           className="hidden md:block fixed top-[110px] right-4 sm:right-6 z-50 w-[740px] max-w-[calc(100vw-2rem)]"
-          onMouseEnter={openServices}
-          onMouseLeave={closeServices}
+          onMouseEnter={() => openDesktopDropdown('services')}
+          onMouseLeave={closeDesktopDropdown}
         >
           <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-xl shadow-xl overflow-x-hidden overflow-y-auto max-h-[calc(100vh-130px)]">
             <div className="grid grid-cols-2 divide-x divide-black/[0.06]">
@@ -278,7 +287,7 @@ export default function Nav() {
                 <Link
                   href="/services/technology-consulting"
                   className="block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3 hover:text-[#E8500A]/70 transition-colors"
-                  onClick={() => setServicesOpen(false)}
+                  onClick={() => setActiveDesktopDropdown(null)}
                 >
                   Technology Consulting
                 </Link>
@@ -288,7 +297,7 @@ export default function Nav() {
                       <Link
                         href={cat.href}
                         className="block text-[9px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] hover:underline px-2 pb-1 transition-colors"
-                        onClick={() => setServicesOpen(false)}
+                        onClick={() => setActiveDesktopDropdown(null)}
                       >
                         {cat.label}
                       </Link>
@@ -298,7 +307,7 @@ export default function Nav() {
                             key={link.href}
                             href={link.href}
                             className="block px-2 py-1.5 text-[13px] text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] rounded transition-colors"
-                            onClick={() => setServicesOpen(false)}
+                            onClick={() => setActiveDesktopDropdown(null)}
                           >
                             {link.label}
                           </Link>
@@ -314,7 +323,7 @@ export default function Nav() {
                 <Link
                   href="/services/management"
                   className="block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3 hover:text-[#E8500A]/70 transition-colors"
-                  onClick={() => setServicesOpen(false)}
+                  onClick={() => setActiveDesktopDropdown(null)}
                 >
                   Managed Services
                 </Link>
@@ -324,7 +333,7 @@ export default function Nav() {
                       <Link
                         href={cat.href}
                         className="block text-[9px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] hover:underline px-2 pb-1 transition-colors"
-                        onClick={() => setServicesOpen(false)}
+                        onClick={() => setActiveDesktopDropdown(null)}
                       >
                         {cat.label}
                       </Link>
@@ -334,7 +343,7 @@ export default function Nav() {
                             key={link.href}
                             href={link.href}
                             className="block px-2 py-1.5 text-[13px] text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] rounded transition-colors"
-                            onClick={() => setServicesOpen(false)}
+                            onClick={() => setActiveDesktopDropdown(null)}
                           >
                             {link.label}
                           </Link>
