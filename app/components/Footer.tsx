@@ -85,6 +85,11 @@ export default function Footer() {
                   University
                 </Link>
               </li>
+              <li>
+                <Link href="/resources/glossary/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Glossary
+                </Link>
+              </li>
             </ul>
           </div>
 
