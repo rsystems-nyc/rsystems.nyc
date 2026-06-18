@@ -86,6 +86,10 @@ function renderBlock(block: string, codes: string[], seen: Set<string>): string 
   return `<p>${inlineFmt(pre.join(" ").trim(), seen)}</p>${listHtml}`;
 }
 
+export function renderInline(s: string, seen: Set<string> = new Set()): string {
+  return inlineFmt(s, seen);
+}
+
 export function renderMarkdown(md: string): string {
   if (!md) return "";
   const seen = new Set<string>();

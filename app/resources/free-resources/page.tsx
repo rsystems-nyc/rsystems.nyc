@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { renderInline } from "@/app/lib/renderMarkdown";
 
 export const metadata: Metadata = {
   title: "Free Resources — RSystems NYC",
@@ -36,7 +37,7 @@ const resources: Resource[] = [
         type: "ul",
         items: [
           "Identity and access management",
-          "Endpoint protection",
+          "[Endpoint](/resources/glossary/endpoint) protection",
           "Network security",
           "Data handling and classification",
           "Incident response readiness",
@@ -70,7 +71,7 @@ const resources: Resource[] = [
           "Data protection and classification",
           "Access control and identity management",
           "Incident detection and response",
-          "Business continuity and disaster recovery",
+          "Business continuity and [disaster recovery](/resources/glossary/disaster-recovery)",
           "Physical and environmental security",
         ],
       },
@@ -93,14 +94,14 @@ const resources: Resource[] = [
         type: "ul",
         items: [
           "Up to 50 managed user accounts",
-          "Google as your identity provider (SAML SSO to connected applications)",
+          "Google as your identity provider ([SAML](/resources/glossary/saml) [SSO](/resources/glossary/sso) to connected applications)",
           "Basic device management for Android and Chrome OS",
           "Security reporting and audit logs",
         ],
       },
       {
         type: "p",
-        text: "What this means in practice: you can use Google as your identity provider at no cost. If your organization already uses Google Workspace for email and productivity, you likely have this capability and aren't using it. If you're a small team that needs a directory and basic SSO but can't justify a JumpCloud or Okta subscription, Cloud Identity Free may be enough.",
+        text: "What this means in practice: you can use Google as your identity provider at no cost. If your organization already uses Google Workspace for email and productivity, you likely have this capability and aren't using it. If you're a small team that needs a directory and basic [SSO](/resources/glossary/sso) but can't justify a [JumpCloud](/resources/glossary/jumpcloud) or [Okta](/resources/glossary/okta) subscription, Cloud Identity Free may be enough.",
       },
       {
         type: "p",
@@ -129,8 +130,8 @@ const resources: Resource[] = [
         type: "ul",
         items: [
           "Unlimited users and groups",
-          "SSO with up to 10 apps per user",
-          "Microsoft Authenticator-based MFA",
+          "[SSO](/resources/glossary/sso) with up to 10 apps per user",
+          "Microsoft Authenticator-based [MFA](/resources/glossary/mfa)",
           "Self-service password reset for cloud-only accounts",
           "Basic identity protection reports",
           "B2B collaboration (guest access)",
@@ -162,10 +163,10 @@ const resources: Resource[] = [
       {
         type: "ul",
         items: [
-          "Full MDM — device policy enforcement, app management, configuration profiles, and compliance reporting built directly into the platform, no third-party MDM required",
-          "Up to 500 Managed Apple IDs with your organization's domain — functioning corporate Apple accounts with iCloud Mail, separate from any personal Apple IDs your staff may have",
+          "Full [MDM](/resources/glossary/mdm) — device policy enforcement, app management, configuration profiles, and compliance reporting built directly into the platform, no third-party MDM required",
+          "Up to 500 [Managed Apple IDs](/resources/glossary/managed-apple-id) with your organization's domain — functioning corporate Apple accounts with iCloud Mail, separate from any personal Apple IDs your staff may have",
           "Automated Device Enrollment — new iPhones, iPads, and Macs enroll into management the moment they're powered on, without IT touching the device",
-          "Volume Purchase Program — centrally purchase and distribute apps across your organization, with licenses that return to the pool when a user leaves",
+          "[Volume Purchase Program](/resources/glossary/vpp) — centrally purchase and distribute apps across your organization, with licenses that return to the pool when a user leaves",
           "Integration with third-party MDMs — Jamf, Intune, Mosyle, Kandji, and others remain supported for organizations that need their extended capabilities",
         ],
       },
@@ -175,7 +176,7 @@ const resources: Resource[] = [
       },
       {
         type: "p",
-        text: "If your organization has Apple devices and isn't using Apple Business, you're managing those devices manually. Setup requires a D-U-N-S number for verification, which most organizations already have. Apple's verification process typically takes a few business days.",
+        text: "If your organization has Apple devices and isn't using Apple Business, you're managing those devices manually. Setup requires a [D-U-N-S number](/resources/glossary/duns) for verification, which most organizations already have. Apple's verification process typically takes a few business days.",
       },
     ],
   },
@@ -185,7 +186,7 @@ const resources: Resource[] = [
     blocks: [
       {
         type: "p",
-        text: "Route 53 is Amazon's DNS service. It costs approximately $0.50/month per hosted zone. It runs on the same global infrastructure that powers a significant portion of the internet. For most organizations, this is a straightforward upgrade from your domain registrar's free DNS.",
+        text: "Route 53 is Amazon's [DNS](/resources/glossary/dns) service. It costs approximately $0.50/month per hosted zone. It runs on the same global infrastructure that powers a significant portion of the internet. For most organizations, this is a straightforward upgrade from your domain registrar's free DNS.",
       },
       { type: "p", text: "Why it matters:" },
       {
@@ -197,9 +198,9 @@ const resources: Resource[] = [
         type: "ul",
         items: [
           "Sub-second propagation in most cases (registrar DNS often takes hours)",
-          "Programmatic management via API, CLI, or Terraform — critical for organizations managing infrastructure as code",
-          "Health checks and DNS failover — Route 53 can automatically route traffic away from an unhealthy endpoint",
-          "Latency-based and geolocation routing for global deployments",
+          "Programmatic management via API, [CLI](/resources/glossary/cli), or Terraform — critical for organizations managing infrastructure as code",
+          "Health checks and [DNS](/resources/glossary/dns) failover — Route 53 can automatically route traffic away from an unhealthy endpoint",
+          "[Latency](/resources/glossary/latency)-based and geolocation routing for global deployments",
         ],
       },
       {
@@ -238,7 +239,7 @@ const resources: Resource[] = [
       },
       {
         type: "p",
-        text: "AWS and Azure credits — Both offer nonprofit programs beyond what's bundled in the productivity suites. Worth checking separately, particularly if you have any cloud infrastructure.",
+        text: "[AWS](/resources/glossary/aws) and [Azure](/resources/glossary/azure) credits — Both offer nonprofit programs beyond what's bundled in the productivity suites. Worth checking separately, particularly if you have any cloud infrastructure.",
       },
       {
         type: "p",
@@ -282,6 +283,7 @@ const resources: Resource[] = [
 ]
 
 function ResourceCard({ resource }: { resource: Resource }) {
+  const seen = new Set<string>()
   return (
     <div className="bg-white rounded-xl border border-[#1A1A1A]/[0.07] p-8 lg:p-10">
       {resource.comingSoon ? (
@@ -308,7 +310,7 @@ function ResourceCard({ resource }: { resource: Resource }) {
                 {block.items.map((item, j) => (
                   <li key={j} className="flex items-start gap-3 text-sm text-[#1A1A1A]/60 leading-relaxed">
                     <span className="mt-[7px] flex-shrink-0 w-1 h-1 rounded-full bg-[#E8500A]" />
-                    {item}
+                    <span dangerouslySetInnerHTML={{ __html: renderInline(item, seen) }} />
                   </li>
                 ))}
               </ul>
@@ -320,9 +322,8 @@ function ResourceCard({ resource }: { resource: Resource }) {
               className={`text-sm leading-relaxed ${
                 resource.comingSoon ? "text-[#1A1A1A]/35" : "text-[#1A1A1A]/60"
               }`}
-            >
-              {block.text}
-            </p>
+              dangerouslySetInnerHTML={{ __html: renderInline(block.text, seen) }}
+            />
           );
         })}
       </div>

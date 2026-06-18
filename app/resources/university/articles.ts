@@ -19,11 +19,11 @@ export const articles: Article[] = [
 
 ### CPUs vs GPUs
 
-A CPU (Central Processing Unit) is the general-purpose brain of a computer. Modern CPUs have anywhere from 8 to 64 cores, each capable of handling complex, varied tasks in sequence. They're fast, flexible, and designed to do the enormous variety of things a computer needs to do: run the operating system, manage network connections, handle file operations, execute business logic. CPUs are generalists.
+A [CPU](/resources/glossary/cpu) (Central Processing Unit) is the general-purpose brain of a computer. Modern CPUs have anywhere from 8 to 64 cores, each capable of handling complex, varied tasks in sequence. They're fast, flexible, and designed to do the enormous variety of things a computer needs to do: run the operating system, manage network connections, handle file operations, execute business logic. CPUs are generalists.
 
 AI training and inference require something fundamentally different. Training a language model is, at its core, a problem of matrix multiplication — performing the same relatively simple mathematical operation across billions of numbers, simultaneously, billions of times. CPUs handle this poorly. They were architected for breadth and complexity, not for doing one thing at massive, uniform scale.
 
-A GPU (Graphics Processing Unit) was designed to render video frames — which requires transforming millions of pixels simultaneously using the same geometric operations. The architecture that makes GPUs excellent at graphics makes them extraordinarily well-suited for AI: thousands of simpler cores executing the same instruction in parallel, at scale.
+A [GPU](/resources/glossary/gpu) (Graphics Processing Unit) was designed to render video frames — which requires transforming millions of pixels simultaneously using the same geometric operations. The architecture that makes GPUs excellent at graphics makes them extraordinarily well-suited for AI: thousands of simpler cores executing the same instruction in parallel, at scale.
 
 This parallel architecture is why NVIDIA became the defining hardware company of the AI era. Their CUDA software platform gave researchers a practical way to harness GPU parallelism for neural network training years before competitors had comparable stacks. Training a frontier model like GPT-4 or Claude requires thousands of high-end GPUs running continuously for weeks. Running a model to generate responses (inference) is less intensive but still GPU-heavy at scale.
 
@@ -39,7 +39,7 @@ For cloud-based AI — Claude.ai, ChatGPT.com, Gemini — this is entirely invis
 
 ### Storage
 
-SSDs matter for AI primarily at model load time — moving weights from disk into memory quickly — and for storing model files. For most organizational AI use through cloud APIs, storage is not a meaningful variable. For local deployments serving multiple users, it becomes one.
+[SSDs](/resources/glossary/ssd) matter for AI primarily at model load time — moving weights from disk into memory quickly — and for storing model files. For most organizational AI use through cloud APIs, storage is not a meaningful variable. For local deployments serving multiple users, it becomes one.
 
 ## What a large language model actually is
 
@@ -75,7 +75,7 @@ Where it excels: Google Workspace integration, multimodal tasks, organizations w
 
 Claude is the model we use daily — for our own operations, for client work, and for everything on this site. Our preference is earned rather than assumed.
 
-In our experience across all three platforms, Claude is the most capable for complex reasoning, long-document analysis, code generation, and — most importantly — agentic use cases where the model is taking real actions in the world rather than just generating text. MCP, the protocol connecting AI models to external systems, was developed by Anthropic and is most mature in the Claude ecosystem.
+In our experience across all three platforms, Claude is the most capable for complex reasoning, long-document analysis, code generation, and — most importantly — agentic use cases where the model is taking real actions in the world rather than just generating text. [MCP](/resources/glossary/mcp-api), the protocol connecting AI models to external systems, was developed by Anthropic and is most mature in the Claude ecosystem.
 
 Anthropic was founded by former OpenAI researchers with a specific focus on AI safety. That focus is visible in Claude's behavior in ways that matter for production deployments: it's more calibrated about uncertainty, less prone to confident confabulation, and more thoughtful about the downstream consequences of actions when operating autonomously.
 
@@ -99,7 +99,7 @@ The significance: web-based tools that expose no API become automatable. Any adm
 
 ### Claude Code
 
-Claude Code runs in your terminal with access to your local filesystem, the ability to execute shell commands, and the ability to read, write, and modify code files. It's designed for software development but applies to any task involving files and system operations.
+[Claude Code](/resources/glossary/claude-code) runs in your terminal with access to your local filesystem, the ability to execute shell commands, and the ability to read, write, and modify code files. It's designed for software development but applies to any task involving files and system operations.
 
 The model can read an entire codebase, understand its structure, implement requested changes across multiple files, run the tests, and iterate on errors — without being walked through the code manually. The RSystems website was built this way.
 
@@ -113,7 +113,7 @@ For active development, IDE integration is often more practical than Claude Code
 
 MCP (Model Context Protocol) is an open standard, developed by Anthropic, for connecting AI models to external tools and systems. Rather than every AI integration requiring custom code, MCP provides a common interface: the model issues a structured tool call, the MCP server executes it against the real system, and returns the result.
 
-The practical effect: any platform that publishes an MCP server becomes something any compatible model can operate. JumpCloud, Slack, Google Drive, GitHub, HubSpot, and dozens of other platforms have MCP servers. Each one gives the model hands into that system — the ability to read data and take real actions.
+The practical effect: any platform that publishes an MCP server becomes something any compatible model can operate. [JumpCloud](/resources/glossary/jumpcloud), Slack, Google Drive, GitHub, HubSpot, and dozens of other platforms have MCP servers. Each one gives the model hands into that system — the ability to read data and take real actions.
 
 The limitation: official MCP servers expose a curated subset of each platform's API. The JumpCloud MCP has roughly a dozen tools. The JumpCloud API has hundreds of endpoints. For production automation, that gap matters — which is why custom MCP development is a meaningful part of making agents genuinely capable rather than merely promising.
 
@@ -141,7 +141,7 @@ The entire sequence — across JumpCloud, Slack, Drive, and Adobe — completes 
 
 The most effective starting point is usually the simplest: one tool, configured properly, deployed to a team that will use it, against one workflow that saves real and measurable time.
 
-For most organizations that means a properly configured Claude Teams or Enterprise account with SSO, followed by identifying the first workflow where AI genuinely changes how the work gets done — not sounds impressive, but actually changes it.
+For most organizations that means a properly configured Claude Teams or Enterprise account with [SSO](/resources/glossary/sso), followed by identifying the first workflow where AI genuinely changes how the work gets done — not sounds impressive, but actually changes it.
 
 The more sophisticated stack — custom MCP servers, agent identity architecture, audit infrastructure — follows naturally once the foundational tooling is in place and teams understand what these models can actually do.
 
@@ -172,15 +172,15 @@ Best suited for: larger organizations with significant Windows on-premises infra
 
 ### Microsoft Entra ID (Formerly Azure AD)
 
-Microsoft's cloud-native identity platform. It's not a direct replacement for on-premises AD — different protocols, different architecture — but for organizations starting fresh or moving fully to the cloud, Entra ID is Microsoft's answer to "directory in the cloud."
+Microsoft's cloud-native identity platform. It's not a direct replacement for on-premises AD — different protocols, different architecture — but for organizations starting fresh or moving fully to the cloud, [Entra ID](/resources/glossary/entra-id) is Microsoft's answer to "directory in the cloud."
 
-Entra ID handles SSO to thousands of applications, conditional access policies, MFA enforcement, and device management via Intune. If your organization uses Microsoft 365, you're already partially on Entra ID — your M365 accounts live there.
+Entra ID handles [SSO](/resources/glossary/sso) to thousands of applications, conditional access policies, [MFA](/resources/glossary/mfa) enforcement, and device management via [Intune](/resources/glossary/intune). If your organization uses Microsoft 365, you're already partially on Entra ID — your M365 accounts live there.
 
 Best suited for: organizations committed to the Microsoft ecosystem, or those supplementing on-premises AD with cloud identity capabilities (hybrid environments).
 
 ### JumpCloud
 
-JumpCloud is a cloud-native directory-as-a-service. It manages users, devices, and access — cross-platform, from day one — with no on-premises server required. It speaks LDAP, RADIUS, SAML, and SCIM, and handles Windows, Mac, and Linux natively.
+[JumpCloud](/resources/glossary/jumpcloud) is a cloud-native directory-as-a-service. It manages users, devices, and access — cross-platform, from day one — with no on-premises server required. It speaks LDAP, [RADIUS](/resources/glossary/radius), [SAML](/resources/glossary/saml), and [SCIM](/resources/glossary/scim), and handles Windows, Mac, and Linux natively.
 
 For many small and mid-sized organizations, JumpCloud is the right answer: no infrastructure to maintain, true cross-platform device management, built-in SSO, and per-seat pricing that scales with headcount.
 
@@ -188,7 +188,7 @@ JumpCloud is our preferred directory recommendation for most organizations. It's
 
 ### Okta
 
-Okta is purpose-built for identity federation and SSO at scale. It excels at being the identity layer across a large, complex application portfolio — connecting hundreds of SaaS tools, enforcing access policies, and managing identity lifecycle events. It's less a device directory and more an identity federation platform.
+[Okta](/resources/glossary/okta) is purpose-built for identity [federation](/resources/glossary/federation) and SSO at scale. It excels at being the identity layer across a large, complex application portfolio — connecting hundreds of SaaS tools, enforcing access policies, and managing identity lifecycle events. It's less a device directory and more an identity federation platform.
 
 Okta was first to market on cloud-based enterprise SSO and has built the largest ecosystem of third-party integrations in the industry — on par with Entra ID today, and ahead for many years. It's the most powerful choice for organizations that need extremely complex provisioning logic, very large user populations (10,000+), or highly automated identity workflows across hundreds of applications with nuanced security rules.
 
@@ -196,7 +196,7 @@ Best suited for: larger organizations with complex application portfolios and ex
 
 ### Google Workspace (As an IdP)
 
-Google Workspace can function as a lightweight identity provider for Google-first organizations. Google accounts support SAML/OIDC-based SSO, and Cloud Identity provides basic MDM. For a small organization already on Workspace, it may be enough — but it's not a full-featured directory.
+Google Workspace can function as a lightweight identity provider for Google-first organizations. Google accounts support SAML/[OIDC](/resources/glossary/oidc)-based SSO, and Cloud Identity provides basic [MDM](/resources/glossary/mdm). For a small organization already on Workspace, it may be enough — but it's not a full-featured directory.
 
 Best suited for: tiny startups already fully on Workspace that have no plans to grow beyond ~10 people. Not a real enterprise directory solution — treat it as a starting point, not a destination.
 
@@ -231,7 +231,7 @@ The most common migration paths we see: on-premises AD → JumpCloud (for cross-
     description: "How your network actually works, what each device does, and what you get as you spend more.",
     content: `## The Basics
 
-Your network is a system for moving data between devices. Every device — laptop, server, printer, camera — has an IP address (its logical address on the network) and a MAC address (its hardware identifier). When your laptop needs to reach your file server, the network handles figuring out how to get there.
+Your network is a system for moving data between devices. Every device — laptop, server, printer, camera — has an IP address (its logical address on the network) and a [MAC address](/resources/glossary/mac-address) (its hardware identifier). When your laptop needs to reach your file server, the network handles figuring out how to get there.
 
 Think of your IP address using the syntax xxx.xxx.xxx.yyy — where xxx.xxx.xxx defines your subnet (what "room" you're in), and yyy is your specific address within that room. Anyone in the same room — anyone on the same subnet — can talk to anyone else in the room directly.
 
@@ -243,7 +243,7 @@ The short notation you'll see: 192.168.1.0/24 means the subnet 192.168.1.x with 
 
 ## DHCP: The New Guy Gets a Name Tag
 
-DHCP — Dynamic Host Configuration Protocol — is how a device automatically gets an IP address when it joins the network. Think of it as the room manager. When a new device plugs in (Layer 1 physical connection established), the DHCP server sees "Oh, someone new just walked in the room," walks over, and says: "Hey new guy, here's a name tag — your IP is 192.168.1.118."
+[DHCP](/resources/glossary/dhcp) — Dynamic Host Configuration Protocol — is how a device automatically gets an IP address when it joins the network. Think of it as the room manager. When a new device plugs in (Layer 1 physical connection established), the DHCP server sees "Oh, someone new just walked in the room," walks over, and says: "Hey new guy, here's a name tag — your IP is 192.168.1.118."
 
 DHCP assigns more than just your IP: it also tells you the subnet mask, the gateway address (the router — the bouncer at the door who manages traffic to other rooms), and the address of a DNS server.
 
@@ -251,13 +251,13 @@ When your iPhone joins home WiFi, the DHCP server on your router assigns a local
 
 ## DNS: The Public Ledger
 
-At its simplest, DNS is a phone book — it translates names (rsystems.nyc) into numbers (an IP address). But it's more than that: DNS is a public ledger. Anyone in the world can query your DNS records and read exactly what you've published.
+At its simplest, [DNS](/resources/glossary/dns) is a phone book — it translates names (rsystems.nyc) into numbers (an IP address). But it's more than that: DNS is a public ledger. Anyone in the world can query your DNS records and read exactly what you've published.
 
 The main record types you'll encounter:
 - **A record**: maps a hostname to an IPv4 address (rsystems.nyc → 1.2.3.4)
 - **CNAME**: maps a name to another name (www.rsystems.nyc → rsystems.nyc)
 - **MX**: specifies where email for your domain should be delivered
-- **TXT**: a text string — used for email authentication (SPF, DKIM, DMARC), domain verification, and other purposes
+- **TXT**: a text string — used for email authentication ([SPF](/resources/glossary/spf), [DKIM](/resources/glossary/dkim), [DMARC](/resources/glossary/dmarc)), domain verification, and other purposes
 
 Your local DNS server knows your internal resources (server.yourcompany.com = 192.168.1.10). For everything else, it asks upstream. When none of the servers in the chain know the answer, it works back to the root of the DNS hierarchy until it finds the authoritative source.
 
@@ -277,8 +277,8 @@ The switch is the physical connectivity layer — the device all wired devices p
 
 What you get as you spend more:
 - More ports and higher port speeds (1G → 10G → 25G)
-- Larger PoE budgets (for APs, cameras, phones)
-- Management features: VLANs, link aggregation, QoS
+- Larger [PoE](/resources/glossary/poe) budgets (for APs, cameras, phones)
+- Management features: [VLANs](/resources/glossary/vlan), [link aggregation](/resources/glossary/lacp), [QoS](/resources/glossary/qos)
 - Redundant power supplies and fans
 - Stacking capability
 - Better build quality, longer expected service life, and vendor support contracts that matter when something fails at 2 AM
@@ -287,7 +287,7 @@ What you get as you spend more:
 
 ### The Firewall
 
-The firewall sits between your network and the internet, enforcing rules about what traffic is allowed. It provides Network Address Translation (NAT) — how your private internal addresses appear as a single public IP — and in modern implementations, inspects traffic for threats.
+The firewall sits between your network and the internet, enforcing rules about what traffic is allowed. It provides Network Address Translation ([NAT](/resources/glossary/nat)) — how your private internal addresses appear as a single public IP — and in modern implementations, inspects traffic for threats.
 
 What you get as you spend more: higher inspection throughput, more sophisticated threat intelligence, SSL inspection, high-availability (HA) redundancy options.
 
@@ -297,7 +297,7 @@ What you get as you spend more: higher inspection throughput, more sophisticated
 
 Access points bridge wired and wireless. They connect to your switch via ethernet and create the WiFi your devices connect to.
 
-What you get as you spend more: better antenna design, more radio chains (2×2 vs 4×4 MIMO — where 2×2 means 2 transmit and 2 receive antennas — 4×4 doubles that capacity for both sending and receiving simultaneously), capacity for more concurrent clients, and controller-managed roaming that prevents devices from clinging to distant APs.
+What you get as you spend more: better antenna design, more radio chains (2×2 vs 4×4 [MIMO](/resources/glossary/mimo) — where 2×2 means 2 transmit and 2 receive antennas — 4×4 doubles that capacity for both sending and receiving simultaneously), capacity for more concurrent clients, and controller-managed roaming that prevents devices from clinging to distant APs.
 
 For a deep dive on how WiFi actually works, see [WiFi: How It Works and Why It's Hard](/resources/university/wifi).
 
@@ -313,7 +313,7 @@ VLANs require managed switches and a firewall handling inter-VLAN routing. Witho
 
 ## Ports
 
-When devices on a network communicate, they use ports — think of them like radio channels on a walkie-talkie. Port 80 is web traffic (HTTP). Port 443 is encrypted web (HTTPS). Port 22 is SSH. Port 445 is SMB file sharing (Windows file shares and network drives). Ports let a single device run multiple services simultaneously, and let firewalls control which services are accessible from where.
+When devices on a network communicate, they use ports — think of them like radio channels on a walkie-talkie. Port 80 is web traffic (HTTP). Port 443 is encrypted web ([HTTPS](/resources/glossary/https)). Port 22 is [SSH](/resources/glossary/ssh). Port 445 is SMB file sharing (Windows file shares and network drives). Ports let a single device run multiple services simultaneously, and let firewalls control which services are accessible from where.
 
 Port forwarding is how you expose an internal service to the outside world: tell the firewall to forward all traffic arriving on port 80 to 192.168.1.214 (your internal web server). Without that rule, external traffic hits the firewall and has no idea who to talk to.
 
@@ -353,7 +353,7 @@ That dual nature is critical to developing intuition about wireless in the real 
 
 **5 GHz:** Shorter range, worse wall penetration. 25 non-overlapping channels (including DFS channels shared with radar). Much higher speeds, much less congestion. The modern primary band.
 
-**6 GHz (WiFi 6E):** Very short range. Completely clean spectrum with no legacy device interference. Highest speeds. Limited to high-end enterprise hardware and modern client devices.
+**6 GHz ([WiFi 6E](/resources/glossary/wifi-6e)):** Very short range. Completely clean spectrum with no legacy device interference. Highest speeds. Limited to high-end enterprise hardware and modern client devices.
 
 ## Why Channels Matter
 
@@ -367,7 +367,7 @@ Channel width trades off throughput vs. spectrum efficiency. 20MHz channels allo
 
 When a laptop joins a WiFi network, which AP it connects to — and when it roams to a closer one — is the client's decision, not the network's. Clients are notoriously bad at this.
 
-Classic example: you open your laptop at the far end of a long hallway and connect to WiFi. As you walk toward the other end, your laptop should detect the signal from the far AP getting stronger and roam — but it often doesn't. The "sticky client" problem is a client-side behavior that holds degraded connections to distant APs long past when roaming would improve performance.
+Classic example: you open your laptop at the far end of a long hallway and connect to WiFi. As you walk toward the other end, your laptop should detect the signal from the far AP getting stronger and roam — but it often doesn't. The "sticky client" problem is a client-side behavior that holds degraded connections to distant APs long past when [roaming](/resources/glossary/wifi-roaming) would improve performance.
 
 This is where WiFi controllers matter.
 
@@ -379,7 +379,7 @@ Controllers also coordinate channel assignments across APs, adjusting dynamicall
 
 ## Consumer vs. Enterprise
 
-**Consumer WiFi (Eero, Orbi, Google Nest WiFi):** Each AP makes independent decisions. No RF coordination between units. No VLAN support. No per-device diagnostics. Adequate for homes and very small offices.
+**Consumer WiFi (Eero, Orbi, Google Nest WiFi):** Each AP makes independent decisions. No RF coordination between units. No [VLAN](/resources/glossary/vlan) support. No per-device diagnostics. Adequate for homes and very small offices.
 
 **Enterprise WiFi (Ruckus, Cisco Catalyst, Aruba, Meraki, Ubiquiti UniFi at the prosumer level):** Controller-managed. Directed roaming. Channel coordination. Per-client signal quality metrics. Full VLAN support. Client density planning.
 
@@ -408,7 +408,7 @@ A 5-person team in a single open-plan space: consumer mesh WiFi works fine. The 
     description: "Your email reputation depends on getting this right. Here's how it all connects.",
     content: `## DNS: The Foundation
 
-DNS — Domain Name System — translates human-readable names (rsystems.nyc) into IP addresses that computers use to communicate. When you type a URL into a browser, your computer asks a DNS resolver for the IP address of that domain. The resolver queries a hierarchy of servers and returns the answer.
+[DNS](/resources/glossary/dns) — Domain Name System — translates human-readable names (rsystems.nyc) into IP addresses that computers use to communicate. When you type a URL into a browser, your computer asks a DNS resolver for the IP address of that domain. The resolver queries a hierarchy of servers and returns the answer.
 
 ### The Hierarchy
 
@@ -418,8 +418,8 @@ Your domain's DNS records are stored on authoritative nameservers controlled by 
 
 ### Key Record Types
 
-- **A**: Maps a hostname to an IPv4 address
-- **AAAA**: Maps a hostname to an IPv6 address
+- **A**: Maps a hostname to an [IPv4](/resources/glossary/ipv4) address
+- **AAAA**: Maps a hostname to an [IPv6](/resources/glossary/ipv6) address
 - **CNAME**: An alias pointing one hostname to another
 - **MX**: Specifies which mail servers accept email for your domain
 - **TXT**: Text data — used for verification, SPF, DKIM, and DMARC
@@ -433,7 +433,7 @@ In Route 53, you can set TTL as low as 60 seconds — which means DNS changes pr
 
 ## SPF: The Authorized Senders List
 
-SPF (Sender Policy Framework) is a TXT record that specifies which mail servers are authorized to send email claiming to be from your domain. The goal is to prevent other servers from sending email as you.
+[SPF](/resources/glossary/spf) (Sender Policy Framework) is a TXT record that specifies which mail servers are authorized to send email claiming to be from your domain. The goal is to prevent other servers from sending email as you.
 
 A basic SPF record:
 \`\`\`
@@ -446,7 +446,7 @@ The challenge: you likely have multiple legitimate email sources. Your mail serv
 
 ## DKIM: The Cryptographic Signature
 
-DKIM (DomainKeys Identified Mail) works like a wax seal on a letter — but one where the stamp that created the seal is publicly posted in your DNS. When your mail server sends a message, it applies a cryptographic signature using a private key only it holds. The recipient checks the signature against your public key, published as a TXT record in DNS. If the signature verifies, the message genuinely came from your server and wasn't tampered with in transit. If someone forges the message, the seal breaks — and the forgery is detectable.
+[DKIM](/resources/glossary/dkim) (DomainKeys Identified Mail) works like a wax seal on a letter — but one where the stamp that created the seal is publicly posted in your DNS. When your mail server sends a message, it applies a cryptographic signature using a private key only it holds. The recipient checks the signature against your public key, published as a TXT record in DNS. If the signature verifies, the message genuinely came from your server and wasn't tampered with in transit. If someone forges the message, the seal breaks — and the forgery is detectable.
 
 DKIM survives email forwarding. SPF doesn't (forwarded email looks like it came from the forwarding server, not yours). This makes DKIM the more reliable signal.
 
@@ -457,7 +457,7 @@ google._domainkey.yourdomain.com TXT "v=DKIM1; k=rsa; p=[public key]"
 
 ## DMARC: Enforcement and Reporting
 
-DMARC (Domain-based Message Authentication, Reporting, and Conformance) ties SPF and DKIM together. It tells receiving servers what to do when email fails authentication, and sends you reports about what they observed.
+[DMARC](/resources/glossary/dmarc) (Domain-based Message Authentication, Reporting, and Conformance) ties SPF and DKIM together. It tells receiving servers what to do when email fails authentication, and sends you reports about what they observed.
 
 A DMARC record:
 \`\`\`
@@ -485,13 +485,13 @@ The reporting data tells you who's sending email that claims to be from you — 
 
 Without proper DMARC configuration:
 - Your emails are more likely to land in spam
-- Anyone can send phishing emails appearing to come from your domain
+- Anyone can send [phishing](/resources/glossary/phishing) emails appearing to come from your domain
 - Your email deliverability degrades over time
 
 With p=reject properly implemented:
 - Spoofing your domain is blocked at the receiving server
 - Deliverability improves across the board
-- Your domain qualifies for BIMI. (Covered in the next lesson — [DNS and BIMI](/resources/university/dns-bimi).)`,
+- Your domain qualifies for [BIMI](/resources/glossary/bimi). (Covered in the next lesson — [DNS and BIMI](/resources/university/dns-bimi).)`,
   },
 
   // ── Article 5 ───────────────────────────────────────────────────────────────
@@ -502,7 +502,7 @@ With p=reject properly implemented:
     description: "Display your logo in the inbox — what it takes and whether it's worth it.",
     content: `## What BIMI Does
 
-BIMI — Brand Indicators for Message Identification — lets organizations that have implemented DMARC enforcement display their logo directly in the inbox. When a BIMI-enabled email client (Gmail, Yahoo Mail, and others) receives a message from a BIMI-configured domain, your logo appears next to the sender name.
+[BIMI](/resources/glossary/bimi) — Brand Indicators for Message Identification — lets organizations that have implemented [DMARC](/resources/glossary/dmarc) enforcement display their logo directly in the inbox. When a BIMI-enabled email client (Gmail, Yahoo Mail, and others) receives a message from a BIMI-configured domain, your logo appears next to the sender name.
 
 The practical effect: legitimate emails become visually identifiable at a glance, and phishing attempts that can't pass your DMARC checks cannot display your logo.
 
@@ -520,7 +520,7 @@ BIMI requires:
 1. DMARC policy at p=quarantine or p=reject (p=none is not sufficient)
 2. A Verified Mark Certificate (VMC) from an approved certificate authority (DigiCert or Entrust)
 3. Your logo in a specific SVG format (SVG Tiny 1.2 profile)
-4. A BIMI DNS TXT record
+4. A BIMI [DNS](/resources/glossary/dns) TXT record
 
 ## VMC vs. CMC: Two Certificate Options
 
@@ -557,11 +557,11 @@ For most organizations: only after you have DMARC fully enforced. The DMARC work
     description: "Private vs. public cloud, VMware vs. Azure/AWS/GCP, and where each workload belongs.",
     content: `## The Hypervisor
 
-A hypervisor is the software layer that makes virtualization work. It sits above physical hardware and allocates CPU, RAM, storage, and network resources to virtual machines (VMs). From each VM's perspective, it's running on dedicated hardware — the abstraction is complete.
+A hypervisor is the software layer that makes virtualization work. It sits above physical hardware and allocates [CPU](/resources/glossary/cpu), RAM, storage, and network resources to [virtual machines](/resources/glossary/virtual-machine) (VMs). From each VM's perspective, it's running on dedicated hardware — the abstraction is complete.
 
 Two types:
 
-**Type 1 (bare metal):** Runs directly on hardware, no underlying OS. VMware ESXi, Microsoft Hyper-V, Xen. More efficient, better performance, used in production environments.
+**Type 1 (bare metal):** Runs directly on hardware, no underlying OS. [VMware](/resources/glossary/vmware) [ESXi](/resources/glossary/esxi), Microsoft [Hyper-V](/resources/glossary/hyper-v), Xen. More efficient, better performance, used in production environments.
 
 **Type 2 (hosted):** Runs as an application on top of an existing OS. VMware Fusion, VirtualBox, Parallels. Convenient for development and testing; not used for production infrastructure.
 
@@ -581,11 +581,11 @@ The post-Broadcom reality: VMware's 2023 acquisition changed the economics signi
 
 The hyperscalers offer virtualization as a service. You rent compute rather than own hardware — no capital expense, no hardware refresh cycles, elastic scale.
 
-**AWS:** Most mature platform, broadest service portfolio. Right for complex application architectures and teams with AWS expertise.
+**[AWS](/resources/glossary/aws):** Most mature platform, broadest service portfolio. Right for complex application architectures and teams with AWS expertise.
 
-**Azure:** Best integration with Microsoft-centric environments — Active Directory, SQL Server, .NET. Microsoft licensing incentives often favor running Windows workloads in Azure.
+**[Azure](/resources/glossary/azure):** Best integration with Microsoft-centric environments — Active Directory, SQL Server, .NET. Microsoft licensing incentives often favor running Windows workloads in Azure.
 
-**GCP:** Best for data analytics, machine learning, containerized workloads. Kubernetes originated at Google; GKE remains the benchmark managed Kubernetes offering.
+**[GCP](/resources/glossary/gcp):** Best for data analytics, machine learning, containerized workloads. Kubernetes originated at Google; GKE remains the benchmark managed Kubernetes offering.
 
 ## The Real Decision: Workload by Workload
 
@@ -605,13 +605,13 @@ The on-premises vs. cloud debate is often framed as binary. It isn't. The right 
 
 Many organizations end up hybrid: on-premises for core infrastructure, latency-sensitive workloads, and predictable capacity — cloud for burst capacity, DR, and applications that benefit from managed services.
 
-**Azure Site Recovery** is worth mentioning specifically: it replicates on-premises VMs to Azure, providing geographically redundant disaster recovery for roughly $25/VM/month plus storage costs. For organizations with existing on-premises VMware that want to reduce their footprint, this provides bi-directional DR infrastructure, geo-redundancy, and a credible exit ramp from on-premises — at a cost that's difficult to replicate with dedicated hardware.
+**Azure Site Recovery** is worth mentioning specifically: it replicates on-premises VMs to Azure, providing geographically redundant [disaster recovery](/resources/glossary/disaster-recovery) for roughly $25/VM/month plus storage costs. For organizations with existing on-premises VMware that want to reduce their footprint, this provides bi-directional DR infrastructure, geo-redundancy, and a credible exit ramp from on-premises — at a cost that's difficult to replicate with dedicated hardware.
 
 ## GPU VMs, Local AI, and Agentic Workloads
 
-One of the most interesting emerging use cases for on-premises and cloud VMs is AI inference. GPU-equipped VMs — available from all three major cloud providers, and deployable on-premises with NVIDIA hardware — can run large language models locally, without sending data to external APIs. For organizations with data privacy requirements, or that want to run automated AI workflows at scale, local inference changes the economics.
+One of the most interesting emerging use cases for on-premises and cloud VMs is AI inference. [GPU](/resources/glossary/gpu)-equipped VMs — available from all three major cloud providers, and deployable on-premises with NVIDIA hardware — can run large language models locally, without sending data to external APIs. For organizations with data privacy requirements, or that want to run automated AI workflows at scale, local inference changes the economics.
 
-Separately: tools like Claude Code make VM capacity significantly more useful for development and automation. Spinning up a sandboxed VM, having an agent build and test something inside it, then discarding the VM is a workflow that requires available compute capacity — and rewards organizations that have it.
+Separately: tools like [Claude Code](/resources/glossary/claude-code) make VM capacity significantly more useful for development and automation. Spinning up a sandboxed VM, having an agent build and test something inside it, then discarding the VM is a workflow that requires available compute capacity — and rewards organizations that have it.
 
 For real-world examples of infrastructure decisions, see our [case studies](/case-studies).`,
     related: ["remote-connectivity"],
@@ -624,7 +624,7 @@ For real-world examples of infrastructure decisions, see our [case studies](/cas
     title: "Remote Connectivity",
     categories: ["Networking"],
     description: "S2S VPN, P2S VPN, SSL VPN, and Zero Trust — the differences that matter.",
-    content: `Your internal network is private by design. File servers, databases, network cameras, AWS VPCs, Azure VNets — these are resources you want accessible to the right people, but not exposed to the open internet. VPN is the traditional answer: create an encrypted tunnel that extends private network access to remote users or remote locations, without punching holes in your perimeter.
+    content: `Your internal network is private by design. File servers, databases, network cameras, [AWS](/resources/glossary/aws) [VPCs](/resources/glossary/vpc), [Azure](/resources/glossary/azure) VNets — these are resources you want accessible to the right people, but not exposed to the open internet. [VPN](/resources/glossary/vpn) is the traditional answer: create an encrypted tunnel that extends private network access to remote users or remote locations, without punching holes in your perimeter.
 
 There are several types of VPN with meaningfully different characteristics. Understanding which to use — and when to move beyond VPN entirely — is the goal of this article.
 
@@ -632,7 +632,7 @@ There are several types of VPN with meaningfully different characteristics. Unde
 
 Site-to-site VPN connects two networks permanently. It's the technology used when two physical locations — offices, a branch and headquarters, an office and a data center — need to communicate as if on the same local network.
 
-How it works: VPN-capable firewalls at both locations negotiate an encrypted IPsec tunnel. Traffic destined for the remote network is encrypted and sent through the tunnel; the remote firewall decrypts it and delivers it locally. Users at either location don't know the other network exists behind the tunnel.
+How it works: VPN-capable firewalls at both locations negotiate an encrypted [IPsec](/resources/glossary/ipsec) tunnel. Traffic destined for the remote network is encrypted and sent through the tunnel; the remote firewall decrypts it and delivers it locally. Users at either location don't know the other network exists behind the tunnel.
 
 ### IPsec: The Underlying Protocol
 
@@ -653,7 +653,7 @@ S2S is network-to-network. It requires a VPN device at each end and is meant for
 
 Point-to-site VPN connects an individual device to a remote network. This is the traditional "employee VPN" — a user installs VPN client software, connects to the company's VPN gateway, and their traffic routes through the company network as if physically in the office.
 
-How it works: the gateway accepts incoming connections from authenticated clients. The client authenticates (credentials + MFA, or certificate), a virtual network adapter appears on the client device, and traffic destined for company resources routes through the tunnel.
+How it works: the gateway accepts incoming connections from authenticated clients. The client authenticates (credentials + [MFA](/resources/glossary/mfa), or certificate), a virtual network adapter appears on the client device, and traffic destined for company resources routes through the tunnel.
 
 Use cases:
 - Remote employees accessing on-premises file servers, printers, or internal applications
@@ -662,7 +662,7 @@ Use cases:
 
 ## SSL VPN
 
-SSL VPN is a category of P2S VPN that uses SSL/TLS — the same protocol as HTTPS — rather than IPsec. The practical advantage: SSL/TLS on port 443 is permitted through virtually every corporate and hotel firewall, while IPsec is frequently blocked. SSL VPN works everywhere.
+[SSL VPN](/resources/glossary/ssl-vpn) is a category of P2S VPN that uses SSL/[TLS](/resources/glossary/tls) — the same protocol as [HTTPS](/resources/glossary/https) — rather than IPsec. The practical advantage: SSL/TLS on port 443 is permitted through virtually every corporate and hotel firewall, while IPsec is frequently blocked. SSL VPN works everywhere.
 
 Most enterprise VPN products support SSL VPN as one mode: SonicWall NetExtender/Mobile Connect, Cisco AnyConnect, Palo Alto GlobalProtect, Fortinet FortiClient.
 
@@ -670,7 +670,7 @@ Most enterprise VPN products support SSL VPN as one mode: SonicWall NetExtender/
 
 Traditional VPN gives remote users broad network access — which is also what makes it a liability. A compromised device connected via VPN can reach your entire network.
 
-Zero Trust Network Access (ZTNA) replaces broad network access with application-level access. Instead of joining the network, users access specific applications — and access decisions factor in identity, device health, location, and context.
+[Zero Trust](/resources/glossary/zero-trust) Network Access (ZTNA) replaces broad network access with application-level access. Instead of joining the network, users access specific applications — and access decisions factor in identity, device health, location, and context.
 
 Cloudflare Access, Zscaler Private Access, and Azure App Proxy are mature ZTNA implementations. For organizations replacing aging VPN infrastructure, evaluating ZTNA alongside traditional options is worthwhile.
 
@@ -704,14 +704,14 @@ That light represents binary data in a Morse-code fashion: light on for 1, light
 **Single-mode fiber (SMF):**
 - Very thin core (9 microns — for scale: a human hair is roughly 70 microns in diameter — single-mode fiber's core is about 8× thinner)
 - A single light path travels through the fiber
-- Extremely low signal attenuation — spans 40km+ without amplification
+- Extremely low signal [attenuation](/resources/glossary/attenuation) — spans 40km+ without amplification
 
 Single-mode fiber is also the medium that connects the world at scale. Every transatlantic internet cable is single-mode fiber. Every cell tower connects back to the telecom network via fiber. The phone call you make, the video you stream, the email you send — all of it rides fiber at some point in its journey. At the extreme end, research labs have demonstrated transmission speeds of roughly 80× faster than today's commercial deployments over a single strand.
 
 - Requires precise, laser-based transceivers
 - Higher per-transceiver cost
 - Standard grades: OS1 (tight-buffered, indoor), OS2 (loose tube, outdoor/longer runs)
-- Used for: telecom infrastructure, WAN links, campus backbone between buildings
+- Used for: telecom infrastructure, [WAN](/resources/glossary/wan) links, campus backbone between buildings
 
 **Multi-mode fiber (MMF):**
 - Larger core (50 microns for modern OM grades — still thinner than a human hair, but 5–6× larger than single-mode)
@@ -727,11 +727,11 @@ For most data center and intra-building applications: OM3 or OM4 multi-mode. For
 
 - **LC**: Small form factor with a latching mechanism. The standard in modern enterprise networking — almost everything uses LC.
 - **SC**: Larger square connector. Common in older installations, still widely deployed.
-- **MPO/MTP**: Multi-fiber connector terminating 8, 12, or 24 fibers simultaneously. Used in high-density data center applications.
+- **[MTP/MPO](/resources/glossary/mtp-mpo-connector)**: Multi-fiber connector terminating 8, 12, or 24 fibers simultaneously. Used in high-density data center applications.
 
 ## Transceivers
 
-A transceiver (SFP, SFP+, QSFP28, etc.) sits in a port on a switch or router and does one job: convert electrical data signals into optical pulses (transmit) and optical pulses back into electrical signals (receive). The transceiver is wavelength-specific and must match the fiber type (single-mode or multi-mode) and the distance requirement.
+A transceiver (SFP, SFP+, QSFP28, etc.) sits in a port on a switch or router and does one job: convert electrical data signals into optical pulses (transmit) and optical pulses back into electrical signals (receive). The transceiver is [wavelength](/resources/glossary/wavelength)-specific and must match the fiber type (single-mode or multi-mode) and the distance requirement.
 
 Common form factors:
 - **SFP/SFP+**: 1G/10G. The standard for most enterprise switching
@@ -743,12 +743,12 @@ Common form factors:
 **Fiber is right when:**
 - Run length exceeds ~90m (copper's structured cabling limit)
 - The path crosses between buildings (copper has ground potential issues; fiber is electrically isolated)
-- EMI is a concern (near industrial motors, generators, or high-voltage electrical equipment)
+- [EMI](/resources/glossary/emi) is a concern (near industrial motors, generators, or high-voltage electrical equipment)
 - Bandwidth requirements at distance exceed what copper supports
 
 **Copper is typically preferred when:**
 - Runs are under 90m
-- PoE is needed — fiber cannot carry power
+- [PoE](/resources/glossary/poe) is needed — fiber cannot carry power
 - Cost is a constraint and copper meets the speed/distance requirements
 
 ## Watch
@@ -789,7 +789,7 @@ Common form factors:
 
 ## PoE and Heat
 
-Higher PoE standards (IEEE 802.3bt / PoE++) deliver up to 90W per port. That power runs through the cable as current, generating heat. Dense PoE deployments — a ceiling full of access points, a conference room with multiple powered devices — can raise cable temperatures meaningfully in a bundled conduit.
+Higher [PoE](/resources/glossary/poe) standards (IEEE 802.3bt / PoE++) deliver up to 90W per port. That power runs through the cable as current, generating heat. Dense PoE deployments — a ceiling full of access points, a conference room with multiple powered devices — can raise cable temperatures meaningfully in a bundled conduit.
 
 Cat6A handles PoE thermal load better than Cat6 due to its construction. In any high-density PoE environment (12+ PoE devices per 100-cable bundle), Cat6A is the appropriate specification even if 10G bandwidth isn't the primary driver.
 
@@ -808,12 +808,12 @@ The labor cost to re-cable an office — pulling cables, coring walls, terminati
     description: "Zero-touch device deployment — what it requires, what it delivers, and when it's worth it.",
     content: `## How Autopilot Works
 
-Windows Autopilot is Microsoft's zero-touch device deployment system. When a new Windows PC powers on for the first time and connects to the internet, it queries Microsoft's servers, finds its provisioning profile, and configures itself — joining your directory, enrolling in Intune, installing required apps, and applying security policies — with no IT staff handling the machine.
+Windows Autopilot is Microsoft's [zero-touch](/resources/glossary/zero-touch) device deployment system. When a new Windows PC powers on for the first time and connects to the internet, it queries Microsoft's servers, finds its provisioning profile, and configures itself — joining your directory, enrolling in [Intune](/resources/glossary/intune), installing required apps, and applying security policies — with no IT staff handling the machine.
 
 What happens during provisioning:
 1. Device connects to internet (during Windows out-of-box experience)
 2. Autopilot profile downloads
-3. Device joins Entra ID (and optionally on-premises AD in hybrid scenarios)
+3. Device joins [Entra ID](/resources/glossary/entra-id) (and optionally on-premises AD in hybrid scenarios)
 4. Intune enrollment occurs
 5. Required applications install
 6. Security policies apply
@@ -821,7 +821,7 @@ What happens during provisioning:
 
 ## Hardware Registration
 
-Devices need their hardware hash registered in your tenant before Autopilot works.
+Devices need their hardware hash registered in your [tenant](/resources/glossary/tenant) before Autopilot works.
 
 **Pre-registration through your hardware vendor:** Dell, Lenovo, Microsoft Surface, and most major OEMs can register devices in your tenant at time of purchase. This is the clean path for new deployments — order laptops with your tenant ID, they arrive pre-registered.
 
@@ -832,7 +832,7 @@ Devices need their hardware hash registered in your tenant before Autopilot work
 - **User-driven:** Employee powers on, signs in with work credentials, device provisions itself. Standard mode for most employee deployments.
 - **Self-deploying:** Device configures with no user interaction. Used for shared devices, kiosks, conference room hardware.
 - **White glove:** IT runs initial provisioning before handing the device to the user. Useful for verifying device health first.
-- **Hybrid join:** Device joins both Entra ID and on-premises AD. Required in environments not yet fully migrated to cloud-only identity.
+- **Hybrid join:** Device joins both [Entra ID](/resources/glossary/entra-id) and on-premises AD. Required in environments not yet fully migrated to cloud-only identity.
 
 ## Requirements
 
@@ -862,7 +862,7 @@ Apple Business (formerly Apple Business Manager / ABM) is Apple's enterprise por
 
 ### Automated Device Enrollment (ADE)
 
-The central capability: when your organization purchases Apple devices through an authorized channel and registers those devices in ABM, they enroll in your MDM platform automatically when first activated. This enrollment is supervised — giving IT access to management controls not available on unsupervised devices — and it's sticky. A factory reset doesn't remove enrollment; the device re-enrolls on next activation.
+The central capability: when your organization purchases Apple devices through an authorized channel and registers those devices in ABM, they enroll in your [MDM](/resources/glossary/mdm) platform automatically when first activated. This enrollment is supervised — giving IT access to management controls not available on unsupervised devices — and it's sticky. A factory reset doesn't remove enrollment; the device re-enrolls on next activation.
 
 This is the Apple equivalent of Windows Autopilot. A new iPhone can be shipped directly to an employee; they power it on, sign in, and the device is enrolled, configured, and ready.
 
@@ -872,13 +872,13 @@ Organizations can purchase app licenses in bulk and deploy them to managed devic
 
 ### Managed Apple IDs
 
-Apple Business lets organizations create Apple IDs that belong to the organization, not the individual. Managed Apple IDs give employees access to iCloud, FaceTime, and Apple collaboration features using organizational credentials you control — and can revoke.
+Apple Business lets organizations create Apple IDs that belong to the organization, not the individual. [Managed Apple IDs](/resources/glossary/managed-apple-id) give employees access to iCloud, FaceTime, and Apple collaboration features using organizational credentials you control — and can revoke.
 
 A key limitation: Managed Apple IDs cannot be used with the consumer App Store. Apps must be deployed through the Apps and Books program. This is intentional — it keeps personal and organizational identities cleanly separated.
 
-If your organization uses JumpCloud or Entra ID as your identity provider, you can federate those identities into Apple Business directly. When a new employee is provisioned in your directory, a Managed Apple ID can be created automatically. When they leave, removing them from your IdP revokes access to Apple Business as well — no separate offboarding step.
+If your organization uses [JumpCloud](/resources/glossary/jumpcloud) or [Entra ID](/resources/glossary/entra-id) as your identity provider, you can federate those identities into Apple Business directly. When a new employee is provisioned in your directory, a Managed Apple ID can be created automatically. When they leave, removing them from your IdP revokes access to Apple Business as well — no separate offboarding step.
 
-This federation also enables personal device BYOD in a meaningful way: an employee can sign into their personal iPhone with their Managed Apple ID alongside their personal Apple ID, enabling User Enrollment (see the [Device Trust & BYOD](/resources/university/device-trust-byod) article) without any organizational visibility into personal data.
+This federation also enables personal device [BYOD](/resources/glossary/byod) in a meaningful way: an employee can sign into their personal iPhone with their Managed Apple ID alongside their personal Apple ID, enabling User Enrollment (see the [Device Trust & BYOD](/resources/university/device-trust-byod) article) without any organizational visibility into personal data.
 
 ## MDM Integration
 
@@ -888,8 +888,8 @@ Apple Business is a portal and device registration system, not the management sy
 
 - **Jamf Pro:** Enterprise standard for Apple management. Powerful, extensible, expensive. Right for organizations with 100+ Apple devices or complex Mac management requirements.
 - **Jamf Now:** Simpler, lower cost, adequate for many smaller deployments.
-- **Microsoft Intune:** Adequate for basic Mac management in Microsoft-centric environments. Less feature-complete than Jamf for complex scenarios.
-- **JumpCloud:** Good cross-platform MDM for organizations that want a single platform managing both Mac and Windows.
+- **Microsoft [Intune](/resources/glossary/intune):** Adequate for basic Mac management in Microsoft-centric environments. Less feature-complete than Jamf for complex scenarios.
+- **JumpCloud:** Good cross-platform [MDM](/resources/glossary/mdm) for organizations that want a single platform managing both Mac and Windows.
 
 ## The Reseller Requirement
 
@@ -926,7 +926,7 @@ Employees, reasonably, don't want the answer to be "give IT full control of my p
 
 ## The BYOD Challenge
 
-BYOD — Bring Your Own Device — allows employees to use personal devices for work. The security problem: the organization has no visibility into or control over personal devices.
+[BYOD](/resources/glossary/byod) — Bring Your Own Device — allows employees to use personal devices for work. The security problem: the organization has no visibility into or control over personal devices.
 
 If your access policy requires compliant devices — encrypted disk, current OS, screen lock, no jailbreak — BYOD makes enforcement complicated. Options:
 - Require personal device enrollment in MDM: you gain enforcement, but can see personal data. Employees are often uncomfortable with this.
@@ -937,9 +937,9 @@ Apple designed a framework specifically for this.
 
 ## Apple User Enrollment for BYOD
 
-Apple's User Enrollment is an MDM enrollment mode designed specifically for personal devices. The critical distinction: it creates a cryptographic separation between personal and managed data on the device.
+Apple's User Enrollment is an [MDM](/resources/glossary/mdm) enrollment mode designed specifically for personal devices. The critical distinction: it creates a cryptographic separation between personal and managed data on the device.
 
-Think of it as a bubble inside the phone. Everything the organization puts in — apps, data, email accounts, certificates, configurations — lives in the bubble. Anything the org put in, the org can take back out. Anything outside the bubble — personal apps, photos, messages, personal Apple ID — the org cannot see or touch. When an employee leaves, IT pops the bubble. Everything organizational disappears. Everything personal remains untouched.
+Think of it as a bubble inside the phone. Everything the organization puts in — apps, data, email accounts, [certificates](/resources/glossary/certificate), configurations — lives in the bubble. Anything the org put in, the org can take back out. Anything outside the bubble — personal apps, photos, messages, personal Apple ID — the org cannot see or touch. When an employee leaves, IT pops the bubble. Everything organizational disappears. Everything personal remains untouched.
 
 MDM can only see and manage organizational data — it cannot:
 - View personal apps or photos
@@ -954,13 +954,13 @@ This addresses the core employee concern ("I don't want IT on my personal phone"
 
 For organizations that want device trust without full MDM enrollment, conditional access is the middle path. Instead of managing the device, you verify it meets minimum security requirements before granting access.
 
-Microsoft Entra ID Conditional Access, JumpCloud's conditional access policies, and Okta's device trust features can check for: minimum OS version, disk encryption, screen lock enforcement, absence of jailbreak — and block access from non-compliant devices. No MDM enrollment required.
+[Microsoft Entra ID](/resources/glossary/entra-id) Conditional Access, [JumpCloud](/resources/glossary/jumpcloud)'s conditional access policies, and Okta's device trust features can check for: minimum OS version, disk encryption, screen lock enforcement, absence of jailbreak — and block access from non-compliant devices. No MDM enrollment required.
 
 This is the practical BYOD approach for many organizations: set a minimum bar, enforce it at the access control layer, and block devices that can't meet it — without requiring employees to enroll personal devices in corporate MDM.
 
 ## The Full Solution: IdP + Apple Business + User Enrollment
 
-If your organization has a full JumpCloud or Entra ID tenant with Apple Business configured and Managed Apple IDs provisioned, User Enrollment on personal iPhones becomes nearly seamless: the employee signs into their personal device with their Managed Apple ID, enrollment happens automatically, and the bubble is created. When they leave, IdP offboarding destroys the bubble.
+If your organization has a full JumpCloud or Entra ID [tenant](/resources/glossary/tenant) with Apple Business configured and Managed Apple IDs provisioned, User Enrollment on personal iPhones becomes nearly seamless: the employee signs into their personal device with their Managed Apple ID, enrollment happens automatically, and the bubble is created. When they leave, IdP offboarding destroys the bubble.
 
 This is a genuine solution to one of the hardest problems IT has faced for years. It's not perfect, but it's the best available answer to "how do we support BYOD without compromising privacy or security."
 
@@ -985,7 +985,7 @@ Chrome OS management is a separate topic — important for schools and organizat
 
 ## Chrome Browser Cloud Management (CBCM)
 
-If your users run Chrome on Windows or Mac, you can manage that browser without touching the OS-level MDM configuration. CBCM lets you:
+If your users run Chrome on Windows or Mac, you can manage that browser without touching the OS-level [MDM](/resources/glossary/mdm) configuration. CBCM lets you:
 - Force-install browser extensions organization-wide — and prevent users from removing them
 - Block specific websites or categories
 - Control sync settings (prevent work browser data from syncing to personal Google accounts)
@@ -994,7 +994,7 @@ If your users run Chrome on Windows or Mac, you can manage that browser without 
 
 This is particularly relevant where Chrome is the primary work browser, or where specific extensions (corporate intranet bookmarks, enterprise password manager extensions, DLP tools) need to be deployed consistently.
 
-A practical example: using CBCM, you can force-install the JumpCloud Go extension on every managed Chrome browser in your organization. JumpCloud Go enables passwordless authentication and device-level trust verification — when a user opens Chrome and the extension is present, JumpCloud can verify both the identity and the device before granting access to connected applications.
+A practical example: using CBCM, you can force-install the [JumpCloud](/resources/glossary/jumpcloud) Go extension on every managed Chrome browser in your organization. JumpCloud Go enables passwordless authentication and device-level trust verification — when a user opens Chrome and the extension is present, JumpCloud can verify both the identity and the device before granting access to connected applications.
 
 ## Chrome Profile Management
 
@@ -1018,7 +1018,7 @@ For standard knowledge work environments without specific compliance requirement
 
 ## Chrome Device Trust and Desktop BYOD
 
-Here's where Managed Chrome becomes a meaningful BYOD solution for Mac, Windows, and Linux.
+Here's where Managed Chrome becomes a meaningful [BYOD](/resources/glossary/byod) solution for Mac, Windows, and Linux.
 
 JumpCloud (and similar platforms) can enforce a policy that says: you cannot access our applications unless you're signed into Chrome with your managed profile. And separately: you cannot add or set up a new managed Chrome profile without IT lifting a restriction first.
 
@@ -1029,7 +1029,7 @@ The practical flow:
 4. IT approves, employee signs in, device is now registered
 5. IT re-applies the restriction
 
-The result: even if someone's username, password, and MFA codes were all stolen, an attacker couldn't use them without also having physical access to a pre-approved device with a registered Chrome profile. This is device trust without full MDM enrollment — a practical BYOD solution that works across every major desktop OS.`,
+The result: even if someone's username, password, and MFA codes were all stolen, an attacker couldn't use them without also having physical access to a pre-approved device with a registered Chrome profile. This is [device trust](/resources/glossary/device-trust) without full MDM enrollment — a practical BYOD solution that works across every major desktop OS.`,
   },
 
   // ── Article 14 ──────────────────────────────────────────────────────────────
@@ -1042,20 +1042,20 @@ The result: even if someone's username, password, and MFA codes were all stolen,
 
 The average knowledge worker has 70–100 passwords. Without a manager, they do what humans naturally do: reuse the same password across many sites, use passwords they can remember (weak ones), and store them in spreadsheets or Slack messages. Each is a security vulnerability at scale.
 
-1Password generates strong, unique passwords for every account, stores them encrypted, and fills them automatically. You remember one password — the master password to your vault.
+1Password generates strong, unique passwords for every account, stores them encrypted, and fills them automatically. You remember one password — the master password to your [vault](/resources/glossary/vault).
 
 ## What 1Password Does
 
 Beyond basic storage:
 - **Secure notes:** encrypted text for server credentials, license keys, recovery codes, security questions
 - **SSH keys:** 1Password stores and provides SSH keys to your terminal — no more key files scattered across machines
-- **TOTP:** generates and fills time-based two-factor codes alongside passwords
+- **[TOTP](/resources/glossary/totp):** generates and fills time-based two-factor codes alongside passwords
 - **Watchtower:** alerts when any stored credentials appear in known breach databases
 - **Travel mode:** remove sensitive vaults from devices when crossing borders; restore with one click on the other side
 
 ## Team Features
 
-- **Vaults:** shared credential stores. Marketing shares a vault with social media credentials; Engineering shares a vault with server credentials. One place to manage shared access.
+- **Vaults:** shared credential stores. Marketing shares a [vault](/resources/glossary/vault) with social media credentials; Engineering shares a vault with server credentials. One place to manage shared access.
 - **Granular permissions:** who can view, edit, share, or manage each vault
 - **Audit log:** who accessed what credentials, when
 - **Guest access:** give external contractors access to specific credentials without full team membership — revoke when the engagement ends
@@ -1069,13 +1069,13 @@ Beyond basic storage:
 
 ## IdP Integration
 
-1Password integrates with JumpCloud, Microsoft Entra ID, Okta, and other identity providers via SCIM. When a new employee is added to your directory, 1Password can automatically provision their account and grant access to the correct vaults. When they leave and their IdP account is disabled, their 1Password access is cut programmatically — no manual offboarding step, no window where a departed employee retains access to organizational credentials.
+1Password integrates with JumpCloud, Microsoft Entra ID, Okta, and other identity providers via [SCIM](/resources/glossary/scim). When a new employee is added to your directory, 1Password can automatically provision their account and grant access to the correct vaults. When they leave and their IdP account is disabled, their 1Password access is cut programmatically — no manual offboarding step, no window where a departed employee retains access to organizational credentials.
 
 ## The Shared Credential Problem It Solves
 
 Before 1Password, shared credentials lived in spreadsheets, Slack messages, email chains. Offboarding meant a scramble to rotate credentials across every system the person had access to.
 
-With 1Password vaults: service accounts — the GitHub organization login, the AWS root account, the domain registrar credentials — live in organizational vaults that belong to the role, not the individual. When someone leaves, you remove their vault access. The credentials don't change. No rotation scramble, no missed accounts, no lingering access.
+With 1Password vaults: [service accounts](/resources/glossary/service-account) — the GitHub organization login, the AWS root account, the domain registrar credentials — live in organizational vaults that belong to the role, not the individual. When someone leaves, you remove their vault access. The credentials don't change. No rotation scramble, no missed accounts, no lingering access.
 
 ## Practical Examples
 
@@ -1132,22 +1132,22 @@ Physical security program, data center and office controls, visitor management.
 Change management, backup procedures, cloud service models provided, maintenance windows, incident status communication.
 
 **H — Access Control**
-Individual user IDs, password policy, remote access, MFA, federated identity (SAML/OIDC), access to client data.
+Individual user IDs, password policy, remote access, [MFA](/resources/glossary/mfa), federated identity ([SAML](/resources/glossary/saml)/[OIDC](/resources/glossary/oidc)), access to client data.
 
 **I — Application Security**
-Web application controls, HTTPS enforcement, patch management, log protection, software development lifecycle.
+Web application controls, [HTTPS](/resources/glossary/https) enforcement, patch management, log protection, software development lifecycle.
 
 **J — Incident Event and Communications Management**
 Incident response program, breach notification procedures, communication methods.
 
 **K — Business Resiliency**
-Business continuity and disaster recovery planning, RTO/RPO, testing cadence.
+Business continuity and [disaster recovery](/resources/glossary/disaster-recovery) planning, RTO/RPO, testing cadence.
 
 **L — Compliance**
 Regulatory compliance frameworks, audit history, certifications (SOC 2, ISO 27001, PCI, HIPAA).
 
 **M — End User Device Security**
-Endpoint protection, MDM/device management, encryption on endpoints.
+[Endpoint](/resources/glossary/endpoint) protection, [MDM](/resources/glossary/mdm)/device management, encryption on endpoints.
 
 **N — Network Security**
 Network segmentation, perimeter controls, wireless security, monitoring.
@@ -1156,7 +1156,7 @@ Network segmentation, perimeter controls, wireless security, monitoring.
 Privacy program, data subject rights, consent management, cross-border transfer controls.
 
 **T — Threat Management**
-Threat intelligence, vulnerability scanning, penetration testing, red team exercises.
+Threat intelligence, [vulnerability scanning](/resources/glossary/vulnerability-scanning), penetration testing, red team exercises.
 
 **U — Server Security**
 OS hardening, patch management on servers, privileged access controls.
@@ -1229,13 +1229,13 @@ The National Institute of Standards and Technology's Cybersecurity Framework (NI
 
 **Identify** — What assets, data, and systems exist? Who is responsible for security? What risks have been identified?
 
-**Protect** — How are systems and data protected? MFA, encryption, access controls, patching, backups, training.
+**Protect** — How are systems and data protected? [MFA](/resources/glossary/mfa), encryption, access controls, patching, backups, training.
 
 **Detect** — What monitoring is in place? How would you know if something went wrong?
 
 **Respond** — What happens when an incident occurs? Is there a plan? Has it been tested?
 
-**Recover** — How do you restore operations after an incident? What are your RTO and RPO targets?
+**Recover** — How do you restore operations after an incident? What are your [RTO and RPO](/resources/glossary/disaster-recovery) targets?
 
 These five functions cover the full lifecycle of security — prevention, detection, and response.
 
@@ -1264,7 +1264,7 @@ If you need help interpreting the results, understanding what changes to priorit
 
 Passwords alone are a failed security model. Not because they're a bad idea in principle, but because of how people actually use them: reused across dozens of services, discovered in data breaches, guessed through credential stuffing, phished through convincing fake login pages. The credential breach pipeline is industrial in scale. Billions of username/password combinations are actively traded, and automated tools test them against every major service continuously.
 
-Multi-factor authentication adds a second requirement beyond the password — something that changes, something physically in your possession, or something tied to your biometrics. The idea is that a stolen password alone is no longer sufficient. The attacker also needs the second factor.
+[Multi-factor authentication](/resources/glossary/mfa) adds a second requirement beyond the password — something that changes, something physically in your possession, or something tied to your biometrics. The idea is that a stolen password alone is no longer sufficient. The attacker also needs the second factor.
 
 That idea is sound. But not all implementations of it provide equal protection. The differences between MFA types matter significantly more than most people realize.
 
@@ -1292,19 +1292,19 @@ This is not theoretical. Twitter's CEO Jack Dorsey had his account compromised v
 
 **SS7 vulnerabilities** affect the 40-year-old Signaling System No. 7 protocol that telecom networks use to coordinate call and message routing. Attackers with access to the SS7 network — nation-state actors and sophisticated criminal groups — can redirect SMS messages without touching the carrier. The subscriber never knows.
 
-**Real-time phishing** is the third failure mode, and it applies to SMS and several other MFA types. An attacker builds a convincing fake login page. The victim enters their credentials. The attacker's server immediately replays those credentials to the real site. The real site sends an SMS code to the victim's phone. The fake site asks the victim to enter the code. The victim enters it. The attacker relays it within seconds. Authentication succeeds.
+**Real-time [phishing](/resources/glossary/phishing)** is the third failure mode, and it applies to SMS and several other MFA types. An attacker builds a convincing fake login page. The victim enters their credentials. The attacker's server immediately replays those credentials to the real site. The real site sends an SMS code to the victim's phone. The fake site asks the victim to enter the code. The victim enters it. The attacker relays it within seconds. Authentication succeeds.
 
 SMS MFA stops attackers who have your password but not your phone. It does not stop SIM swappers, SS7 attackers, or anyone running a real-time phishing relay. NIST deprecated SMS-based OTP as a primary authentication mechanism in their SP 800-63B guidelines. Use it only as a last-resort fallback when better options are unavailable.
 
 ## TOTP: time-based one-time passwords
 
-TOTP (defined in RFC 6238) is the MFA type behind Google Authenticator, Authy, 1Password codes, and most authenticator apps.
+[TOTP](/resources/glossary/totp) (defined in RFC 6238) is the MFA type behind Google Authenticator, Authy, 1Password codes, and most authenticator apps.
 
 **How it works:** when you enable TOTP on a service, you scan a QR code that encodes a shared secret known to both the service and your authenticator app. From that point, both your app and the service's server independently compute the same six-digit code using a formula that combines the shared secret with the current timestamp divided into 30-second windows. Because they both know the secret and both know the time, they arrive at the same code independently without any communication. The code changes every 30 seconds, and most services allow a 90-second grace window for clock drift.
 
 **What TOTP fixes:** SIM swapping does not work because your codes are not flowing through the telecom network. SS7 attacks do not work for the same reason. The shared secret lives in your authenticator app. This is a meaningful upgrade from SMS.
 
-**What TOTP does not fix:** real-time phishing. The same relay attack that works against SMS codes works against TOTP codes. Your 30-second window is more than enough time for an automated relay to pass the code from the fake site to the real site. The technical term is AiTM — Adversary-in-the-Middle. Phishing toolkits specifically designed to defeat TOTP in real time (Evilginx2, Modlishka, and others) are openly documented and widely used. TOTP is substantially better than SMS. It is not phishing-resistant.
+**What TOTP does not fix:** real-time phishing. The same relay attack that works against SMS codes works against TOTP codes. Your 30-second window is more than enough time for an automated relay to pass the code from the fake site to the real site. The technical term is AiTM — [Adversary-in-the-Middle](/resources/glossary/mitm). Phishing toolkits specifically designed to defeat TOTP in real time (Evilginx2, Modlishka, and others) are openly documented and widely used. TOTP is substantially better than SMS. It is not phishing-resistant.
 
 ## The authenticator apps
 
@@ -1370,7 +1370,7 @@ After Google required hardware security keys for all employees in 2017, they had
 
 ## Passkeys: FIDO2 for everyone
 
-Passkeys are FIDO2 credentials that live in software rather than dedicated hardware — specifically, in your device's secure enclave (Apple's Secure Enclave, Android's StrongBox, Windows Hello's TPM) or a credential manager like 1Password.
+Passkeys are FIDO2 credentials that live in software rather than dedicated hardware — specifically, in your device's secure enclave (Apple's Secure Enclave, Android's StrongBox, Windows Hello's [TPM](/resources/glossary/tpm)) or a credential manager like 1Password.
 
 The cryptographic mechanism is identical to a hardware key. The difference is portability and usability.
 
@@ -1416,7 +1416,7 @@ Ensure MFA is required for all accounts — any MFA is substantially better than
     related: ["directory-services", "1password", "mfa-and-phishing-resistance"],
     content: `## What least privilege actually means
 
-The principle of least privilege is simple to state: every person, account, and system should have exactly the access required to do its job — and nothing more. A bookkeeper can reach the accounting system but not the production servers. A marketing contractor can edit the campaign folder but can't see HR records. A [super admin](/resources/glossary#super-admin) [service account](/resources/glossary#service-account) can do almost anything, but the people who hold its credential retrieve it only when they genuinely need it.
+The principle of least privilege is simple to state: every person, account, and system should have exactly the access required to do its job — and nothing more. A bookkeeper can reach the accounting system but not the production servers. A marketing contractor can edit the campaign folder but can't see HR records. A [super admin](/resources/glossary/super-admin) [service account](/resources/glossary/service-account) can do almost anything, but the people who hold its credential retrieve it only when they genuinely need it.
 
 The naming convention for that account doesn't matter; what matters is that it exists and is treated carefully. We've used many over the years and across different environments: \`super.admin\`, etc.. Most of the time, and in the examples throughout this article, we use \`itadmin\` — as in \`itadmin@yourdomain.com\`.
 
@@ -1428,7 +1428,7 @@ Least privilege is the discipline that prevents that drift. It's less a feature 
 
 The case for least privilege rests on three things.
 
-**It limits the blast radius.** Every credential is a potential entry point. When an account is compromised — through a phished password, a reused credential, a stolen laptop — the damage is bounded by what that account could reach. If your CFO's account can access everything, a single successful phish is catastrophic. If it can access only what the CFO actually needs day to day, the same phish is contained. This is exactly why ownership of record should sit with a dedicated service account rather than a real person's working account: it keeps the highest-authority credential out of the line of fire.
+**It limits the blast radius.** Every credential is a potential entry point. When an account is compromised — through a [phished](/resources/glossary/phishing) password, a reused credential, a stolen laptop — the damage is bounded by what that account could reach. If your CFO's account can access everything, a single successful phish is catastrophic. If it can access only what the CFO actually needs day to day, the same phish is contained. This is exactly why ownership of record should sit with a dedicated service account rather than a real person's working account: it keeps the highest-authority credential out of the line of fire.
 
 **It makes the environment legible.** An environment built on roles and groups can be reasoned about. You can answer "who can see the financial models?" by looking at one group. An environment built on thousands of individual grants can't be reasoned about at all — the answer to that question requires an audit, and the audit is out of date the moment it's finished. Legibility isn't a nicety; it's what makes security reviews, compliance attestations, and offboarding possible.
 

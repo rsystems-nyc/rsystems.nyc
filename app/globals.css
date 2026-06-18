@@ -103,30 +103,30 @@ body {
 }
 
 /* ── Glossary inline tooltip ─────────────────────────────────────── */
-.prose-article .gl-ref {
+.gl-ref {
   position: relative;
   display: inline;
 }
 
-.prose-article .gl-link {
+.gl-link {
   color: #E8500A;
   border-bottom: 1px dashed #E8500A60;
   text-decoration: none;
   cursor: pointer;
 }
 
-.prose-article .gl-link:visited {
+.gl-link:visited {
   color: #E8500A;
   border-bottom-color: #E8500A60;
 }
 
-.prose-article .gl-link:hover,
-.prose-article .gl-link:visited:hover {
+.gl-link:hover,
+.gl-link:visited:hover {
   color: rgba(232, 80, 10, 0.75);
   border-bottom-color: #E8500A;
 }
 
-.prose-article .gl-tip {
+.gl-tip {
   display: none;
   position: absolute;
   bottom: calc(100% + 6px);
@@ -147,7 +147,7 @@ body {
   text-align: left;
 }
 
-.prose-article .gl-tip::after {
+.gl-tip::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -157,18 +157,18 @@ body {
   border-top-color: #1A1A1A;
 }
 
-.prose-article .gl-ref:hover .gl-tip,
-.prose-article .gl-ref:focus-within .gl-tip {
+.gl-ref:hover .gl-tip,
+.gl-ref:focus-within .gl-tip {
   display: block;
 }
 
 @media (max-width: 480px) {
-  .prose-article .gl-tip {
+  .gl-tip {
     width: 200px;
     left: 0;
     transform: none;
   }
-  .prose-article .gl-tip::after {
+  .gl-tip::after {
     left: 20px;
     transform: none;
   }
