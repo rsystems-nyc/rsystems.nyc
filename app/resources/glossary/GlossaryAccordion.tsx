@@ -1,10 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { GlossarySection } from "./glossary-data";
 
 export default function GlossaryAccordion({ data }: { data: GlossarySection[] }) {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    for (const section of data) {
+      for (let i = 0; i < section.entries.length; i++) {
+        if (section.entries[i].id === hash) {
+          const key = `${section.section}-${i}`;
+          setOpenItems({ [key]: true });
+          requestAnimationFrame(() => {
+            document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+          return;
+        }
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function toggle(key: string) {
     setOpenItems((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -24,7 +42,8 @@ export default function GlossaryAccordion({ data }: { data: GlossarySection[] })
               return (
                 <div
                   key={key}
-                  className="bg-white rounded-xl border border-[#1A1A1A]/[0.07] overflow-hidden"
+                  id={entry.id}
+                  className="scroll-mt-20 sm:scroll-mt-32 bg-white rounded-xl border border-[#1A1A1A]/[0.07] overflow-hidden"
                 >
                   <button
                     type="button"

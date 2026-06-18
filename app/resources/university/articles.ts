@@ -1408,4 +1408,58 @@ Ensure MFA is required for all accounts — any MFA is substantially better than
 
 1Password, JumpCloud, Microsoft, Okta, and Google all support passkeys today. The path exists, the tooling exists, and the attacks against weaker methods are only becoming more automated and accessible. The question is when to require phishing-resistant authentication, not whether it is viable.`,
   },
+  {
+    slug: "least-privilege",
+    title: "The Principle of Least Privilege",
+    categories: ["Security", "Identity"],
+    description: "Give people exactly the access their role requires — nothing more. Why least privilege is the foundation of a secure, manageable environment, and how to actually put it into practice.",
+    related: ["directory-services", "1password", "mfa-and-phishing-resistance"],
+    content: `## What least privilege actually means
+
+The principle of least privilege is simple to state: every person, account, and system should have exactly the access required to do its job — and nothing more. A bookkeeper can reach the accounting system but not the production servers. A marketing contractor can edit the campaign folder but can't see HR records. A [super admin](/resources/glossary#super-admin) [service account](/resources/glossary#service-account) can do almost anything, but the people who hold its credential retrieve it only when they genuinely need it.
+
+The naming convention for that account doesn't matter; what matters is that it exists and is treated carefully. We've used many over the years and across different environments: \`super.admin\`, etc.. Most of the time, and in the examples throughout this article, we use \`itadmin\` — as in \`itadmin@yourdomain.com\`.
+
+It sounds obvious. The reason it's worth a dedicated article is that almost every organization violates it by default — not through bad intent, but through the path of least resistance. Someone needs access to a folder, so you grant *that person* access to *that folder*. Someone's covering for a colleague, so you copy the colleague's permissions. Multiply that by a few years of hires, departures, projects, and one-off favors, and you arrive at the state most organizations are actually in: nobody can confidently say who can access what, and nobody wants to remove anything for fear of breaking something.
+
+Least privilege is the discipline that prevents that drift. It's less a feature you turn on than a way of thinking about access from the start.
+
+## Why it matters more than it seems
+
+The case for least privilege rests on three things.
+
+**It limits the blast radius.** Every credential is a potential entry point. When an account is compromised — through a phished password, a reused credential, a stolen laptop — the damage is bounded by what that account could reach. If your CFO's account can access everything, a single successful phish is catastrophic. If it can access only what the CFO actually needs day to day, the same phish is contained. This is exactly why ownership of record should sit with a dedicated service account rather than a real person's working account: it keeps the highest-authority credential out of the line of fire.
+
+**It makes the environment legible.** An environment built on roles and groups can be reasoned about. You can answer "who can see the financial models?" by looking at one group. An environment built on thousands of individual grants can't be reasoned about at all — the answer to that question requires an audit, and the audit is out of date the moment it's finished. Legibility isn't a nicety; it's what makes security reviews, compliance attestations, and offboarding possible.
+
+**It survives turnover.** People join, change roles, and leave constantly. If access is tied to individuals, every one of those events is a manual, error-prone cleanup. If access is tied to roles, the events become trivial: add someone to a group, move them between groups, remove them from a group. The permissions take care of themselves.
+
+## Roles, not people
+
+The single most important practical move is to assign permissions to groups, never to individuals.
+
+The instinct is always individual: *Tony needs access to the quarterly reports.* Resist it. Ask instead what Tony's **role** requires. Tony is a manager; managers need the quarterly reports. So you create a \`managers\` group, grant that group access to the reports, and add Tony to the group. Now the access describes a role, not a person.
+
+The payoff shows up immediately. When you hire a second manager, you add them to the group and they inherit exactly the right access — no guessing, no copying someone else's permissions and hoping. When Tony is promoted out of management, you remove him from the group and his manager-level access disappears cleanly. When he leaves the company entirely, removing his account from its groups revokes everything at once. You never find yourself reverse-engineering what a departing employee could touch.
+
+This is the same logic whether you're working in Google Workspace, Microsoft 365, an on-premises file server, or a password manager. The platform changes; the principle doesn't.
+
+## How to put it into practice
+
+A few concrete habits turn the principle into a working system.
+
+**Design your groups around durable roles.** Create groups that reflect real, lasting distinctions — \`managers\`, \`finance\`, \`engineering\`, \`everyone\` — not transient ones. Avoid creating a group for every tiny variation; if eighteen groups all contain the same four people, you've added complexity without value. But do create separate groups where you genuinely expect access to diverge over time, even if it doesn't today. A small company where everyone can see both finance and operations might still keep them as separate groups, because the day will come when a finance hire should see one and not the other.
+
+**Name groups consistently and intuitively.** A new administrator should be able to look at your group names and understand the structure without a translation guide. Follow the same naming discipline you use everywhere else: clear, consistent, no cryptic strings, no risky special characters. Groups you can't decipher are groups people stop maintaining.
+
+**Default to the shared context, not the personal one.** When you store data, put it where a team or department owns it — a Shared Drive, a SharePoint site, a team folder — rather than an individual's personal drive. The same applies to credentials in a password manager: organize vaults by who needs access, not by who happened to create the entry. Personal ownership of shared resources is how you end up locked out of your own data when someone leaves.
+
+**Grant up, don't strip down.** It's far safer to start someone with minimal access and add what they need than to give broad access and try to claw it back later. Walking back permissions is where things break, because nobody's certain what depends on what. Starting narrow keeps you in control.
+
+**Revisit periodically.** Roles change, projects end, contractors finish. A light, regular review — who's in which group, and is that still right? — keeps the model honest. Because access is organized by group, this review is quick; you're checking memberships, not auditing thousands of individual grants.
+
+## The throughline
+
+Least privilege isn't a product you buy or a switch you flip. It's a posture: assume access should be narrow, organize it around roles rather than people, keep the structure simple enough to understand and scalable enough to grow into. Done from the start, it costs almost nothing and quietly prevents an entire category of security and operational pain. Retrofitted years later, it's one of the more expensive and disruptive things an organization can take on — which is exactly why it belongs in the foundation, not the renovation.`,
+  },
 ]

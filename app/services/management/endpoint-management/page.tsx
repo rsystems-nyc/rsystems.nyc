@@ -3,17 +3,17 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Managed Workstation Security & Patching NYC | RSystems" },
-  description: "Automated patching, antivirus, asset management, and security policy enforcement. Back-end workstation administration for NYC organizations — no help desk.",
-  alternates: { canonical: "https://rsystems.nyc/services/management/workstation/" },
+  title: { absolute: "Endpoint Management NYC | RSystems" },
+  description: "Automated patching, antivirus, asset management, and security policy enforcement across your device fleet — back-end only, no help desk.",
+  alternates: { canonical: "https://rsystems.nyc/services/management/endpoint-management/" },
   openGraph: {
-    title: "Managed Workstation Security & Patching NYC | RSystems",
-    description: "Automated patching, antivirus, asset management, and security policy enforcement. Back-end workstation administration for NYC organizations — no help desk.",
-    url: "https://rsystems.nyc/services/management/workstation/",
+    title: "Endpoint Management NYC | RSystems",
+    description: "Automated patching, antivirus, asset management, and security policy enforcement across your device fleet — back-end only, no help desk.",
+    url: "https://rsystems.nyc/services/management/endpoint-management/",
   },
   twitter: {
-    title: "Managed Workstation Security & Patching NYC | RSystems",
-    description: "Automated patching, antivirus, asset management, and security policy enforcement. Back-end workstation administration for NYC organizations — no help desk.",
+    title: "Endpoint Management NYC | RSystems",
+    description: "Automated patching, antivirus, asset management, and security policy enforcement across your device fleet — back-end only, no help desk.",
   },
 };
 
@@ -97,7 +97,7 @@ export default function WorkstationManagementPage() {
                 Fleet administration without the overhead.
               </h2>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                RSystems Workstation Management deploys core tools across your
+                RSystems Endpoint Management deploys core tools across your
                 device fleet to enable remote patching, antivirus and malware
                 protection, asset tracking, inventory documentation, and security
                 policy enforcement. Coverage scales with your fleet.

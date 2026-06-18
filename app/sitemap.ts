@@ -26,7 +26,7 @@ const managementRoutes = [
   "/services/management",
   "/services/management/core-suite",
   "/services/management/identity",
-  "/services/management/workstation",
+  "/services/management/endpoint-management",
   "/services/management/essentials",
   "/services/management/backup",
   "/services/management/network",

@@ -11,6 +11,20 @@ export const metadata: Metadata = {
 
 const sections = [
   {
+    title: "IT Foundations",
+    body: "The decisions that are cheap to get right early and expensive to fix later. Naming conventions, password managers, device management, email authentication, and more — with pointers to the detail when you need it.",
+    href: "/resources/foundations",
+    tag: "Start here",
+    cta: "Read the Guide",
+  },
+  {
+    title: "RSystems University",
+    body: "Deep dives on the concepts we explain most often to clients — networking, identity, DNS, cloud, security, and more.",
+    href: "/resources/university",
+    tag: "19 articles",
+    cta: "Read Articles",
+  },
+  {
     title: "Free Resources",
     body: "No-cost tools and programs every organization should know about — from free identity tiers to nonprofit technology programs.",
     href: "/resources/free-resources",
@@ -18,17 +32,10 @@ const sections = [
     cta: "Browse Resources",
   },
   {
-    title: "RSystems University",
-    body: "Deep dives on the concepts we explain most often to clients — networking, identity, DNS, cloud, security, and more.",
-    href: "/resources/university",
-    tag: "16 articles",
-    cta: "Read Articles",
-  },
-  {
     title: "Glossary",
     body: "Plain-language definitions of the terms that come up most often — organized by topic, not alphabet.",
     href: "/resources/glossary",
-    tag: "25 terms",
+    tag: "51 terms",
     cta: "Browse Glossary",
   },
 ];
