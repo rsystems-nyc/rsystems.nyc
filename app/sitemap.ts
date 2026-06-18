@@ -36,6 +36,14 @@ const managementRoutes = [
   "/services/management/awareness",
 ];
 
+const buildoutRoutes = [
+  "/services/buildout",
+];
+
+const ephemeralRoutes = [
+  "/services/ephemeral",
+];
+
 const aiRoutes = [
   "/services/ai",
   "/services/ai/ai-enablement",
@@ -80,6 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/resources/university`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE_URL}/resources/glossary`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE_URL}/resources/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE_URL}/pricing`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/about/leadership`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/about/track-record`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
@@ -95,6 +104,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.8,
+  }));
+
+  const buildoutSitemapRoutes: MetadataRoute.Sitemap = buildoutRoutes.map((path) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  const ephemeralSitemapRoutes: MetadataRoute.Sitemap = ephemeralRoutes.map((path) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
   }));
 
   const aiSitemapRoutes: MetadataRoute.Sitemap = aiRoutes.map((path) => ({
@@ -148,6 +171,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
+    ...buildoutSitemapRoutes,
+    ...ephemeralSitemapRoutes,
     ...aiSitemapRoutes,
     ...managementSitemapRoutes,
     ...techConsultingSitemapRoutes,

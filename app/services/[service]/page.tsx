@@ -49,6 +49,61 @@ const relatedLinks: Record<string, RelatedLink[]> = {
   ai: [
     { href: "/services/technology-consulting/ai-transformation", label: "AI Transformation", tagline: "AI readiness, tooling strategy, workflow automation, and adoption planning." },
   ],
+  "structured-cabling": [
+    { href: "/services/server-room", label: "Server Room & Rack Buildout", tagline: "Racks, power, cooling, and cable management built to last." },
+    { href: "/services/wireless-installation", label: "Wireless & Network Installation", tagline: "Survey-driven access point placement and live network standup." },
+    { href: "/services/technology-consulting/network-infrastructure-design", label: "Network Infrastructure Design", tagline: "The design phase that precedes the physical build." },
+  ],
+  "server-room": [
+    { href: "/services/structured-cabling", label: "Structured Cabling & Low-Voltage", tagline: "The copper and fiber backbone the room is built on." },
+    { href: "/services/wireless-installation", label: "Wireless & Network Installation", tagline: "Survey-driven access point placement and live network standup." },
+    { href: "/services/technology-consulting/compute-storage", label: "Compute & Storage", tagline: "The server and storage architecture the room is built to hold." },
+  ],
+  "wireless-installation": [
+    { href: "/services/structured-cabling", label: "Structured Cabling & Low-Voltage", tagline: "The cabling backbone that feeds every access point." },
+    { href: "/services/technology-consulting/wifi-assessment", label: "WiFi Assessment", tagline: "Professional wireless survey with coverage analysis." },
+    { href: "/services/security-access", label: "Security & Access Control", tagline: "Cameras and door access on a properly segmented network." },
+  ],
+  "security-access": [
+    { href: "/services/wireless-installation", label: "Wireless & Network Installation", tagline: "The network these security systems ride on." },
+    { href: "/services/structured-cabling", label: "Structured Cabling & Low-Voltage", tagline: "The cabling that connects cameras and access control." },
+    { href: "/services/conference-rooms", label: "Conference Rooms & Presentation Spaces", tagline: "AV and presentation systems for the same spaces." },
+  ],
+  "conference-rooms": [
+    { href: "/services/audio-systems", label: "Audio Systems", tagline: "Sound done properly, from Sonos to reference-grade hi-fi." },
+    { href: "/services/wireless-installation", label: "Wireless & Network Installation", tagline: "The connectivity behind every video call." },
+    { href: "/services/structured-cabling", label: "Structured Cabling & Low-Voltage", tagline: "The cabling that feeds displays and conferencing." },
+  ],
+  "audio-systems": [
+    { href: "/services/conference-rooms", label: "Conference Rooms & Presentation Spaces", tagline: "Displays, video, and control for meeting spaces." },
+    { href: "/services/structured-cabling", label: "Structured Cabling & Low-Voltage", tagline: "The wiring that connects speakers and amplification." },
+    { href: "/services/buildout", label: "Buildout & Installation", tagline: "The full physical buildout practice." },
+  ],
+  "event-network": [
+    { href: "/services/festival", label: "Festival & Large-Venue Connectivity", tagline: "High-density connectivity across large venues and campuses." },
+    { href: "/services/deploy-teardown", label: "Design, Deploy & Teardown", tagline: "The full lifecycle — rapid build, support, clean strike." },
+    { href: "/services/ephemeral", label: "Ephemeral Infrastructure", tagline: "The full temporary-infrastructure practice." },
+  ],
+  festival: [
+    { href: "/services/event-network", label: "Event Network Design & Deployment", tagline: "Reliable networks for galas, fundraisers, and conferences." },
+    { href: "/services/deploy-teardown", label: "Design, Deploy & Teardown", tagline: "The full lifecycle — rapid build, support, clean strike." },
+    { href: "/services/ephemeral", label: "Ephemeral Infrastructure", tagline: "The full temporary-infrastructure practice." },
+  ],
+  "temporary-office": [
+    { href: "/services/deploy-teardown", label: "Design, Deploy & Teardown", tagline: "The full lifecycle — rapid build, support, clean strike." },
+    { href: "/services/event-network", label: "Event Network Design & Deployment", tagline: "Reliable networks for events on a fixed timeline." },
+    { href: "/services/buildout", label: "Buildout & Installation", tagline: "For spaces that turn out to be permanent after all." },
+  ],
+  production: [
+    { href: "/services/deploy-teardown", label: "Design, Deploy & Teardown", tagline: "The full lifecycle — rapid build, support, clean strike." },
+    { href: "/services/festival", label: "Festival & Large-Venue Connectivity", tagline: "High-density connectivity for large live productions." },
+    { href: "/services/ephemeral", label: "Ephemeral Infrastructure", tagline: "The full temporary-infrastructure practice." },
+  ],
+  "deploy-teardown": [
+    { href: "/services/event-network", label: "Event Network Design & Deployment", tagline: "Reliable networks for galas, fundraisers, and conferences." },
+    { href: "/services/festival", label: "Festival & Large-Venue Connectivity", tagline: "High-density connectivity across large venues." },
+    { href: "/services/production", label: "Production & Broadcast Support", tagline: "Secure, high-throughput networks for film and TV." },
+  ],
 };
 
 export function generateStaticParams() {

@@ -3184,4 +3184,34 @@ The shift to remote work expanded the endpoint security challenge: devices now o
 
 In infrastructure terms, endpoint count drives switch port planning, network addressing, access-control rollout, and PoE power budgeting.`,
   },
+  {
+    slug: "sonosnet",
+    term: "SonosNet",
+    aka: ["Sonos Mesh", "Sonos Wireless"],
+    shortDef: "Sonos's proprietary wireless mesh network that lets speakers talk directly to each other on their own 2.4GHz radios, separate from your Wi-Fi — far more reliable than putting each speaker on Wi-Fi individually.",
+    categories: ["WiFi", "Networking"],
+    related: ["sonos-root", "wlan", "wifi-roaming"],
+    content: `SonosNet is the proprietary wireless mesh that Sonos speakers use to communicate with one another. It runs on the speakers' own 2.4GHz radios, completely separate from your Wi-Fi network — so the speakers aren't competing for airtime with laptops, phones, and everything else on your wireless.
+
+In a SonosNet setup, the speakers form a mesh among themselves, and the entire mesh reaches your network through at least one Sonos that's wired to your switch — the SonosNet root. This is the reliable way to run Sonos wirelessly.
+
+The alternative — joining each speaker to your Wi-Fi network individually, like a phone or laptop — is consistently unreliable in practice: dropped connections, broken stereo pairs, and speakers showing a weak signal even when they're close to an access point. The fix is almost always to wire as many speakers as possible, let the rest mesh over SonosNet, and avoid giving Sonos your Wi-Fi credentials at all, which forces it into the more reliable mesh mode.`,
+  },
+  {
+    slug: "sonos-root",
+    term: "SonosNet Root",
+    aka: ["Sonos Root", "Wired Root"],
+    shortDef: "The Sonos speaker that's wired to your network and bridges the SonosNet mesh to the rest of your infrastructure. Every wireless Sonos meshes back to it.",
+    categories: ["WiFi", "Networking"],
+    related: ["sonosnet", "wlan"],
+    content: `In a SonosNet setup, at least one Sonos speaker must be wired to your network with its wireless radio enabled. This unit becomes the root of the SonosNet mesh — the bridge between the speakers' proprietary wireless network and the rest of your infrastructure. Every wireless speaker meshes back through the root to reach the network and the internet.
+
+This leads to a simple way to configure each speaker:
+
+- Wired and serving as the root for nearby wireless speakers: wired, wireless on.
+- Wired and standalone, with no speakers depending on it to mesh: wired, wireless off — which removes unnecessary 2.4GHz noise.
+- Can't be wired: wireless on, meshing over SonosNet to a wired root.
+
+The practical rule: wire as many units as possible with wireless disabled, and make sure at least one wired unit keeps its wireless enabled to anchor the mesh for anything that has to be wireless. A SonosNet mesh with no solid wired root is where reliability problems begin.`,
+  },
 ]

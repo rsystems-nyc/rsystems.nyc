@@ -280,4 +280,356 @@ export const servicesData: ServiceData[] = [
       },
     ],
   },
+  {
+    slug: "structured-cabling",
+    name: "Structured Cabling & Low-Voltage",
+    heroHeadline: "The layer everything else depends on.",
+    tagline: "Cat6/6A copper and fiber backbone, patch panels, and termination — pulled to spec, labeled at both ends, and documented.",
+    challenge: [
+      "Cabling is the part of the infrastructure nobody thinks about until it fails — and when it fails, it's expensive and disruptive to fix because it's buried in walls, ceilings, and risers. A cable run that wasn't certified, a patch panel nobody labeled, a bundle bent past its radius two years ago that's now causing intermittent errors no one can trace.",
+      "The cheapest time to get cabling right is the first time. Retrofitting a building that was wired carelessly means pulling new runs through occupied space, which costs far more than doing it correctly during a build.",
+    ],
+    approach: [
+      "We treat cabling as permanent infrastructure, because it is. Runs are pulled to category spec, kept within bend radius, separated from electrical sources of interference, and certified with test equipment that confirms each run performs to the standard it's rated for — not just that it carries a signal.",
+      "Every cable is labeled at both ends and documented, so two years from now anyone can trace a run without a tone generator and a guess. We coordinate with electricians and general contractors during a build so the low-voltage pathways are right before the walls close.",
+    ],
+    deliverables: [
+      {
+        title: "Copper & Fiber Cabling",
+        description: "Cat6/6A horizontal runs and fiber backbone, installed to category specification and certified with test equipment.",
+      },
+      {
+        title: "Patch Panels & Termination",
+        description: "Keystone termination, patch panel buildout, and clean cross-connects — organized for serviceability, not just function.",
+      },
+      {
+        title: "Labeling & Documentation",
+        description: "Every run labeled at both ends and documented in a record you can actually use when something needs to change.",
+      },
+      {
+        title: "Build Coordination",
+        description: "Coordination with electrical and general contractors during construction so low-voltage pathways are correct before walls close.",
+      },
+    ],
+  },
+  {
+    slug: "server-room",
+    name: "Server Room & Rack Buildout",
+    heroHeadline: "A server room built for airflow, redundancy, and the next ten years.",
+    tagline: "Racks, PDUs, UPS, cooling, and cable management — assembled and validated before anything goes live.",
+    challenge: [
+      "Server rooms tend to grow by accretion: a rack here, a switch added there, power strips daisy-chained as equipment arrives. The result is a room that runs hot, trips breakers under load, and turns every change into a careful exercise in not unplugging the wrong thing.",
+      "A room built properly from the start — power sized correctly, airflow planned, cabling managed — costs little more than one built carelessly, and saves years of operational friction and risk.",
+    ],
+    approach: [
+      "We design the room around how it will actually be used and grown: rack layout for airflow and serviceability, dual power paths where uptime matters, UPS sized for real load and runtime, and cooling that holds the room within spec under full load.",
+      "Cabling inside the rack is managed to the same standard as the structured cabling feeding it — labeled, routed, and serviceable. The room is assembled and validated before production equipment goes in, so the day you go live isn't the day you discover a problem.",
+    ],
+    deliverables: [
+      {
+        title: "Rack Layout & Assembly",
+        description: "Rack design and buildout planned for airflow, weight, cable paths, and room to grow.",
+      },
+      {
+        title: "Power & UPS",
+        description: "Dual PDUs, UPS sized for real load and runtime, and locking connections on anything that can't afford to come loose.",
+      },
+      {
+        title: "Cooling & Environmental",
+        description: "Cooling sized to hold the room within spec under full load, with environmental monitoring for temperature and humidity.",
+      },
+      {
+        title: "In-Rack Cable Management",
+        description: "Patch cabling routed, labeled, and managed for serviceability — the rack stays as clean as the day it was built.",
+      },
+    ],
+  },
+  {
+    slug: "wireless-installation",
+    name: "Wireless & Network Installation",
+    heroHeadline: "Coverage engineered for the space, not guessed at.",
+    tagline: "Access point placement driven by site survey, switch installation and configuration, and live network standup.",
+    challenge: [
+      "Most wireless problems are placement problems. Access points mounted where it was convenient to run a cable rather than where the coverage is needed; too few APs fighting to cover too much space, or too many stepping on each other's channels. The symptoms show up as dead zones, dropped calls, and a help desk full of \"the Wi-Fi is slow\" tickets.",
+      "Wireless that works is designed before it's installed — based on the actual building, its materials, and how people move through it.",
+    ],
+    approach: [
+      "We start with a site survey: measuring the space, its construction, and the existing RF environment to determine where access points actually need to go and how many the space requires. Placement is driven by coverage and capacity, not by where it was easy to mount a bracket.",
+      "We install and configure the switching that backs the wireless, stand up the live network with proper VLAN segmentation, and validate coverage against the survey before calling it done. The result is wireless that performs across the whole space, including the corners everyone forgets.",
+    ],
+    deliverables: [
+      {
+        title: "Site Survey & RF Design",
+        description: "Measurement of the space, its construction, and the RF environment to determine access point count and placement.",
+      },
+      {
+        title: "Access Point Installation",
+        description: "Professional AP mounting and cabling, placed by survey for coverage and capacity across the entire space.",
+      },
+      {
+        title: "Switch Installation & Configuration",
+        description: "The switching that backs the wireless — installed, configured, and segmented into appropriate VLANs.",
+      },
+      {
+        title: "Coverage Validation",
+        description: "Post-install validation against the survey, confirming the space performs the way it was designed to.",
+      },
+    ],
+  },
+  {
+    slug: "security-access",
+    name: "Security & Access Control",
+    heroHeadline: "Cameras and door access, installed on the network and managed like it.",
+    tagline: "IP camera systems, door access control, and alarm integration — segmented properly and managed alongside the rest of your infrastructure.",
+    challenge: [
+      "Physical security systems are network systems now. Cameras, door controllers, and alarm panels all live on the network — and too often they're installed by a security vendor with no regard for network segmentation, sitting on the same flat network as everything else, creating both a performance drain and a security hole.",
+      "When the camera system and the corporate network aren't properly separated, a compromised camera becomes a path into everything else. The install quality determines whether physical security strengthens your posture or quietly undermines it.",
+    ],
+    approach: [
+      "We install camera and access control systems as part of the network architecture, not bolted onto it — devices placed on isolated VLANs, with traffic controlled and the systems integrated into the same monitoring and management as the rest of your infrastructure.",
+      "Camera placement is planned for coverage of the spaces that matter; door access is integrated with your identity systems where possible so access rights track with employment. The result is physical security that's genuinely secure, not just present.",
+    ],
+    deliverables: [
+      {
+        title: "IP Camera Systems",
+        description: "Camera placement, installation, and configuration on a properly segmented network, with recording and retention designed to requirement.",
+      },
+      {
+        title: "Door Access Control",
+        description: "Electronic access control installation, integrated with your identity systems where possible so access tracks with employment status.",
+      },
+      {
+        title: "Network Segmentation",
+        description: "Security devices isolated on their own VLANs, so a compromised camera is never a path into the corporate network.",
+      },
+      {
+        title: "Alarm & System Integration",
+        description: "Integration of alarm and security systems into the same monitoring and management as the rest of your infrastructure.",
+      },
+    ],
+  },
+  {
+    slug: "conference-rooms",
+    name: "Conference Rooms & Presentation Spaces",
+    heroHeadline: "Rooms where the technology disappears and the meeting just works.",
+    tagline: "Displays, video conferencing, microphones, and control systems for meeting rooms, boardrooms, and all-hands spaces.",
+    challenge: [
+      "Everyone has sat through the first ten minutes of a meeting lost to technology — the display that won't connect, the conference call nobody can hear, the remote participants frozen out because the room's microphone only picks up whoever sits closest. Conference room technology fails in small, recurring, expensive ways: every failed connection is a room full of people waiting.",
+      "The difference between a room that works and one that doesn't is almost always the design and installation, not the equipment brand. Good gear installed thoughtlessly still produces a bad room.",
+    ],
+    approach: [
+      "We design presentation spaces around how the room is actually used — a huddle room, a boardroom, and an all-hands space have completely different requirements for displays, audio pickup, and control. We specify and install displays, video conferencing, microphones, and speakers matched to the room's size and purpose.",
+      "Control is the part that makes or breaks the experience: a single, obvious way to start a meeting, share a screen, and join a call, so the room works for whoever walks in without a manual. We tune the audio and video to the space and confirm it works before it's handed over.",
+    ],
+    deliverables: [
+      {
+        title: "Displays & Video",
+        description: "Display and video conferencing systems sized and placed for the room — from huddle rooms to boardrooms to all-hands spaces.",
+      },
+      {
+        title: "Audio & Microphones",
+        description: "Microphone and speaker systems that pick up the whole room and let remote participants hear and be heard clearly.",
+      },
+      {
+        title: "Control Systems",
+        description: "A single, obvious way to start a meeting, share a screen, and join a call — so the room works for whoever walks in.",
+      },
+      {
+        title: "Tuning & Handover",
+        description: "Audio and video tuned to the specific room, tested, and handed over working — not left for the first meeting to debug.",
+      },
+    ],
+  },
+  {
+    slug: "audio-systems",
+    name: "Audio Systems",
+    heroHeadline: "Sound done properly, at any tier.",
+    tagline: "Multi-room Sonos for easy, flexible coverage — or a reference-grade system built around McIntosh amplification and audiophile loudspeakers when the room deserves it.",
+    challenge: [
+      "Audio is where most installations either overreach or underdeliver. A cheap system in a space that deserved better is a daily, low-grade disappointment. An overbuilt system nobody knows how to use, or one tuned badly for the room, wastes real money on equipment that never sounds the way it should.",
+      "Great sound is as much about matching the system to the space and the use as it is about the components — and about installation and tuning done with actual care for how the room behaves.",
+    ],
+    approach: [
+      "We work across the full range. For most spaces — offices, common areas, hospitality — a well-designed multi-room Sonos system delivers flexible, reliable, genuinely good sound that anyone can control from their phone. It's the right answer more often than not, and we install it cleanly and configure it to the space.",
+      "When a room deserves more — a listening room, a flagship space, a home where the sound matters — we design and build reference-grade systems around McIntosh amplification and audiophile loudspeakers, installed and tuned to the acoustics of the actual room. Either way, the goal is the same: sound matched to the space, installed with care, and tuned so it performs the way the equipment is capable of.",
+    ],
+    deliverables: [
+      {
+        title: "Multi-Room Sonos",
+        description: "Clean, flexible whole-space audio anyone can control from their phone — the right answer for most offices, common areas, and hospitality spaces.",
+      },
+      {
+        title: "Reference & Hi-Fi Systems",
+        description: "Reference-grade systems built around McIntosh amplification and audiophile loudspeakers, for rooms and spaces where the sound genuinely matters.",
+      },
+      {
+        title: "Room Tuning & Acoustics",
+        description: "Systems tuned to the acoustics of the actual room, so the equipment performs to the level it's capable of.",
+      },
+      {
+        title: "Clean Installation",
+        description: "Speakers, amplification, and wiring installed with the same care as the rest of the buildout — invisible where it should be, accessible where it counts.",
+      },
+    ],
+  },
+  {
+    slug: "event-network",
+    name: "Event Network Design & Deployment",
+    heroHeadline: "A network that can't fail on the one night it matters.",
+    tagline: "Reliable, secure networks for galas, fundraisers, conferences, and corporate events — including the payment and registration systems that have to work at the moment they're needed most.",
+    challenge: [
+      "An event network gets one chance. There's no maintenance window, no \"we'll fix it tomorrow\" — when the doors open, it works or it doesn't, in front of everyone. And the stakes are rarely just convenience: registration systems, payment processing, live auctions, and donation platforms all ride on that network, and a failure at the wrong moment has a direct dollar cost.",
+      "Event venues are also hostile to good networking — RF-saturated, structurally difficult, often with house infrastructure that's inadequate or off-limits. The network has to be designed for the venue as it actually is, on a timeline that ends the moment the event begins.",
+    ],
+    approach: [
+      "We design the network for the specific venue and the specific event — capacity for the headcount, coverage for the spaces in use, and redundancy on the systems that can't fail. Payment and registration get priority and protection; guest access is segmented away from anything sensitive.",
+      "We deploy ahead of the event, test under realistic load, and staff the event on site so there's someone watching and ready the entire time it matters. When it's over, we take it back down cleanly.",
+    ],
+    deliverables: [
+      {
+        title: "Venue-Specific Network Design",
+        description: "Capacity, coverage, and redundancy designed for the actual venue and the actual event — not a generic kit dropped in place.",
+      },
+      {
+        title: "Payment & Registration Priority",
+        description: "The systems that carry real dollars — registration, payment, auction, donation — prioritized, protected, and tested under load.",
+      },
+      {
+        title: "Segmented Guest Access",
+        description: "Guest and attendee Wi-Fi segmented away from operational and payment systems, so open access never becomes a liability.",
+      },
+      {
+        title: "On-Site Event Support",
+        description: "Staffed on site for the duration, watching the network and ready to respond — then a clean teardown when the event ends.",
+      },
+    ],
+  },
+  {
+    slug: "festival",
+    name: "Festival & Large-Venue Connectivity",
+    heroHeadline: "A whole campus, connected across open ground.",
+    tagline: "High-density, multi-zone connectivity across large outdoor and indoor venues — point-to-point links, distributed Wi-Fi, and the backbone to tie it all together.",
+    challenge: [
+      "Festival and large-venue networking is a different discipline from office IT. The distances are measured in acres, the user density spikes into the thousands, the infrastructure has to survive weather and crowds, and there's frequently no usable wired backbone to build on — just open ground between the places that need to be connected.",
+      "Vendors, box office, production, food and beverage, security, and guest access all need connectivity, often with very different requirements, across a footprint with no permanent infrastructure and a hard deadline that arrives whether you're ready or not.",
+    ],
+    approach: [
+      "We engineer the backbone first — point-to-point wireless links to bridge distance where running fiber isn't practical, tying together the zones that need connectivity. From there, distributed Wi-Fi and switching deliver coverage and capacity to each operational area, segmented so vendors, production, and guests each get what they need without interfering with each other.",
+      "The design accounts for the realities of the environment — weather, power availability, crowd density, and the compressed build-and-strike timeline. We deploy, support it live through the event, and strike it cleanly afterward.",
+    ],
+    deliverables: [
+      {
+        title: "Point-to-Point Backbone",
+        description: "Wireless bridge links that span distance across a campus where running fiber isn't practical, tying every zone back to the core.",
+      },
+      {
+        title: "Distributed Wi-Fi & Switching",
+        description: "High-density coverage engineered for crowds, delivered to each operational zone — vendors, box office, production, and guests.",
+      },
+      {
+        title: "Multi-Zone Segmentation",
+        description: "Each operational area on its own segment, so payment, production, and guest traffic never interfere with one another.",
+      },
+      {
+        title: "Build, Support & Strike",
+        description: "Deployed on the festival timeline, supported live through the event, and struck cleanly when the last day ends.",
+      },
+    ],
+  },
+  {
+    slug: "temporary-office",
+    name: "Temporary Office Infrastructure",
+    heroHeadline: "Full infrastructure for a space with an end date.",
+    tagline: "Swing space during a renovation, an interim headquarters, or a project office — stood up fast and removed cleanly when the lease is up.",
+    challenge: [
+      "Temporary offices fall into a gap. They need real infrastructure — network, Wi-Fi, phones, cloud connectivity, the works — but the usual approach of a permanent structured-cabling build doesn't fit a space you'll vacate in six months. Spend too little and the team can't work; spend like it's permanent and you've over-invested in a space with an expiration date.",
+      "Renovations, office moves, rapid growth, and project-based work all create the same need: a fully functional workplace, fast, that comes apart cleanly when its time is up.",
+    ],
+    approach: [
+      "We design temporary office infrastructure to be complete but appropriately provisional — full network and Wi-Fi coverage, connectivity to your cloud and core systems, and the security to match, deployed quickly and scaled to the known lifespan of the space.",
+      "Where it makes sense, equipment is chosen so it can be recovered and redeployed rather than written off. When the space is vacated, we remove the infrastructure cleanly and, where applicable, carry it to the next location.",
+    ],
+    deliverables: [
+      {
+        title: "Rapid Network & Wi-Fi Standup",
+        description: "Full network and wireless coverage deployed fast, scaled to the team and the known lifespan of the space.",
+      },
+      {
+        title: "Cloud & Core Connectivity",
+        description: "Secure connectivity back to your cloud, identity, and core systems, so the temporary space works exactly like the permanent one.",
+      },
+      {
+        title: "Appropriate Security",
+        description: "Segmentation, firewalling, and access control matched to the space — provisional doesn't mean unprotected.",
+      },
+      {
+        title: "Clean Removal & Redeployment",
+        description: "Equipment chosen for recovery where practical, and infrastructure removed cleanly when the lease ends — ready for the next location.",
+      },
+    ],
+  },
+  {
+    slug: "production",
+    name: "Production & Broadcast Support",
+    heroHeadline: "Networks built around the realities of a set.",
+    tagline: "Secure, high-throughput infrastructure for film, television, and live production — there for the shoot, gone after the wrap.",
+    challenge: [
+      "Production environments are demanding and unforgiving. Large media files moving constantly, tight security requirements around unreleased content, and zero tolerance for downtime during a shoot day that costs thousands of dollars an hour. And it all has to be stood up on location — a soundstage, a remote set, a control room — and struck when production wraps.",
+      "Generic IT doesn't fit a set. The throughput, the security posture, and the operational tempo are all different, and the people relying on the network aren't going to file a ticket and wait.",
+    ],
+    approach: [
+      "We build production networks for throughput and security: the bandwidth to move media without bottlenecks, storage connectivity sized to the workflow, and tight controls around content that can't leak. The design reflects how a production actually runs, with the resilience to keep a shoot day on schedule.",
+      "We deploy on location, support it through production at the tempo a set demands, and strike it cleanly at wrap — including secure handling of any storage and the content on it.",
+    ],
+    deliverables: [
+      {
+        title: "High-Throughput Media Networks",
+        description: "Bandwidth and storage connectivity sized to move large media files constantly, without the bottlenecks that stall a workflow.",
+      },
+      {
+        title: "Content Security",
+        description: "Tight controls around unreleased content — segmentation, access control, and secure storage handling that holds up to production security requirements.",
+      },
+      {
+        title: "On-Location Deployment",
+        description: "Infrastructure stood up on the soundstage, set, or control room, built for the operational tempo of a shoot day.",
+      },
+      {
+        title: "Secure Strike & Wrap",
+        description: "Clean teardown at wrap, including secure handling and wiping of storage and the content it held.",
+      },
+    ],
+  },
+  {
+    slug: "deploy-teardown",
+    name: "Design, Deploy & Teardown",
+    heroHeadline: "Built up and struck down with the same discipline.",
+    tagline: "The full lifecycle as a single capability: rapid design, fast deployment, on-site support, and a clean, accountable teardown with full asset recovery.",
+    challenge: [
+      "Temporary infrastructure is judged at both ends. The deployment gets the attention — but the teardown is where money is lost: equipment left behind, gear that walks off, no record of what went where, damage discovered after the fact. A deployment without an equally disciplined teardown is only half a plan.",
+      "The organizations that run temporary environments repeatedly — event producers, production companies, businesses between spaces — need a partner who treats the whole lifecycle as one accountable process, not a setup crew and a separate scramble at the end.",
+    ],
+    approach: [
+      "We plan the teardown into the deployment from the start. Every piece of equipment is tracked, the design is documented, and the strike is a deliberate, accounted-for process rather than an afterthought — gear recovered, inventoried, and ready for the next deployment.",
+      "This is the discipline underneath all of our ephemeral work: the same rigor going out the door as coming in, so nothing is lost, nothing is left behind, and the next deployment starts from a known, complete inventory.",
+    ],
+    deliverables: [
+      {
+        title: "Rapid Design & Deployment",
+        description: "Infrastructure designed and deployed on a compressed timeline, scaled precisely to the event, space, or production.",
+      },
+      {
+        title: "On-Site Support",
+        description: "Staffed support through the live window, so there's always someone watching and ready while it matters.",
+      },
+      {
+        title: "Accountable Teardown",
+        description: "A deliberate strike process — every piece of equipment tracked, recovered, and inventoried, with nothing left behind.",
+      },
+      {
+        title: "Asset Recovery & Inventory",
+        description: "Full asset recovery into a known inventory, so each deployment ends clean and the next one starts complete.",
+      },
+    ],
+  },
 ];

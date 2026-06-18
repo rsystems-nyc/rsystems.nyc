@@ -4,16 +4,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: { absolute: "IT Consulting Services — Strategy, Infrastructure & AI | RSystems NYC" },
-  description: "RSystems delivers executive-level IT strategy across two practice areas: Technology Consulting for architecture, cloud, security, and AI — and RSystems Management for ongoing back-end infrastructure administration.",
+  description: "RSystems delivers executive-level IT strategy across four practice areas: Technology Consulting, Buildout & Installation, Managed Services, and Ephemeral Infrastructure — spanning every layer of your environment from strategy through teardown.",
   alternates: { canonical: "https://rsystems.nyc/services/" },
   openGraph: {
     title: "IT Consulting Services — Strategy, Infrastructure & AI | RSystems NYC",
-    description: "RSystems delivers executive-level IT strategy across two practice areas: Technology Consulting for architecture, cloud, security, and AI — and RSystems Management for ongoing back-end infrastructure administration.",
+    description: "RSystems delivers executive-level IT strategy across four practice areas: Technology Consulting, Buildout & Installation, Managed Services, and Ephemeral Infrastructure — spanning every layer of your environment from strategy through teardown.",
     url: "https://rsystems.nyc/services/",
   },
   twitter: {
     title: "IT Consulting Services — Strategy, Infrastructure & AI | RSystems NYC",
-    description: "RSystems delivers executive-level IT strategy across two practice areas: Technology Consulting for architecture, cloud, security, and AI — and RSystems Management for ongoing back-end infrastructure administration.",
+    description: "RSystems delivers executive-level IT strategy across four practice areas: Technology Consulting, Buildout & Installation, Managed Services, and Ephemeral Infrastructure — spanning every layer of your environment from strategy through teardown.",
   },
 };
 
@@ -80,9 +80,10 @@ export default function ServicesPage() {
             Senior technical expertise across every layer of your stack.
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
-            Two practice areas — project-based technology consulting and ongoing
-            infrastructure administration — spanning network, cloud, security,
-            identity, and AI.
+            Four practice areas — technology consulting, physical buildout,
+            ongoing management, and rapid deployment for temporary
+            environments — spanning every layer of your infrastructure, from
+            strategy through teardown.
           </p>
         </div>
       </section>
@@ -139,6 +140,40 @@ export default function ServicesPage() {
             </h3>
             <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
               Ongoing back-end infrastructure administration — identity, workstations, servers, network, backup, and domain management on flexible monthly terms. No help desk. No tier 1.
+            </p>
+          </Link>
+
+          <Link
+            href="/services/buildout"
+            className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
+          >
+            <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+              Buildout &amp; Installation
+            </h3>
+            <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
+              Physical infrastructure, installed right. Structured cabling, server rooms, wireless, security and access control, conference and presentation spaces, and audio systems — from multi-room Sonos to reference-grade hi-fi. The hands-on build that turns a design into working infrastructure.
+            </p>
+          </Link>
+
+          <Link
+            href="/services/ephemeral"
+            className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
+          >
+            <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+              Ephemeral Infrastructure
+            </h3>
+            <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
+              Production-grade infrastructure on any timeline — designed, deployed, and removed just as fast. Networks, compute, cloud, and Wi-Fi for galas, festivals, productions, pop-ups, and temporary offices. Built to perform under pressure, then torn down clean.
             </p>
           </Link>
         </div>

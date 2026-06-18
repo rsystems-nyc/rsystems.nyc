@@ -4,6 +4,35 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const buildoutCategories = [
+  {
+    label: "Buildout & Installation",
+    href: "/services/buildout",
+    links: [
+      { href: "/services/structured-cabling", label: "Structured Cabling & Low-Voltage" },
+      { href: "/services/server-room", label: "Server Room & Rack Buildout" },
+      { href: "/services/wireless-installation", label: "Wireless & Network Installation" },
+      { href: "/services/security-access", label: "Security & Access Control" },
+      { href: "/services/conference-rooms", label: "Conference Rooms & Presentation Spaces" },
+      { href: "/services/audio-systems", label: "Audio Systems" },
+    ],
+  },
+];
+
+const ephemeralCategories = [
+  {
+    label: "Ephemeral Infrastructure",
+    href: "/services/ephemeral",
+    links: [
+      { href: "/services/event-network", label: "Event Network Design & Deployment" },
+      { href: "/services/festival", label: "Festival & Large-Venue Connectivity" },
+      { href: "/services/temporary-office", label: "Temporary Office Infrastructure" },
+      { href: "/services/production", label: "Production & Broadcast Support" },
+      { href: "/services/deploy-teardown", label: "Design, Deploy & Teardown" },
+    ],
+  },
+];
+
 const managementCategories = [
   {
     label: "Management Bundles",
@@ -199,6 +228,13 @@ export default function Nav() {
             </div>
           </div>
 
+          <Link
+            href="/pricing"
+            className="text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors"
+          >
+            Pricing
+          </Link>
+
           <div className="relative group">
             <Link
               href="/resources"
@@ -268,12 +304,12 @@ export default function Nav() {
 
       {activeDesktopDropdown === 'services' && (
         <div
-          className="hidden md:block fixed top-[110px] right-4 sm:right-6 z-50 w-[740px] max-w-[calc(100vw-2rem)]"
+          className="hidden md:block fixed top-[110px] right-4 sm:right-6 z-50 w-[1000px] max-w-[calc(100vw-2rem)]"
           onMouseEnter={() => openDesktopDropdown('services')}
           onMouseLeave={closeDesktopDropdown}
         >
           <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-xl shadow-xl overflow-x-hidden overflow-y-auto max-h-[calc(100vh-130px)]">
-            <div className="grid grid-cols-2 divide-x divide-black/[0.06]">
+            <div className="grid grid-cols-3 divide-x divide-black/[0.06]">
 
               {/* Technology Consulting */}
               <div className="p-5">
@@ -347,6 +383,57 @@ export default function Nav() {
                 </div>
               </div>
 
+              {/* Column 3 — Buildout + Ephemeral stacked */}
+              <div className="p-5 space-y-6">
+                {/* Buildout & Installation */}
+                <div>
+                  <Link
+                    href="/services/buildout"
+                    className="block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3 hover:text-[#E8500A]/70 transition-colors"
+                    onClick={() => setActiveDesktopDropdown(null)}
+                  >
+                    Buildout &amp; Installation
+                  </Link>
+                  <div className="space-y-0.5">
+                    {buildoutCategories[0].links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="block px-2 py-1.5 text-[13px] text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] rounded transition-colors"
+                        onClick={() => setActiveDesktopDropdown(null)}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* divider */}
+                <div className="border-t border-black/[0.06]" />
+
+                {/* Ephemeral Infrastructure */}
+                <div>
+                  <Link
+                    href="/services/ephemeral"
+                    className="block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3 hover:text-[#E8500A]/70 transition-colors"
+                    onClick={() => setActiveDesktopDropdown(null)}
+                  >
+                    Ephemeral Infrastructure
+                  </Link>
+                  <div className="space-y-0.5">
+                    {ephemeralCategories[0].links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="block px-2 py-1.5 text-[13px] text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] rounded transition-colors"
+                        onClick={() => setActiveDesktopDropdown(null)}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
 
 </div>
           </div>
@@ -473,6 +560,28 @@ export default function Nav() {
             )}
           </div>
 
+          {/* Buildout & Installation accordion */}
+          <div className="border-b border-black/[0.08]">
+            <Link
+              href="/services/buildout"
+              className="w-full flex items-center justify-between py-3 text-base text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              Buildout &amp; Installation
+            </Link>
+          </div>
+
+          {/* Ephemeral Infrastructure accordion */}
+          <div className="border-b border-black/[0.08]">
+            <Link
+              href="/services/ephemeral"
+              className="w-full flex items-center justify-between py-3 text-base text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              Ephemeral Infrastructure
+            </Link>
+          </div>
+
           {/* Our Work accordion */}
           <div className="border-b border-black/[0.08]">
             <button
@@ -517,6 +626,17 @@ export default function Nav() {
                 </Link>
               </div>
             )}
+          </div>
+
+          {/* Pricing link */}
+          <div className="border-b border-black/[0.08]">
+            <Link
+              href="/pricing"
+              className="block py-3 text-base text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              Pricing
+            </Link>
           </div>
 
           {/* Resources accordion */}

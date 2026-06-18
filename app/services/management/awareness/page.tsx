@@ -29,11 +29,6 @@ const annualItems = [
   "Staff acknowledgment workflow tools",
 ];
 
-const excluded = [
-  "Policy template customization (billed separately)",
-  "Additional cybersecurity policy recommendations (billed separately)",
-  "Email configuration changes (billed separately)",
-];
 
 export default function AwarenessPage() {
   return (
@@ -95,7 +90,10 @@ export default function AwarenessPage() {
                 RSystems Cybersecurity Awareness Management provides the platform,
                 training resources, and policy frameworks to help staff think critically
                 about security — identifying potential risks and understanding their
-                responsibilities before an incident occurs.
+                responsibilities before an incident occurs. The subscription includes
+                standard policy templates and training content; custom policy
+                development and implementation consulting are available as separate
+                engagements.
               </p>
             </div>
           </div>
@@ -136,31 +134,6 @@ export default function AwarenessPage() {
         </div>
       </section>
 
-      {/* Excluded */}
-      <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-            <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
-                Separately Billed
-              </p>
-            </div>
-            <div className="lg:col-span-7">
-              <h2 className="text-xl font-bold text-[#1A1A1A] tracking-tight mb-6">
-                Not included in the annual fee.
-              </h2>
-              <ul className="space-y-3">
-                {excluded.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/60">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#1A1A1A]/20 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

@@ -1462,4 +1462,71 @@ A few concrete habits turn the principle into a working system.
 
 Least privilege isn't a product you buy or a switch you flip. It's a posture: assume access should be narrow, organize it around roles rather than people, keep the structure simple enough to understand and scalable enough to grow into. Done from the start, it costs almost nothing and quietly prevents an entire category of security and operational pain. Retrofitted years later, it's one of the more expensive and disruptive things an organization can take on — which is exactly why it belongs in the foundation, not the renovation.`,
   },
+  {
+    slug: "sonos",
+    title: "Getting Sonos Right: Wiring, SonosNet, and Why Wireless Audio Fails",
+    categories: ["Networking", "WiFi"],
+    description: "Sonos is everywhere, and it fails the same way everywhere — speakers on Wi-Fi. The fix is understanding SonosNet and wiring the system correctly. A practical guide to reliable multi-room audio.",
+    related: ["wifi", "network-fundamentals"],
+    relatedCaseStudies: [],
+    content: `Sonos is the default multi-room audio system in homes and offices, and when it works, it's excellent. When it doesn't, the symptoms are maddeningly consistent: speakers that show a weak connection while sitting six feet from an access point, stereo pairs that won't stay paired, "lost connection" errors, and music that refuses to play on more than one speaker at a time.
+
+Almost every one of these problems traces back to the same root cause — the speakers are talking over Wi-Fi when they shouldn't be. This article explains how Sonos actually connects, and how to set it up so it just works.
+
+## The short version
+
+If you take nothing else from this: **wire as many Sonos speakers as you can, and keep the rest on SonosNet rather than Wi-Fi.** That single decision is the difference between a system that works for years and one that generates a support ticket every month.
+
+## How Sonos connects — three modes
+
+Sonos speakers can reach each other and your network in three different ways, and understanding the difference is the whole game.
+
+**Mode 1 — Wired (the gold standard).** A Sonos speaker plugged into Ethernet is reliable, full stop. It doesn't compete for airtime, it doesn't drop off the network, and it doesn't care how congested your Wi-Fi is. Wire a speaker and it simply works.
+
+**Mode 2 — SonosNet mesh (the right way to go wireless).** [SonosNet](/resources/glossary/sonosnet) is Sonos's own proprietary wireless mesh, running on its own 2.4GHz radios — separate from your Wi-Fi. The speakers talk to each other over SonosNet, and the whole mesh reaches your network through at least one Sonos that's wired to your switch, acting as the [SonosNet root](/resources/glossary/sonos-root). This is dramatically more reliable than putting speakers on Wi-Fi, because the speakers aren't competing with laptops, phones, and everything else on your wireless network.
+
+**Mode 3 — Each speaker on Wi-Fi (the mode that fails).** In this mode, every speaker joins your Wi-Fi network individually, like a phone or laptop would. In our experience this is consistently unreliable — it is, bluntly, poor performance. Speakers drop off, stereo pairs break, and the system behaves exactly the way Sonos systems behave when people complain about them. We have never found Sonos to be reliable when the speakers themselves are connected to a standard Wi-Fi network.
+
+The trap is that Mode 3 is the *default* if you hand Sonos your Wi-Fi credentials during setup. The system will happily configure itself in its least reliable mode unless you steer it otherwise.
+
+## The recommended setup
+
+For any installation beyond a single speaker, this is the configuration that works:
+
+**Wire as many speakers as you can.** Every speaker you can reach with an Ethernet cable is a speaker that will never give you trouble. In a buildout or renovation, running cable to speaker locations is one of the highest-value, lowest-cost things you can do — far cheaper during construction than fishing cable through finished walls later.
+
+**Let the rest mesh over SonosNet.** Speakers you genuinely can't wire should reach the system over SonosNet, meshing back to a wired unit — not joining your Wi-Fi individually.
+
+**Do NOT give Sonos your Wi-Fi SSID and password.** This is the single most important step, and the least obvious. If Sonos never learns your Wi-Fi credentials, it can't put speakers on Wi-Fi individually — it's forced into the reliable SonosNet mesh instead. Withholding the Wi-Fi password is how you keep the system in the mode you want.
+
+## The role of the root
+
+In a SonosNet setup, at least one Sonos has to be wired to your network with its wireless enabled — this unit becomes the [root](/resources/glossary/sonos-root) of the mesh, the bridge between SonosNet and the rest of your network. Every other speaker meshes back to it.
+
+Here's the nuance: a wired Sonos with its wireless radio **disabled** cannot serve as a root. It's on the network, but it's not broadcasting SonosNet — so wireless speakers can't mesh back through it. A speaker can only be a root if it's wired *and* its wireless is on.
+
+This leads to a useful way to think about each speaker's configuration:
+
+- **Wired, wireless off** — the ideal state for any wired speaker that doesn't need to anchor nearby wireless speakers. It's on the network, contributes to the system, and adds no 2.4GHz noise. Most wired speakers should be in this state.
+- **Wired, wireless on** — necessary for any wired speaker that needs to act as a root for wireless speakers nearby. Keep wireless on only on the wired unit that's closest to the speakers that can't be wired, so the wireless hop is as short and clean as possible.
+- **Wireless only** — meshing over SonosNet back to a wired root. This should be the exception, not the default.
+
+The ideal installation: everything wired, wireless off on all of them — no SonosNet needed at all because every speaker is on Ethernet. Where that's not possible, wire as much as you can, turn wireless off on those wired speakers, then identify the one wired speaker physically closest to whatever can't be wired, and turn wireless back on for that unit only. It becomes the root, the mesh hop is short, and everything else stays quiet.
+
+## Why "the Wi-Fi is fine, so why isn't Sonos?" is the wrong question
+
+Clients reasonably assume that strong Wi-Fi means Sonos should work — a speaker six feet from an access point showing a weak connection makes no intuitive sense. But signal strength to your Wi-Fi access point isn't the relevant measure when the speakers are meant to be talking to each other over SonosNet. A speaker can have a perfect line to your AP and still perform terribly because it's in the wrong connection mode, or because the SonosNet mesh has no solid wired root to anchor it.
+
+This is also why tuning your Wi-Fi network — adjusting power levels, changing channels, upgrading access points — often doesn't fix Sonos problems and sometimes makes them worse. The fix usually isn't in the Wi-Fi network at all. It's in how the Sonos system is wired and configured.
+
+## A note on factory resets
+
+A common failure pattern: someone factory-resets the whole system, carefully rebuilds it wired, and it works perfectly for an hour — then the app prompts to reconfigure wireless for each speaker, the speakers rejoin Wi-Fi individually, and every original problem returns. The lesson is that getting it working briefly isn't the same as getting it configured correctly. If the system ends up back on individual Wi-Fi connections, it will fail the same way again. The configuration has to land in wired-plus-SonosNet and stay there.
+
+## The bottom line
+
+Sonos is reliable when it's wired and meshed over SonosNet, and unreliable when its speakers are on Wi-Fi. The whole discipline of a good installation comes down to maximizing wired connections, using SonosNet for the rest, anchoring the mesh with a solid wired root, and never handing the system your Wi-Fi password. Done that way, it's the excellent product people hope they bought. Done the default way, it's a recurring support ticket.
+
+This is exactly the kind of thing worth getting right during a [buildout](/services/buildout), when running cable to speaker locations costs almost nothing — and a perfect example of why thoughtful [audio system](/services/audio-systems) installation is as much about the network as the speakers.`,
+  },
 ]
