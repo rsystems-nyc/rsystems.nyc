@@ -725,15 +725,15 @@ VLANs by design don't communicate with each other. To let VLAN 10 reach VLAN 20 
     shortDef: "The mechanism for labeling Ethernet frames with a VLAN ID so switches know where traffic belongs. Defined by the IEEE 802.1Q standard.",
     categories: ["Networking"],
     related: ["vlan", "vlan-trunking-vtp", "svi"],
-    content: `VLAN tagging is the mechanism by which a switch marks an Ethernet frame with a VLAN ID so that other switches know which VLAN the traffic belongs to. The IEEE 802.1Q standard defines how this tag is inserted into the frame header.
+    content: `VLAN tagging is the mechanism by which a switch marks an Ethernet frame with a VLAN ID so that other switches know which VLAN the traffic belongs to. The 802.1Q standard defines how this tag is inserted into the frame header.
 
-When traffic crosses a trunk port — a link carrying multiple VLANs between switches, or between a switch and a router — each frame needs to carry a label identifying which VLAN it belongs to. That label is the 802.1Q tag: a 4-byte field inserted into the Ethernet frame header containing the VLAN ID (1-4094) and a priority value used for QoS.
+When traffic crosses a trunk port — a link carrying multiple VLANs between switches, or between a switch and a router — each frame needs to carry a label identifying which VLAN it belongs to. That label is the 802.1Q tag: a small field added to the frame header that carries the VLAN ID and a priority value used for QoS.
 
 Access ports (the ports your endpoints plug into) don't use tags. A PC doesn't know or care about VLANs — the switch adds the tag when the frame enters and strips it when the frame leaves toward the endpoint. Tagging is a switch-to-switch and switch-to-router concern.
 
 The native VLAN is the exception: traffic on the native VLAN travels untagged across a trunk. By default this is VLAN 1 on most switches, which is a security risk — VLAN hopping attacks exploit the native VLAN. Standard practice is to set the native VLAN to an unused ID that carries no production traffic.
 
-Understanding 802.1Q is important if you're configuring switches manually, troubleshooting mismatched VLANs, or setting up hypervisor networking where the host needs to pass tagged traffic through to VMs.`,
+Tagging matters most when you're configuring switches, troubleshooting mismatched VLANs, or setting up virtualization where the host has to pass tagged traffic through to its VMs.`,
   },
   {
     slug: "vlan-trunking-vtp",
@@ -754,7 +754,7 @@ When you add a new VLAN to a trunk, you're extending it across the link — traf
 
 VTP is a Cisco protocol that synchronizes VLAN databases across switches in the same VTP domain. Add a VLAN on the VTP server and it propagates to all client switches automatically. Useful for large environments where managing VLAN configs manually across dozens of switches would be error-prone.
 
-The risk: VTP can propagate deletions too. A misconfigured switch added to a domain in server mode can wipe the VLAN database across all switches in the domain — a production-down event. For this reason, many shops run VTP in transparent mode (the switch ignores VTP updates but passes them along) and manage VLANs manually, or use VTP version 3 which added safeguards. VTP is Cisco-specific; other vendors have no equivalent.`,
+The risk: VTP can propagate deletions too. A misconfigured switch added to the domain can wipe the VLAN database across every switch at once — a production-down event. For this reason, many shops disable VTP's automatic syncing and manage VLANs manually. VTP is Cisco-specific; other vendors have no equivalent.`,
   },
   {
     slug: "voice-vlan",
@@ -852,7 +852,7 @@ Note that modern operating systems increasingly use MAC address randomization fo
 
 Your LAN is everything inside your network perimeter: workstations, servers, printers, phones, cameras, and the switches and access points connecting them. Traffic within the LAN typically moves at 1Gbps to 10Gbps on wired connections and doesn't touch your internet circuit.
 
-Modern LANs are built on Ethernet (IEEE 802.3) for wired connections and Wi-Fi (IEEE 802.11) for wireless. They're almost universally segmented into VLANs — logical subdivisions that isolate different types of traffic on the same physical infrastructure.
+Modern LANs are built on Ethernet for wired connections and Wi-Fi for wireless. They're almost universally segmented into VLANs — logical subdivisions that isolate different types of traffic on the same physical infrastructure.
 
 The LAN is where you have full control: you define the IP addressing, set security policies, control routing, and choose what can reach what. This is distinct from the WAN, where traffic is handled by your ISP and the public internet.
 
@@ -888,7 +888,7 @@ WAN links are typically the performance and reliability bottleneck for multi-sit
 
 IPv4 has roughly 4.3 billion addresses — not enough for every device on the internet. NAT solves this by letting an entire private network share one (or a few) public IPs. Your firewall or router performs NAT: outgoing traffic gets the public IP as its source address; incoming responses are translated back to the correct internal device.
 
-The internal address ranges used behind NAT are private IP ranges defined by RFC 1918 — 192.168.x.x, 10.x.x.x, 172.16.x.x to 172.31.x.x. These addresses aren't routable on the public internet, which is part of what makes NAT work: the same 192.168.1.x range can exist behind every NAT device in the world without conflict.
+The addresses used behind NAT come from reserved private ranges — 192.168.x.x, 10.x.x.x, and 172.16–31.x.x. These aren't routable on the public internet, which is part of what makes NAT work: the same 192.168.1.x range can exist behind every router in the world without conflict.
 
 **Port Address Translation (PAT)** — sometimes called NAT overload — is the specific technique that lets thousands of devices share a single public IP by tracking connections via port numbers. This is what almost every home and office network uses.
 
@@ -944,7 +944,7 @@ Despite IPv6 being over 25 years old, the vast majority of enterprise networks r
 
 IPv4's 4.3 billion address limit was always going to run out. IPv6 replaces the 32-bit address with 128 bits, producing 340 undecillion addresses — a number large enough that address exhaustion is no longer a practical concern.
 
-An IPv6 address looks like \`2001:0db8:85a3:0000:0000:8a2e:0370:7334\`, often shortened by omitting leading zeros and replacing consecutive groups of zeros with \`::\`.
+An IPv6 address looks like \`2001:0db8:85a3::8a2e:0370:7334\` — longer and hexadecimal, where IPv4 addresses are four short numbers.
 
 Key differences from IPv4:
 
@@ -1025,7 +1025,7 @@ Traffic distribution across member links is handled by a hashing algorithm based
 
 Key requirements: all member ports must be the same speed and duplex. A 1Gbps and a 10Gbps port cannot be in the same LAG. The same is true on both ends — both switches must have identical port speeds for the bundled interfaces.
 
-LACP is defined in IEEE 802.3ad (now 802.1AX). Cisco's older proprietary equivalent is PAgP. Most modern equipment supports LACP natively; prefer it over vendor-specific protocols for interoperability.`,
+LACP is a vendor-neutral standard supported by virtually all modern equipment — prefer it over any vendor-specific equivalent for interoperability between mixed hardware.`,
   },
   {
     slug: "lldp",
@@ -1057,13 +1057,13 @@ Ethernet frames have no TTL like IP packets do — a frame caught in a loop will
 
 The protocol elects a root bridge (the switch that becomes the logical center of the spanning tree), then calculates the shortest path from every other switch to the root. Redundant paths are placed in a blocking state — they carry no traffic but are ready to activate if the active path fails. When a link goes down, STP recalculates and unblocks the redundant path.
 
-**RSTP (802.1w)** — Rapid Spanning Tree Protocol — reduced failover time from 30-50 seconds (original STP) to under a second. Almost all modern deployments use RSTP or its VLAN-aware variant, MSTP.
+**Rapid Spanning Tree (RSTP)** cut failover time from up to a minute (original STP) down to under a second, and is what almost all modern networks run.
 
 The practical implications:
 
 STP is why your "redundant" switch links aren't actually providing double the bandwidth — they're in blocking state, ready for failover, not active. LACP/LAG is how you actually aggregate bandwidth across multiple links while maintaining STP compatibility.
 
-Misconfigured STP (wrong root bridge election, incorrect port configurations) can cause unexpected topology changes that briefly disrupt traffic. Understanding which switch should be the root bridge — typically your core/distribution switch — and configuring it explicitly with the lowest bridge priority is a basic hardening step.`,
+Misconfigured STP can cause unexpected topology changes that briefly disrupt traffic. Making sure your core switch — not some random closet switch — is the designated center of the tree is a basic hardening step.`,
   },
   {
     slug: "loopback-detection",
@@ -1090,7 +1090,7 @@ It's a simple feature to enable and cheap insurance against a class of incidents
     related: ["lacp", "vlan"],
     content: `Jumbo frames are Ethernet frames larger than the standard 1500-byte MTU (Maximum Transmission Unit), typically set to 9000 bytes. They reduce per-packet overhead for high-throughput workloads like storage and large file transfers.
 
-Standard Ethernet frames carry up to 1500 bytes of payload (the MTU). For storage traffic — iSCSI, NFS, SMB — this means every large transfer requires thousands of individually-processed frames, each with its own header and checksum overhead. Jumbo frames raise the MTU to 9000 bytes (sometimes 9216), reducing the number of frames needed and the associated processing overhead on both the sender and the network equipment.
+A standard Ethernet frame carries up to 1500 bytes. For heavy storage traffic, that means breaking every large transfer into thousands of small frames, each with its own processing overhead. Jumbo frames raise the limit to around 9000 bytes, cutting the number of frames needed and the CPU overhead on both the sender and the network gear.
 
 The performance benefit is meaningful for bulk data movement: backup jobs, storage replication, large file server access. For general office traffic — web browsing, email, collaboration tools — the difference is negligible.
 
@@ -1145,7 +1145,7 @@ The architecture involves three components:
 
 **Authentication server** — typically a RADIUS server, which validates credentials and tells the switch whether to allow or deny access.
 
-802.1X supports multiple authentication methods (called EAP methods): username/password, certificates, smart cards. For unattended devices like printers or cameras that can't prompt for credentials, certificate-based authentication is typical.
+802.1X supports several authentication methods: username/password, certificates, and smart cards. For unattended devices like printers or cameras that can't prompt anyone for credentials, certificate-based authentication is typical.
 
 A powerful extension: dynamic VLAN assignment. The RADIUS server can tell the switch not just "allow this device" but "put this device in VLAN 30." This enables network segmentation based on identity — domain laptops go to the corporate VLAN, guest devices to the guest VLAN, and IoT devices to the IoT VLAN, all automatically at connection time.
 
@@ -1164,11 +1164,9 @@ When a device tries to connect to a network via 802.1X, or a user authenticates 
 
 The protocol operates on a client-server model: network devices (switches, VPN gateways, Wi-Fi controllers) act as RADIUS clients, forwarding authentication requests to a central RADIUS server. The server validates credentials against a user directory (Active Directory, LDAP, JumpCloud), then returns an Accept or Reject. For 802.1X, it can also return VLAN assignment, bandwidth policy, and other attributes.
 
-RADIUS communicates over UDP — port 1812 for authentication, 1813 for accounting. The shared secret between the RADIUS client and server protects the exchange.
+RADIUS supports several authentication methods, ranging from certificate-based (the strongest) to username-and-password inside an encrypted tunnel (the most common). Avoid any plaintext method.
 
-Authentication methods supported by RADIUS include PAP (plaintext — avoid this), CHAP, and various EAP methods (EAP-TLS, PEAP, EAP-TTLS). For Wi-Fi and 802.1X deployments, PEAP/MSCHAPv2 or EAP-TLS are standard.
-
-RADIUS accounting (port 1813) logs connection events — who connected when, from where, for how long. This is valuable for security auditing and incident response.
+RADIUS also logs connection events — who connected, when, from where, and for how long — which is valuable for security auditing and incident response.
 
 In small to mid-market environments, RADIUS is often provided by your directory service: JumpCloud has a built-in RADIUS server, Microsoft NPS (Network Policy Server) provides RADIUS for Active Directory environments. Dedicated RADIUS appliances are also available for larger or more complex deployments.`,
   },
@@ -1372,7 +1370,7 @@ CISA (the US Cybersecurity and Infrastructure Security Agency) defines Zero Trus
 
 ## Zero Trust is a journey, not a product
 
-No single product makes you Zero Trust. It's a framework applied across your identity, device management, network, and application layers over time. JumpCloud, Entra ID, and Okta handle the identity pillar. MDM and device trust handle the devices pillar. Firewalls with application-aware policies and 802.1X handle the network pillar.
+No single product makes you Zero Trust. It's a framework applied across your identity, device management, network, and application layers over time. JumpCloud, Entra ID, and Okta handle the identity pillar. MDM and device trust handle the devices pillar. Application-aware firewalls and network access control handle the network pillar.
 
 For most SMB organizations, a practical starting point is: enforce MFA everywhere, implement device trust for sensitive applications, and segment your network so a compromised endpoint can't reach everything.`,
   },
@@ -1509,7 +1507,7 @@ From a defender's standpoint, a device on your network joining a botnet is a sig
 
 ## Defense
 
-TLS with valid certificates is the primary defense — it ensures you're actually talking to the server you intend to, and encrypts the traffic even if it's intercepted. HSTS prevents SSL stripping. Certificate pinning in applications prevents fraudulent certificates. For network-level attacks, 802.1X prevents rogue devices from joining your network, and VPN encryption protects traffic even on untrusted networks.`,
+TLS with valid certificates is the primary defense — it ensures you're actually talking to the server you intend to, and encrypts the traffic even if it's intercepted. For network-level attacks, network access control keeps rogue devices off your network, and VPN encryption protects traffic even on untrusted networks like public Wi-Fi.`,
   },
   {
     slug: "cve",
@@ -1667,7 +1665,7 @@ If your network supports WPA3, enable it. The security improvements are meaningf
 
 **Device attestation** — allows the device to cryptographically prove to a management system (like Intune or JumpCloud) that it's a known, managed device running unmodified software. This is the hardware foundation for device trust in Zero Trust architectures.
 
-**Certificate storage** — private keys for device certificates used in 802.1X, VPN, and code signing can be stored in the TPM, where they're protected from extraction.
+**Certificate storage** — private keys for device certificates (used in network authentication, VPN, and code signing) can be stored in the TPM, where they're protected from extraction.
 
 TPM 2.0 is required for Windows 11. Any modern business laptop or server purchased in the last several years will have it. For organizations doing 802.1X certificate-based authentication or planning device attestation, verify TPM 2.0 is present and enabled in BIOS.`,
   },
@@ -1911,11 +1909,11 @@ For PoE installations, wire gauge affects how much power loss occurs over the ru
     related: ["backbone-cabling", "dark-fiber", "attenuation"],
     content: `Where a standard LC or SC fiber connector terminates one fiber, an MTP/MPO connector terminates a ribbon of 8, 12, or 24 fibers simultaneously. This makes them the standard choice for high-density backbone cabling, where running individual fiber pairs would fill conduit and take far longer to install.
 
-MPO is the international standard (IEC 61754-7); MTP is US Conec's trademarked high-performance version with improved mechanical characteristics and lower loss. In practice the terms are used interchangeably.
+MPO is the generic standard; MTP is a trademarked, higher-performance version of the same connector. In practice the terms are used interchangeably.
 
 ## Polarity matters
 
-With multiple fibers in a single connector, polarity — which fiber maps to which — must be maintained correctly end to end. A transmit fiber on one end must reach a receive port on the other. Three polarity methods (Method A, B, and C defined in TIA-568) handle this differently, and the method must be consistent throughout a run. Mixing polarity methods is a common source of link failures during installation that can be hard to diagnose without fiber test equipment.
+With multiple fibers in a single connector, polarity — which fiber maps to which — must be maintained correctly end to end: a transmit fiber on one end has to reach a receive port on the other. There are several standard polarity schemes, and the same one must be used throughout a run. Mixing them is a common source of link failures that are hard to diagnose without fiber test equipment.
 
 ## Male vs female
 
@@ -1985,13 +1983,11 @@ Backbone cabling is expensive to run and disruptive to change after the fact —
     shortDef: "Structured cabling infrastructure for data, voice, security, and AV systems — anything running at 50 volts or less, distinct from line-voltage electrical work.",
     categories: ["Cabling"],
     related: ["backbone-cabling", "cable-management", "poe", "awg"],
-    content: `Low-voltage systems include Ethernet, fiber, telephone, coax, access control, security cameras, intercoms, speakers, and AV distribution. The work lives at the boundary between IT and electrical — requires no electrician's license in most US jurisdictions (though requirements vary by state and municipality), but should still follow code requirements and best practices.
+    content: `Low-voltage systems include Ethernet, fiber, telephone, coax, access control, security cameras, intercoms, speakers, and AV distribution. The work lives at the boundary between IT and electrical — it requires no electrician's license in most places, but should still follow code and structured-cabling best practices.
 
-The relevant standards are the BICSI standards and TIA-568/570 for structured cabling, which define installation practices, cable routing, bend radius requirements, and connector performance.
+Low-voltage cabling needs its own pathways and shouldn't share conduit with standard 120/240V electrical wiring — both because line voltage induces noise on data cables, and because code requires separation.
 
-Low-voltage cabling requires its own conduit or pathways — it should not share conduit with line voltage (120/240V) wiring, both for performance reasons (line voltage induces noise on data cables) and code reasons. The minimum separation between low-voltage and line-voltage runs without a grounded metal barrier is typically defined by NEC Article 800.
-
-In commercial environments, low-voltage work is typically scoped separately from electrical contracts. Knowing the distinction matters when coordinating with contractors — a general electrician is not typically a structured cabling installer.`,
+In commercial environments, low-voltage work is typically scoped separately from the electrical contract. The distinction matters when coordinating contractors — a general electrician is not usually a structured cabling installer.`,
   },
   {
     slug: "attenuation",
@@ -2063,7 +2059,7 @@ The typical IDF contains:
 - **Backbone connections** — fiber or high-speed copper to the MDF (main distribution frame) in the data room
 - **Small UPS** — provides battery backup for the network gear, keeping the floor online during a brief power event
 
-IDF design follows TIA-569 standards, which define requirements for space, clearance, power, cooling, and fire rating. An IDF in a commercial space needs dedicated, lockable space with adequate cooling — a rack of switches in an active closet generates significant heat, and intake air temperatures above 35°C (ASHRAE A2) will start triggering high-temperature warnings.
+An IDF in a commercial space needs dedicated, lockable space with adequate cooling — a rack of switches generates significant heat, and a closet that runs too warm will start triggering high-temperature warnings on the equipment. Industry standards define the space, power, cooling, and fire-rating requirements.
 
 The term MDF (Main Distribution Frame) is used for the primary network room — usually in the basement or data center — where the IDFs connect back to, and where the internet circuit terminates.`,
   },
@@ -2090,7 +2086,7 @@ The distinction matters when configuring network equipment: if both ends of a li
   {
     slug: "poe",
     term: "PoE",
-    aka: ["Power over Ethernet", "PoE+", "PoE++", "802.3af", "802.3at", "802.3bt"],
+    aka: ["Power over Ethernet", "PoE+", "PoE++"],
     shortDef: "Delivers DC power over an Ethernet cable alongside data, eliminating the need for a separate power outlet at devices like IP phones, access points, and security cameras.",
     categories: ["Power", "Networking"],
     related: ["rj45", "awg", "access-switch", "voip"],
@@ -2100,15 +2096,15 @@ The distinction matters when configuring network equipment: if both ends of a li
 
 ## PoE standards and wattage
 
-Three IEEE standards define PoE power levels at the device:
+There are three power tiers, and the names are what matter when matching a switch to a device:
 
-| Standard | Name | Max power at PD |
-|---|---|---|
-| 802.3af | PoE | 12.95W |
-| 802.3at | PoE+ | 25.5W |
-| 802.3bt | PoE++ / 4PPoE | 71.3W (Type 3) / 90W (Type 4) |
+| Tier | Max power at device |
+| --- | --- |
+| PoE | ~13W |
+| PoE+ | ~25W |
+| PoE++ | up to ~90W |
 
-Most IP phones and basic APs run fine on 802.3af. Modern dual-radio APs, PTZ cameras, and video conferencing endpoints often need 802.3at (PoE+). High-wattage devices like multi-radio APs, digital signs, and thin clients may need 802.3bt.
+Most IP phones and basic access points run fine on standard PoE. Modern dual-radio APs, PTZ cameras, and video conferencing gear often need PoE+. High-draw devices like multi-radio APs and digital signage may need PoE++.
 
 ## Switch power budget
 
@@ -2129,17 +2125,14 @@ A PoE injector adds PoE capability to a non-PoE switch port — the injector sit
 
 ## How NEMA numbering works
 
-The designation has two parts separated by a hyphen:
+The designation has two parts separated by a hyphen. The first number encodes the voltage and whether the plug locks; the second is the amperage:
 
-**Prefix** — the configuration number, which encodes voltage and grounding:
-- **5** = 125V, 2-pole, 3-wire grounded (standard North American single-phase)
-- **6** = 250V, 2-pole, 3-wire grounded (higher-voltage single-phase)
-- **L5** = 125V, locking, 2-pole, 3-wire (the L means locking)
-- **L6** = 250V, locking, 2-pole, 3-wire
+- **5** = 125V (standard North American voltage)
+- **6** = 250V (higher-voltage circuits)
+- An **L** prefix (L5, L6) means a locking, twist-to-secure plug
+- The number after the hyphen is the amp rating: 15, 20, 30, and up
 
-**Suffix** = current rating in amps: 15, 20, 30, 50, 60
-
-So a NEMA 5-20 is a 125V, 20A, straight-blade connector. A NEMA L6-30 is a 250V, 30A, locking connector.
+So a NEMA 5-20 is a 125V, 20A straight-blade plug; a NEMA L6-30 is a 250V, 30A locking plug.
 
 ## Common types in IT environments
 
@@ -2220,19 +2213,19 @@ For most organizations, dual PSUs on critical servers, dual PDUs per rack, and a
     shortDef: "The current mainstream Wi-Fi standard — introduces OFDMA and improved MU-MIMO for better performance in high-density environments with many simultaneous connected devices.",
     categories: ["WiFi", "Networking"],
     related: ["wifi-6e", "wifi-7", "beamforming", "mu-mimo", "wpa3", "wlan"],
-    content: `Wi-Fi 5 (802.11ac) was fast for individual devices. Wi-Fi 6 (802.11ax) is designed for environments where many devices are connected simultaneously — the office with 80 laptops, phones, and IoT devices all hitting the network at once. The headline speed improvement is real but secondary to the efficiency gains.
+    content: `Wi-Fi 5 was fast for individual devices. Wi-Fi 6 is designed for environments where many devices are connected at once — the office with 80 laptops, phones, and IoT devices all hitting the network simultaneously. The headline speed improvement is real but secondary to the efficiency gains.
 
 ## Key technologies
 
-**OFDMA (Orthogonal Frequency Division Multiple Access)** — where Wi-Fi 5 gave each transmission the full channel, OFDMA divides the channel into smaller resource units that can be allocated to different devices simultaneously. The access point can serve multiple devices with small payloads in the same time slot, rather than making each wait its turn.
+**OFDMA** — instead of giving each transmission the full channel, Wi-Fi 6 splits the channel so it can serve several devices in the same instant rather than making each wait its turn. This is the core efficiency gain.
 
-**8x8 MU-MIMO** — Wi-Fi 6 extends multi-user MIMO to 8 simultaneous users and adds uplink MU-MIMO, meaning the AP can receive from multiple devices simultaneously, not just transmit to them.
+**Better MU-MIMO** — the access point can talk to more devices simultaneously, and for the first time can also receive from several at once, not just transmit.
 
-**BSS Coloring** — reduces interference between neighboring access points by letting each device identify whether a signal is from its own BSS or a neighbor's. Overlapping signals from a neighbor are treated as less disruptive, reducing unnecessary backoff.
+**Interference handling** — neighboring access points coordinate so overlapping signals cause less mutual slowdown in dense areas.
 
-**Target Wake Time (TWT)** — devices negotiate a schedule for when to wake and communicate, allowing IoT devices and phones to sleep longer and conserve battery.
+**Target Wake Time** — devices schedule when to wake and communicate, letting phones and IoT devices sleep longer and save battery.
 
-**WPA3 required** — Wi-Fi 6 certification requires WPA3 security.
+**WPA3 security** — Wi-Fi 6 requires the current WPA3 encryption standard.
 
 ## Real-world relevance
 
@@ -2249,7 +2242,7 @@ For a small office with 20 devices, the difference between Wi-Fi 5 and Wi-Fi 6 i
 
 Why 6GHz matters: the 2.4GHz and 5GHz bands are full of competing networks. In a Manhattan office building, a site survey might show 70+ networks visible at 2.4GHz and dozens more at 5GHz. The 6GHz band is new — only Wi-Fi 6E and Wi-Fi 7 devices can use it, so it's clean, uncongested spectrum.
 
-The 6GHz band also supports wider channels. In 5GHz, using 160MHz channels is often impractical because there are only one or two non-overlapping 160MHz channels available. In 6GHz, there are seven 160MHz channels, enabling high-throughput connections without channel conflicts.
+The 6GHz band also supports far more wide channels than 5GHz, enabling high-throughput connections without the channel conflicts that crowd the older bands.
 
 The trade-off: 6GHz has shorter range than 2.4GHz or 5GHz. Higher frequencies attenuate more quickly through walls and obstructions. 6GHz is a within-room band in practice — useful for high-density coverage where APs are close to clients, less useful for long-range coverage through multiple walls.
 
@@ -2264,11 +2257,11 @@ In practice, Wi-Fi 6E APs are tri-band (2.4GHz + 5GHz + 6GHz) and steer capable 
     related: ["wifi-6e", "wifi-6", "wlan"],
     content: `Wi-Fi 7 raises the ceiling substantially over Wi-Fi 6E, primarily through three mechanisms:
 
-**320MHz channels** — double the channel width of Wi-Fi 6E's 160MHz maximum. Available only in 6GHz (the 5GHz band isn't wide enough). Wider channels = more data per transmission.
+**Wider channels** — double the maximum channel width of Wi-Fi 6E, meaning more data per transmission (available in the 6GHz band).
 
-**Multi-Link Operation (MLO)** — Wi-Fi 7 clients and APs can simultaneously transmit and receive across multiple frequency bands (2.4GHz + 5GHz + 6GHz) as a single bonded connection. This both increases throughput and improves reliability — if one band is congested or experiences interference, traffic can shift to another without disruption.
+**Multi-Link Operation** — clients and access points can use multiple frequency bands at once as a single bonded connection. This increases throughput and improves reliability — if one band gets congested, traffic shifts to another without disruption.
 
-**4096-QAM (4K-QAM)** — encodes more bits per symbol than Wi-Fi 6's 1024-QAM, increasing theoretical throughput by ~20% under ideal signal conditions.
+**Denser encoding** — packs more data into each transmission, adding roughly 20% throughput under ideal signal conditions.
 
 For most organizations buying APs today: Wi-Fi 6E is the practical choice. Wi-Fi 7 hardware is available but early-cycle, clients are not yet widespread, and the real-world gains over 6E are modest except in specific high-density or AV-intensive environments. If you're building for a 5-year horizon in a demanding environment, Wi-Fi 7 is reasonable. For typical office refreshes, Wi-Fi 6E is the right call.`,
   },
@@ -2355,11 +2348,11 @@ AP coverage is a balance between coverage area (fewer APs, more power, wider ran
 
 The roaming decision is made by the client, not the AP. Some clients are "sticky" — they hold onto a weak signal from a distant AP rather than roaming to a closer one, even when the closer AP would give them much better performance. This is a common cause of poor Wi-Fi experience in larger spaces.
 
-Modern APs combat this through 802.11v (BSS Transition Management), which allows the AP to suggest to a client that it roam to a better AP, and 802.11k (Neighbor Reports), which lets the client discover nearby APs without scanning. Controllers automate this.
+Modern access points and controllers combat this by nudging clients toward the better AP and helping them find nearby options without a slow scan.
 
-## 802.11r — Fast BSS Transition
+## Fast handoff for calls
 
-Standard roaming requires the client to fully re-authenticate with the new AP, which can take several hundred milliseconds and breaks VoIP calls and time-sensitive applications. 802.11r (Fast BSS Transition) pre-caches authentication information so the handoff takes milliseconds rather than hundreds of milliseconds. Essential for voice and video in roaming environments.
+Standard roaming makes the device fully re-authenticate with each new AP — a delay long enough to drop a VoIP call mid-sentence. Fast-handoff features pre-stage that authentication so the switch between APs takes milliseconds, which is essential for voice and video on the move. Most enterprise Wi-Fi systems support this; it usually just needs to be enabled.
 
 ## SSID consistency
 
@@ -2441,7 +2434,7 @@ Access switches are characterized by:
 
 **VLANs and QoS** — access switches enforce port-level VLAN assignment and apply QoS markings to prioritize voice and video.
 
-**802.1X** — access switches can enforce port-based network access control, blocking unauthenticated devices.
+**Network access control** — access switches can require devices to authenticate before the port will pass traffic, blocking anything unauthorized.
 
 In small and mid-size organizations, the three-layer model often collapses to two: access switches connect directly to a core switch or firewall, skipping a dedicated distribution layer. The principles remain the same.`,
   },
@@ -2546,7 +2539,7 @@ In a typical data room: utility power → transfer switch → UPS → PDU → eq
     shortDef: "Distributes power from a single feed to multiple devices in a rack. The power strip for server infrastructure — built for the density, reliability, and monitoring requirements of production environments.",
     categories: ["Power", "Hardware"],
     related: ["ups", "power-redundancy", "nema-connector", "rack-unit", "three-phase-power"],
-    content: `A rack PDU takes one input (from a UPS, breaker, or generator transfer switch) and distributes it across many output receptacles — typically C13 and C19 IEC outlets, the standard connectors on server and networking equipment.
+    content: `A rack PDU takes one input (from a UPS, breaker, or generator transfer switch) and distributes it across many output receptacles — the standard connector types found on server and networking equipment.
 
 ## PDU tiers
 
@@ -2560,9 +2553,9 @@ In a typical data room: utility power → transfer switch → UPS → PDU → eq
 
 ## Input configuration
 
-**Single-phase input** — standard for small deployments. A NEMA L5-20 or L5-30 input (120V) or L6-20/L6-30 (208V) is typical.
+**Single-phase input** — standard for small deployments, using a locking 120V or 208V input plug.
 
-**Three-phase input** — for high-density racks. A single three-phase PDU can distribute 10kW or more across balanced phases. A three-phase NEMA L15-30 or L21-30 input connects to the breaker panel or transfer switch.
+**Three-phase input** — for high-density racks. A single three-phase PDU can distribute 10kW or more across balanced phases, fed from the breaker panel or transfer switch.
 
 ## Dual PDU / A-B redundancy
 
@@ -2667,7 +2660,7 @@ New greenfield deployments rarely choose FC unless there's a compelling workload
     shortDef: "ECC (Error-Correcting Code) memory detects and corrects single-bit memory errors in real time, preventing data corruption that could crash a server or silently corrupt data. Required in all production servers.",
     content: `Standard RAM (non-ECC) has no mechanism to detect memory errors. A cosmic ray or electrical noise can flip a bit — in a workstation this might cause an occasional crash, but in a server running a database or hypervisor it can cause silent data corruption without any indication something went wrong.
 
-ECC memory adds extra bits per word to store a checksum. The memory controller checks every read, can detect up to two simultaneous bit errors, and can silently correct single-bit errors without the system ever knowing. This is called SECDED — Single Error Correct, Double Error Detect.
+ECC memory adds extra bits that let the system check every read for errors — silently correcting single-bit errors on the fly and detecting larger ones before they cause damage.
 
 ECC is a requirement, not an option, for any production server: database servers, file servers, hypervisor hosts, NAS systems. The cost premium over non-ECC is small and the risk of running production workloads without it is not worth taking.
 
@@ -2684,9 +2677,7 @@ Consumer processors and motherboards (Intel Core, AMD Ryzen) often don't support
 
 The result: servers with RDIMMs can support more DIMMs per channel and higher total memory capacity. A server platform supporting 8 DIMM slots per channel with RDIMMs can populate all 8 slots; the same platform with UDIMMs might be limited to 2 per channel at full speed.
 
-RDIMMs are the standard for enterprise servers — Intel Xeon and AMD EPYC platforms are designed around them. They always include ECC. The register adds one clock cycle of latency over UDIMMs, which is negligible in practice for server workloads.
-
-LRDIMMs (Load-Reduced DIMMs) are a variant that adds a buffer for data signals as well as address/command, enabling even higher capacities per channel. Used in the highest-density memory configurations.`,
+RDIMMs are the standard for enterprise servers — Intel Xeon and AMD EPYC platforms are designed around them, and they always include ECC. The buffering adds a negligible amount of latency in exchange for far higher memory capacity. A further variant exists for the very highest-density configurations.`,
   },
   {
     slug: "unbuffered-ram",
@@ -2809,9 +2800,9 @@ Most network monitoring tools (PRTG, LibreNMS, Zabbix, Domotz) use SNMP extensiv
 
 Without centralized logging, event data lives only on the device that generated it, rotates off when storage fills, and is often the first thing overwritten if a device is compromised. Centralized syslog creates an immutable audit trail.
 
-Syslog messages carry a facility (what generated the message: kernel, auth, mail, daemon, etc.) and severity level (Emergency, Alert, Critical, Error, Warning, Notice, Informational, Debug). Collectors can filter and route based on both.
+Each message carries a category and a severity level, so a collector can filter and route messages — surfacing critical errors while archiving routine noise.
 
-The original syslog protocol (RFC 3164) sends plaintext UDP on port 514 — no encryption, no acknowledgment, no guaranteed delivery. RFC 5424 and syslog over TLS address these shortcomings for security-sensitive environments.
+The original protocol sends messages in plaintext with no encryption or guaranteed delivery; modern variants add encryption for security-sensitive environments.
 
 For any organization with managed switches and firewalls, enabling syslog to a central collector (even a simple one like Graylog or a SIEM) is a baseline security practice. When an incident occurs, you need those logs to exist and to not have been on the device that was compromised.`,
   },
@@ -3191,6 +3182,6 @@ Every endpoint is a potential entry point for attackers: a phished credential, a
 
 The shift to remote work expanded the endpoint security challenge: devices now operate outside the network perimeter, on untrusted networks, without the protection of on-premises firewalls and filtering. Zero Trust treats each endpoint as potentially compromised regardless of network location — verifying device health at every access request rather than trusting based on network position.
 
-In infrastructure terms, endpoint count drives switch port planning (24-48 per access switch), DHCP scope sizing, 802.1X deployment scope, and PoE power budget calculation.`,
+In infrastructure terms, endpoint count drives switch port planning, network addressing, access-control rollout, and PoE power budgeting.`,
   },
 ]
