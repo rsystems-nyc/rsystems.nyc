@@ -20,7 +20,7 @@ function inlineFmt(s: string, seen: Set<string>): string {
         const term = glossaryTerms.find((t) => t.slug === slug);
         if (term) {
           if (seen.has(slug)) {
-            return `<a href="${href}" class="gl-link">${text}</a>`;
+            return text;
           }
           seen.add(slug);
           return `<span class="gl-ref"><a href="${href}" class="gl-link">${text}</a><span class="gl-tip" role="tooltip">${escHtml(term.shortDef)}</span></span>`;
