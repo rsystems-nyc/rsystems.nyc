@@ -576,23 +576,6 @@ In a managed VMware environment, ESXi hosts are controlled through vCenter — y
 
 Notable change: the free ESXi license was discontinued by Broadcom in 2024. Organizations running free ESXi — common in smaller environments and branch offices — need to evaluate licensed alternatives or migrate to another platform.`,
   },
-  {
-    slug: "hyper-v",
-    term: "Hyper-V",
-    shortDef: "Microsoft's built-in hypervisor, included with Windows Server. Runs multiple isolated VMs on a single physical host.",
-    categories: ["Virtualization", "Microsoft"],
-    related: ["vmware", "esxi", "azure"],
-    content: `Hyper-V is Microsoft's hypervisor. It ships as a role in Windows Server and provides the same core virtualization capabilities as VMware vSphere — running multiple virtual machines on a single physical host, with live migration, failover clustering, and replication.
-
-For organizations in the Microsoft ecosystem, Hyper-V is the natural on-premises virtualization platform. Licensing is included in Windows Server Datacenter edition, management integrates with familiar Microsoft tooling, and failover clustering provides high availability without additional licensing cost.
-
-Capabilities that matter: live migration (move running VMs between hosts without downtime), Windows Server Failover Clustering for HA, and Hyper-V Replica for basic VM replication to a secondary site or Azure.
-
-Where it fits vs. VMware: Hyper-V is the rational choice for Microsoft-first organizations that don't need VMware's advanced capabilities — vSAN, NSX, distributed resource scheduling. For environments running primarily Windows workloads with standard HA requirements, Hyper-V provides comparable core functionality at significantly lower licensing cost.
-
-With the Broadcom/VMware pricing changes, Hyper-V has become an increasingly compelling migration target for organizations looking to exit the VMware cost model.`,
-  },
-
   // ── Cloud ──────────────────────────────────────────────────────────────────
   {
     slug: "azure",
@@ -2590,5 +2573,624 @@ This A-B redundancy model is the standard for any environment where uptime matte
 ## Zero-U mounting
 
 PDUs are often mounted vertically in the side channels of a rack rather than occupying rack units. This "zero-U" mounting preserves full rack unit capacity for equipment while keeping power distribution organized and accessible.`,
+  },
+
+  // ── Virtualization & Storage ───────────────────────────────────────────────
+  {
+    slug: "hyper-v",
+    term: "Hyper-V",
+    categories: ["Virtualization", "Microsoft"],
+    related: ["virtual-machine", "vmware", "esxi", "iscsi", "raid"],
+    shortDef: "Hyper-V is Microsoft's native hypervisor, built into Windows Server and Windows 10/11 Pro, for creating and running virtual machines on a physical host.",
+    content: `Hyper-V ships with Windows Server and Windows 10/11 Pro at no additional cost — no separate license required. It creates a thin software layer between the hardware and the operating systems running on it, allowing multiple VMs to share a single physical machine's CPU, RAM, storage, and network.
+
+![Diagram showing Hyper-V architecture with the hypervisor layer between physical hardware and multiple virtual machines](/images/glossary/hyper-v-architecture.png)
+
+## Key capabilities
+
+**Live Migration** — move a running VM from one Hyper-V host to another without any downtime. Essential for maintenance windows and load balancing across a cluster.
+
+**Hyper-V Replica** — asynchronous replication of VMs to a secondary host at a remote site. Provides a recovery point for disaster recovery without third-party software.
+
+**Integration Services** — drivers and utilities installed in guest VMs that improve performance and enable features like time sync, mouse integration, and dynamic memory.
+
+**Checkpoints (snapshots)** — point-in-time captures of VM state that can be reverted instantly. Useful before risky changes.
+
+![Diagram showing Hyper-V Integration Services communication between host OS and guest VMs](/images/glossary/hyper-v-integration.png)
+
+## Hyper-V vs VMware
+
+Hyper-V is the right choice for organizations heavily invested in the Microsoft stack — it integrates natively with Active Directory, SCCM, and Azure. Management is via Hyper-V Manager or Windows Admin Center for small deployments, or System Center VMM for larger ones.
+
+VMware (ESXi) has a more mature ecosystem, better third-party tool support, and vCenter for multi-host management. For mixed environments or large virtualization deployments, VMware is often the stronger platform. For Windows-centric SMBs, Hyper-V is a perfectly capable and cost-effective choice.`,
+  },
+  {
+    slug: "iscsi",
+    term: "iSCSI",
+    aka: ["Internet Small Computer System Interface"],
+    categories: ["Virtualization", "Networking", "Hardware"],
+    related: ["virtual-machine", "hyper-v", "vmware", "jumbo-frames", "lacp", "raid"],
+    shortDef: "iSCSI is a storage networking protocol that carries SCSI storage commands over standard TCP/IP Ethernet, allowing servers to access block-level storage on a NAS or SAN as if it were a locally attached disk.",
+    content: `iSCSI makes networked storage look and behave like a locally connected drive to the operating system. A server running an iSCSI initiator (software built into Windows, Linux, and VMware ESXi) sends SCSI commands over Ethernet to an iSCSI target on a storage device (a Synology NAS, a dedicated SAN, or any iSCSI-capable storage array). The storage array presents a LUN (logical unit number) — effectively a virtual disk — that the server formats and uses like any other volume.
+
+![Diagram showing iSCSI initiator on a server communicating with iSCSI target on a storage device over a TCP/IP Ethernet network](/images/glossary/iscsi-architecture.png)
+
+## Why iSCSI matters for virtualization
+
+iSCSI is the most common protocol for shared storage in SMB and mid-market VMware and Hyper-V environments. Shared storage is what makes live migration and VM clustering possible — multiple hypervisor hosts access the same datastore, so a VM can move between hosts without copying its disk files.
+
+## Performance requirements
+
+For reliable iSCSI performance, especially in production environments:
+
+**Dedicated VLAN** — iSCSI traffic should be isolated from general data traffic on its own VLAN (typically unrouted, L2-only).
+
+**Jumbo frames** — enable 9000-byte MTU end-to-end (every switch port, every NIC in the path). Reduces CPU overhead for large block transfers.
+
+**LACP / multipathing** — iSCSI multipathing (MPIO on Windows, native multipathing in ESXi) uses multiple network paths for both redundancy and throughput.
+
+**10G minimum** — 1Gbps iSCSI is workable for light loads but shows strain under heavy VM I/O. 10G is the practical baseline for production use.`,
+  },
+  {
+    slug: "fibre-channel",
+    term: "Fibre Channel",
+    aka: ["FC", "SAN", "Fibre Channel SAN"],
+    categories: ["Virtualization", "Hardware", "Networking"],
+    related: ["iscsi", "raid", "virtual-machine"],
+    shortDef: "Fibre Channel is a high-speed networking protocol purpose-built for storage area networks (SANs), offering lower latency and higher throughput than iSCSI but requiring dedicated FC hardware and switches.",
+    content: `Fibre Channel predates iSCSI and was the dominant enterprise SAN protocol for decades. It runs on dedicated FC infrastructure — FC host bus adapters (HBAs) in servers, FC switches (not standard Ethernet switches), and FC-attached storage arrays — rather than sharing Ethernet with other network traffic.
+
+The result is deterministic, low-latency block storage access that doesn't compete with other network traffic. In the largest enterprise environments and data centers, FC SANs remain common for the most latency-sensitive workloads.
+
+## FC vs iSCSI
+
+For most organizations today, iSCSI is the practical choice:
+
+- iSCSI runs on existing 10/25G Ethernet infrastructure
+- No separate FC switches or HBAs required
+- Software initiators are free and built into all major OSes
+- Performance gap with FC has narrowed significantly at 10/25G
+
+Fibre Channel makes sense when:
+- You're already invested in FC infrastructure
+- You have extreme latency or throughput requirements
+- Your storage vendor's FC support is better than their iSCSI support
+
+New greenfield deployments rarely choose FC unless there's a compelling workload reason. iSCSI (or NVMe-oF for highest performance) is the current direction for shared block storage.`,
+  },
+  {
+    slug: "ecc-memory",
+    term: "ECC Memory",
+    aka: ["Error-Correcting Code Memory", "ECC RAM"],
+    categories: ["Hardware"],
+    related: ["rdimm", "unbuffered-ram", "cpu", "virtual-machine"],
+    shortDef: "ECC (Error-Correcting Code) memory detects and corrects single-bit memory errors in real time, preventing data corruption that could crash a server or silently corrupt data. Required in all production servers.",
+    content: `Standard RAM (non-ECC) has no mechanism to detect memory errors. A cosmic ray or electrical noise can flip a bit — in a workstation this might cause an occasional crash, but in a server running a database or hypervisor it can cause silent data corruption without any indication something went wrong.
+
+ECC memory adds extra bits per word to store a checksum. The memory controller checks every read, can detect up to two simultaneous bit errors, and can silently correct single-bit errors without the system ever knowing. This is called SECDED — Single Error Correct, Double Error Detect.
+
+ECC is a requirement, not an option, for any production server: database servers, file servers, hypervisor hosts, NAS systems. The cost premium over non-ECC is small and the risk of running production workloads without it is not worth taking.
+
+Consumer processors and motherboards (Intel Core, AMD Ryzen) often don't support ECC even when the memory module supports it — ECC requires explicit support from the CPU and memory controller. Server platforms (Intel Xeon, AMD EPYC) universally support it.`,
+  },
+  {
+    slug: "rdimm",
+    term: "RDIMM",
+    aka: ["Registered DIMM", "Registered Memory", "Buffered DIMM"],
+    categories: ["Hardware"],
+    related: ["ecc-memory", "unbuffered-ram", "cpu"],
+    shortDef: "An RDIMM (Registered DIMM) is a server memory module with a register chip that buffers the command and address signals between the CPU memory controller and the DRAM chips, allowing higher memory capacity per channel.",
+    content: `As memory capacity per channel increases, the electrical load on the CPU's memory controller grows — more chips mean more capacitance and signal degradation. RDIMMs solve this by placing a register (also called a buffer) on the memory module that re-drives the command and address signals, reducing the load on the controller.
+
+The result: servers with RDIMMs can support more DIMMs per channel and higher total memory capacity. A server platform supporting 8 DIMM slots per channel with RDIMMs can populate all 8 slots; the same platform with UDIMMs might be limited to 2 per channel at full speed.
+
+RDIMMs are the standard for enterprise servers — Intel Xeon and AMD EPYC platforms are designed around them. They always include ECC. The register adds one clock cycle of latency over UDIMMs, which is negligible in practice for server workloads.
+
+LRDIMMs (Load-Reduced DIMMs) are a variant that adds a buffer for data signals as well as address/command, enabling even higher capacities per channel. Used in the highest-density memory configurations.`,
+  },
+  {
+    slug: "unbuffered-ram",
+    term: "Unbuffered RAM",
+    aka: ["UDIMM", "Unbuffered DIMM", "Non-ECC RAM"],
+    categories: ["Hardware"],
+    related: ["ecc-memory", "rdimm", "cpu"],
+    shortDef: "Unbuffered RAM (UDIMM) connects directly to the CPU memory controller without a register chip, offering lower latency but limiting the number of modules per channel — standard in consumer and workstation PCs, not used in production servers.",
+    content: `UDIMMs have no intermediate buffer between the DRAM chips and the CPU memory controller. The controller drives the signals directly. This gives UDIMMs one advantage: slightly lower latency than RDIMMs, since there's no register cycle in the path.
+
+The trade-off is capacity and scalability. Without a register to re-drive signals, the electrical load limits how many DIMMs can be populated per channel — typically 1-2 slots at rated speed. This caps total memory capacity well below what RDIMMs allow on the same platform.
+
+UDIMMs are standard in consumer PCs and workstations — platforms that don't need 512GB or 1TB of RAM and where the small latency advantage matters more than scalability. ECC UDIMMs exist (some Xeon platforms and workstation boards support them) but are less common than ECC RDIMMs.
+
+For server and hypervisor workloads, RDIMMs with ECC are the correct choice. UDIMMs should not be used in production servers.`,
+  },
+
+  // ── Protocols ──────────────────────────────────────────────────────────────
+  {
+    slug: "tcp",
+    term: "TCP",
+    aka: ["Transmission Control Protocol"],
+    categories: ["Networking"],
+    related: ["udp", "icmp", "tls", "https", "iscsi"],
+    shortDef: "TCP (Transmission Control Protocol) is a connection-oriented transport protocol that guarantees reliable, ordered delivery of data between two endpoints. It's the foundation of web, email, and file transfer traffic.",
+    content: `TCP sits at the transport layer of the network stack, above IP and below application protocols like HTTP and SMTP. It takes a stream of data from an application and breaks it into segments, each numbered for reassembly, then transmits them over IP — which doesn't guarantee delivery or order.
+
+![Diagram showing the four-layer TCP/IP model: Application, Transport (TCP/UDP), Internet (IP), and Network Access layers](/images/glossary/tcp-layers.png)
+
+## How TCP establishes a connection
+
+Before any data is sent, TCP performs a three-way handshake to establish a connection:
+
+1. **SYN** — the client sends a synchronization request
+2. **SYN-ACK** — the server acknowledges and sends its own sync
+3. **ACK** — the client acknowledges the server's sync
+
+Only after this handshake does data flow. This setup provides both endpoints with sequence numbers used to detect lost packets and request retransmission.
+
+![Diagram showing the TCP three-way handshake: SYN, SYN-ACK, ACK sequence between client and server](/images/glossary/tcp-handshake.png)
+
+## TCP vs UDP
+
+TCP's reliability has a cost: latency. The handshake, acknowledgments, and retransmission add overhead. For applications that need every byte delivered correctly — HTTP, HTTPS, email, file transfer, SSH, iSCSI — TCP is the right choice. For applications that prioritize speed over guaranteed delivery (DNS, VoIP, video streaming, gaming), UDP avoids the overhead by dropping the guarantees.
+
+TCP also handles flow control (matching transmission speed to receiver capacity) and congestion control (backing off when the network is congested), which makes it resilient to varying network conditions.`,
+  },
+  {
+    slug: "udp",
+    term: "UDP",
+    aka: ["User Datagram Protocol"],
+    categories: ["Networking"],
+    related: ["tcp", "icmp", "dns", "voip"],
+    shortDef: "UDP (User Datagram Protocol) is a connectionless transport protocol that sends datagrams without establishing a connection or guaranteeing delivery — trading reliability for speed and lower overhead.",
+    content: `Where TCP establishes a connection and ensures every byte arrives in order, UDP fires packets and moves on. There's no handshake, no acknowledgment, no retransmission of lost packets. If a packet is lost, it's gone.
+
+This sounds like a flaw, but for many applications it's the correct trade-off. A VoIP call doesn't benefit from TCP retransmission — a retransmitted voice packet arriving 200ms late is worse than just dropping it and moving on. DNS lookups are a single small request and response; adding TCP handshake overhead doubles the latency. Video streaming can tolerate occasional dropped frames without perceptible quality loss.
+
+Applications that use UDP: DNS, DHCP, VoIP (RTP), video streaming, online gaming, SNMP, NTP, RADIUS, TFTP.
+
+UDP's simplicity also makes it the building block for protocols that implement their own reliability selectively. QUIC (the transport under HTTP/3) is built on UDP and adds connection establishment and reliability only where needed, achieving TCP's reliability with lower latency.
+
+UDP has no flow control or congestion control, which is why volumetric DDoS attacks frequently use UDP — it's easy to flood a target with UDP packets from spoofed source addresses.`,
+  },
+  {
+    slug: "icmp",
+    term: "ICMP",
+    aka: ["Internet Control Message Protocol", "Ping", "Traceroute"],
+    categories: ["Networking"],
+    related: ["tcp", "udp", "latency", "ipv4"],
+    shortDef: "ICMP (Internet Control Message Protocol) is a network-layer protocol used for diagnostics and error reporting — best known as the protocol behind the ping command.",
+    content: `ICMP is how network devices communicate about network conditions rather than carrying application data. It reports errors (destination unreachable, time exceeded, fragmentation needed) and supports diagnostic tools.
+
+## Ping
+
+Ping uses ICMP Echo Request and Echo Reply messages to test reachability and measure round-trip time. Type \`ping 8.8.8.8\` and you're sending ICMP Echo Requests to Google's DNS server and measuring how long replies take. It's the most basic and universal network diagnostic tool.
+
+## Traceroute
+
+Traceroute uses ICMP Time Exceeded messages to map the path packets take across the network. It sends packets with increasing TTL values, causing each router in the path to respond when it decrements TTL to zero. The result is a hop-by-hop map of the route with latency at each hop.
+
+## Blocking ICMP
+
+Some security policies block ICMP at the firewall, reasoning that ICMP reveals network topology. This breaks ping and traceroute diagnostics and should be approached carefully — ICMP is too useful for troubleshooting to block entirely. Blocking inbound ICMP to sensitive hosts while allowing outbound and internal ICMP is a more practical policy.`,
+  },
+  {
+    slug: "snmp",
+    term: "SNMP",
+    aka: ["Simple Network Management Protocol"],
+    categories: ["Networking"],
+    related: ["syslog", "ntp", "vlan"],
+    shortDef: "SNMP (Simple Network Management Protocol) is the standard protocol for monitoring and managing network devices — querying switches, routers, UPSes, and servers for performance data and receiving alerts when something goes wrong.",
+    content: `SNMP lets management software poll network devices for status information and receive unsolicited alerts (traps) when something notable happens. A switch reports interface error counts, traffic utilization, and CPU load. A UPS reports battery level and input voltage. A server reports disk health and fan status.
+
+SNMP uses a hierarchical data model called a MIB (Management Information Base) — a structured list of every variable the device exposes. Each variable has an OID (Object Identifier). A monitoring platform knows which OIDs to query for which data.
+
+## SNMP versions
+
+**SNMPv1 and v2c** — community string authentication, effectively a cleartext password. Still widely used; adequate on a managed network but not internet-exposed. v2c adds bulk queries.
+
+**SNMPv3** — adds encryption and proper authentication. Should be used wherever SNMP traffic crosses less-trusted network segments.
+
+## SNMP operations
+
+**GET** — management station requests a specific OID value from a device.
+
+**TRAP / INFORM** — device sends an alert to the management station when a threshold is crossed or an event occurs. (INFORMs require acknowledgment; traps don't.)
+
+**SET** — management station writes a value to the device — used for configuration changes via SNMP.
+
+Most network monitoring tools (PRTG, LibreNMS, Zabbix, Domotz) use SNMP extensively. Configuring SNMP community strings or v3 credentials on your switches and UPSes is a prerequisite for useful network monitoring.`,
+  },
+  {
+    slug: "syslog",
+    term: "Syslog",
+    categories: ["Networking", "Security"],
+    related: ["snmp", "siem", "edr"],
+    shortDef: "Syslog is the standard protocol for forwarding log messages from network devices and servers to a central logging system, providing a persistent record of events for troubleshooting and security analysis.",
+    content: `Every network device — switches, firewalls, access points, servers — generates log messages: interface state changes, authentication events, configuration changes, error conditions. Syslog is the protocol that forwards these messages from the device to a central log collector or SIEM.
+
+Without centralized logging, event data lives only on the device that generated it, rotates off when storage fills, and is often the first thing overwritten if a device is compromised. Centralized syslog creates an immutable audit trail.
+
+Syslog messages carry a facility (what generated the message: kernel, auth, mail, daemon, etc.) and severity level (Emergency, Alert, Critical, Error, Warning, Notice, Informational, Debug). Collectors can filter and route based on both.
+
+The original syslog protocol (RFC 3164) sends plaintext UDP on port 514 — no encryption, no acknowledgment, no guaranteed delivery. RFC 5424 and syslog over TLS address these shortcomings for security-sensitive environments.
+
+For any organization with managed switches and firewalls, enabling syslog to a central collector (even a simple one like Graylog or a SIEM) is a baseline security practice. When an incident occurs, you need those logs to exist and to not have been on the device that was compromised.`,
+  },
+  {
+    slug: "ntp",
+    term: "NTP",
+    aka: ["Network Time Protocol"],
+    categories: ["Networking"],
+    related: ["ptp", "syslog", "snmp", "radius"],
+    shortDef: "NTP (Network Time Protocol) synchronizes clocks across networked devices, keeping servers, switches, and workstations within milliseconds of accurate time — essential for log correlation, Kerberos authentication, and certificate validity.",
+    content: `Accurate time matters more than most people realize until something breaks. Kerberos authentication (used by Active Directory) fails if clocks are more than 5 minutes apart. Log correlation becomes impossible when events on different systems have inconsistent timestamps. TLS certificates have validity windows that depend on accurate time.
+
+NTP synchronizes device clocks against a hierarchy of reference sources. Stratum 0 sources are GPS receivers and atomic clocks. Stratum 1 servers connect directly to stratum 0. Stratum 2 servers synchronize from stratum 1 — this is the tier most organizations use via public NTP pools (pool.ntp.org, time.google.com, etc.).
+
+For most organizations: configure all servers, switches, and workstations to sync from two or three public NTP servers or your internal Active Directory PDC emulator, which itself syncs from a reliable external source. That's it — NTP doesn't need to be complicated.
+
+UDP port 123. NTP provides millisecond-level accuracy over the internet, which is sufficient for essentially all IT applications. For sub-microsecond accuracy requirements (financial trading, industrial control), see PTP.`,
+  },
+  {
+    slug: "ptp",
+    term: "PTP",
+    aka: ["Precision Time Protocol", "IEEE 1588"],
+    categories: ["Networking"],
+    related: ["ntp"],
+    shortDef: "PTP (Precision Time Protocol, IEEE 1588) synchronizes clocks with sub-microsecond accuracy — orders of magnitude more precise than NTP — used in financial trading, broadcast media, and industrial control systems.",
+    content: `NTP achieves millisecond-level accuracy, which is sufficient for authentication, logging, and certificate management. Some applications need far more precision: a financial exchange recording trade timestamps needs microsecond accuracy. A broadcast television facility distributing live video needs nanosecond-level synchronization.
+
+PTP achieves this through hardware timestamping — the network card and switch hardware stamp packets at the wire level rather than in software, eliminating the timing jitter introduced by OS scheduling. PTP-aware switches (called boundary clocks or transparent clocks) forward PTP packets while correcting for their own forwarding delays.
+
+The result is sub-microsecond to nanosecond-level clock accuracy across a network.
+
+For most IT environments, PTP is not relevant — NTP is more than adequate. PTP appears in specialized domains: trading infrastructure, broadcast facilities, cellular network backhaul, and industrial automation. If your environment requires PTP, every switch in the path needs to support hardware timestamping, which is a significant infrastructure requirement.`,
+  },
+  {
+    slug: "l2tp",
+    term: "L2TP",
+    aka: ["Layer 2 Tunneling Protocol", "L2TP/IPsec"],
+    categories: ["Networking", "Security"],
+    related: ["ipsec", "ssl-vpn", "vpn"],
+    shortDef: "L2TP (Layer 2 Tunneling Protocol) is a VPN tunneling protocol that provides the tunnel framework but no encryption on its own — it's almost always paired with IPsec (L2TP/IPsec) to add security.",
+    content: `L2TP on its own just creates a tunnel — it encapsulates Layer 2 frames in IP packets but provides no confidentiality or authentication. In practice, L2TP is always deployed paired with IPsec, which provides the encryption and authentication (the combination is written L2TP/IPsec).
+
+L2TP/IPsec was the dominant Windows built-in VPN protocol for years — available natively in every version of Windows without additional client software. That's its primary historical relevance.
+
+Today, L2TP/IPsec has largely been superseded for remote access:
+
+- **IKEv2/IPsec** — faster reconnection, better for mobile clients, supported natively in Windows, macOS, iOS, Android.
+- **WireGuard** — modern, faster, simpler key management.
+- **SSL VPN** — works through restrictive firewalls; preferred for corporate remote access.
+
+L2TP uses UDP port 1701 for the tunnel, with IPsec on ports 500 (IKE) and 4500 (NAT traversal). These ports are often blocked by enterprise firewalls and restrictive hotel/airport networks, which is a practical reliability problem that SSL VPN avoids.
+
+L2TP/IPsec is still supported and functional; it's just not the first choice for new deployments.`,
+  },
+
+  // ── Cloud & Infrastructure ─────────────────────────────────────────────────
+  {
+    slug: "saas",
+    term: "SaaS",
+    aka: ["Software as a Service"],
+    categories: ["Cloud & Infrastructure"],
+    related: ["vpc", "cdn", "azure", "aws", "gcp", "tenant"],
+    shortDef: "SaaS (Software as a Service) is software delivered over the internet and run by the vendor — you access it via a browser or app rather than installing and maintaining it yourself. Google Workspace, Microsoft 365, and Salesforce are SaaS.",
+    content: `SaaS is the dominant model for business software today. The vendor hosts and operates the application, manages infrastructure, handles updates, and is responsible for uptime. You pay a subscription and use the software — you don't manage servers, databases, or deployments.
+
+The SaaS model covers essentially every category of business software: productivity (Google Workspace, Microsoft 365), communication (Slack, Zoom), CRM (Salesforce, HubSpot), HR (Workday, Rippling), security (CrowdStrike, Okta), finance (QuickBooks Online, NetSuite), and on and on.
+
+## SaaS vs IaaS vs PaaS
+
+The cloud delivery model spectrum:
+
+**SaaS** — complete application. You manage users and data. The vendor manages everything else.
+
+**PaaS (Platform as a Service)** — a platform to deploy applications on. You manage the application and its data. The vendor manages the runtime, middleware, and infrastructure.
+
+**IaaS (Infrastructure as a Service)** — raw compute, storage, and networking. You manage the OS up. AWS EC2, Azure VMs, and Google Compute Engine are IaaS.
+
+Most organizations use all three to some degree — SaaS for most business applications, IaaS/PaaS for custom workloads.
+
+## Identity and SaaS security
+
+The proliferation of SaaS creates an identity management challenge. Each application has its own login unless connected to a central identity provider via SAML or OIDC for SSO. Managing SaaS access lifecycle — provisioning new users, deprovisioning departed ones across dozens of apps — is a real operational concern. SCIM automates this provisioning; JumpCloud and Okta are built to manage it at scale.`,
+  },
+  {
+    slug: "vpc",
+    term: "VPC",
+    aka: ["Virtual Private Cloud"],
+    categories: ["Cloud & Infrastructure"],
+    related: ["azure", "aws", "gcp", "saas", "vlan"],
+    shortDef: "A VPC (Virtual Private Cloud) is a logically isolated network within a public cloud provider where you define your own IP addressing, subnets, routing, and security policies — your private network environment inside AWS, Azure, or GCP.",
+    content: `When you deploy resources in AWS, Azure, or GCP, they run inside a VPC — a virtual network that you own and control within the cloud provider's infrastructure. Your VMs, databases, and containers communicate on private IP addresses that you define, behind security groups and network ACLs that you configure, without being accessible to other tenants or the internet unless you explicitly allow it.
+
+A VPC mirrors on-premises network concepts — subnets, route tables, gateways — implemented in software within the cloud. You define CIDR blocks for the VPC and subdivide them into subnets, typically across multiple availability zones for redundancy.
+
+Key components:
+
+**Subnets** — public subnets (with internet gateway routes, for load balancers and bastion hosts) and private subnets (no direct internet access, for databases and application servers).
+
+**Security groups** — stateful firewall rules attached to individual resources. Define what traffic is allowed inbound and outbound per resource.
+
+**Network ACLs** — stateless rules at the subnet level. An additional layer of traffic control on top of security groups.
+
+**VPC peering / Transit gateway** — connect VPCs to each other or to on-premises networks. Enables private connectivity between cloud environments without traffic traversing the public internet.
+
+For organizations using cloud infrastructure, the VPC is the foundational construct. Proper VPC design — subnet segmentation, security group hygiene, private vs public subnet placement — is the cloud equivalent of network segmentation on-premises.`,
+  },
+  {
+    slug: "cdn",
+    term: "CDN",
+    aka: ["Content Delivery Network"],
+    categories: ["Cloud & Infrastructure"],
+    related: ["saas", "ddos-attack", "tls", "dns"],
+    shortDef: "A CDN (Content Delivery Network) is a globally distributed network of servers that caches and serves content from locations close to end users, reducing latency and offloading traffic from the origin server.",
+    content: `Without a CDN, every request for your website's assets — images, CSS, JavaScript, video — travels from the user to your origin server and back. If your server is in New York and the user is in Tokyo, that's a 150ms round-trip minimum, before any application processing.
+
+A CDN places copies of your content on servers at dozens or hundreds of locations worldwide (called edge nodes or PoPs — Points of Presence). A user in Tokyo gets content served from a nearby edge node, not your New York server. Latency drops dramatically.
+
+## Beyond performance
+
+**DDoS mitigation** — CDN providers absorb volumetric attacks at the edge before they reach your origin. Cloudflare, Akamai, and AWS CloudFront have infrastructure capable of absorbing attacks measured in terabits per second.
+
+**TLS termination** — the CDN terminates HTTPS connections at the edge, offloading SSL overhead from your origin server.
+
+**Caching** — static assets cached at the edge don't hit your origin at all, reducing load and cost.
+
+**WAF (Web Application Firewall)** — most CDN providers offer WAF capabilities at the edge, inspecting and filtering HTTP traffic before it reaches your application.
+
+For any public-facing web property, a CDN is effectively mandatory at scale — both for performance and resilience. Cloudflare's free tier is an appropriate starting point for organizations that need DDoS protection and CDN caching without significant cost.`,
+  },
+  {
+    slug: "disaster-recovery",
+    term: "Disaster Recovery",
+    aka: ["DR", "Business Continuity", "BCP", "BCDR"],
+    categories: ["Cloud & Infrastructure", "Security"],
+    related: ["raid", "ups", "virtual-machine", "backup"],
+    shortDef: "Disaster recovery (DR) is the set of policies, procedures, and technologies that enable an organization to restore IT systems and data after a major failure — a ransomware attack, hardware failure, natural disaster, or facility loss.",
+    content: `Disaster recovery planning answers the question: if we lost everything in our primary environment right now, how would we recover, how long would it take, and how much data would we lose?
+
+Two metrics define a DR posture:
+
+**RTO (Recovery Time Objective)** — how long the organization can tolerate being down. An hour? A day? A week? This drives the investment required — a one-hour RTO demands near-real-time failover; a 24-hour RTO allows for more economical backup restore.
+
+**RPO (Recovery Point Objective)** — how much data loss is acceptable. If RPO is 4 hours, you need backups at least every 4 hours. If RPO is near-zero, you need real-time replication.
+
+## DR tiers
+
+**Backup and restore** — lowest cost, longest recovery time. Restore from backup after an incident. Recovery time measured in hours to days.
+
+**Warm standby** — a secondary environment that runs scaled-down infrastructure, continuously updated via replication. Can be brought to full capacity in minutes to hours.
+
+**Hot standby / active-active** — full parallel environment, always running. Failover is nearly instantaneous. Highest cost.
+
+## Backup fundamentals
+
+Regardless of tier, backup hygiene is the foundation:
+
+**3-2-1 rule** — three copies of data, on two different media types, with one copy offsite.
+
+**Immutable backups** — backups that ransomware can't encrypt or delete, typically offsite or air-gapped.
+
+**Test restores** — an untested backup is not a backup. Regular restore tests confirm that backup data is actually recoverable.
+
+DR is not the same as high availability (HA). HA handles component failures within a running system — a server failing in a cluster. DR handles the loss of the entire environment.`,
+  },
+
+  // ── Physical & Environmental ───────────────────────────────────────────────
+  {
+    slug: "latency",
+    term: "Latency",
+    aka: ["Ping", "Round-Trip Time", "RTT", "Delay"],
+    categories: ["Networking"],
+    related: ["qos", "voip", "tcp", "wan"],
+    shortDef: "Latency is the time it takes for a packet to travel from source to destination. High latency causes delay in real-time applications like VoIP and video conferencing; it doesn't reduce throughput but makes interactive communication feel sluggish.",
+    content: `Latency is the delay between sending a packet and it arriving at the destination, measured in milliseconds. Round-trip time (RTT) — what the ping command measures — is the time for the packet to make the full round trip.
+
+Latency is often confused with bandwidth. Bandwidth is how much data can flow per second; latency is how long each piece takes to arrive. A high-latency link can have plenty of bandwidth — a satellite internet connection might have 50Mbps but 600ms latency. For downloading large files, that's fine. For a video call, it's unusable.
+
+Sources of latency:
+
+**Propagation delay** — light travels at roughly 200,000 km/s in fiber. A round trip from New York to London is ~10,000km, so physical speed of light alone contributes ~50ms RTT. There's no engineering around this.
+
+**Switching/routing delay** — each hop through a router adds a small amount of processing time, typically sub-millisecond on modern equipment.
+
+**Queuing delay** — packets waiting in switch or router buffers when a link is congested. This is where QoS has the most impact.
+
+**Serialization delay** — time to put all the bits of a packet onto the wire. Negligible at 1G/10G; relevant on low-speed links.
+
+Acceptable latency varies by application. VoIP becomes noticeably degraded above 150ms one-way. Gaming becomes unplayable above ~100ms. Web browsing is tolerant of 200-300ms. Backup and file transfer are throughput-limited, not latency-limited.`,
+  },
+  {
+    slug: "hertz",
+    term: "Hertz",
+    aka: ["Hz", "MHz", "GHz", "Frequency"],
+    categories: ["Hardware", "Networking"],
+    related: ["cpu", "emi", "electric-noise", "wavelength"],
+    shortDef: "Hertz (Hz) is the unit of frequency — one cycle per second. In IT, it appears as CPU clock speed (GHz), network cable bandwidth ratings (MHz), and radio frequency bands for Wi-Fi (2.4GHz, 5GHz, 6GHz).",
+    content: `Frequency measures how many times something repeats per second. 1 Hz = 1 cycle/second. 1 MHz = 1 million cycles/second. 1 GHz = 1 billion cycles/second.
+
+In IT contexts, Hertz appears across several domains:
+
+**CPU clock speed** — a 3.0GHz processor completes 3 billion clock cycles per second. Clock speed is one factor in CPU performance; instructions per cycle (IPC) and core count matter equally.
+
+**Network cable frequency ratings** — Cat6a is rated to 500MHz, meaning it can faithfully carry signal frequencies up to 500 million cycles per second. Higher frequency capability enables higher data rates — 10Gbps at 500MHz vs 1Gbps at 100MHz for Cat5e.
+
+**Wi-Fi bands** — the 2.4GHz, 5GHz, and 6GHz bands are named for their carrier frequency. Higher frequency = shorter wavelength = more bandwidth available but less penetration through walls.
+
+**AC power** — standard North American power runs at 60Hz (60 cycles per second). European power is 50Hz. This difference matters for equipment that isn't universal voltage rated, and explains why power adapters specify their input frequency range.
+
+**EMI and electrical noise** — electrical equipment generates interference at its operating frequency and harmonics. Understanding frequency helps diagnose interference between electrical systems and RF equipment.`,
+  },
+  {
+    slug: "electric-noise",
+    term: "Electrical Noise",
+    aka: ["Electrical Interference", "Signal Noise", "Electromagnetic Noise"],
+    categories: ["Hardware", "Cabling"],
+    related: ["emi", "hertz", "awg", "low-voltage-wiring"],
+    shortDef: "Electrical noise is unwanted electrical signal interference that degrades data transmission or power quality — caused by motors, fluorescent lights, power lines, and other electrical equipment running near signal cables.",
+    content: `Every electrical conductor carrying alternating current radiates an electromagnetic field, and every conductor in that field picks up an induced voltage. When that induced voltage is high enough relative to the signal being carried, it becomes noise — corrupting data signals, triggering false alarms in control systems, or reducing power quality.
+
+Common noise sources in IT environments:
+
+**Power cables running parallel to data cables** — a power cable carrying 60Hz AC induces that frequency onto adjacent data cables. The NEC requires minimum separation distances for this reason.
+
+**Fluorescent and LED driver ballasts** — switching power supplies in lighting fixtures generate high-frequency noise.
+
+**Motors and HVAC equipment** — variable speed drives, compressors, and elevators generate broadband electrical noise.
+
+**Switching power supplies** — all modern computer power supplies are switching-mode, generating noise at their switching frequency (typically 100kHz-1MHz) and harmonics.
+
+Copper data cables are susceptible to electrical noise. Shielded twisted pair (STP/FTP) cable adds a foil or braid shield that contains noise and reduces susceptibility, but requires proper grounding to be effective. Fiber optic cable is completely immune to electrical noise — one of its primary advantages in electrically noisy environments.`,
+  },
+  {
+    slug: "emi",
+    term: "EMI",
+    aka: ["Electromagnetic Interference", "RFI", "Radio Frequency Interference"],
+    categories: ["Hardware", "Cabling"],
+    related: ["electric-noise", "awg", "low-voltage-wiring", "wlan"],
+    shortDef: "EMI (Electromagnetic Interference) is interference from electromagnetic radiation that disrupts electronic devices and communications — caused by motors, radios, power lines, and other radiating sources nearby.",
+    content: `EMI is the broader category that encompasses electrical noise from conducted interference (noise on cables) and radiated interference (electromagnetic waves through the air). Both can disrupt data communications and electronic equipment.
+
+Sources of EMI in IT environments:
+
+**Radio transmitters** — nearby cellular, radio, or radar equipment can interfere with Wi-Fi and other wireless systems operating at similar frequencies.
+
+**Industrial equipment** — motors, welders, and variable frequency drives emit broadband EMI.
+
+**Power infrastructure** — transformers, UPSes, and generators generate low-frequency EMI from their magnetic fields.
+
+**Fluorescent lighting** — particularly near end-of-life, ballasts generate significant RF noise.
+
+Mitigations:
+
+**Physical separation** — more distance from noise sources is the simplest fix. Cable runs should be kept as far as practical from power infrastructure.
+
+**Shielded cable** — STP or armored cable for copper runs in high-EMI environments.
+
+**Fiber optic** — immune to EMI entirely, since it carries light rather than electrical signals.
+
+**Metal conduit** — provides shielding for cable runs through high-interference zones.
+
+EMI compliance (FCC Part 15 in the US, CE marking in Europe) requires electronic equipment to both limit its own emissions and demonstrate tolerance to typical EMI environments.`,
+  },
+  {
+    slug: "wavelength",
+    term: "Wavelength",
+    categories: ["Hardware", "Cabling", "Networking"],
+    related: ["attenuation", "dark-fiber", "mtp-mpo-connector"],
+    shortDef: "Wavelength is the physical distance between two peaks of a wave. In networking, it refers to the wavelength of light used in fiber optic transceivers — different wavelengths travel different distances and enable WDM (multiple channels on one fiber).",
+    content: `Wavelength and frequency are inversely related: longer wavelength = lower frequency, shorter wavelength = higher frequency. In fiber optics, wavelength (measured in nanometers) determines how far light travels in glass before attenuating and what transceiver types are compatible.
+
+## Common fiber wavelengths
+
+**850nm (multimode)** — short-range, used with VCSEL lasers in SFP+ and QSFP transceivers for data center connections up to ~300m. The most common wavelength for short inter-rack fiber.
+
+**1310nm (single-mode)** — mid-range, used for campus and metro connections from hundreds of meters to ~10km.
+
+**1550nm (single-mode)** — long-range, lowest attenuation in standard single-mode fiber, used for distances from 10km to 100km+.
+
+## WDM — Wavelength Division Multiplexing
+
+Multiple wavelengths of light can travel simultaneously in a single fiber without interfering, because the wavelengths don't interact. WDM systems combine multiple wavelengths (channels) onto a single fiber pair at the transmit end and separate them at the receive end.
+
+**CWDM (Coarse WDM)** — up to 18 channels spaced 20nm apart. Lower cost, shorter distances. Common for campus and metro.
+
+**DWDM (Dense WDM)** — 40-96 or more channels spaced 0.8nm apart. Used for long-haul backbone and dark fiber capacity maximization — a single fiber pair can carry 400Gbps or more using DWDM.`,
+  },
+
+  // ── Miscellaneous ──────────────────────────────────────────────────────────
+  {
+    slug: "ptz-camera",
+    term: "PTZ Camera",
+    aka: ["Pan-Tilt-Zoom Camera"],
+    categories: ["Hardware", "Networking"],
+    related: ["poe", "vlan", "rj45"],
+    shortDef: "A PTZ (Pan-Tilt-Zoom) camera is a remotely controllable security or AV camera that can pan (rotate horizontally), tilt (move vertically), and zoom optically — as opposed to a fixed-position camera with a set field of view.",
+    content: `PTZ cameras are used in security, conference rooms, broadcast, and event coverage where the field of view needs to be adjusted remotely or automatically. A single PTZ camera covering a large area can replace several fixed cameras, though it can only cover one area at a time.
+
+In IT infrastructure terms, PTZ cameras are network-connected IP cameras — they run on the data network, typically on a dedicated IoT or camera VLAN, and are powered via PoE (usually PoE+ or PoE++ given their higher power draw for the motor and optics).
+
+Control protocols: most PTZ cameras use VISCA (Sony's PTZ control protocol), PELCO-D/P, or IP-based API control. In video management systems (VMS), PTZ control is typically integrated — clicking in the camera view moves the camera.
+
+For conferencing, auto-tracking PTZ cameras use AI to follow speakers around a room, keeping them centered in frame without a dedicated camera operator. These are increasingly common in hybrid meeting room setups.`,
+  },
+  {
+    slug: "autonegotiation",
+    term: "Autonegotiation",
+    categories: ["Networking", "Hardware"],
+    related: ["lacp", "duplex-simplex", "rj45"],
+    shortDef: "Autonegotiation is the process by which two connected Ethernet devices automatically agree on the highest speed and duplex mode both support — eliminating the need to manually configure these parameters.",
+    content: `When you plug an Ethernet cable between two devices, autonegotiation runs before any data is exchanged. Each device advertises its capabilities — 10Mbps, 100Mbps, 1Gbps, 10Gbps; half or full duplex — and both settle on the best common option.
+
+For modern Gigabit and 10G Ethernet, autonegotiation is mandatory in the spec and always used. The issue arises primarily with legacy 10/100Mbps links where manual speed/duplex configuration is possible.
+
+## Duplex mismatch
+
+The most common autonegotiation failure: one side is set to auto-negotiate, the other is manually configured. The manually configured side doesn't advertise capabilities — the autonegotiating side sees no advertisement, interprets this as a legacy device, and defaults to half-duplex. The result is a duplex mismatch: one side is full-duplex, the other is half-duplex.
+
+Symptoms: the link is up and passes traffic, but performance is poor — typically 10-20% of expected throughput, with errors in interface counters (late collisions on the half-duplex side). This is a notoriously hard-to-diagnose performance problem because the link appears to be working.
+
+The fix: both sides should either both be set to auto, or both be manually set to the same speed and duplex. Never mix auto on one side with manual on the other.`,
+  },
+  {
+    slug: "layer-1",
+    term: "Layer 1",
+    aka: ["Physical Layer", "OSI Layer 1", "L1"],
+    categories: ["Networking", "Cabling"],
+    related: ["rj45", "mtp-mpo-connector", "attenuation", "autonegotiation"],
+    shortDef: "Layer 1 is the physical layer of the OSI network model — the actual cables, connectors, electrical signals, and light pulses that carry bits between devices. If Layer 1 is broken, nothing above it works.",
+    content: `The OSI model describes networking in seven layers, each building on the one below. Layer 1 is the foundation: the physical medium — copper cable, fiber, RF spectrum — and the signaling that encodes bits onto it.
+
+Layer 1 encompasses: cable type and quality, connector termination, fiber cleanliness, signal levels, cable length, bend radius compliance, and the physical interface on the device (the port, transceiver, or antenna).
+
+## Why "check Layer 1 first" is a rule
+
+Most network troubleshooting starts at the physical layer because physical problems are the most common cause of failures and the easiest to overlook. Before assuming a configuration problem:
+
+- Is the cable securely seated at both ends?
+- Is the link LED lit on both devices?
+- Is the cable the correct category for the required speed?
+- For fiber: are the connectors clean? (A dirty fiber end face is the most common cause of fiber link problems.)
+- Is the transceiver the right type for the distance and fiber?
+- Does the cable exceed the maximum run distance for that speed?
+
+Higher-layer problems (VLAN misconfiguration, routing issues, authentication failures) can only be investigated once Layer 1 is confirmed working. Chasing a VLAN problem on a cable with a marginal connection wastes significant time.`,
+  },
+  {
+    slug: "cli",
+    term: "CLI",
+    aka: ["Command Line Interface", "Command Prompt", "Terminal", "Shell"],
+    categories: ["Hardware", "Networking"],
+    related: ["ssh", "virtual-machine"],
+    shortDef: "A CLI (Command Line Interface) is a text-based interface for operating a computer or network device by typing commands, as opposed to using a graphical interface. SSH, terminal, and switch console access all use a CLI.",
+    content: `A CLI accepts typed commands and returns text output. No mouse, no icons — just a prompt waiting for input. This feels primitive compared to a graphical interface, but CLIs offer precision and efficiency that GUIs rarely match for technical work.
+
+**Why CLIs matter for IT infrastructure:**
+
+**Scripting and automation** — CLI commands can be scripted, piped, and chained. A task that requires clicking through 50 GUI screens can be a single command or script.
+
+**Remote access** — SSH gives you full CLI access to a remote server or switch over an encrypted connection, with no graphical overhead.
+
+**Consistency** — CLI behavior is stable across software versions; GUI layouts change. Documentation, knowledge base articles, and configuration guides for network equipment are almost always written in CLI commands.
+
+**Network devices** — switches, routers, and firewalls are primarily configured via CLI. Even equipment with web interfaces often lacks full feature parity with the CLI; complex configurations require the command line.
+
+Common CLIs: Bash/Zsh (Linux/macOS), PowerShell and cmd.exe (Windows), Cisco IOS, Juniper Junos, Aruba AOS.`,
+  },
+  {
+    slug: "endpoint",
+    term: "Endpoint",
+    aka: ["End Device", "Client Device"],
+    categories: ["Hardware", "Security"],
+    related: ["edr", "mdm", "virtual-machine", "8021x"],
+    shortDef: "An endpoint is any user-facing device that connects to a network — laptops, desktops, smartphones, tablets, and workstations. In security contexts, endpoints are the primary targets of attacks and the focus of EDR and MDM solutions.",
+    content: `"Endpoint" distinguishes user devices from network infrastructure (switches, routers) and servers. The term is particularly prevalent in security, where endpoint protection — antivirus, EDR, MDM policy enforcement — is a distinct discipline from network security.
+
+Every endpoint is a potential entry point for attackers: a phished credential, a malicious download, an unpatched vulnerability. EDR (Endpoint Detection and Response) provides behavioral monitoring and response capabilities on each device. MDM enforces security policies: disk encryption, screen lock, patch status, VPN requirements.
+
+The shift to remote work expanded the endpoint security challenge: devices now operate outside the network perimeter, on untrusted networks, without the protection of on-premises firewalls and filtering. Zero Trust treats each endpoint as potentially compromised regardless of network location — verifying device health at every access request rather than trusting based on network position.
+
+In infrastructure terms, endpoint count drives switch port planning (24-48 per access switch), DHCP scope sizing, 802.1X deployment scope, and PoE power budget calculation.`,
   },
 ]
