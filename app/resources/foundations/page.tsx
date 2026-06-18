@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { foundationsContent } from "./content";
+import { renderMarkdown } from "@/app/lib/renderMarkdown";
 
 export const metadata: Metadata = {
   title: "IT Foundations: What to Get Right Before It Gets Expensive — RSystems NYC",
@@ -10,67 +11,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://rsystems.nyc/resources/foundations" },
 };
 
-// ─── Markdown → HTML renderer ────────────────────────────────────────────────
-
-function escHtml(s: string): string {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
-function inlineFmt(s: string): string {
-  return escHtml(s)
-    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, text, href) =>
-      /^https?:\/\//.test(href)
-        ? `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`
-        : `<a href="${href}">${text}</a>`
-    )
-    .replace(/\*([^*\n]+)\*/g, "<em>$1</em>");
-}
-
-function parseListBlock(lines: string[]): string {
-  const ordered = /^\d+\./.test(lines[0]);
-  const tag = ordered ? "ol" : "ul";
-  const items: string[] = [];
-  let cur = "";
-  for (const line of lines) {
-    if (/^(-|\d+\.)\s/.test(line)) {
-      if (cur) items.push(cur);
-      cur = line.replace(/^(-|\d+\.)\s/, "");
-    } else {
-      cur += " " + line.trim();
-    }
-  }
-  if (cur) items.push(cur);
-  return `<${tag}>${items.map((i) => `<li>${inlineFmt(i.trim())}</li>`).join("")}</${tag}>`;
-}
-
-function renderBlock(block: string): string {
-  if (block.startsWith("## ")) return `<h2>${inlineFmt(block.slice(3).trim())}</h2>`;
-  if (block.startsWith("### ")) return `<h3>${inlineFmt(block.slice(4).trim())}</h3>`;
-
-  const lines = block.split("\n");
-  const fi = lines.findIndex((l) => /^(-|\d+\.)\s/.test(l));
-  if (fi === -1) return `<p>${inlineFmt(block.replace(/\n/g, " ").trim())}</p>`;
-
-  const pre = lines.slice(0, fi);
-  const lst = lines.slice(fi);
-  const listHtml = parseListBlock(lst);
-  if (!pre.length) return listHtml;
-  return `<p>${inlineFmt(pre.join(" ").trim())}</p>${listHtml}`;
-}
-
-function renderMarkdown(md: string): string {
-  if (!md) return "";
-  return md
-    .split(/\n\n+/)
-    .map((b) => b.trim())
-    .filter(Boolean)
-    .map((b) => renderBlock(b))
-    .join("\n");
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
 
 export default function FoundationsPage() {
   return (

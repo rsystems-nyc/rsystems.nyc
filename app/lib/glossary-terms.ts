@@ -719,6 +719,8 @@ A switch, by default, forwards traffic to every port. Put 100 devices on one swi
 
 The practical result: you can run your workstations, servers, VoIP phones, guest Wi-Fi, and security cameras on the same physical infrastructure while keeping each group's traffic completely separate. A guest on your guest VLAN can't reach your file server. A compromised IoT device can't talk to your workstations. The segmentation is real and enforced at the switch level.
 
+![Diagram showing how VLANs isolate traffic between device groups across two switches](/images/glossary/vlan-types.jpg)
+
 ## VLAN types
 
 **Data VLAN** — standard user and device traffic. Most of what runs on your network.
@@ -1032,6 +1034,8 @@ When one uplink between two switches isn't enough — either for bandwidth or re
 
 Common uses: uplinks between access and distribution switches, server connections to a switch (often called NIC teaming or bonding on the server side), and storage connections where both throughput and availability matter.
 
+![Diagram showing two 10Gbps physical links between Switch A and Switch B combining into a single 20Gbps logical link via LACP](/images/glossary/lacp-bonding-1.png)
+
 Traffic distribution across member links is handled by a hashing algorithm based on source/destination MAC addresses, IP addresses, or port numbers. This means a single flow (one TCP connection) still travels on one link — you won't see a single download speed double. The aggregate bandwidth benefits concurrent flows from multiple sources, not a single stream.
 
 Key requirements: all member ports must be the same speed and duplex. A 1Gbps and a 10Gbps port cannot be in the same LAG. The same is true on both ends — both switches must have identical port speeds for the bundled interfaces.
@@ -1121,6 +1125,8 @@ Most enterprise switches and server NICs support 9000-byte MTU. Confirm support 
 
 Standard unicast sends a separate copy of traffic to each recipient. If 50 devices want the same video stream, that's 50 individual streams from the source. Multicast sends one stream; the network replicates it only at points where the path diverges toward different receivers.
 
+![Diagram comparing unicast and multicast transmission paths through network switches — unicast duplicates traffic to every receiver, multicast replicates only where paths diverge](/images/glossary/multicast-vs-unicast.png)
+
 The addresses used for multicast are in the 224.0.0.0 to 239.255.255.255 range in IPv4. Devices subscribe to a multicast group using IGMP (Internet Group Management Protocol), telling the nearest router/switch they want to receive traffic for that group.
 
 Where multicast shows up in practice:
@@ -1192,6 +1198,8 @@ In small to mid-market environments, RADIUS is often provided by your directory 
 
 IPsec operates at Layer 3, encrypting the IP payload (and optionally the header) before it's sent across an untrusted network. Unlike TLS/SSL which secures individual application connections, IPsec secures all traffic between two endpoints at the IP level — regardless of application.
 
+![Flowchart showing the IPsec process between sender and receiver — encryption algorithm, HMAC authentication, symmetric key exchange via Diffie-Hellman, and ICV integrity verification](/images/glossary/ipsec-process.jpg)
+
 IPsec operates in two modes:
 
 **Tunnel mode** — the entire original IP packet is encrypted and encapsulated in a new IP packet. This is how site-to-site VPNs work: traffic between two networks is wrapped in an encrypted tunnel, and the tunnel endpoints are the VPN gateways.
@@ -1218,6 +1226,8 @@ IPsec is the standard for site-to-site VPN between firewalls — SonicWall to So
 
 The defining advantage of SSL VPN over IPsec for remote access is accessibility. IPsec requires UDP ports that are often blocked by corporate firewalls, hotels, and restrictive networks. SSL VPN runs over TCP port 443 — the same port as HTTPS — which is almost never blocked. A remote user connecting from a hotel or airport can reliably establish an SSL VPN connection even when IPsec would fail.
 
+![Diagram showing a remote user connecting via an SSL VPN tunnel over the internet to an SSL VPN server, which provides access to internal web servers and mail servers](/images/glossary/ssl-vpn-diagram.jpg)
+
 SSL VPN comes in two forms:
 
 **Clientless** — the VPN is accessed through a web browser with no installed software. The browser authenticates the user and provides access to specific internal web applications. Useful for contractors or managed devices where you can't install software.
@@ -1240,6 +1250,8 @@ IPsec remains the standard for site-to-site VPN (gateway to gateway). SSL VPN is
 Traditional multi-site connectivity meant MPLS circuits — private, reliable, carrier-managed, and expensive. SD-WAN was born from the observation that multiple commodity internet links, intelligently managed, can provide equivalent or better performance at a fraction of the cost.
 
 An SD-WAN appliance at each site monitors the performance of all available WAN links in real time — measuring latency, jitter, and packet loss. It routes traffic dynamically based on these metrics: voice calls go over the lowest-latency path, backup traffic goes over whatever's cheapest, and if a link degrades below a threshold, traffic automatically fails over to the next best option.
+
+![Architecture diagram showing SD-WAN management, control, and network layers — branch offices connecting via MPLS and internet circuits to headquarters, public cloud, and legacy networks](/images/glossary/sd-wan-architecture.jpg)
 
 Key capabilities most SD-WAN platforms offer:
 
