@@ -256,7 +256,7 @@ export const industriesData: Industry[] = [
       "Managed support for multi-location environments",
       "Grant-aligned procurement and documentation",
     ],
-    platforms: ["Microsoft 365 Nonprofit", "Google Workspace for Nonprofits", "TechSoup", "Microsoft Intune", "Windows Autopilot", "Apple Business Manager", "JumpCloud", "Entra ID", "1Password", "FreshService"],
+    platforms: ["Microsoft 365 Nonprofit", "Google Workspace for Nonprofits", "TechSoup", "Blackbaud", "Microsoft Intune", "Windows Autopilot", "Apple Business Manager", "JumpCloud", "Entra ID", "1Password", "FreshService"],
     relatedWork: [
       { href: "/case-studies/easterseals-nj-intune", label: "Automating Device Management — Easterseals NJ" },
       { href: "/case-studies/charity-water-gala", label: "Keeping a Gala Online — charity:water" },
@@ -399,7 +399,7 @@ export const industriesData: Industry[] = [
       "E-rate program familiarity",
       "Google Workspace for Education and Microsoft 365 Education experience",
     ],
-    platforms: ["Google Workspace for Education", "Microsoft 365 Education", "Apple School Manager", "Apple ADE", "Microsoft Intune", "Ruckus", "Ubiquiti", "Cisco"],
+    platforms: ["Google Workspace for Education", "Microsoft 365 Education", "Apple School Manager", "Apple ADE", "Microsoft Intune", "Ruckus", "Ubiquiti", "Cisco", "Blackbaud"],
     seoTitle: "IT for Schools & Educational Institutions | RSystems NYC",
     seoDescription: "RSystems has experience with educational technology infrastructure — 1:1 Chromebook and iPad programs, campus wireless, PA and camera system integration, E-rate funding, and Google Workspace for Education.",
     jsonLdKnowsAbout: ["Educational Technology", "1:1 Device Programs", "E-rate Program", "Campus Wireless", "Chromebook Management", "Google Workspace for Education"],

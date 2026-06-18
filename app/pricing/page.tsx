@@ -56,7 +56,7 @@ const setupRows = [
   { service: "Security & Domain",      range: "~$4,500+" },
   { service: "Server Management",      range: "~$2,000+" },
   { service: "Backup Management",      range: "~$500+" },
-  { service: "Core Suite onboarding",  range: "~$10,000+" },
+  { service: "Core Suite onboarding",  range: "~$15,000+" },
 ];
 
 export default function PricingPage() {

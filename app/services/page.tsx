@@ -26,7 +26,7 @@ const consultingCategories = [
   },
   {
     href: "/services/technology-consulting/ai/",
-    name: "AI Transformation",
+    name: "AI & Automation",
     description:
       "AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning for teams ready to operationalize AI.",
   },
@@ -105,6 +105,19 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+            <Link
+              href="/services/technology-consulting"
+              className="group relative col-span-1 md:col-span-2 lg:col-span-3 bg-[#F4F2EF] px-7 py-4 flex items-center justify-between hover:bg-white transition-colors border-b border-[#1A1A1A]/[0.07]"
+            >
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]">
+                Technology Consulting
+              </span>
+              <span className="text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </Link>
             {consultingCategories.map((cat) => (
               <Link
                 key={cat.href}

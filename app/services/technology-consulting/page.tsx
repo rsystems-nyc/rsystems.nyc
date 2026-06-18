@@ -39,12 +39,27 @@ const categories = [
     ],
   },
   {
-    label: "AI Transformation",
+    label: "AI & Automation",
     services: [
       {
-        name: "AI Transformation",
-        href: "/services/technology-consulting/ai-transformation",
+        name: "AI Enablement",
+        href: "/services/ai/ai-enablement",
         tagline: "AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning.",
+      },
+      {
+        name: "MCP Tooling",
+        href: "/services/ai/mcp-tooling",
+        tagline: "Model Context Protocol integrations that connect AI systems to your internal tools, data, and workflows.",
+      },
+      {
+        name: "Agent Governance & PAM",
+        href: "/services/ai/agent-governance",
+        tagline: "Permissions architecture and access controls for agentic AI deployments — least-privilege, by design.",
+      },
+      {
+        name: "Audit & Accountability",
+        href: "/services/ai/audit-accountability",
+        tagline: "Audit trails and accountability frameworks that make agent behavior reviewable and within operational limits.",
       },
     ],
   },
@@ -163,7 +178,8 @@ export default function TechConsultingIndexPage() {
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
             Identifying, defining, and solving business challenges with technology —
-            across network, cloud, security, identity, and AI.
+            across strategy, AI and automation, cloud, identity and security,
+            networking, and compute and storage.
           </p>
         </div>
       </section>
