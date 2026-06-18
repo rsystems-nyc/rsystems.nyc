@@ -103,24 +103,24 @@ body {
 }
 
 /* ── Glossary inline tooltip ─────────────────────────────────────── */
-.gl-ref {
+.prose-article .gl-ref {
   position: relative;
   display: inline;
 }
 
-.gl-link {
+.prose-article .gl-link {
   color: #69584e;
   border-bottom: 1px dashed #69584e60;
   text-decoration: none;
   cursor: pointer;
 }
 
-.gl-link:hover {
+.prose-article .gl-link:hover {
   color: #E8500A;
   border-bottom-color: #E8500A;
 }
 
-.gl-tip {
+.prose-article .gl-tip {
   display: none;
   position: absolute;
   bottom: calc(100% + 6px);
@@ -141,7 +141,7 @@ body {
   text-align: left;
 }
 
-.gl-tip::after {
+.prose-article .gl-tip::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -151,18 +151,18 @@ body {
   border-top-color: #1A1A1A;
 }
 
-.gl-ref:hover .gl-tip,
-.gl-ref:focus-within .gl-tip {
+.prose-article .gl-ref:hover .gl-tip,
+.prose-article .gl-ref:focus-within .gl-tip {
   display: block;
 }
 
 @media (max-width: 480px) {
-  .gl-tip {
+  .prose-article .gl-tip {
     width: 200px;
     left: 0;
     transform: none;
   }
-  .gl-tip::after {
+  .prose-article .gl-tip::after {
     left: 20px;
     transform: none;
   }
