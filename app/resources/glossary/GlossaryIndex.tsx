@@ -33,6 +33,11 @@ export default function GlossaryIndex() {
     return set;
   }, []);
 
+  const hasNumericTerms = useMemo(
+    () => glossaryTerms.some((t) => /^\d/.test(t.term)),
+    []
+  );
+
   const categories = useMemo(() => {
     const used = new Set<string>();
     glossaryTerms.forEach((t) => t.categories.forEach((c) => used.add(c)));
@@ -51,7 +56,9 @@ export default function GlossaryIndex() {
           t.shortDef.toLowerCase().includes(q)
       );
     } else {
-      if (activeLetter) {
+      if (activeLetter === "#") {
+        terms = terms.filter((t) => /^\d/.test(t.term));
+      } else if (activeLetter) {
         terms = terms.filter((t) => t.term[0].toUpperCase() === activeLetter);
       }
       if (activeCategory) {
@@ -63,6 +70,8 @@ export default function GlossaryIndex() {
 
   const pillBase =
     "px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-widest border transition-colors";
+  const pillBaseAZ =
+    "px-2 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide border transition-colors";
   const pillActive = "bg-[#E8500A] text-white border-[#E8500A]";
   const pillInactive =
     "bg-[#F4F2EF] text-[#1A1A1A] border-[#1A1A1A]/20 hover:border-[#E8500A]/40";
@@ -79,12 +88,25 @@ export default function GlossaryIndex() {
       />
 
       {/* A-Z strip */}
-      <div className="flex flex-wrap gap-1 mb-6">
+      <div className="flex flex-nowrap gap-0.5 mb-6 w-full">
         <button
           onClick={() => setActiveLetter(null)}
-          className={`${pillBase} ${activeLetter === null && !search ? pillActive : pillInactive}`}
+          className={`${pillBaseAZ} flex-1 text-center ${activeLetter === null && !search ? pillActive : pillInactive}`}
         >
           All
+        </button>
+        <button
+          onClick={() => setActiveLetter(activeLetter === "#" ? null : "#")}
+          disabled={!hasNumericTerms}
+          className={`${pillBaseAZ} flex-1 text-center ${
+            activeLetter === "#"
+              ? pillActive
+              : hasNumericTerms
+              ? pillInactive
+              : "bg-[#F4F2EF] text-[#1A1A1A]/30 border-[#1A1A1A]/10 cursor-default"
+          }`}
+        >
+          #
         </button>
         {ALPHABET.map((letter) => {
           const has = lettersWithTerms.has(letter);
@@ -97,7 +119,7 @@ export default function GlossaryIndex() {
                 if (!has) return;
                 setActiveLetter(isActive ? null : letter);
               }}
-              className={`${pillBase} ${
+              className={`${pillBaseAZ} flex-1 text-center ${
                 isActive
                   ? pillActive
                   : has

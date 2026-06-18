@@ -109,14 +109,20 @@ body {
 }
 
 .prose-article .gl-link {
-  color: #69584e;
-  border-bottom: 1px dashed #69584e60;
+  color: #E8500A;
+  border-bottom: 1px dashed #E8500A60;
   text-decoration: none;
   cursor: pointer;
 }
 
-.prose-article .gl-link:hover {
+.prose-article .gl-link:visited {
   color: #E8500A;
+  border-bottom-color: #E8500A60;
+}
+
+.prose-article .gl-link:hover,
+.prose-article .gl-link:visited:hover {
+  color: rgba(232, 80, 10, 0.75);
   border-bottom-color: #E8500A;
 }
 

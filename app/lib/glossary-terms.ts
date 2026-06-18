@@ -1036,6 +1036,8 @@ Common uses: uplinks between access and distribution switches, server connection
 
 ![Diagram showing two 10Gbps physical links between Switch A and Switch B combining into a single 20Gbps logical link via LACP](/images/glossary/lacp-bonding-1.png)
 
+![Diagram showing the LACP negotiation process — switches compare system priority to elect an Actor, which then determines the active links in the port channel](/images/glossary/lacp-port-channel.png)
+
 Traffic distribution across member links is handled by a hashing algorithm based on source/destination MAC addresses, IP addresses, or port numbers. This means a single flow (one TCP connection) still travels on one link — you won't see a single download speed double. The aggregate bandwidth benefits concurrent flows from multiple sources, not a single stream.
 
 Key requirements: all member ports must be the same speed and duplex. A 1Gbps and a 10Gbps port cannot be in the same LAG. The same is true on both ends — both switches must have identical port speeds for the bundled interfaces.
@@ -1264,5 +1266,1329 @@ Key capabilities most SD-WAN platforms offer:
 **Centralized management** — all sites managed from a single dashboard with visibility into performance across the entire WAN.
 
 For organizations with multiple offices that are overpaying for MPLS, or that have reliability problems with a single internet circuit, SD-WAN is often the right answer. For single-site organizations, standard dual-WAN failover on a firewall may be sufficient without the added complexity.`,
+  },
+
+  // ── Security ───────────────────────────────────────────────────────────────
+  {
+    slug: "vpn",
+    term: "VPN",
+    aka: ["Virtual Private Network"],
+    shortDef: "Creates an encrypted tunnel between two endpoints over the public internet — used for remote access to corporate resources and connecting offices without leased lines.",
+    categories: ["Networking", "Security"],
+    related: ["ssl-vpn", "ipsec", "sd-wan", "radius"],
+    content: `A VPN lets you treat an untrusted network — the public internet — as if it were a private connection. Traffic between the two endpoints is encrypted in transit, so anyone intercepting it sees only ciphertext.
+
+## Two distinct use cases
+
+**Remote access VPN** connects individual users to the corporate network. An employee at home or a hotel opens a VPN client, authenticates, and their device gets a corporate IP address with access to internal resources as if they were physically in the office. This is the most common VPN use case for SMB environments.
+
+**Site-to-site VPN** connects two networks — typically two office locations — through a persistent encrypted tunnel between the firewall/router at each site. Traffic between the sites flows through the tunnel automatically, with no client software on end devices.
+
+![Diagram showing a VPN encrypted tunnel connecting a remote user and a branch office to headquarters over the public internet](/images/glossary/vpn-tunnel.png)
+
+## IPsec vs SSL
+
+The two dominant tunneling protocols:
+
+**IPsec** is the standard for site-to-site VPNs — persistent tunnels between gateways. Mature, widely supported, efficient for point-to-point network interconnection.
+
+**SSL/TLS (SSL VPN)** is the standard for remote access. Runs over port 443, which is almost never blocked — making it more reliable for users connecting from hotels, airports, or restrictive networks. Most modern remote-access VPN clients (Cisco AnyConnect, SonicWall NetExtender, Palo Alto GlobalProtect) use SSL/TLS under the hood.
+
+## What a VPN is not
+
+A VPN doesn't replace a firewall. It provides an encrypted transport layer, but access control — what authenticated users can reach once connected — still requires proper firewall rules and segmentation. Don't mistake "on VPN" for "trusted."`,
+  },
+  {
+    slug: "tls",
+    term: "TLS",
+    aka: ["Transport Layer Security", "SSL", "SSL/TLS"],
+    shortDef: "The cryptographic protocol that encrypts data in transit between two parties. It's the \"S\" in HTTPS — and the protocol behind VPNs, secure email, and most encrypted network traffic.",
+    categories: ["Security", "Networking"],
+    related: ["https", "certificate", "asymmetric-cryptography", "ssl-vpn"],
+    content: `TLS is the foundation of secure communication on the internet. When you see a padlock in your browser's address bar, TLS is what's protecting the connection — encrypting the data so that anyone intercepting the traffic can't read it, and verifying that you're actually talking to the server you think you are.
+
+The protocol works in two phases. First, a handshake: the server presents its certificate, the client verifies it, and they negotiate the encryption parameters and exchange keys. Then the session: all subsequent data is encrypted using those keys.
+
+TLS uses asymmetric cryptography (public/private key pairs) for the handshake and key exchange, then switches to symmetric encryption for the session data — symmetric is far faster for bulk data.
+
+## TLS versions matter
+
+TLS 1.0 and 1.1 are deprecated and considered insecure. TLS 1.2 is the current baseline. TLS 1.3 (released 2018) simplified the handshake, removed weak cipher suites, and reduced connection latency — prefer it where supported.
+
+Enabling only TLS 1.2+ and disabling older protocols is a standard hardening step on any public-facing server. Most compliance frameworks (PCI-DSS, HIPAA) require it.
+
+## SSL vs TLS
+
+SSL (Secure Sockets Layer) was the predecessor to TLS, deprecated in the late 1990s. The terms are used interchangeably in practice — "SSL certificate" is a common shorthand even though the protocol has been TLS for decades. When someone says "SSL," they mean TLS.`,
+  },
+  {
+    slug: "https",
+    term: "HTTPS",
+    aka: ["Hypertext Transfer Protocol Secure", "HTTP over TLS"],
+    shortDef: "HTTP secured with TLS encryption. Protects web traffic from interception and verifies the server's identity via a certificate. Every public-facing site should be HTTPS-only.",
+    categories: ["Security", "Networking"],
+    related: ["tls", "certificate", "dns"],
+    content: `HTTP transmits data in plaintext — anyone on the same network can read it. HTTPS wraps HTTP in a TLS session, encrypting all traffic between client and server and authenticating the server with a certificate.
+
+Every public-facing website should be HTTPS-only in 2025. Browsers actively warn users about HTTP sites, search engines penalize them in rankings, and most browsers block mixed content (HTTP resources loaded on HTTPS pages). There's no legitimate reason to run a public site over plain HTTP.
+
+HTTPS operates on port 443. HTTP operates on port 80. Redirecting all HTTP traffic to HTTPS is standard practice — your web server or CDN handles this automatically in most configurations.
+
+For internal applications and corporate intranets, the calculus is more nuanced. HTTPS is still recommended — it prevents credential interception on the local network — but internal certificate management adds operational overhead that some organizations defer.
+
+HSTS (HTTP Strict Transport Security) is a header that tells browsers to only connect to a site over HTTPS — even if a user types http:// directly. Combined with preloading, it prevents downgrade attacks that try to force the connection to unencrypted HTTP.`,
+  },
+  {
+    slug: "ssh",
+    term: "SSH",
+    aka: ["Secure Shell"],
+    shortDef: "The standard protocol for encrypted remote command-line access to servers and network devices. Replaced Telnet and rlogin, which transmitted credentials in plaintext.",
+    categories: ["Security", "Networking"],
+    related: ["tls", "vpn", "certificate"],
+    content: `SSH creates an encrypted channel between your terminal and a remote device, letting you run commands, transfer files, and manage configuration as if you were physically at the console — but over any network, securely.
+
+## Authentication methods
+
+**Password authentication** — a username and password, transmitted over the encrypted channel. Fine for convenience, weak for security — susceptible to brute-force attacks.
+
+**Key-based authentication** — the more secure and preferred method. You generate a key pair: the private key stays on your machine, the public key is placed on the server. Authentication proves possession of the private key without ever transmitting it. Key-based auth is immune to password brute-forcing and is the right approach for any server exposed to the internet.
+
+## Key hardening steps
+
+- **Disable root login** over SSH. Log in as a regular user and use sudo if needed.
+- **Disable password authentication** once key-based auth is working.
+- **Change the default port** from 22 if desired — reduces automated scan noise, though it's not a real security control.
+- **Restrict access by IP** where possible — whitelist the IPs that should have SSH access.
+
+SSH tunneling is also worth knowing: SSH can forward arbitrary TCP ports through an encrypted tunnel, providing a lightweight VPN-like capability for specific services without a full VPN setup.`,
+  },
+  {
+    slug: "zero-trust",
+    term: "Zero Trust",
+    aka: ["Zero Trust Architecture", "ZTA", "Never Trust Always Verify"],
+    shortDef: "A security model that assumes no user, device, or connection should be trusted by default — every access request is verified based on identity, device health, and context.",
+    categories: ["Security"],
+    related: ["mfa", "device-trust", "vpn", "8021x"],
+    content: `Traditional security drew a hard perimeter: inside the network, you were trusted; outside, you weren't. Zero Trust discards this model. With employees working remotely, applications in the cloud, and attackers regularly breaching perimeters, "inside the network" no longer means safe.
+
+Zero Trust replaces perimeter trust with continuous verification: every request — regardless of where it comes from — is authenticated, the device is checked for compliance, and access is granted only to the specific resource requested, not the entire network.
+
+In practice this means: MFA on every authentication, device health checks before granting access, least-privilege access policies, and network segmentation that limits lateral movement if something is compromised.
+
+## The five pillars
+
+CISA (the US Cybersecurity and Infrastructure Security Agency) defines Zero Trust around five areas:
+
+- **Identity** — strong authentication, least-privilege access, ongoing verification
+- **Devices** — only managed, compliant devices can access sensitive resources
+- **Networks** — segmentation and access controls aligned to specific applications and workloads
+- **Applications** — access controls built into the application layer, not just the network
+- **Data** — classifying and protecting data based on sensitivity, not just location
+
+![Diagram showing the five pillars of Zero Trust architecture: Identity, Devices, Networks, Applications, and Data](/images/glossary/zero-trust-pillars.jpg)
+
+## Zero Trust is a journey, not a product
+
+No single product makes you Zero Trust. It's a framework applied across your identity, device management, network, and application layers over time. JumpCloud, Entra ID, and Okta handle the identity pillar. MDM and device trust handle the devices pillar. Firewalls with application-aware policies and 802.1X handle the network pillar.
+
+For most SMB organizations, a practical starting point is: enforce MFA everywhere, implement device trust for sensitive applications, and segment your network so a compromised endpoint can't reach everything.`,
+  },
+  {
+    slug: "ngfw",
+    term: "NGFW",
+    aka: ["Next-Generation Firewall"],
+    shortDef: "Goes beyond port and protocol filtering to inspect application-layer traffic, enforce user-based policies, detect intrusions, and block threats in real time.",
+    categories: ["Security", "Networking"],
+    related: ["vpn", "acl", "zero-trust", "sd-wan"],
+    content: `A traditional firewall decides what to allow or block based on source IP, destination IP, port, and protocol. An NGFW understands what the traffic actually is and does deeper inspection and policy enforcement.
+
+## What NGFWs add beyond basic firewall
+
+**Application identification** — recognizes specific applications regardless of port. Zoom might use port 443, as does HTTPS traffic — an NGFW can tell the difference and apply separate policies.
+
+**Intrusion Prevention System (IPS)** — inspects traffic for known attack signatures and anomalous patterns, blocking threats at the network edge before they reach endpoints.
+
+**SSL/TLS inspection** — decrypts, inspects, and re-encrypts HTTPS traffic to detect threats hiding inside encrypted sessions. Requires certificate trust configuration on client devices.
+
+**User-based policy** — ties firewall rules to authenticated users (integrated with Active Directory, Entra ID, or JumpCloud) rather than just IP addresses. "Marketing team can access the internet but not the server VLAN" enforced by identity, not by IP.
+
+**URL filtering and content categories** — blocks access to categories of websites (malware, phishing, P2P) across all users.
+
+**Threat intelligence** — cloud-connected feeds that update blocking rules as new threats emerge.
+
+NGFWs are more resource-intensive and expensive than traditional firewalls, but for any organization with sensitive data, remote users, or cloud services, the added inspection capabilities are essential. Basic port/protocol firewalls are insufficient against modern threats.`,
+  },
+  {
+    slug: "phishing",
+    term: "Phishing",
+    shortDef: "A social engineering attack that tricks people into revealing credentials or downloading malware — typically via email. The most common initial access vector in enterprise breaches.",
+    categories: ["Security"],
+    related: ["mfa", "zero-trust", "ransomware", "botnet"],
+    content: `Phishing works by impersonation. The attacker crafts a message that appears to come from a trusted source — your bank, Microsoft, a colleague, your CEO — and prompts the target to take an action that compromises security: click a link, enter credentials, open an attachment, authorize a wire transfer.
+
+## Common variants
+
+**Spear phishing** targets specific individuals with personalized messages. Rather than a generic "your account has been locked," a spear phish might reference your actual employer, a recent project, or a colleague's name. Far more convincing and more dangerous.
+
+**Whaling** targets executives specifically. The CFO receives an urgent message appearing to be from the CEO asking for an emergency wire transfer. Common enough to have its own name.
+
+**Smishing** — phishing via SMS. "Your package couldn't be delivered, click here to reschedule."
+
+**Vishing** — voice phishing. A caller claims to be IT support and asks for your password or MFA code.
+
+## Why phishing is still so effective
+
+Even security-aware people fall for good phishes. The combination of urgency, authority, and a plausible scenario bypasses rational evaluation. One successful phish on a privileged account can give an attacker everything.
+
+The defense has three layers: technical controls (email filtering, MFA so a stolen password alone isn't enough, DNS filtering to block malicious domains), process controls (verify unusual requests out of band, never enter credentials via a link in an email), and training (regular phishing simulations that build habit, not just annual checkbox compliance).
+
+Phishing-resistant MFA — passkeys and FIDO2 hardware keys — is the strongest technical defense, because a phishing page can't capture and replay a FIDO2 authentication.`,
+  },
+  {
+    slug: "ransomware",
+    term: "Ransomware",
+    shortDef: "Malware that encrypts a victim's files and demands payment for the decryption key. Modern attacks also exfiltrate data first — threatening to publish it if the ransom isn't paid.",
+    categories: ["Security"],
+    related: ["phishing", "edr", "dlp", "zero-trust", "botnet"],
+    content: `Ransomware typically arrives via phishing, exploitation of unpatched vulnerabilities, or compromised credentials — often through remote access tools like RDP or VPNs. Once inside, it moves laterally across the network, escalating privileges and spreading to maximize the damage before triggering the encryption.
+
+The encryption itself is usually fast. By the time an alert fires, the damage may already be done. Recovery depends entirely on whether backups exist, are current, and weren't also encrypted (a problem if backups were network-accessible).
+
+## The modern ransomware model
+
+Today's ransomware is almost always double-extortion: attackers exfiltrate sensitive data first, then encrypt. The threat isn't just losing access to your files — it's your customer data, financial records, or confidential communications being published publicly or sold.
+
+Most ransomware operations are now Ransomware-as-a-Service (RaaS): criminal groups develop and lease the tools to affiliates who run the actual attacks, splitting the ransom proceeds. This has lowered the technical barrier to entry significantly.
+
+## Defense priorities
+
+**Immutable, offline backups** — the most critical control. Backups that the ransomware can't reach or modify. 3-2-1: three copies, two media types, one offsite.
+
+**Endpoint detection and response (EDR)** — behavioral detection that identifies ransomware activity (mass file encryption) before it completes.
+
+**Least privilege and segmentation** — limits lateral movement. A compromised endpoint that can only reach its local VLAN causes far less damage than one with access to everything.
+
+**Patching** — many ransomware attacks exploit known vulnerabilities with available patches. Timely patching closes the most common entry points.`,
+  },
+  {
+    slug: "ddos-attack",
+    term: "DDoS Attack",
+    aka: ["Distributed Denial of Service", "DDoS"],
+    shortDef: "Floods a target with traffic from thousands of compromised machines simultaneously, overwhelming it until it becomes unavailable to legitimate users.",
+    categories: ["Security"],
+    related: ["botnet", "ngfw"],
+    content: `A denial of service (DoS) attack sends so much traffic to a target that it can't handle legitimate requests. A distributed version (DDoS) amplifies this enormously by coordinating attacks from thousands or millions of compromised machines — a botnet — making it nearly impossible to simply block the attacking IP.
+
+## Attack types
+
+**Volumetric attacks** — flood the target with raw bandwidth. Measured in Gbps. A 100Gbps DDoS against a server with a 1Gbps uplink wins trivially. Mitigation requires upstream scrubbing (traffic is routed through a service that filters the attack traffic before it reaches your network).
+
+**Protocol attacks** — exploit weaknesses in network protocol handling. SYN floods exhaust a server's connection table by sending thousands of incomplete TCP handshake requests. Mitigated by firewalls and modern TCP stacks.
+
+**Application-layer attacks** — target the web application itself. An HTTP flood sends millions of valid-looking HTTP requests, exhausting server processing capacity rather than bandwidth. Harder to distinguish from legitimate traffic; mitigated by WAFs and rate limiting.
+
+## Defense
+
+For organizations running public-facing infrastructure, DDoS mitigation means CDN or DDoS scrubbing services (Cloudflare, AWS Shield, Akamai). Your own hardware can't absorb a large volumetric attack — the defense happens upstream.
+
+For organizations running only cloud services without direct infrastructure exposure, your cloud provider's infrastructure provides substantial inherent protection.`,
+  },
+  {
+    slug: "botnet",
+    term: "Botnet",
+    shortDef: "A network of malware-infected computers controlled remotely by an attacker — used to launch DDoS attacks, send spam, or spread malware without the owners' knowledge.",
+    categories: ["Security"],
+    related: ["ddos-attack", "ransomware", "phishing"],
+    content: `Botnet infections spread through phishing emails, malicious downloads, exploitation of unpatched vulnerabilities, and drive-by downloads from compromised websites. Once a device is infected, it phones home to a command-and-control (C2) server that issues instructions — run a DDoS attack, send spam, scan for other vulnerable hosts.
+
+The infected device typically shows no obvious symptoms. The malware is designed to be quiet — a loud bot gets detected and remediated. The value to attackers is the aggregate scale: a botnet of 100,000 infected machines provides enormous DDoS capacity, spam-sending volume, or credential-stuffing capability.
+
+From a defender's standpoint, a device on your network joining a botnet is a significant incident — it means malware is running with enough access to establish outbound C2 connections. EDR solutions detect botnet-related behavior (unusual outbound connections, process injection, persistence mechanisms). DNS filtering catches C2 communications by blocking known malicious domains.`,
+  },
+  {
+    slug: "mitm",
+    term: "Man-in-the-Middle Attack",
+    aka: ["MITM", "On-Path Attack", "Adversary-in-the-Middle"],
+    shortDef: "Intercepts communication between two parties who believe they're talking directly. TLS encryption and certificate validation are the primary defenses.",
+    categories: ["Security"],
+    related: ["tls", "https", "ipsec", "phishing"],
+    content: `In a MITM attack, the attacker positions themselves between two communicating parties — intercepting, reading, and potentially modifying traffic before forwarding it. Neither party realizes the communication is being intercepted.
+
+## Common attack scenarios
+
+**ARP spoofing** — on a local network, the attacker sends falsified ARP packets associating their MAC address with a legitimate IP address (typically the default gateway). Traffic intended for the gateway flows through the attacker's machine instead.
+
+**DNS spoofing** — the attacker corrupts DNS responses to direct traffic to a malicious server instead of the intended destination. Combined with a fake certificate, this can intercept HTTPS traffic.
+
+**Rogue Wi-Fi access points** — the attacker creates a fake Wi-Fi network with a name similar to a legitimate one. Devices that connect have all their traffic routed through the attacker's infrastructure.
+
+**SSL stripping** — the attacker intercepts an HTTPS request and proxies it as HTTP between themselves and the server, while maintaining HTTPS between themselves and the client. HSTS and certificate pinning prevent this.
+
+## Defense
+
+TLS with valid certificates is the primary defense — it ensures you're actually talking to the server you intend to, and encrypts the traffic even if it's intercepted. HSTS prevents SSL stripping. Certificate pinning in applications prevents fraudulent certificates. For network-level attacks, 802.1X prevents rogue devices from joining your network, and VPN encryption protects traffic even on untrusted networks.`,
+  },
+  {
+    slug: "cve",
+    term: "CVE",
+    aka: ["Common Vulnerabilities and Exposures"],
+    shortDef: "The standardized system for identifying security vulnerabilities. A CVE ID like CVE-2024-1234 uniquely identifies a specific flaw across vendors, tools, and patch notes.",
+    categories: ["Security"],
+    related: ["zero-day-attack", "vulnerability-scanning", "edr", "ngfw"],
+    content: `When a security vulnerability is discovered and disclosed, it gets a CVE identifier: a unique number in the format CVE-[year]-[number]. This standardized ID is how vendors, security tools, news coverage, and patch notes all refer to the same vulnerability — allowing organizations to determine whether they're affected and prioritize remediation.
+
+Each CVE entry includes a description of the vulnerability, affected software versions, and a CVSS (Common Vulnerability Scoring System) severity score from 0 to 10. Critical-rated CVEs (CVSS 9.0+) typically represent remote code execution or similar high-impact vulnerabilities.
+
+The CVE system is maintained by MITRE Corporation and funded by CISA. The NVD (National Vulnerability Database) maintained by NIST provides enriched data including CVSS scores and affected vendor data.
+
+For IT operations, CVE awareness matters for:
+
+**Patching prioritization** — not all patches are equal. A patch addressing a CVSS 9.8 CVE being actively exploited is more urgent than one addressing a 4.0 CVE requiring local access.
+
+**Vulnerability scanning** — scanners like Tenable Nessus and Qualys map discovered vulnerabilities to CVE IDs, giving you a structured list of what needs fixing.
+
+**Vendor advisories** — when vendors release security patches, they reference CVE IDs so you can assess impact against your specific configuration.`,
+  },
+  {
+    slug: "zero-day-attack",
+    term: "Zero-Day Attack",
+    aka: ["Zero-Day", "0-day"],
+    shortDef: "Exploits a vulnerability unknown to the vendor — or known but not yet patched. Since no fix exists, traditional patch-based defenses are ineffective.",
+    categories: ["Security"],
+    related: ["cve", "vulnerability-scanning", "edr", "ngfw"],
+    content: `Most cyberattacks exploit known vulnerabilities — ones with published CVEs and available patches. Zero-days are different: they exploit flaws the vendor doesn't yet know about, giving defenders no opportunity to patch before they're weaponized.
+
+Zero-days are valuable commodities in the offensive security ecosystem. A remote code execution zero-day in a widely deployed product can sell for millions of dollars in both government and criminal markets. As a result, the most dangerous zero-days are typically used in targeted, sophisticated attacks — nation-state espionage, targeted ransomware on high-value organizations — rather than mass exploitation.
+
+When a zero-day is publicly disclosed (either by the discoverer or after evidence of exploitation), it becomes a "one-day" — now a known vulnerability with a race between vendors releasing patches and attackers exploiting organizations that haven't patched yet.
+
+## Defense when patching isn't an option
+
+Since you can't patch what doesn't have a patch, zero-day defense relies on layered controls:
+
+**Behavioral detection (EDR)** — catches malicious behavior even from unknown exploits by recognizing anomalous process activity.
+
+**Network segmentation** — limits what an attacker can reach even if they get initial access.
+
+**Least privilege** — reduces the blast radius of any exploit.
+
+**NGFW with IPS** — can block exploit patterns even without signature-specific knowledge, through protocol anomaly detection.`,
+  },
+  {
+    slug: "edr",
+    term: "EDR",
+    aka: ["Endpoint Detection and Response", "MDR"],
+    shortDef: "Monitors endpoints for malicious behavior, provides forensic visibility into what happened on a device, and enables remote response. It replaced traditional antivirus.",
+    categories: ["Security"],
+    related: ["siem", "ngfw", "ransomware", "zero-trust"],
+    content: `Traditional antivirus works by signature matching — comparing files against a database of known malware. EDR goes further by monitoring behavior: what processes are running, what network connections are being made, what files are being modified, and whether any of that looks like an attack in progress.
+
+Where AV asks "is this file known bad?", EDR asks "is this behavior consistent with an attack?" A process encrypting thousands of files in rapid succession looks like ransomware even if the malware binary has never been seen before. EDR catches this; AV doesn't.
+
+## What EDR provides
+
+**Real-time detection** — alerts when behavior matches attack patterns, including living-off-the-land techniques that use legitimate system tools for malicious purposes.
+
+**Investigation capability** — a timeline of what happened on an endpoint: every process launched, file touched, network connection made. Essential for understanding the scope of a compromise.
+
+**Response actions** — isolate a compromised endpoint from the network, kill processes, quarantine files, roll back changes — all remotely, without touching the device.
+
+**Threat hunting** — proactively search for indicators of compromise across all endpoints.
+
+Common EDR platforms: CrowdStrike Falcon, SentinelOne, Microsoft Defender for Endpoint, Carbon Black. MDR (Managed Detection and Response) adds a human operations team that monitors alerts and responds on your behalf — the right answer for organizations that don't have dedicated security staff.`,
+  },
+  {
+    slug: "dlp",
+    term: "DLP",
+    aka: ["Data Loss Prevention", "Data Leakage Prevention"],
+    shortDef: "Tools and policies that prevent sensitive data from leaving your organization through unauthorized channels like email, USB drives, or cloud uploads.",
+    categories: ["Security"],
+    related: ["edr", "ngfw", "zero-trust"],
+    content: `DLP operates on a simple principle: identify what data is sensitive, then monitor and control where it goes. In practice this is technically difficult — data flows through dozens of channels, and DLP systems need to inspect that flow without breaking legitimate workflows.
+
+## DLP approaches
+
+**Network DLP** — inspects traffic leaving the network. Can detect credit card numbers, SSNs, or specific document patterns in email attachments or web uploads. Usually deployed at the proxy or NGFW.
+
+**Endpoint DLP** — agent on the device monitors file operations. Can block copying sensitive files to USB drives, personal cloud storage (Dropbox, personal Google Drive), or unapproved applications.
+
+**Cloud DLP** — monitors data in cloud storage and SaaS applications. Google Workspace and Microsoft 365 both include native DLP capabilities.
+
+## Where DLP works and where it doesn't
+
+DLP works well for clearly-structured sensitive data: credit card numbers (Luhn algorithm), SSNs, health record patterns. It works less well for unstructured sensitive content — a confidential business strategy document isn't structurally different from a publicly shareable one.
+
+DLP is also a detective and deterrent control, not a perfect prevention control. A determined insider can photograph their screen, dictate the contents, or use techniques that bypass monitoring. The value is catching accidental leakage and deterring casual exfiltration, not stopping a sophisticated insider threat.`,
+  },
+  {
+    slug: "vulnerability-scanning",
+    term: "Vulnerability Scanning",
+    shortDef: "Automatically probes systems for known security weaknesses — unpatched software, misconfigurations, default credentials — and reports them prioritized for remediation.",
+    categories: ["Security"],
+    related: ["cve", "edr", "ngfw", "zero-day-attack"],
+    content: `A vulnerability scanner connects to your network (or runs as an agent on devices), probes each system it discovers, and compares findings against a database of known vulnerabilities (CVEs) and common misconfigurations. The output is a prioritized list of what needs to be fixed.
+
+## Internal vs external scanning
+
+**Internal scanning** — from inside the network, authenticated. Sees everything: unpatched OS and applications, missing security configurations, weak credentials, open internal services. This is the most comprehensive view of your attack surface.
+
+**External scanning** — from outside the network, unauthenticated. Sees exactly what an attacker on the internet would see: open ports, exposed services, certificates, web application vulnerabilities. Essential for any organization with internet-facing infrastructure.
+
+## Scanning frequency
+
+Vulnerabilities are disclosed continuously. A quarterly scan tells you your posture once a quarter. Continuous scanning (or at minimum monthly) gives you a much more current picture. Most compliance frameworks require regular scanning — PCI-DSS mandates quarterly external scans and scanning after significant infrastructure changes.
+
+Common tools: Tenable Nessus/Tenable.io, Qualys, Rapid7 InsightVM. Most have agent-based options for continuous monitoring.
+
+Scanning finds what exists. Fixing it is a separate — and often harder — process. A vulnerability management program that includes prioritization, remediation tracking, and exception handling is the difference between scanning as a checkbox and scanning as an actual security control.`,
+  },
+  {
+    slug: "wpa3",
+    term: "WPA3",
+    aka: ["Wi-Fi Protected Access 3", "WPA3-Personal", "WPA3-Enterprise"],
+    shortDef: "The current Wi-Fi security standard, replacing WPA2. Closes key WPA2 vulnerabilities including offline dictionary attacks against captured handshakes, and adds forward secrecy.",
+    categories: ["WiFi", "Security"],
+    related: ["8021x", "radius"],
+    content: `WPA2 (introduced 2004) has well-known vulnerabilities: KRACK (Key Reinstallation Attack) allows attackers in range to decrypt traffic, and offline dictionary attacks against captured handshakes can crack weak passwords. WPA3 addresses both.
+
+## WPA3-Personal
+
+Uses SAE (Simultaneous Authentication of Equals), replacing WPA2's PSK (Pre-Shared Key) handshake. SAE provides forward secrecy: each session uses a unique key, so recording encrypted traffic today and learning the password tomorrow doesn't allow decryption of past sessions. It also resists offline dictionary attacks — attempts to crack the password must happen in real time, against a live network.
+
+## WPA3-Enterprise
+
+The enterprise mode (used with 802.1X authentication) adds an optional 192-bit security mode for high-security environments. This isn't relevant for most organizations — standard WPA3-Enterprise with 802.1X and RADIUS is already strong.
+
+## Transition and compatibility
+
+WPA3 requires hardware support. Devices manufactured before 2019 generally lack it. Most current enterprise access points and client devices support WPA3, but mixed environments are common.
+
+Transitional mode (WPA2/WPA3 mixed) allows both WPA2 and WPA3 clients to connect to the same network — WPA3-capable devices negotiate WPA3 automatically. This is the practical approach during the transition period.
+
+If your network supports WPA3, enable it. The security improvements are meaningful and the transition is transparent to end users.`,
+  },
+  {
+    slug: "tpm",
+    term: "TPM",
+    aka: ["Trusted Platform Module"],
+    shortDef: "A hardware security chip that stores cryptographic keys, verifies boot integrity, and enables BitLocker encryption and device attestation. Required for Windows 11.",
+    categories: ["Security", "Hardware"],
+    related: ["zero-trust", "certificate", "device-trust"],
+    content: `A TPM is a dedicated microcontroller that performs cryptographic operations in hardware — isolated from the main CPU and OS. Because the keys it stores never leave the chip, they can't be extracted by malware running on the system, even with administrator access.
+
+## What TPMs enable
+
+**Full-disk encryption** — BitLocker on Windows uses the TPM to seal the encryption key to the specific hardware configuration. If the drive is removed and put in another machine, it won't unlock without the recovery key. This is why BitLocker on TPM-backed devices is meaningfully more secure than software-only encryption.
+
+**Secure boot** — the TPM participates in verifying that the bootloader and OS haven't been tampered with, protecting against bootkit malware that persists below the OS.
+
+**Device attestation** — allows the device to cryptographically prove to a management system (like Intune or JumpCloud) that it's a known, managed device running unmodified software. This is the hardware foundation for device trust in Zero Trust architectures.
+
+**Certificate storage** — private keys for device certificates used in 802.1X, VPN, and code signing can be stored in the TPM, where they're protected from extraction.
+
+TPM 2.0 is required for Windows 11. Any modern business laptop or server purchased in the last several years will have it. For organizations doing 802.1X certificate-based authentication or planning device attestation, verify TPM 2.0 is present and enabled in BIOS.`,
+  },
+
+  // ── Hardware ───────────────────────────────────────────────────────────────
+  {
+    slug: "cpu",
+    term: "CPU",
+    aka: ["Central Processing Unit", "Processor"],
+    shortDef: "The primary processor in a computer — executes the OS, runs applications, and handles general-purpose computation. Core count determines how many tasks run simultaneously.",
+    categories: ["Hardware"],
+    related: ["gpu", "virtual-machine"],
+    content: `The CPU executes instructions. It's the general-purpose brain of the system — fetching instructions from memory, decoding them, executing them, writing results. Everything from running the OS to processing database queries to executing application logic runs through the CPU.
+
+## Cores and threads
+
+Modern CPUs have multiple cores — independent processing units on a single chip. A server CPU might have 8, 16, 32, or 64 cores. Hyper-threading (Intel) or SMT (AMD) allows each physical core to run two threads simultaneously, roughly doubling the apparent core count for multithreaded workloads.
+
+For virtualization, core count directly determines how many vCPUs you can allocate across VMs. A dual-socket server with two 32-core CPUs can support workloads requiring up to 128 vCPUs (with 2:1 overcommit).
+
+## CPU generations and architectures
+
+CPU generations matter for server purchasing. Intel Xeon and AMD EPYC are the dominant server CPU lines. Performance, power efficiency, memory bandwidth, and PCIe lane count vary significantly between generations. For most infrastructure purchases, comparing specific benchmark workloads (compute-intensive vs memory bandwidth vs I/O-heavy) is more useful than comparing core counts alone.
+
+## CPU vs GPU
+
+CPUs are designed for sequential processing — a small number of powerful cores handling complex, varied instructions. GPUs have thousands of simpler cores optimized for parallel processing of the same instruction across large datasets. AI workloads have made the distinction relevant for a much broader audience. See [GPU](/resources/glossary/gpu) for detail on where each applies.`,
+  },
+  {
+    slug: "gpu",
+    term: "GPU",
+    aka: ["Graphics Processing Unit", "Graphics Card", "Video Card"],
+    shortDef: "A processor with thousands of small cores optimized for parallel computation. Originally designed for graphics, GPUs now drive AI inference and training, and any workload requiring massive parallel processing.",
+    categories: ["Hardware"],
+    related: ["cpu", "virtual-machine"],
+    content: `GPUs were designed to render video frames — transforming millions of pixels using the same geometric operations simultaneously. That parallel architecture turned out to be exactly what AI needs: performing the same mathematical operation (matrix multiplication) across billions of numbers at once.
+
+![Diagram showing GPU architecture with thousands of parallel processing cores compared to CPU architecture](/images/glossary/gpu-architecture.jpg)
+
+The result is that NVIDIA became the defining hardware company of the AI era. Training a frontier model requires thousands of high-end GPUs running for weeks. Running a model for inference (generating responses) is less intensive but still GPU-heavy at scale.
+
+## GPU vs CPU
+
+![Side-by-side comparison of CPU and GPU architecture showing a few powerful cores vs many smaller parallel cores](/images/glossary/gpu-vs-cpu.jpg)
+
+A CPU has a small number of powerful cores (typically 4-64) optimized for complex, sequential tasks — running an OS, executing varied application logic, handling I/O. A GPU has thousands of simpler cores optimized for doing one thing across massive data in parallel. They're complementary: CPUs handle general workloads; GPUs accelerate specific parallel workloads.
+
+## For AI specifically
+
+For local AI inference — running models on your own hardware rather than through a cloud API — GPU memory (VRAM) is the primary constraint. A 7B-parameter model requires ~14GB of VRAM in fp16 format. A 70B model needs ~140GB. Consumer GPUs with 16-24GB can run capable open-source models. Workstation GPUs with 48GB (like the NVIDIA RTX 6000 Ada) handle larger models.
+
+For organizations evaluating on-premise AI deployment, the practical question is: what model size do you need, and does the VRAM requirement fit a financially reasonable GPU? See the [Understanding AI](/resources/university/understanding-ai) article for a deeper treatment of local inference hardware.
+
+## Integrated vs discrete
+
+Integrated GPUs are built into the CPU — adequate for office work and basic display output, inadequate for AI inference or serious graphics workloads. Discrete GPUs are separate add-in cards with their own dedicated VRAM and are required for any meaningful GPU-accelerated workload.`,
+  },
+  {
+    slug: "hdd",
+    term: "HDD",
+    aka: ["Hard Disk Drive", "Hard Drive", "Spinning Drive", "Mechanical Drive"],
+    shortDef: "Stores data on spinning magnetic platters read by a mechanical arm. Highest capacity per dollar of any storage medium, but significantly slower than SSDs and susceptible to physical shock.",
+    categories: ["Hardware"],
+    related: ["ssd", "nvme"],
+    content: `HDDs read and write data by moving a physical read/write head over spinning magnetic platters. This mechanical nature is both their limitation and their value: the physics of spinning media constrains random I/O performance, but the same physics allows high areal density and large capacities at competitive cost per terabyte.
+
+## Where HDDs still make sense
+
+**High-capacity storage at low cost per TB** — for backup targets, archival storage, and large media storage where access speed isn't critical, HDDs offer 4-20TB+ drives at a fraction of the SSD cost per TB.
+
+**NAS arrays for bulk storage** — Synology and QNAP NAS units running RAID arrays for file sharing and backup are a classic HDD use case. Sequential read performance is adequate; the bottleneck is usually the network, not the drives.
+
+**Secondary tiers in tiered storage** — an HDD tier holds infrequently accessed data behind an SSD cache or tier that handles hot data.
+
+## Where HDDs don't belong
+
+**OS and application drives** — the random I/O latency of HDDs (typically 5-15ms per operation vs <0.1ms for NVMe SSDs) makes for a noticeably worse experience. Anything running an operating system or database should be on SSD.
+
+**High-IOPS workloads** — database transaction logs, virtual machine storage, anything that generates significant random I/O will be severely bottlenecked by HDD performance.
+
+## Failure characteristics
+
+HDDs have moving parts and fail mechanically. Enterprise HDDs are rated for MTBF (Mean Time Between Failures) of 1-2 million hours, but drives in dense arrays fail regularly in practice. RAID provides redundancy; regular backups are still non-negotiable. SSDs fail differently (and usually more gracefully) but also fail.`,
+  },
+  {
+    slug: "ssd",
+    term: "SSD",
+    aka: ["Solid-State Drive", "Flash Drive", "Flash Storage"],
+    shortDef: "Stores data in flash memory chips with no moving parts. Dramatically faster than HDDs for random I/O, more reliable under physical stress, and more expensive per terabyte.",
+    categories: ["Hardware"],
+    related: ["nvme", "hdd"],
+    content: `SSDs store data in NAND flash memory — the same technology in USB drives and memory cards, but engineered for reliability and endurance. The absence of moving parts means access times of microseconds rather than milliseconds, and no mechanical failure modes.
+
+## SSD interfaces
+
+**SATA SSD** — uses the same interface as HDDs. A drop-in replacement for a spinning drive, with SSD random I/O performance. Maxes out at ~550MB/s sequential read due to the SATA interface ceiling. Adequate for general computing; limited for high-performance storage.
+
+**NVMe SSD** — connects via PCIe directly to the CPU, with no SATA bottleneck. 3-7GB/s sequential read on consumer drives, higher on enterprise models. The right choice for OS drives, VM storage, and any application with significant I/O demands.
+
+## SSD endurance
+
+Flash cells wear out — each write cycle degrades them slightly. Enterprise SSDs have higher endurance ratings (measured in TBW — terabytes written) and may use more durable SLC or MLC NAND rather than the TLC or QLC found in consumer drives. For NAS arrays with write-intensive workloads (caching, frequent backups), specifying the right endurance tier matters.
+
+## Caching in storage systems
+
+Synology and similar NAS platforms can use SSDs as a read/write cache in front of an HDD array — the SSDs absorb the random I/O workload while the HDDs handle bulk sequential storage. This can dramatically improve performance for file server and small database use cases at lower cost than all-SSD storage.`,
+  },
+  {
+    slug: "nvme",
+    term: "NVMe",
+    aka: ["Non-Volatile Memory Express", "NVMe SSD", "M.2 NVMe"],
+    shortDef: "Connects SSDs directly to the CPU via PCIe, delivering far higher throughput and lower latency than SATA. The standard interface for high-performance storage in modern workstations and servers.",
+    categories: ["Hardware"],
+    related: ["ssd", "hdd", "cpu"],
+    content: `SATA was designed for spinning hard drives — its speed limits reflect HDD performance expectations from the 1980s. As SSDs became capable of speeds far beyond what SATA could carry, NVMe was developed as a purpose-built interface for flash storage.
+
+NVMe connects via PCIe lanes directly to the CPU, with a command queue designed for the parallelism of modern flash — 65,535 queues of 65,535 commands each, versus SATA's single queue of 32. The result: consumer NVMe drives reach 3-7GB/s sequential read; enterprise NVMe drives exceed 12GB/s. Random I/O latency drops below 100 microseconds.
+
+## Form factors
+
+**M.2** — a compact slot on the motherboard, used in laptops, workstations, and consumer hardware. Most new laptops use M.2 NVMe.
+
+**U.2 / U.3** — enterprise server form factor, physically similar to a 2.5" SATA drive but with PCIe signaling. Hot-swappable in enterprise server drive bays.
+
+**PCIe add-in card** — full-length card in a PCIe slot. Used for maximum performance or when M.2/U.2 slots aren't available.
+
+## NVMe over Fabrics (NVMe-oF)
+
+NVMe-oF extends NVMe over a network, allowing remote storage to be accessed with near-local latency. Used in high-performance storage networks as an alternative to iSCSI, with significantly lower latency. Increasingly relevant for AI infrastructure and high-performance computing.`,
+  },
+  {
+    slug: "virtual-machine",
+    term: "Virtual Machine",
+    aka: ["VM", "Guest", "Guest OS"],
+    shortDef: "A software-based emulation of a physical computer. Multiple VMs run simultaneously on one physical host, each with its own OS, sharing CPU, RAM, and storage through a hypervisor.",
+    categories: ["Virtualization", "Cloud & Infrastructure"],
+    related: ["cpu", "hdd", "ssd", "hyper-v", "vmware"],
+    content: `A hypervisor (VMware ESXi, Microsoft Hyper-V, KVM) sits between the physical hardware and the VMs running on it. It allocates CPU cores, RAM, storage, and network interfaces to each VM as virtual resources, while managing sharing and isolation between them.
+
+From inside a VM, everything looks like a physical machine: a CPU, memory, disk, network card. The VM's OS doesn't know — and doesn't need to know — that it's virtualized. It installs and runs exactly like it would on physical hardware.
+
+## Why virtualization matters
+
+**Resource efficiency** — a physical server with 512GB of RAM and 32 cores can run dozens of VMs that collectively utilize that capacity. Running one workload per physical server wastes most of the hardware.
+
+**Isolation** — VMs are isolated from each other. A crash or compromise in one VM doesn't directly affect others on the same host.
+
+**Snapshots and cloning** — take a point-in-time snapshot before a risky change; revert instantly if something goes wrong. Clone a VM to create identical environments.
+
+**Live migration** — running VMs can be moved between physical hosts without downtime, enabling maintenance and load balancing.
+
+## VM performance considerations
+
+VMs add a thin layer of overhead, but on modern hypervisors running modern hardware, this overhead is negligible for most workloads — typically 1-5% CPU overhead. For storage-intensive workloads, the I/O path (how storage is presented to VMs) matters more: NVMe pass-through or iSCSI from a fast NAS performs very differently from a shared VMFS datastore on slow HDDs.
+
+Over-committing memory — allocating more RAM to VMs than physically exists — causes swapping and is one of the most common sources of VM performance problems in production environments.`,
+  },
+
+  // ── Cabling ────────────────────────────────────────────────────────────────
+  {
+    slug: "rj45",
+    term: "RJ45",
+    aka: ["Ethernet Jack", "8P8C"],
+    shortDef: "The standard 8-pin connector used for Ethernet — the rectangular plastic plug on every Ethernet cable and the matching jack on switches, routers, and computers.",
+    categories: ["Cabling", "Networking"],
+    related: ["rj11", "keystone-jack", "lan", "lacp"],
+    content: `RJ45 is technically an 8P8C (8-position, 8-contact) modular connector, but everyone calls it an RJ45. It's been the standard physical interface for Ethernet since the early 1990s, supporting everything from legacy 10Mbps to modern 10Gbps connections over twisted-pair copper cable.
+
+The eight pins carry four twisted pairs. In modern Ethernet (1Gbps and above), all four pairs carry data simultaneously. At lower speeds, only two pairs are used for data.
+
+## Wiring standards: T568A vs T568B
+
+Two wiring schemes define how the eight wires map to the eight pins. Both work; what matters is consistency — both ends of a cable must use the same standard, and a network should stick to one throughout.
+
+T568B is the more common choice in North America. T568A is common in government and some international installations. Mixing the two on opposite ends of a cable produces a crossover cable — used for direct device-to-device connections without a switch, though modern equipment generally handles this automatically via Auto-MDIX.
+
+![Diagram showing T568A and T568B wiring color codes for RJ45 connectors — pin assignments and wire color order for each standard](/images/glossary/rj45-t568-wiring.jpg)
+
+## Cable categories
+
+The RJ45 connector is compatible with all twisted-pair Ethernet cable categories. The cable spec — Cat5e, Cat6, Cat6a — determines maximum speed and distance, not the connector itself.`,
+  },
+  {
+    slug: "rj11",
+    term: "RJ11",
+    aka: ["Phone Jack", "Telephone Jack", "6P2C"],
+    shortDef: "The small 6-pin connector used for telephone lines — narrower than an RJ45 Ethernet jack and wired for voice rather than data.",
+    categories: ["Cabling"],
+    related: ["rj45", "low-voltage-wiring"],
+    content: `RJ11 connectors use a 6P2C configuration (6 positions, 2 contacts in standard use) and are the universal connector for analog phone lines in North America. They're visually similar to RJ45 but noticeably narrower — you can insert an RJ11 into an RJ45 jack in a pinch (it'll fit the center pins) but it's not a proper connection.
+
+In a modern office context, you'll encounter RJ11 primarily at analog phone handsets, DSL modems, and legacy fax machines. With VoIP adoption, dedicated analog phone wiring is increasingly rare in new installations — most modern phone systems run over Ethernet to IP handsets.
+
+The RJ12 variant uses the same physical form factor as RJ11 but wires all six contacts, commonly used for multi-line phones and PBX systems.`,
+  },
+  {
+    slug: "keystone-jack",
+    term: "Keystone Jack",
+    shortDef: "The termination module behind a wall plate or patch panel port — the component an RJ45 plug connects into, with the cable punched down on the back side.",
+    categories: ["Cabling"],
+    related: ["rj45", "cable-management", "backbone-cabling"],
+    content: `When you plug an Ethernet cable into a wall outlet, the RJ45 jack you're plugging into is a keystone jack mounted in a wall plate. On the back, individual wires are punched down onto the connector's IDC (insulation displacement contacts) — a termination method that pierces the wire insulation to make contact without stripping.
+
+Keystone jacks snap into standard cutouts in wall plates and patch panels. This modular system means you can swap out a single port without replacing the whole panel — useful when a jack gets damaged or when upgrading from Cat6 to Cat6a.
+
+Key considerations when selecting keystone jacks:
+
+**Category matching** — the jack must match or exceed the cable category. A Cat5e jack on Cat6a cable is a Cat5e installation, regardless of the cable spec.
+
+**Tool vs toolless** — traditional punch-down requires a punch-down tool. Toolless keystone jacks (common in newer installations) terminate via a lever or cap that seats the wires without special tooling, speeding up large patch panel builds.
+
+**Shielding** — for shielded cable runs, shielded keystone jacks maintain the shielding continuity through the termination point. Mixing shielded cable with unshielded jacks breaks the shield and introduces noise.`,
+  },
+  {
+    slug: "awg",
+    term: "AWG",
+    aka: ["American Wire Gauge"],
+    shortDef: "The standard for measuring wire conductor diameter. Counterintuitively, lower AWG numbers mean thicker wire — 12 AWG is thicker than 18 AWG.",
+    categories: ["Cabling", "Power"],
+    related: ["low-voltage-wiring", "poe"],
+    content: `AWG is the North American standard for specifying wire size. The scale runs inversely: as the AWG number increases, the wire gets thinner. 10 AWG is thick, heavy cable suitable for high-current circuits; 24 AWG is the fine wire inside an Ethernet cable.
+
+The gauge determines two things: how much current the wire can safely carry, and its resistance per unit length. Thicker wire (lower AWG) carries more current and has less resistance — both important for longer runs and higher-power applications.
+
+Common AWG values you'll encounter in IT infrastructure:
+
+- **24 AWG** — standard conductor in Cat5e/Cat6 Ethernet cable. Fine wire, low current capacity, fine for data.
+- **23 AWG** — thicker conductor in Cat6/Cat6a. Better performance at higher frequencies, stiffer cable.
+- **22–18 AWG** — typical for low-voltage wiring: alarm systems, access control, intercom.
+- **14–12 AWG** — standard for 15A and 20A branch circuits. Romex in walls, PDU power cords.
+- **10 AWG** — 30A circuits, large PDUs, generator feeds.
+
+For PoE installations, wire gauge affects how much power loss occurs over the run. Cat6 23 AWG cable has lower resistance than Cat5e 24 AWG, which means slightly more usable power at the device end on long runs — relevant for high-wattage PoE devices at the edge of the 100-meter spec.`,
+  },
+  {
+    slug: "mtp-mpo-connector",
+    term: "MTP/MPO Connector",
+    aka: ["MTP", "MPO", "Multi-Fiber Push On"],
+    shortDef: "High-density fiber optic connectors that terminate 12, 24, or more fibers in a single plug — used for high-speed backbone connections and data center trunk cabling.",
+    categories: ["Cabling"],
+    related: ["backbone-cabling", "dark-fiber", "attenuation"],
+    content: `Where a standard LC or SC fiber connector terminates one fiber, an MTP/MPO connector terminates a ribbon of 8, 12, or 24 fibers simultaneously. This makes them the standard choice for high-density backbone cabling, where running individual fiber pairs would fill conduit and take far longer to install.
+
+MPO is the international standard (IEC 61754-7); MTP is US Conec's trademarked high-performance version with improved mechanical characteristics and lower loss. In practice the terms are used interchangeably.
+
+## Polarity matters
+
+With multiple fibers in a single connector, polarity — which fiber maps to which — must be maintained correctly end to end. A transmit fiber on one end must reach a receive port on the other. Three polarity methods (Method A, B, and C defined in TIA-568) handle this differently, and the method must be consistent throughout a run. Mixing polarity methods is a common source of link failures during installation that can be hard to diagnose without fiber test equipment.
+
+## Male vs female
+
+MTP/MPO connectors come in two key versions: **female** (no pins, the socket side) and **male** (with alignment pins). Connections require one male and one female end. Female-to-female connections use a key-up/key-down convention that also affects polarity.
+
+Pre-terminated MTP/MPO trunk cables are the typical approach for data center backbone cabling — a bundle of fibers factory-terminated at both ends, pulled through conduit, and connected to MTP cassettes or breakout panels that convert to LC or SC individual fiber connections at the rack.`,
+  },
+  {
+    slug: "bend-radius",
+    term: "Bend Radius",
+    shortDef: "The minimum radius a cable can be bent to without degrading signal quality or risking physical damage. Exceeding it permanently impairs the cable.",
+    categories: ["Cabling"],
+    related: ["backbone-cabling", "attenuation", "low-voltage-wiring"],
+    content: `Every cable type has a minimum bend radius specification — the tightest curve it can safely make. Bend tighter than the spec and you risk crushing the conductor, cracking the insulation, or in the case of fiber optic cable, microbending the glass core in ways that scatter light and increase attenuation.
+
+Typical minimum bend radii:
+
+- **Cat6 Ethernet cable** — 4x the cable diameter (roughly 1 inch). Common violations: sharp 90° bends around conduit corners, cables pulled tight over a rack edge.
+- **Cat6a (shielded)** — larger minimum radius due to thicker construction, typically 8x cable diameter.
+- **Single-mode fiber** — 30mm (about 1.2 inches) at installation; some bend-insensitive variants rated down to 7.5mm.
+- **Multi-mode fiber** — similar to single-mode for most types.
+
+The practical implication: when routing cables through tight spaces, cable managers with proper radius guides, or J-hooks with the correct size, aren't just organizational — they protect signal integrity. A cable that looks fine but has been bent too sharply may perform fine at first and degrade over time as the insulation fatigues.`,
+  },
+  {
+    slug: "cable-management",
+    term: "Cable Management",
+    shortDef: "The physical organization of cables in a rack, server room, or structured cabling installation — keeping cables routed, labeled, and accessible without restricting airflow or violating bend radius.",
+    categories: ["Cabling"],
+    related: ["backbone-cabling", "rack-unit", "idf"],
+    content: `Poor cable management is one of the most common and most avoidable sources of operational problems in server rooms and network closets. Cables stuffed into a bundle that nobody can trace, unlabeled patch panel ports, and cables routed across hot equipment aren't just aesthetically bad — they slow troubleshooting, trap heat, and make changes risky.
+
+Cable management hardware includes:
+
+**Horizontal cable managers** — 1U panels with rings, channels, or fingers that route patch cables horizontally between ports and keep slack organized.
+
+**Vertical cable managers** — run the full height of the rack, routing cables from patch panels to switches without crossing open air.
+
+**J-hooks and cable trays** — for runs between racks or overhead, providing support without violating bend radius.
+
+**Velcro straps** — the correct way to bundle cables that need to move. Zip ties are appropriate for permanent runs but slice insulation when pulled tight and can't be removed without cutters.
+
+The practical standard: every port should be labeled at both ends. Patch cables should be the right length — not six-foot cables spanning one-foot distances. Hot and cold aisle separation should be maintained and cable runs shouldn't cross it unnecessarily. A well-managed rack takes longer to build and is worth every minute of it.`,
+  },
+  {
+    slug: "backbone-cabling",
+    term: "Backbone Cabling",
+    aka: ["Vertical Cabling", "Riser Cabling"],
+    shortDef: "Connects network equipment rooms, floors, and buildings to each other — the high-capacity trunk infrastructure that horizontal cabling plugs into.",
+    categories: ["Cabling"],
+    related: ["idf", "cable-management", "mtp-mpo-connector", "dark-fiber"],
+    content: `Structured cabling follows a hierarchy. At the top is the main distribution frame (MDF) — typically in the data center or main IDF. Backbone cabling runs from the MDF to intermediate distribution frames (IDFs) on each floor or in each building. From the IDFs, horizontal cabling fans out to individual workstations, APs, and devices.
+
+Backbone runs carry aggregated traffic — multiple floors' or buildings' worth of connections — so the bandwidth requirements are higher and the appropriate media is different:
+
+**Within a building (vertical)** — multimode or single-mode fiber is standard for modern installations. Fiber handles longer runs, higher bandwidth, and is immune to EMI. 10G or 25G per fiber pair is common; 40G/100G in higher-density environments.
+
+**Between buildings (campus)** — single-mode fiber, which maintains signal quality over hundreds of meters to kilometers. Outdoor-rated, often direct-buried or in conduit.
+
+**Short inter-rack runs** — DAC (Direct Attach Copper) cables or short-reach fiber are common for sub-10-meter connections between adjacent racks.
+
+Backbone cabling is expensive to run and disruptive to change after the fact — running it once correctly, with adequate spare fibers or conduit for future growth, is a much better investment than a minimal installation you'll need to supplement in two years.`,
+  },
+  {
+    slug: "low-voltage-wiring",
+    term: "Low-Voltage Wiring",
+    shortDef: "Structured cabling infrastructure for data, voice, security, and AV systems — anything running at 50 volts or less, distinct from line-voltage electrical work.",
+    categories: ["Cabling"],
+    related: ["backbone-cabling", "cable-management", "poe", "awg"],
+    content: `Low-voltage systems include Ethernet, fiber, telephone, coax, access control, security cameras, intercoms, speakers, and AV distribution. The work lives at the boundary between IT and electrical — requires no electrician's license in most US jurisdictions (though requirements vary by state and municipality), but should still follow code requirements and best practices.
+
+The relevant standards are the BICSI standards and TIA-568/570 for structured cabling, which define installation practices, cable routing, bend radius requirements, and connector performance.
+
+Low-voltage cabling requires its own conduit or pathways — it should not share conduit with line voltage (120/240V) wiring, both for performance reasons (line voltage induces noise on data cables) and code reasons. The minimum separation between low-voltage and line-voltage runs without a grounded metal barrier is typically defined by NEC Article 800.
+
+In commercial environments, low-voltage work is typically scoped separately from electrical contracts. Knowing the distinction matters when coordinating with contractors — a general electrician is not typically a structured cabling installer.`,
+  },
+  {
+    slug: "attenuation",
+    term: "Attenuation",
+    shortDef: "The loss of signal strength as it travels through a cable or fiber. Too much attenuation and the signal is too weak to be reliably decoded at the far end.",
+    categories: ["Cabling", "Networking"],
+    related: ["backbone-cabling", "bend-radius", "dark-fiber"],
+    content: `All transmission media attenuate signals — copper cable through resistance and capacitance, fiber through light scattering and absorption in the glass. The question is whether the attenuation over a given distance falls within the budget for that link.
+
+Attenuation is measured in decibels (dB). A 3dB loss cuts the signal power in half; 10dB cuts it to one-tenth. Fiber links have a loss budget — the maximum total attenuation the transceiver pair can accommodate — and every connector, splice, and meter of cable consumes part of that budget.
+
+For copper Ethernet, attenuation limits are built into the category specification. The 100-meter max run for Cat6 is partly an attenuation limit — beyond that, signal loss is too high for reliable 1Gbps operation. PoE is even more constraining, since power also degrades over resistance.
+
+For fiber, attenuation varies by:
+
+- **Fiber type** — single-mode glass has lower attenuation per kilometer than multimode, which is why single-mode is used for long-distance runs.
+- **Wavelength** — 1310nm and 1550nm windows in single-mode fiber are where glass is most transparent.
+- **Connectors and splices** — each connection point adds insertion loss. A clean, well-polished connector adds ~0.3dB; a dirty or damaged one can add several dB.
+- **Bends** — tight bends cause microbending loss in fiber, which is why bend radius specifications exist.`,
+  },
+  {
+    slug: "dark-fiber",
+    term: "Dark Fiber",
+    shortDef: "Installed fiber optic cable that carries no active traffic — either spare capacity in a cable bundle or leased raw fiber that an organization equips with its own transceivers.",
+    categories: ["Cabling", "Networking"],
+    related: ["backbone-cabling", "attenuation"],
+    content: `The term "dark" means no light is being transmitted — the fiber is physically present but not in service. It comes in two contexts:
+
+**Internal dark fiber** — spare fibers in a cable run that were installed for future capacity. When running backbone cabling through conduit, installing a larger cable bundle than currently needed is standard practice — the labor cost is in the run, not the additional fibers.
+
+**Leased dark fiber** — carriers own extensive underground fiber networks, much of which isn't being actively used. Organizations with high bandwidth requirements — ISPs, universities, healthcare systems, large enterprises — can lease raw fiber strands between two locations and equip them with their own DWDM or active equipment, effectively owning the capacity of that link rather than paying per-bit for a managed circuit.
+
+Leasing dark fiber gives an organization full control of the link's capacity and technology. You bring your own transceivers, choose your own wavelengths, and can upgrade the bandwidth by changing the optics without renegotiating the fiber contract. The trade-off: you're responsible for the active equipment at each end, and fiber cuts or physical infrastructure issues are still the carrier's problem to repair.`,
+  },
+  {
+    slug: "rack-unit",
+    term: "Rack Unit",
+    aka: ["U", "RU", "1U", "2U"],
+    shortDef: "The standard measurement for server rack height — 1U equals 1.75 inches. A 42U rack is the most common server rack size.",
+    categories: ["Cabling", "Hardware"],
+    related: ["idf", "cable-management"],
+    content: `Equipment designed for rack mounting is measured and specified in rack units. 1U is 1.75 inches (44.45mm). A standard 1U server is 1.75 inches tall; a 2U server is 3.5 inches; a 4U chassis is 7 inches.
+
+Most server racks are 42U tall, which provides approximately 6 feet of usable equipment space. Full-depth server racks (typically 600–800mm wide, 1000–1200mm deep) are the data center standard. Shallower wall-mount enclosures or half-racks are common in telecom closets and IDF spaces.
+
+Rack unit count governs how much equipment fits. Common allocations for a 42U rack:
+
+- Top-of-rack switch: 1U
+- 1U servers: up to ~40 with cable management
+- Patch panel (24 ports): 1U
+- Horizontal cable manager: 1U
+- PDU (power distribution unit): 1–2U (or zero-U, mounted vertically in the side channels)
+
+Why it matters: when specifying a server room or ordering equipment, rack unit density drives the physical footprint and power density planning. A rack of dense 1U servers has very different power and cooling requirements than a half-full rack of 4U systems.`,
+  },
+  {
+    slug: "idf",
+    term: "IDF",
+    aka: ["Intermediate Distribution Frame", "Telecom Room", "Telecom Closet", "TR"],
+    shortDef: "A secondary network equipment room that aggregates horizontal cabling from a floor or zone and connects it back to the main distribution frame via backbone cabling.",
+    categories: ["Cabling", "Networking"],
+    related: ["backbone-cabling", "rack-unit", "cable-management"],
+    content: `In a multi-floor building, running individual Ethernet cables from every desk all the way to a central data room isn't practical. Instead, each floor or zone has an IDF — a network closet containing the floor's patch panels, access switches, and backbone connections.
+
+The typical IDF contains:
+
+- **Patch panels** — where horizontal cable runs from desks and APs terminate
+- **Access layer switches** — connecting devices to the network and uplink to the core
+- **Backbone connections** — fiber or high-speed copper to the MDF (main distribution frame) in the data room
+- **Small UPS** — provides battery backup for the network gear, keeping the floor online during a brief power event
+
+IDF design follows TIA-569 standards, which define requirements for space, clearance, power, cooling, and fire rating. An IDF in a commercial space needs dedicated, lockable space with adequate cooling — a rack of switches in an active closet generates significant heat, and intake air temperatures above 35°C (ASHRAE A2) will start triggering high-temperature warnings.
+
+The term MDF (Main Distribution Frame) is used for the primary network room — usually in the basement or data center — where the IDFs connect back to, and where the internet circuit terminates.`,
+  },
+  {
+    slug: "duplex-simplex",
+    term: "Duplex / Simplex",
+    shortDef: "Simplex transmits in one direction only. Half-duplex can go both ways but not simultaneously. Full-duplex transmits and receives at the same time — the standard for modern Ethernet.",
+    categories: ["Cabling", "Networking"],
+    related: ["rj45", "backbone-cabling", "lacp"],
+    content: `These terms describe the directionality of a communication channel:
+
+**Simplex** — one direction only. A broadcast antenna is simplex. In fiber cabling, a single-strand fiber is sometimes called simplex (one fiber, one direction) vs duplex (two fibers, bidirectional).
+
+**Half-duplex** — both directions, but not simultaneously. Early Ethernet hubs operated in half-duplex: only one device on a segment could transmit at a time, and all others had to wait. Walkie-talkies are half-duplex.
+
+**Full-duplex** — simultaneous bidirectional transmission. All modern switched Ethernet is full-duplex: the switch creates a dedicated collision domain for each port, so devices can transmit and receive at the same time without collisions. A 1Gbps full-duplex link is 1Gbps in each direction simultaneously.
+
+In fiber, duplex connectors pair two fibers (transmit and receive) in a single connector body — an LC duplex or SC duplex connector handles both directions in one plug, as opposed to two separate simplex fibers.
+
+The distinction matters when configuring network equipment: if both ends of a link aren't set to the same duplex mode, you'll see a duplex mismatch — excessive errors, poor performance, and link instability that can be hard to diagnose.`,
+  },
+
+  // ── Power ──────────────────────────────────────────────────────────────────
+  {
+    slug: "poe",
+    term: "PoE",
+    aka: ["Power over Ethernet", "PoE+", "PoE++", "802.3af", "802.3at", "802.3bt"],
+    shortDef: "Delivers DC power over an Ethernet cable alongside data, eliminating the need for a separate power outlet at devices like IP phones, access points, and security cameras.",
+    categories: ["Power", "Networking"],
+    related: ["rj45", "awg", "access-switch", "voip"],
+    content: `PoE lets a PoE-capable switch (the PSE — Power Sourcing Equipment) supply power to a connected device (the PD — Powered Device) over the same Cat5e/Cat6 cable carrying data. No power outlet near the ceiling for your access point, no power brick at every IP phone.
+
+![Diagram showing PoE power delivery from a PoE switch (PSE) to powered devices (PD) — IP phone, access point, and camera — over standard Ethernet cable](/images/glossary/poe-pse-pd.jpg)
+
+## PoE standards and wattage
+
+Three IEEE standards define PoE power levels at the device:
+
+| Standard | Name | Max power at PD |
+|---|---|---|
+| 802.3af | PoE | 12.95W |
+| 802.3at | PoE+ | 25.5W |
+| 802.3bt | PoE++ / 4PPoE | 71.3W (Type 3) / 90W (Type 4) |
+
+Most IP phones and basic APs run fine on 802.3af. Modern dual-radio APs, PTZ cameras, and video conferencing endpoints often need 802.3at (PoE+). High-wattage devices like multi-radio APs, digital signs, and thin clients may need 802.3bt.
+
+## Switch power budget
+
+A PoE switch has a total power budget — the maximum total wattage it can deliver across all PoE ports simultaneously. A 24-port PoE+ switch with a 370W budget can support ~14 ports at full 25.5W each, or more ports at lower wattage. When specifying a PoE switch, size the power budget for realistic worst-case load, not just port count.
+
+## Injectors
+
+A PoE injector adds PoE capability to a non-PoE switch port — the injector sits between the switch and the device, taking power from a wall outlet and combining it with the Ethernet signal. Useful for adding PoE to a few ports without replacing a switch, but inelegant at scale.`,
+  },
+  {
+    slug: "nema-connector",
+    term: "NEMA Connector",
+    aka: ["NEMA Plug", "Power Connector"],
+    shortDef: "Standardized power plugs and receptacles used in North America. The NEMA numbering system encodes voltage, amperage, and locking vs straight-blade type.",
+    categories: ["Power"],
+    related: ["poe", "power-redundancy", "single-phase-power", "three-phase-power"],
+    content: `Every power cord in North America terminates in a NEMA connector. The NEMA (National Electrical Manufacturers Association) numbering system makes it possible to identify a connector's electrical characteristics from the designation alone.
+
+## How NEMA numbering works
+
+The designation has two parts separated by a hyphen:
+
+**Prefix** — the configuration number, which encodes voltage and grounding:
+- **5** = 125V, 2-pole, 3-wire grounded (standard North American single-phase)
+- **6** = 250V, 2-pole, 3-wire grounded (higher-voltage single-phase)
+- **L5** = 125V, locking, 2-pole, 3-wire (the L means locking)
+- **L6** = 250V, locking, 2-pole, 3-wire
+
+**Suffix** = current rating in amps: 15, 20, 30, 50, 60
+
+So a NEMA 5-20 is a 125V, 20A, straight-blade connector. A NEMA L6-30 is a 250V, 30A, locking connector.
+
+## Common types in IT environments
+
+**NEMA 5-15** (125V / 15A) — the standard North American household outlet. Every office workstation and consumer device plugs into this.
+
+**NEMA 5-20** (125V / 20A) — one blade is T-shaped to prevent plugging a 20A device into a 15A circuit. Used on 20A branch circuits common in server rooms.
+
+**NEMA L5-20** (125V / 20A, locking) — L-series connectors twist and lock in place, preventing accidental disconnection. Standard for UPS output connections and PDU inputs in IT environments.
+
+**NEMA L5-30** (125V / 30A, locking) — higher current locking connector for larger UPS units and PDUs.
+
+**NEMA L6-20** (250V / 20A, locking) — for 240V circuits, common on dual-corded servers where you want 240V efficiency (same watts, half the current, less heat in the wiring).
+
+**NEMA L6-30** (250V / 30A, locking) — large PDUs, transfer switches, generator connections.
+
+The locking connector (L-series) is the right choice for any connection where accidental disconnection would cause an outage. In a data center or server room, all PDU connections should use locking connectors.`,
+  },
+  {
+    slug: "single-phase-power",
+    term: "Single-Phase Power",
+    shortDef: "The standard electrical supply for most residential and small commercial environments — 120V or 240V delivered on a single alternating current waveform.",
+    categories: ["Power"],
+    related: ["three-phase-power", "poe", "nema-connector", "power-redundancy"],
+    content: `In North America, the standard utility supply is single-phase at 120/240V split-phase: two hot conductors 180° out of phase with each other and a neutral. Devices that need 120V connect between one hot and neutral. Devices that need 240V (dryers, HVAC, some PDUs) connect between the two hots.
+
+For small IT environments — a handful of servers in a closet, a small NAS and switch — single-phase power is typically sufficient. Most standard UPS units, PDUs, and server power supplies accept single-phase input.
+
+The limitation shows up as power density grows. On a 20A circuit at 120V, the maximum load is 2,400W (derated to ~1,920W at 80% for continuous loads). A rack of 1U servers with 750W power supplies can exceed a single circuit quickly, requiring multiple circuits per rack.
+
+Single-phase power also creates an unbalanced load problem at scale — large single-phase draws create uneven loading across the three phases of the upstream supply, which utility companies and building engineers care about.`,
+  },
+  {
+    slug: "three-phase-power",
+    term: "Three-Phase Power",
+    shortDef: "Delivers three alternating current waveforms 120° apart on three conductors — more efficient power delivery for high-density equipment, and the standard for data center electrical distribution.",
+    categories: ["Power"],
+    related: ["single-phase-power", "poe", "nema-connector", "power-redundancy"],
+    content: `Where single-phase power uses one AC waveform, three-phase uses three waveforms spaced 120° apart. The combined effect is more consistent power delivery (the waveforms overlap, so total power never drops to zero as it does in single-phase) and more efficient use of copper conductors.
+
+For data centers and server rooms, three-phase power offers two primary advantages:
+
+**Higher power density** — a 30A three-phase circuit at 208V (three-phase 208/120V is the North American data center standard) delivers ~10.8kW, compared to ~2.4kW for a 20A single-phase circuit. This allows far more equipment per circuit and per rack.
+
+**Balanced loading** — PDUs designed for three-phase input distribute load across all three phases, keeping the electrical system balanced. This matters to the facility and utility.
+
+In a three-phase 208/120V system:
+- Line-to-neutral = 120V (standard outlets from branch circuits)
+- Line-to-line = 208V (dual-corded servers, three-phase PDUs)
+
+Most enterprise servers and storage equipment support wide-range input from 100–240V, so they'll run on either 120V or 208V feeds. At 208V, a server drawing 1,000W only pulls ~4.8A rather than ~8.3A at 120V — lower current means less heat in wiring and longer-lasting connections.`,
+  },
+  {
+    slug: "power-redundancy",
+    term: "Power Redundancy",
+    shortDef: "Using multiple independent power paths to ensure equipment keeps running when a single power source, circuit, or UPS fails.",
+    categories: ["Power"],
+    related: ["nema-connector", "three-phase-power", "single-phase-power"],
+    content: `Power is the foundation everything else depends on. Power redundancy means no single failure takes systems offline. It's implemented at multiple levels:
+
+**Dual power supplies** — enterprise servers, switches, and storage systems typically have two power supply units (PSUs). Each PSU connects to a different circuit or PDU. If one supply or its circuit fails, the other carries the full load. This is the most important single level of redundancy for any critical device.
+
+**Dual PDUs** — power distribution units in a rack are typically deployed in pairs (PDU A and PDU B), fed from separate circuits or separate UPS units. PSU A of each server connects to PDU A; PSU B connects to PDU B.
+
+**UPS (Uninterruptible Power Supply)** — provides battery backup to bridge the gap during a power event, and in some cases provides power conditioning. A UPS protects against brief outages and allows for controlled shutdown if the outage extends. UPS runtime is typically minutes to tens of minutes — enough to ride through a brief utility event or execute a clean shutdown, not hours of operation.
+
+**Generator** — for extended outages, a generator provides sustained power after the UPS battery is exhausted. Typical transfer time from utility to generator is 10–30 seconds, which the UPS bridges. Generator fuel capacity and testing frequency are critical operational concerns.
+
+**Diverse utility feeds** — for the highest-availability facilities, two physically separate utility feeds from different substations enter the building on different paths. Expensive and uncommon outside of colocation facilities and critical infrastructure.
+
+For most organizations, dual PSUs on critical servers, dual PDUs per rack, and a properly sized UPS covering the network closet and server room is the practical target.`,
+  },
+
+  // ── WiFi ───────────────────────────────────────────────────────────────────
+  {
+    slug: "wifi-6",
+    term: "Wi-Fi 6",
+    aka: ["802.11ax", "WiFi 6"],
+    shortDef: "The current mainstream Wi-Fi standard — introduces OFDMA and improved MU-MIMO for better performance in high-density environments with many simultaneous connected devices.",
+    categories: ["WiFi", "Networking"],
+    related: ["wifi-6e", "wifi-7", "beamforming", "mu-mimo", "wpa3", "wlan"],
+    content: `Wi-Fi 5 (802.11ac) was fast for individual devices. Wi-Fi 6 (802.11ax) is designed for environments where many devices are connected simultaneously — the office with 80 laptops, phones, and IoT devices all hitting the network at once. The headline speed improvement is real but secondary to the efficiency gains.
+
+## Key technologies
+
+**OFDMA (Orthogonal Frequency Division Multiple Access)** — where Wi-Fi 5 gave each transmission the full channel, OFDMA divides the channel into smaller resource units that can be allocated to different devices simultaneously. The access point can serve multiple devices with small payloads in the same time slot, rather than making each wait its turn.
+
+**8x8 MU-MIMO** — Wi-Fi 6 extends multi-user MIMO to 8 simultaneous users and adds uplink MU-MIMO, meaning the AP can receive from multiple devices simultaneously, not just transmit to them.
+
+**BSS Coloring** — reduces interference between neighboring access points by letting each device identify whether a signal is from its own BSS or a neighbor's. Overlapping signals from a neighbor are treated as less disruptive, reducing unnecessary backoff.
+
+**Target Wake Time (TWT)** — devices negotiate a schedule for when to wake and communicate, allowing IoT devices and phones to sleep longer and conserve battery.
+
+**WPA3 required** — Wi-Fi 6 certification requires WPA3 security.
+
+## Real-world relevance
+
+For a small office with 20 devices, the difference between Wi-Fi 5 and Wi-Fi 6 is barely noticeable. For a dense environment — an open-plan office, a conference center, a school — the efficiency gains are meaningful. If you're replacing APs today, buy Wi-Fi 6 (or 6E). The hardware cost difference is small, and you're not going backwards.`,
+  },
+  {
+    slug: "wifi-6e",
+    term: "Wi-Fi 6E",
+    aka: ["802.11ax 6GHz", "WiFi 6E"],
+    shortDef: "Extends Wi-Fi 6 into the 6GHz frequency band, adding up to 7 new 160MHz channels completely free of the congestion that plagues 2.4GHz and 5GHz in dense environments.",
+    categories: ["WiFi", "Networking"],
+    related: ["wifi-6", "wifi-7", "wlan", "beamforming"],
+    content: `Wi-Fi 6E is Wi-Fi 6 with access to the newly opened 6GHz spectrum (5.925–7.125 GHz in the US, granted by the FCC in 2020). The technology is identical to Wi-Fi 6 — the difference is the frequency band it adds.
+
+Why 6GHz matters: the 2.4GHz and 5GHz bands are full of competing networks. In a Manhattan office building, a site survey might show 70+ networks visible at 2.4GHz and dozens more at 5GHz. The 6GHz band is new — only Wi-Fi 6E and Wi-Fi 7 devices can use it, so it's clean, uncongested spectrum.
+
+The 6GHz band also supports wider channels. In 5GHz, using 160MHz channels is often impractical because there are only one or two non-overlapping 160MHz channels available. In 6GHz, there are seven 160MHz channels, enabling high-throughput connections without channel conflicts.
+
+The trade-off: 6GHz has shorter range than 2.4GHz or 5GHz. Higher frequencies attenuate more quickly through walls and obstructions. 6GHz is a within-room band in practice — useful for high-density coverage where APs are close to clients, less useful for long-range coverage through multiple walls.
+
+In practice, Wi-Fi 6E APs are tri-band (2.4GHz + 5GHz + 6GHz) and steer capable clients to 6GHz while maintaining backward compatibility on the other bands.`,
+  },
+  {
+    slug: "wifi-7",
+    term: "Wi-Fi 7",
+    aka: ["802.11be", "WiFi 7", "Extremely High Throughput"],
+    shortDef: "The newest Wi-Fi standard — delivers up to 46Gbps theoretical throughput via 320MHz channels, multi-link operation across bands, and 4K-QAM.",
+    categories: ["WiFi", "Networking"],
+    related: ["wifi-6e", "wifi-6", "wlan"],
+    content: `Wi-Fi 7 raises the ceiling substantially over Wi-Fi 6E, primarily through three mechanisms:
+
+**320MHz channels** — double the channel width of Wi-Fi 6E's 160MHz maximum. Available only in 6GHz (the 5GHz band isn't wide enough). Wider channels = more data per transmission.
+
+**Multi-Link Operation (MLO)** — Wi-Fi 7 clients and APs can simultaneously transmit and receive across multiple frequency bands (2.4GHz + 5GHz + 6GHz) as a single bonded connection. This both increases throughput and improves reliability — if one band is congested or experiences interference, traffic can shift to another without disruption.
+
+**4096-QAM (4K-QAM)** — encodes more bits per symbol than Wi-Fi 6's 1024-QAM, increasing theoretical throughput by ~20% under ideal signal conditions.
+
+For most organizations buying APs today: Wi-Fi 6E is the practical choice. Wi-Fi 7 hardware is available but early-cycle, clients are not yet widespread, and the real-world gains over 6E are modest except in specific high-density or AV-intensive environments. If you're building for a 5-year horizon in a demanding environment, Wi-Fi 7 is reasonable. For typical office refreshes, Wi-Fi 6E is the right call.`,
+  },
+  {
+    slug: "beamforming",
+    term: "Beamforming",
+    shortDef: "Directs a Wi-Fi signal toward a specific client device rather than broadcasting equally in all directions, improving signal strength and reliability for that device.",
+    categories: ["WiFi", "Networking"],
+    related: ["mimo", "mu-mimo", "wifi-6", "wlan"],
+    content: `A standard antenna radiates in all directions — omnidirectional. Beamforming uses multiple antennas and signal processing to focus the RF energy toward a specific client, concentrating the signal where it's needed rather than wasting it in directions with no devices.
+
+The AP probes the client to learn its location relative to the antenna array, then adjusts the phase and amplitude of each antenna's signal so they constructively interfere in the direction of the client and destructively interfere elsewhere.
+
+The result: stronger signal at the client, less interference for neighboring devices, and better performance at the edges of coverage — where a client would otherwise be at the limit of usable signal.
+
+Beamforming works in combination with MU-MIMO: the AP can simultaneously form separate beams toward multiple clients, each receiving a focused signal rather than competing for omnidirectional broadcast capacity.
+
+Beamforming is a standard feature in all Wi-Fi 5, 6, and 7 access points, often branded by vendors under proprietary names (Cisco's Beamflex, Ruckus's ChannelFly, etc.). Explicit beamforming (where the client provides feedback) is more accurate than implicit beamforming (where the AP estimates direction); both are in common use.`,
+  },
+  {
+    slug: "mimo",
+    term: "MIMO",
+    aka: ["Multiple Input Multiple Output"],
+    shortDef: "Uses multiple antennas on both transmitter and receiver to send multiple data streams simultaneously over the same frequency, multiplying throughput without additional spectrum.",
+    categories: ["WiFi", "Networking"],
+    related: ["mu-mimo", "beamforming", "wifi-6", "wlan"],
+    content: `MIMO exploits a phenomenon called multipath propagation. In a real RF environment, signals bounce off walls, furniture, and people, arriving at the receiver via multiple paths with different delays. In traditional single-antenna systems, this causes interference. MIMO's multiple antennas distinguish these paths and use them to carry separate data streams simultaneously.
+
+A 4x4 MIMO link has 4 transmit and 4 receive antennas, capable of 4 simultaneous spatial streams. Each stream operates independently — a 4x4:4 MIMO AP running at 600Mbps per stream delivers 2.4Gbps aggregate to a single client with a matching 4-stream NIC.
+
+MIMO notation: the first number is transmit antennas, the second is receive antennas, and the third (if shown) is the maximum spatial streams. A 4x4:3 radio has 4 transmit and 4 receive antennas but a maximum of 3 spatial streams.
+
+In practice, most client devices have 2 or fewer spatial streams (laptops with 2x2 MIMO, phones often with 1x1 or 2x2). The AP can have 4 or 8 transmit/receive chains, but the client is often the bottleneck on spatial stream count.
+
+MIMO is the foundation for MU-MIMO: once an AP can handle multiple spatial streams, it can direct different streams to different clients simultaneously.`,
+  },
+  {
+    slug: "mu-mimo",
+    term: "MU-MIMO",
+    aka: ["Multi-User MIMO", "Multi-User Multiple Input Multiple Output"],
+    shortDef: "Extends MIMO to serve multiple client devices simultaneously rather than one at a time, effectively multiplying the useful throughput of a single access point.",
+    categories: ["WiFi", "Networking"],
+    related: ["mimo", "beamforming", "wifi-6", "wlan"],
+    content: `Standard MIMO (SU-MIMO, single-user) sends multiple streams but all to one device at a time. The AP rotates through clients sequentially. MU-MIMO allows the AP to transmit to multiple clients simultaneously using separate spatial streams directed by beamforming.
+
+Wi-Fi 5 introduced downlink MU-MIMO with up to 4 simultaneous users. Wi-Fi 6 extended this to 8 simultaneous users and added uplink MU-MIMO — meaning clients can also transmit to the AP simultaneously, not just receive.
+
+The practical benefit is clearest in high-density environments. In a conference room with 20 devices, an AP without MU-MIMO serves each device in sequence — the effective time each device gets is 1/20th of the total. MU-MIMO can serve 4 or 8 devices simultaneously, substantially reducing wait time and improving the aggregate user experience.
+
+The gains aren't unlimited. MU-MIMO requires clients to support it (all modern devices do), requires clear spatial separation between clients (beamforming handles this), and the channel must be clean enough for accurate beam formation. In ideal conditions the gains are substantial; in very dense or heavily interfered environments the benefit decreases.`,
+  },
+  {
+    slug: "wap",
+    term: "WAP",
+    aka: ["Wireless Access Point", "Access Point", "AP"],
+    shortDef: "The device that creates a Wi-Fi network — bridges wireless clients to the wired Ethernet infrastructure and is managed individually or via a controller.",
+    categories: ["WiFi", "Networking"],
+    related: ["wlan", "wifi-6", "beamforming", "poe", "vlan"],
+    content: `An access point does one job: it translates between wireless (Wi-Fi) and wired (Ethernet) communication. Wireless clients associate with the AP, and the AP forwards their traffic over its Ethernet uplink to the network.
+
+## Standalone vs controller-managed
+
+**Standalone APs** — configured individually via web interface or CLI. Fine for very small deployments (1–3 APs in a small office) but don't scale. No central visibility, no coordinated channel management.
+
+**Controller-managed APs** — a central controller (physical or cloud) manages all APs as a fleet. Channel selection, power, client roaming, RF optimization, and firmware updates are all managed centrally. The right choice for any deployment with more than a handful of APs. UniFi, Cisco Meraki, Aruba, and Ruckus all follow this model.
+
+## Powering APs
+
+APs are almost universally powered via PoE — a PoE switch port or injector powers the AP over the Ethernet cable, eliminating the need for a power outlet at the ceiling. This is one of the primary use cases driving PoE+ adoption; modern dual-radio 6E APs may need 25W or more.
+
+## AP placement and density
+
+AP coverage is a balance between coverage area (fewer APs, more power, wider range) and capacity (more APs, lower power, each AP serves fewer clients more efficiently). In a high-density environment, the goal is usually capacity rather than coverage — more APs operating at lower transmit power, each serving a smaller area with better per-client performance.`,
+  },
+  {
+    slug: "wifi-roaming",
+    term: "Wi-Fi Roaming",
+    shortDef: "The process by which a wireless device transitions from one access point to another as it moves through a space, ideally without dropping connections or interrupting ongoing sessions.",
+    categories: ["WiFi", "Networking"],
+    related: ["wap", "wlan", "wifi-6"],
+    content: `In a multi-AP environment, a device doesn't stay connected to one AP forever — as it moves, signal quality to the current AP degrades and a nearer AP becomes the better choice. Roaming is the handoff process.
+
+## Sticky client problem
+
+The roaming decision is made by the client, not the AP. Some clients are "sticky" — they hold onto a weak signal from a distant AP rather than roaming to a closer one, even when the closer AP would give them much better performance. This is a common cause of poor Wi-Fi experience in larger spaces.
+
+Modern APs combat this through 802.11v (BSS Transition Management), which allows the AP to suggest to a client that it roam to a better AP, and 802.11k (Neighbor Reports), which lets the client discover nearby APs without scanning. Controllers automate this.
+
+## 802.11r — Fast BSS Transition
+
+Standard roaming requires the client to fully re-authenticate with the new AP, which can take several hundred milliseconds and breaks VoIP calls and time-sensitive applications. 802.11r (Fast BSS Transition) pre-caches authentication information so the handoff takes milliseconds rather than hundreds of milliseconds. Essential for voice and video in roaming environments.
+
+## SSID consistency
+
+For seamless roaming, all APs serving the same wireless network must broadcast the same SSID with the same security settings. Clients roam between APs transparently because from their perspective it's all the same network.`,
+  },
+  {
+    slug: "wlan",
+    term: "WLAN",
+    aka: ["Wireless LAN", "Wireless Local Area Network"],
+    shortDef: "The wireless portion of a local area network — the collection of access points, SSIDs, and RF infrastructure that provides wireless connectivity within a physical space.",
+    categories: ["WiFi", "Networking"],
+    related: ["wap", "lan", "wifi-6", "vlan"],
+    content: `WLAN and Wi-Fi are often used interchangeably, but WLAN is the broader term. A WLAN is the wireless network layer as a whole: the access points, their configuration, the SSIDs they broadcast, and how they connect back to the wired network.
+
+In a properly designed network, the WLAN is a functional extension of the wired LAN rather than a separate thing. Wireless clients connect to an AP and end up on the same VLAN they'd be on if they plugged in with a cable. The wireless network should be transparent — applications shouldn't know or care whether traffic is coming from wired or wireless clients.
+
+The WLAN is typically segmented: a corporate SSID for managed devices (on the corporate VLAN), a guest SSID for visitors (on an isolated VLAN with internet access only), and possibly a separate SSID for IoT devices. Each SSID maps to a VLAN; the AP tags traffic appropriately before it hits the switch.`,
+  },
+
+  // ── Deferred Networking ────────────────────────────────────────────────────
+  {
+    slug: "voip",
+    term: "VoIP",
+    aka: ["Voice over IP", "IP Telephony"],
+    shortDef: "Transmits telephone calls as digital data packets over an IP network rather than dedicated telephone circuits — the technology behind virtually all modern business phone systems.",
+    categories: ["Networking"],
+    related: ["voice-vlan", "qos", "poe", "lldp"],
+    content: `Traditional phone systems use circuit-switched networks — a dedicated physical path for the duration of each call. VoIP converts voice to IP packets and routes them like any other network traffic, sharing infrastructure with data.
+
+The business case is straightforward: once you have an IP network, adding voice costs primarily the phones and a software platform, not a separate telephone infrastructure. Calls between offices over your WAN or internet connection are effectively free. International calls are dramatically cheaper.
+
+VoIP quality depends on the network. Voice is latency and jitter sensitive — packets that arrive too late or out of sequence cause audible degradation. The requirements that make this work:
+
+**QoS** — voice traffic must be prioritized over bulk data. A large file transfer sharing bandwidth with a VoIP call will degrade call quality without QoS enforcement.
+
+**Voice VLAN** — IP phones belong in a dedicated VLAN, both for QoS policy application and for security isolation.
+
+**LLDP-MED** — phones learn their VLAN assignment from the switch via LLDP-MED advertisement, enabling plug-and-play deployment.
+
+**PoE** — IP phones are almost universally PoE-powered.
+
+Common VoIP platforms: Microsoft Teams Phone, RingCentral, Zoom Phone, Cisco Unified Communications, 3CX. All follow the same underlying model — SIP (Session Initiation Protocol) for call setup and RTP (Real-time Transport Protocol) for audio delivery.`,
+  },
+  {
+    slug: "stacking",
+    term: "Stacking",
+    aka: ["Switch Stacking", "Stack"],
+    shortDef: "Connects multiple physical switches so they operate as a single logical switch with one management interface, one configuration, and shared MAC and IP address tables.",
+    categories: ["Networking", "Hardware"],
+    related: ["lacp", "access-switch", "vlan"],
+    content: `A switch stack takes 2–8 (or more, depending on platform) physical switches and presents them to the network as one. A single IP address manages all of them. VLANs, port configurations, and firmware are managed in one place. If you add a port to VLAN 10, you do it once and it applies wherever that port lives in the stack.
+
+The physical connection between stack members uses a dedicated stacking cable or high-speed backplane, separate from the uplink ports. Traffic between stack members transits this connection invisibly.
+
+## Stacking vs chassis
+
+Enterprise alternatives are modular chassis switches — a single physical chassis with removable line cards. Stacking achieves similar management simplicity at lower cost using standard fixed switches. Chassis provide higher backplane bandwidth and more flexible port density, but at significantly higher cost.
+
+## Resilience
+
+Stacked switches elect a master unit that handles management. If the master fails, another unit takes over with minimal disruption. In high-availability designs, the stack's uplinks can use LACP across multiple stack members — a link aggregation group that physically spans two switches, so a single switch failure doesn't disrupt the uplinks.`,
+  },
+  {
+    slug: "access-switch",
+    term: "Access Switch",
+    aka: ["Edge Switch", "Access Layer Switch"],
+    shortDef: "The switch that end devices — computers, phones, APs, printers — plug into directly. Sits at the edge of the network and connects up to a distribution or core switch.",
+    categories: ["Networking", "Hardware"],
+    related: ["vlan", "poe", "lacp", "idf"],
+    content: `The three-layer network model divides switches into access, distribution, and core layers. Access switches are the bottom layer — the gear in IDFs and telecom closets that devices actually connect to. Distribution and core switches handle higher-speed aggregation and routing.
+
+Access switches are characterized by:
+
+**High port count** — 24 or 48 downlink ports, typically at 1Gbps or 2.5Gbps for endpoint connectivity.
+
+**PoE** — most access switches today are PoE or PoE+ capable, powering phones, APs, and cameras from the switch port.
+
+**Uplinks** — 2–4 higher-speed uplink ports (10G or 25G) for connecting back to the distribution or core switch, often in an LACP bundle for redundancy and bandwidth.
+
+**VLANs and QoS** — access switches enforce port-level VLAN assignment and apply QoS markings to prioritize voice and video.
+
+**802.1X** — access switches can enforce port-based network access control, blocking unauthenticated devices.
+
+In small and mid-size organizations, the three-layer model often collapses to two: access switches connect directly to a core switch or firewall, skipping a dedicated distribution layer. The principles remain the same.`,
+  },
+
+  // ── RAID + Power hardware ──────────────────────────────────────────────────
+  {
+    slug: "raid",
+    term: "RAID",
+    aka: ["Redundant Array of Independent Disks"],
+    shortDef: "Combines multiple drives into a single logical volume for redundancy, performance, or both. The RAID level determines how data is distributed and how many drives can fail before data is lost.",
+    categories: ["Hardware", "Virtualization"],
+    related: ["hdd", "ssd", "nvme", "virtual-machine"],
+    content: `RAID uses multiple physical drives together, presenting them as one volume to the operating system. Depending on the level, RAID can protect against drive failures, increase read/write throughput, or both — at the cost of some usable capacity.
+
+## RAID 0 — Striping, no redundancy
+
+Data is striped across all drives in equal chunks. A read or write accesses multiple drives simultaneously, delivering the highest throughput of any RAID level. Usable capacity equals the sum of all drives.
+
+The catch: zero redundancy. One drive failure loses everything. RAID 0 is appropriate only for scratch space, caches, or workloads where data loss is acceptable and performance is critical.
+
+![Diagram showing RAID 0 striping data blocks across two drives with no redundancy — maximum performance, no fault tolerance](/images/glossary/raid-0.png)
+
+## RAID 1 — Mirroring
+
+Every drive has an exact mirror. Reads can come from either drive; writes go to both. Usable capacity is 50% — two 8TB drives give you 8TB usable. A single drive failure is fully tolerated; the mirror continues serving data.
+
+RAID 1 is simple, reliable, and has excellent read performance. Write speed is limited to the slower of the two drives. Best for OS volumes, critical databases, and situations where simplicity and reliability matter more than capacity efficiency.
+
+![Diagram showing RAID 1 mirroring identical data across two drives — one drive can fail with no data loss](/images/glossary/raid-1.png)
+
+## RAID 5 — Striping with distributed parity
+
+Data and parity information are striped across three or more drives. Parity allows any single drive to be reconstructed if it fails. Usable capacity is n−1 drives — three 8TB drives gives 16TB usable.
+
+RAID 5 balances capacity, performance, and redundancy. Read performance is excellent; write performance is lower due to parity calculation. Rebuild times after a drive failure are long on large drives, and during rebuild a second failure would be catastrophic. For anything mission-critical, RAID 6 is the safer choice.
+
+![Diagram showing RAID 5 distributing data and parity blocks across three drives — any single drive can fail and be rebuilt from parity](/images/glossary/raid-5.png)
+
+## RAID 6 — Striping with double distributed parity
+
+Like RAID 5, but with two independent parity blocks distributed across the drives. Any two drives can fail simultaneously without data loss. Usable capacity is n−2 drives — four 8TB drives gives 16TB usable.
+
+RAID 6 is the right choice for production storage that matters. The write overhead is slightly higher than RAID 5, but the additional protection against dual-drive failure is worth it — especially given that drives in the same array often fail in close succession (the stress of one failure and the subsequent long rebuild creates conditions for a second). For NAS arrays with large drives, RAID 6 is our standard recommendation.
+
+![Diagram showing RAID 6 distributing data and two sets of parity blocks across four drives — any two drives can fail simultaneously without data loss](/images/glossary/raid-6.png)
+
+## RAID 10 — Mirroring + striping
+
+RAID 10 (sometimes written RAID 1+0) combines RAID 1 mirroring with RAID 0 striping. Data is mirrored across pairs of drives, and those mirror pairs are then striped. Minimum four drives; usable capacity is 50% of total.
+
+RAID 10 delivers the highest read performance of any redundant RAID level, fast rebuilds (only the mirrored pair needs rebuilding, not the full array), and can survive multiple drive failures as long as no mirror pair loses both drives. It's the choice for high-performance, high-reliability workloads: busy databases, VM datastores, high-throughput storage. The cost is efficiency — you're paying for half your raw capacity.
+
+![Diagram showing RAID 10 combining two RAID 1 mirror pairs into a RAID 0 stripe — high performance and redundancy at the cost of 50% usable capacity](/images/glossary/raid-10.png)
+
+## Choosing a RAID level
+
+| Level | Min drives | Usable capacity | Drive failures tolerated | Best for |
+|---|---|---|---|---|
+| RAID 0 | 2 | 100% | 0 | Scratch space, caches |
+| RAID 1 | 2 | 50% | 1 | OS volumes, critical small datasets |
+| RAID 5 | 3 | n−1 | 1 | General file storage, moderate write loads |
+| RAID 6 | 4 | n−2 | 2 | Production NAS, large drives, critical data |
+| RAID 10 | 4 | 50% | 1 per mirror pair | Databases, high-performance VM storage |
+
+RAID is not a backup. A RAID array protects against drive failure; it does not protect against accidental deletion, file corruption, ransomware, or catastrophic hardware failure. Maintain separate backups regardless of RAID level.`,
+  },
+  {
+    slug: "ups",
+    term: "UPS",
+    aka: ["Uninterruptible Power Supply"],
+    shortDef: "Provides battery backup that keeps equipment running through a brief power outage and allows for a controlled shutdown if power isn't restored.",
+    categories: ["Power", "Hardware"],
+    related: ["pdu", "power-redundancy", "nema-connector"],
+    content: `A UPS sits between the utility power source and the equipment it protects, storing energy in a battery bank. When utility power fails or fluctuates outside acceptable range, the UPS switches to battery — ideally fast enough that connected equipment never even sees a power interruption.
+
+## UPS types
+
+**Standby (offline)** — the battery charger is the only active component during normal operation; the inverter kicks in on power loss. Transfer time is typically 2–10ms. Least expensive. Adequate for basic equipment protection but not the right choice for servers with strict transfer time requirements.
+
+**Line-interactive** — includes an automatic voltage regulator (AVR) that corrects voltage sags and surges without switching to battery. Transfer time 2–4ms. The right choice for most server room and network closet applications.
+
+**Online double-conversion** — all power runs through the inverter continuously, so there is zero transfer time on power loss — the equipment is already running off the inverted battery output. Most expensive, slightly less efficient, but appropriate for the highest-availability environments and sensitive equipment.
+
+## Sizing
+
+UPS capacity is measured in VA (volt-amperes) and watts. The difference matters: a 1500VA UPS rated at 1200W can support loads up to 1200W continuously. Don't exceed 80% of rated capacity for continuous loads.
+
+Runtime on battery depends on load and battery capacity. A 1500VA UPS at full load might run 5 minutes. At 50% load it might run 15–20 minutes. The goal is usually to bridge brief outages and provide enough time for a clean shutdown, not to run indefinitely.
+
+## Management
+
+Enterprise UPS units include network management cards (NMC) or USB/serial interfaces that allow monitoring battery status, load percentage, and estimated runtime, and can trigger graceful shutdowns of connected servers before the battery is exhausted. This is essential in any unattended server room.
+
+## Placement in the power chain
+
+In a typical data room: utility power → transfer switch → UPS → PDU → equipment. The UPS handles brief outages; a generator provides extended runtime beyond battery capacity.`,
+  },
+  {
+    slug: "pdu",
+    term: "PDU",
+    aka: ["Power Distribution Unit", "Rack PDU", "Intelligent PDU"],
+    shortDef: "Distributes power from a single feed to multiple devices in a rack. The power strip for server infrastructure — built for the density, reliability, and monitoring requirements of production environments.",
+    categories: ["Power", "Hardware"],
+    related: ["ups", "power-redundancy", "nema-connector", "rack-unit", "three-phase-power"],
+    content: `A rack PDU takes one input (from a UPS, breaker, or generator transfer switch) and distributes it across many output receptacles — typically C13 and C19 IEC outlets, the standard connectors on server and networking equipment.
+
+## PDU tiers
+
+**Basic PDU** — passive distribution, no intelligence. Power comes in, power goes out. No monitoring. Appropriate only where cost is the dominant concern.
+
+**Metered PDU** — displays total input current draw on a small display. Lets you see how loaded a circuit is without a clamp meter. Important for avoiding tripped breakers.
+
+**Monitored PDU** — network-connected, reports per-PDU current, voltage, and power consumption to a management system. Lets you track load trends, receive alerts before a circuit trips, and correlate power consumption with equipment.
+
+**Switched (intelligent) PDU** — everything in monitored plus per-outlet remote on/off and reboot. Allows you to remotely power cycle a hung device without physically accessing the rack. Per-outlet current monitoring shows exactly what each device draws. The right choice for production server rooms where remote management matters.
+
+## Input configuration
+
+**Single-phase input** — standard for small deployments. A NEMA L5-20 or L5-30 input (120V) or L6-20/L6-30 (208V) is typical.
+
+**Three-phase input** — for high-density racks. A single three-phase PDU can distribute 10kW or more across balanced phases. A three-phase NEMA L15-30 or L21-30 input connects to the breaker panel or transfer switch.
+
+## Dual PDU / A-B redundancy
+
+Production racks typically have two PDUs — PDU A and PDU B — fed from independent circuits or separate UPS units. Each server with dual power supplies connects one PSU to PDU A, the other to PDU B. If any single PDU, circuit, or UPS fails, every device continues running on its remaining power supply.
+
+This A-B redundancy model is the standard for any environment where uptime matters. Don't share both PSUs of a critical server on the same PDU.
+
+## Zero-U mounting
+
+PDUs are often mounted vertically in the side channels of a rack rather than occupying rack units. This "zero-U" mounting preserves full rack unit capacity for equipment while keeping power distribution organized and accessible.`,
   },
 ]
