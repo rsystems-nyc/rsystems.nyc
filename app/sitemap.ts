@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { servicesData } from "@/app/lib/services-data";
 import { caseStudiesData } from "@/app/lib/case-studies-data";
 import { articles } from "@/app/resources/university/articles";
+import { glossaryTerms } from "@/app/lib/glossary-terms";
 
 const BASE_URL = "https://rsystems.nyc";
 
@@ -77,6 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/resources`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE_URL}/resources/free-resources`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE_URL}/resources/university`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE_URL}/resources/glossary`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE_URL}/resources/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/about/leadership`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
@@ -137,6 +139,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const glossarySitemapRoutes: MetadataRoute.Sitemap = glossaryTerms.map((t) => ({
+    url: `${BASE_URL}/resources/glossary/${t.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  }));
+
   return [
     ...staticRoutes,
     ...aiSitemapRoutes,
@@ -146,5 +155,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...caseStudyRoutes,
     ...industrySitemapRoutes,
     ...universitySitemapRoutes,
+    ...glossarySitemapRoutes,
   ];
 }

@@ -1,11 +1,10 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { GlossaryData } from "./glossary-data";
-import GlossaryAccordion from "./GlossaryAccordion";
+import GlossaryIndex from "./GlossaryIndex";
 
 export const metadata: Metadata = {
   title: "Glossary — RSystems NYC",
-  description: "Plain-language definitions of the terms that come up most often in infrastructure and IT strategy engagements.",
+  description: "Plain-language definitions for the terms that come up most often — browse by letter or filter by topic.",
   alternates: { canonical: "https://rsystems.nyc/resources/glossary" },
 };
 
@@ -33,15 +32,16 @@ export default function GlossaryPage() {
             Glossary
           </h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
-            Plain-language definitions of the terms that come up most often — organized by topic, not alphabet.
+            Plain-language definitions for the terms that come up most often —
+            browse by letter or filter by topic.
           </p>
         </div>
       </section>
 
-      {/* Accordion */}
+      {/* Index */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <GlossaryAccordion data={GlossaryData} />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+          <GlossaryIndex />
         </div>
       </section>
 
