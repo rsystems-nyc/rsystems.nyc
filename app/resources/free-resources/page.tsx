@@ -282,8 +282,7 @@ const resources: Resource[] = [
   },
 ]
 
-function ResourceCard({ resource }: { resource: Resource }) {
-  const seen = new Set<string>()
+function ResourceCard({ resource, seen }: { resource: Resource; seen: Set<string> }) {
   return (
     <div className="bg-white rounded-xl border border-[#1A1A1A]/[0.07] p-8 lg:p-10">
       {resource.comingSoon ? (
@@ -359,6 +358,7 @@ function ResourceCard({ resource }: { resource: Resource }) {
 }
 
 export default function FreeResourcesPage() {
+  const seen = new Set<string>()
   return (
     <main className="flex-1">
 
@@ -392,7 +392,7 @@ export default function FreeResourcesPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="space-y-6">
             {resources.map((resource) => (
-              <ResourceCard key={resource.id} resource={resource} />
+              <ResourceCard key={resource.id} resource={resource} seen={seen} />
             ))}
           </div>
         </div>
