@@ -14,7 +14,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: "autopilot",
     term: "Autopilot",
     aka: ["Windows Autopilot"],
-    shortDef: "Windows Autopilot is Microsoft's zero-touch device deployment system. When a new Windows PC powers on for the first time, Autopilot handles everything automatically — joining it to your directory, installing required apps, applying security policies, and getting it ready for the employee — without IT ever touching the machine.",
+    shortDef: "Microsoft's zero-touch Windows deployment system. New PCs configure themselves on first boot — no IT hands-on required.",
     categories: ["Microsoft", "MDM"],
     related: ["intune", "entra-id", "zero-touch"],
     content: `Windows Autopilot is Microsoft's zero-touch device deployment system. When a new Windows PC powers on for the first time, Autopilot handles everything automatically — joining it to your directory, installing required apps, applying security policies, and getting it ready for the employee — without IT ever touching the machine.
@@ -29,7 +29,7 @@ The catch: it requires proper upfront configuration — Intune enrollment polici
     slug: "intune",
     term: "Intune",
     aka: ["Microsoft Intune"],
-    shortDef: "Microsoft Intune is a cloud-based device and application management platform. It's the system that enforces your IT policies across every device in your organization — Windows laptops, Macs, iPhones, Android — regardless of where they are.",
+    shortDef: "Microsoft's cloud platform for managing and securing every device in your organization — enforcing policies regardless of where they are.",
     categories: ["Microsoft", "MDM"],
     related: ["autopilot", "entra-id", "mdm"],
     content: `Microsoft Intune is a cloud-based device and application management platform. It's the system that enforces your IT policies across every device in your organization — Windows laptops, Macs, iPhones, Android — regardless of where they are.
@@ -44,7 +44,7 @@ The distinction that matters: Intune manages the device. Entra ID manages the id
     slug: "entra-id",
     term: "Entra ID",
     aka: ["Azure Active Directory", "Azure AD", "AAD"],
-    shortDef: "Microsoft Entra ID — formerly called Azure Active Directory — is Microsoft's cloud-based identity and access management service. It's the system that verifies who someone is and controls what they can access.",
+    shortDef: "Microsoft's cloud identity service — verifies who someone is and controls what they can access. Formerly called Azure Active Directory.",
     categories: ["Microsoft", "Identity"],
     related: ["intune", "autopilot", "saml", "oidc"],
     content: `Microsoft Entra ID — formerly called Azure Active Directory — is Microsoft's cloud-based identity and access management service. It's the system that verifies who someone is and controls what they can access.
@@ -61,7 +61,7 @@ The features that matter most: conditional access (require MFA from unmanaged de
     slug: "dns",
     term: "DNS",
     aka: ["Domain Name System"],
-    shortDef: "DNS — the Domain Name System — is the internet's address book. It translates human-friendly names like yourcompany.com into the numerical addresses computers use, and it directs different kinds of traffic to the right places: your website to one server, your email to another.",
+    shortDef: "The internet's address book. Translates domain names to IP addresses and routes web and email traffic to the right servers.",
     categories: ["Networking"],
     related: ["spf", "dkim", "dmarc"],
     content: `DNS — the Domain Name System — is the internet's address book. It translates human-friendly names like yourcompany.com into the numerical addresses computers use, and it directs different kinds of traffic to the right places: your website to one server, your email to another.
@@ -74,7 +74,7 @@ Because so much depends on it — your website, your email delivery, your email 
     slug: "spf",
     term: "SPF",
     aka: ["Sender Policy Framework"],
-    shortDef: "SPF — Sender Policy Framework — is a DNS record that specifies which mail servers are authorized to send email on behalf of your domain. When a receiving mail server gets a message claiming to be from you, it checks your SPF record to verify the sending server is on your approved list.",
+    shortDef: "A DNS record listing which servers are authorized to send email for your domain — receiving servers check it to block impersonation.",
     categories: ["Networking", "Security"],
     related: ["dkim", "dmarc", "bimi"],
     content: `SPF — Sender Policy Framework — is a DNS record that specifies which mail servers are authorized to send email on behalf of your domain. When a receiving mail server gets a message claiming to be from you, it checks your SPF record to verify the sending server is on your approved list.
@@ -89,7 +89,7 @@ SPF validates the sending server, not the message itself. It also doesn't protec
     slug: "dkim",
     term: "DKIM",
     aka: ["DomainKeys Identified Mail"],
-    shortDef: "DKIM — DomainKeys Identified Mail — adds a cryptographic signature to outgoing email. The signature is generated using a private key you control; the corresponding public key is published in your DNS. When a receiving server gets your email, it retrieves your public key and uses it to verify the signature, confirming the message came from you and wasn't modified in transit.",
+    shortDef: "Adds a cryptographic signature to outgoing email, verified by receiving servers using your public key published in DNS.",
     categories: ["Networking", "Security"],
     related: ["spf", "dmarc", "asymmetric-cryptography"],
     content: `DKIM — DomainKeys Identified Mail — adds a cryptographic signature to outgoing email. The signature is generated using a private key you control; the corresponding public key is published in your DNS. When a receiving server gets your email, it retrieves your public key and uses it to verify the signature, confirming the message came from you and wasn't modified in transit.
@@ -104,7 +104,7 @@ Both SPF and DKIM feed into DMARC, which is the enforcement layer that tells rec
     slug: "dmarc",
     term: "DMARC",
     aka: ["Domain-based Message Authentication, Reporting, and Conformance"],
-    shortDef: "DMARC — Domain-based Message Authentication, Reporting, and Conformance — tells receiving mail servers what to do with messages that fail email authentication checks. It's the enforcement layer that sits on top of SPF and DKIM.",
+    shortDef: "Tells receiving servers what to do with email that fails authentication — reject, quarantine, or flag. The enforcement layer on top of SPF and DKIM.",
     categories: ["Networking", "Security"],
     related: ["spf", "dkim", "bimi"],
     content: `DMARC — Domain-based Message Authentication, Reporting, and Conformance — tells receiving mail servers what to do with messages that fail email authentication checks. It's the enforcement layer that sits on top of SPF and DKIM.
@@ -123,7 +123,7 @@ Getting to p=reject requires care — you need to confirm all legitimate email s
     slug: "bimi",
     term: "BIMI",
     aka: ["Brand Indicators for Message Identification"],
-    shortDef: "BIMI — Brand Indicators for Message Identification — is an email standard that displays your organization's logo directly in the email client, next to the sender name in Gmail, Apple Mail, and other supporting clients, when a message passes full email authentication.",
+    shortDef: "Displays your logo next to the sender name in Gmail, Apple Mail, and other supporting clients — requires full email authentication.",
     categories: ["Networking", "Security"],
     related: ["dmarc", "spf", "dkim"],
     content: `BIMI — Brand Indicators for Message Identification — is an email standard that displays your organization's logo directly in the email client, next to the sender name in Gmail, Apple Mail, and other supporting clients, when a message passes full email authentication.
@@ -138,7 +138,7 @@ For organizations with active phishing concerns or brand trust considerations, B
     slug: "dnssec",
     term: "DNSSEC",
     aka: ["DNS Security Extensions"],
-    shortDef: "DNSSEC — DNS Security Extensions — adds a layer of cryptographic verification to DNS. Ordinary DNS has no built-in way to prove that the answer you received actually came from the legitimate owner of a domain, which leaves room for certain attacks that forge DNS responses and redirect traffic. DNSSEC signs DNS records so that resolvers can confirm they're authentic and unaltered.",
+    shortDef: "Adds cryptographic signatures to DNS records so resolvers can verify responses haven't been forged or tampered with.",
     categories: ["Networking", "Security"],
     related: ["dns"],
     content: `DNSSEC — DNS Security Extensions — adds a layer of cryptographic verification to DNS. Ordinary DNS has no built-in way to prove that the answer you received actually came from the legitimate owner of a domain, which leaves room for certain attacks that forge DNS responses and redirect traffic. DNSSEC signs DNS records so that resolvers can confirm they're authentic and unaltered.
@@ -151,7 +151,7 @@ It's not the first thing most small organizations turn on, but it's a reasonable
     slug: "smtp",
     term: "SMTP",
     aka: ["Simple Mail Transfer Protocol"],
-    shortDef: "SMTP — Simple Mail Transfer Protocol — is the standard that mail servers use to send email across the internet. When people refer to your \"primary SMTP address,\" they mean the main, authoritative email address of record for an account — as distinct from any aliases that also route to the same mailbox.",
+    shortDef: "The protocol mail servers use to send email. Your primary SMTP address is the authoritative address of record — distinct from any aliases on the same mailbox.",
     categories: ["Networking"],
     related: ["spf", "dkim", "dmarc"],
     content: `SMTP — Simple Mail Transfer Protocol — is the standard that mail servers use to send email across the internet. When people refer to your "primary SMTP address," they mean the main, authoritative email address of record for an account — as distinct from any aliases that also route to the same mailbox.
@@ -166,7 +166,7 @@ SMTP is also the layer that email authentication protects: SPF, DKIM, and DMARC 
     slug: "mfa",
     term: "MFA",
     aka: ["Multi-Factor Authentication", "Two-Factor Authentication", "2FA"],
-    shortDef: "MFA — multi-factor authentication — requires more than just a password to sign in. The factors are usually described as something you know (a password), something you have (a phone, a hardware key), and something you are (a fingerprint or face). Requiring at least two means a stolen password alone isn't enough to get in.",
+    shortDef: "Requires more than a password to sign in — typically a password plus a code from your phone. A stolen password alone isn't enough.",
     categories: ["Security", "Identity"],
     related: ["totp", "sso", "least-privilege"],
     content: `MFA — multi-factor authentication — requires more than just a password to sign in. The factors are usually described as something you know (a password), something you have (a phone, a hardware key), and something you are (a fingerprint or face). Requiring at least two means a stolen password alone isn't enough to get in.
@@ -179,7 +179,7 @@ Not all MFA is equal. Codes sent by SMS are better than nothing but can be inter
     slug: "totp",
     term: "TOTP",
     aka: ["Time-Based One-Time Password"],
-    shortDef: "TOTP — time-based one-time password — is the six-digit code that rotates every thirty seconds in an authenticator app like 1Password, Authy, or Google Authenticator. It's one of the most common second factors for multi-factor authentication.",
+    shortDef: "The rotating six-digit code in an authenticator app — the most common second factor for MFA.",
     categories: ["Security"],
     related: ["mfa"],
     content: `TOTP — time-based one-time password — is the six-digit code that rotates every thirty seconds in an authenticator app like 1Password, Authy, or Google Authenticator. It's one of the most common second factors for multi-factor authentication.
@@ -191,7 +191,7 @@ The practical advice: store your TOTP secrets in your password manager alongside
   {
     slug: "vault",
     term: "Vault",
-    shortDef: "A vault is a folder within a password manager — the unit you use to organize and share credentials. In 1Password, for example, vaults are how you separate, say, finance credentials from operations credentials, and how you control who can see what.",
+    shortDef: "A folder within a password manager for organizing and sharing credentials — the unit that controls who can access what.",
     categories: ["Security"],
     related: ["least-privilege", "service-account"],
     content: `A vault is a folder within a password manager — the unit you use to organize and share credentials. In 1Password, for example, vaults are how you separate, say, finance credentials from operations credentials, and how you control who can see what.
@@ -203,7 +203,7 @@ Designing vaults well follows the same restraint as designing permission groups:
   {
     slug: "service-account",
     term: "Service Account",
-    shortDef: "A service account is an account that isn't tied to a specific human being. Instead of ownership and top-level control living on the CEO's or CFO's personal login, it lives on a dedicated account — commonly something like itadmin@yourdomain.com — whose credential is stored in the organization's password manager and retrieved only when needed.",
+    shortDef: "A non-human account used as owner of record for systems and tools — not tied to any individual employee.",
     categories: ["Identity", "Security"],
     related: ["super-admin", "least-privilege", "vault"],
     content: `A service account is an account that isn't tied to a specific human being. Instead of ownership and top-level control living on the CEO's or CFO's personal login, it lives on a dedicated account — commonly something like itadmin@yourdomain.com — whose credential is stored in the organization's password manager and retrieved only when needed.
@@ -216,7 +216,7 @@ As a convention, the service account should be the owner of record of your major
     slug: "super-admin",
     term: "Super Admin",
     aka: ["Global Administrator", "Global Admin"],
-    shortDef: "A super admin (or global admin) is an account with the highest level of control over a platform — able to manage every user, change any setting, and grant or revoke anyone else's access. In Google Workspace it's the Super Admin role; in Microsoft 365 it's the Global Administrator.",
+    shortDef: "Highest-privilege account on a platform — manages every user, changes any setting, grants or revokes all access.",
     categories: ["Identity", "Security"],
     related: ["service-account", "least-privilege", "mfa"],
     content: `A super admin (or global admin) is an account with the highest level of control over a platform — able to manage every user, change any setting, and grant or revoke anyone else's access. In Google Workspace it's the Super Admin role; in Microsoft 365 it's the Global Administrator.
@@ -228,7 +228,7 @@ Super admin credentials are exactly the kind of thing that belongs in a password
   {
     slug: "least-privilege",
     term: "Least Privilege",
-    shortDef: "The principle of least privilege says every person, account, and system should have exactly the access required to do its job — and nothing more. The bookkeeper reaches accounting but not the servers; the marketing contractor edits the campaign folder but never sees HR records.",
+    shortDef: "Every account gets exactly the access its job requires — nothing more. Limits the blast radius of a compromise or insider mistake.",
     categories: ["Security"],
     related: ["service-account", "super-admin", "scim"],
     content: `The principle of least privilege says every person, account, and system should have exactly the access required to do its job — and nothing more. The bookkeeper reaches accounting but not the servers; the marketing contractor edits the campaign folder but never sees HR records.
@@ -241,7 +241,7 @@ In practice, least privilege means assigning permissions to groups rather than i
     slug: "asymmetric-cryptography",
     term: "Asymmetric Cryptography",
     aka: ["Public-Key Cryptography"],
-    shortDef: "Asymmetric cryptography is the model behind most modern security, including the DKIM signatures that authenticate your email. It uses a pair of mathematically linked keys: one that locks (or signs) and one that unlocks (or verifies). Crucially, the two are different — what one key does, only the other can undo.",
+    shortDef: "Uses a pair of linked keys — one to sign or encrypt, another to verify or decrypt. What one key does, only the other can undo.",
     categories: ["Security"],
     related: ["dkim", "certificate"],
     content: `Asymmetric cryptography is the model behind most modern security, including the DKIM signatures that authenticate your email. It uses a pair of mathematically linked keys: one that locks (or signs) and one that unlocks (or verifies). Crucially, the two are different — what one key does, only the other can undo.
@@ -254,7 +254,7 @@ In email, your outgoing server signs each message with a private key only you ho
     slug: "duns",
     term: "DUNS",
     aka: ["DUNS Number", "Data Universal Numbering System"],
-    shortDef: "A DUNS number (Data Universal Numbering System) is a unique nine-digit identifier for a business, issued by Dun & Bradstreet. It's a widely used way for organizations and vendors to verify that a company is a real, registered entity.",
+    shortDef: "A unique nine-digit business identifier issued by Dun & Bradstreet — required for Apple Business enrollment and some vendor verification processes.",
     categories: ["Identity"],
     related: ["apple-business"],
     content: `A DUNS number (Data Universal Numbering System) is a unique nine-digit identifier for a business, issued by Dun & Bradstreet. It's a widely used way for organizations and vendors to verify that a company is a real, registered entity.
@@ -267,7 +267,7 @@ It's worth checking whether you have a DUNS number early, since it can be a prer
     slug: "siem",
     term: "SIEM",
     aka: ["Security Information and Event Management"],
-    shortDef: "A SIEM — Security Information and Event Management — collects log data from across your entire environment (servers, firewalls, endpoints, cloud services) and correlates it to detect threats and anomalies.",
+    shortDef: "Collects and correlates log data from across your environment — servers, firewalls, endpoints, cloud — to detect threats and anomalies.",
     categories: ["Security"],
     related: ["mdr-edr"],
     content: `A SIEM — Security Information and Event Management — collects log data from across your entire environment (servers, firewalls, endpoints, cloud services) and correlates it to detect threats and anomalies.
@@ -282,7 +282,7 @@ For most organizations under 500 employees, a standalone SIEM is probably overki
     slug: "mdr-edr",
     term: "MDR vs. EDR",
     aka: ["Managed Detection and Response", "Endpoint Detection and Response"],
-    shortDef: "EDR — Endpoint Detection and Response — is software on your devices that monitors for malicious behavior and provides tools to detect, investigate, and respond to threats. CrowdStrike, SentinelOne, and Carbon Black are examples. It's the evolution of antivirus: instead of matching known signatures, it watches what processes are doing and stops behavior that looks like an attack.",
+    shortDef: "EDR monitors device behavior for threats and enables active response — the evolution of antivirus. MDR adds a 24/7 analyst team on top.",
     categories: ["Security"],
     related: ["siem"],
     content: `EDR — Endpoint Detection and Response — is software on your devices that monitors for malicious behavior and provides tools to detect, investigate, and respond to threats. CrowdStrike, SentinelOne, and Carbon Black are examples. It's the evolution of antivirus: instead of matching known signatures, it watches what processes are doing and stops behavior that looks like an attack.
@@ -297,7 +297,7 @@ EDR alone requires someone internal to monitor and respond to alerts — somethi
     slug: "certificate",
     term: "Certificate",
     aka: ["Digital Certificate", "TLS Certificate", "SSL Certificate"],
-    shortDef: "A digital certificate is a cryptographically signed credential that proves the identity of a server, organization, or individual. When you visit a website over HTTPS, the site presents a certificate issued by a trusted Certificate Authority — your browser verifies it before establishing an encrypted connection.",
+    shortDef: "A cryptographically signed credential that proves identity. Browsers verify a website's certificate before establishing an HTTPS connection.",
     categories: ["Security", "Networking"],
     related: ["asymmetric-cryptography"],
     content: `A digital certificate is a cryptographically signed credential that proves the identity of a server, organization, or individual. When you visit a website over HTTPS, the site presents a certificate issued by a trusted Certificate Authority — your browser verifies it before establishing an encrypted connection.
@@ -319,7 +319,7 @@ The operational risk: certificates expire, and an expired certificate causes har
   {
     slug: "claude-code",
     term: "Claude Code",
-    shortDef: "Claude Code is Anthropic's agentic coding tool — a version of Claude that runs in your terminal and can read files, write code, execute commands, and interact with your development environment directly. Unlike using Claude in a chat window, Claude Code can actually execute work: it reads your codebase, writes and modifies files, runs tests, and iterates until something works.",
+    shortDef: "Anthropic's agentic coding tool. Runs in your terminal, reads files, writes code, and executes commands directly in your development environment.",
     categories: ["Cloud & Infrastructure"],
     related: ["mcp-api"],
     content: `Claude Code is Anthropic's agentic coding tool — a version of Claude that runs in your terminal and can read files, write code, execute commands, and interact with your development environment directly. Unlike using Claude in a chat window, Claude Code can actually execute work: it reads your codebase, writes and modifies files, runs tests, and iterates until something works.
@@ -334,7 +334,7 @@ The key distinction from chat-based AI: Claude Code doesn't suggest code, it run
     slug: "mcp-api",
     term: "MCP vs. API",
     aka: ["Model Context Protocol", "Application Programming Interface"],
-    shortDef: "An API — Application Programming Interface — is a defined way for one piece of software to communicate with another. When your application retrieves data from Salesforce, or your website shows live inventory, it's using an API. APIs are designed for machines: they require developers to write code that properly formats requests and handles responses.",
+    shortDef: "APIs define how software communicates with software. MCPs (Model Context Protocol) let AI models connect to tools directly — no custom integration code needed.",
     categories: ["Cloud & Infrastructure"],
     related: ["claude-code"],
     content: `An API — Application Programming Interface — is a defined way for one piece of software to communicate with another. When your application retrieves data from Salesforce, or your website shows live inventory, it's using an API. APIs are designed for machines: they require developers to write code that properly formats requests and handles responses.
@@ -351,7 +351,7 @@ For organizations thinking about AI integration, MCPs dramatically lower the fri
     slug: "sso",
     term: "SSO",
     aka: ["Single Sign-On"],
-    shortDef: "SSO — single sign-on — lets people use one identity to access many applications, instead of maintaining a separate username and password for each. Sign in once, and that verified identity carries across the connected services.",
+    shortDef: "Sign in once and access all connected applications — one identity instead of separate credentials for each service.",
     categories: ["Identity"],
     related: ["saml", "oidc", "scim", "federation"],
     content: `SSO — single sign-on — lets people use one identity to access many applications, instead of maintaining a separate username and password for each. Sign in once, and that verified identity carries across the connected services.
@@ -363,7 +363,7 @@ The strategic value is the shift from thinking about your company as a scatterin
   {
     slug: "federation",
     term: "Federation",
-    shortDef: "Federation is the arrangement that lets one identity system trust another, so a single identity can be used across organizational or platform boundaries. It's the machinery underneath single sign-on: rather than each application holding its own copy of your credentials, applications federate to a central identity provider that vouches for who you are.",
+    shortDef: "Lets one identity system trust another so users authenticate across platforms without separate credentials — the machinery underneath SSO.",
     categories: ["Identity"],
     related: ["sso", "saml", "oidc"],
     content: `Federation is the arrangement that lets one identity system trust another, so a single identity can be used across organizational or platform boundaries. It's the machinery underneath single sign-on: rather than each application holding its own copy of your credentials, applications federate to a central identity provider that vouches for who you are.
@@ -375,7 +375,7 @@ Federation, built on standards like SAML and OIDC, is what makes an identity-fir
   {
     slug: "jumpcloud",
     term: "JumpCloud",
-    shortDef: "JumpCloud is a cloud-based directory-as-a-service platform that manages user identity, device management, and application access from a single place. If you're familiar with Active Directory — Microsoft's on-premises directory — JumpCloud is roughly the cloud-native equivalent, designed to work across Windows, Mac, and Linux without requiring an on-premises server.",
+    shortDef: "Cloud-based directory that manages identities, devices, and app access — the cloud-native equivalent of Active Directory.",
     categories: ["Identity", "MDM"],
     related: ["okta", "saml", "scim", "mdm"],
     content: `JumpCloud is a cloud-based directory-as-a-service platform that manages user identity, device management, and application access from a single place. If you're familiar with Active Directory — Microsoft's on-premises directory — JumpCloud is roughly the cloud-native equivalent, designed to work across Windows, Mac, and Linux without requiring an on-premises server.
@@ -389,7 +389,7 @@ RSystems manages JumpCloud for several clients — it's our most common recommen
   {
     slug: "okta",
     term: "Okta",
-    shortDef: "Okta is a cloud-based identity and access management platform purpose-built for enterprise SSO, MFA, lifecycle management, and application integration. It's one of the dominant enterprise identity platforms, particularly common in organizations that run a mix of cloud applications and need a neutral identity layer that isn't tied to Microsoft or Google.",
+    shortDef: "Cloud-based identity platform for enterprise SSO, MFA, and app integration — neutral, not tied to Microsoft or Google.",
     categories: ["Identity"],
     related: ["jumpcloud", "saml", "oidc", "entra-id"],
     content: `Okta is a cloud-based identity and access management platform purpose-built for enterprise SSO, MFA, lifecycle management, and application integration. It's one of the dominant enterprise identity platforms, particularly common in organizations that run a mix of cloud applications and need a neutral identity layer that isn't tied to Microsoft or Google.
@@ -404,7 +404,7 @@ Okta also competes with JumpCloud at the lower end of the market. JumpCloud is t
     slug: "saml",
     term: "SAML",
     aka: ["Security Assertion Markup Language"],
-    shortDef: "SAML — Security Assertion Markup Language — is the protocol that makes Single Sign-On work for enterprise applications. It allows users to log into one system (the identity provider, like JumpCloud or Entra ID) and automatically gain access to connected applications (service providers, like Salesforce, Slack, or Workday) without entering separate credentials.",
+    shortDef: "The protocol behind enterprise SSO — log into your identity provider once and gain access to connected apps without separate credentials.",
     categories: ["Identity", "Security"],
     related: ["oidc", "sso", "scim"],
     content: `SAML — Security Assertion Markup Language — is the protocol that makes Single Sign-On work for enterprise applications. It allows users to log into one system (the identity provider, like JumpCloud or Entra ID) and automatically gain access to connected applications (service providers, like Salesforce, Slack, or Workday) without entering separate credentials.
@@ -417,7 +417,7 @@ SAML has been the dominant enterprise SSO standard since 2001. If you're configu
     slug: "scim",
     term: "SCIM",
     aka: ["System for Cross-domain Identity Management"],
-    shortDef: "SCIM — System for Cross-domain Identity Management — is the standard for automating user account provisioning. Where SAML handles \"who is this person?\", SCIM handles \"create this account\" and \"disable this account.\"",
+    shortDef: "The standard for automating user provisioning. SAML handles authentication; SCIM handles creating and disabling accounts.",
     categories: ["Identity"],
     related: ["saml", "sso", "least-privilege"],
     content: `SCIM — System for Cross-domain Identity Management — is the standard for automating user account provisioning. Where SAML handles "who is this person?", SCIM handles "create this account" and "disable this account."
@@ -432,7 +432,7 @@ SCIM is one of those features that looks administrative but has direct security 
     slug: "oidc",
     term: "OIDC",
     aka: ["OpenID Connect"],
-    shortDef: "OIDC — OpenID Connect — is a modern authentication standard built on top of OAuth 2.0. Like SAML, it enables Single Sign-On. Unlike SAML, it uses JSON rather than XML and is designed for both web applications and mobile apps.",
+    shortDef: "A modern SSO standard built on OAuth 2.0 — like SAML but uses JSON instead of XML, designed for both web and mobile apps.",
     categories: ["Identity", "Security"],
     related: ["saml", "sso", "entra-id"],
     content: `OIDC — OpenID Connect — is a modern authentication standard built on top of OAuth 2.0. Like SAML, it enables Single Sign-On. Unlike SAML, it uses JSON rather than XML and is designed for both web applications and mobile apps.
@@ -446,7 +446,7 @@ When setting up SSO for a new application, you'll be asked which protocol it sup
   {
     slug: "distribution-group",
     term: "Distribution Group",
-    shortDef: "A distribution group is an email address that forwards to a list of people — send one message to team@yourdomain.com and everyone in the group receives it. It's the standard way to reach a team, department, or role without maintaining the membership by hand in every message.",
+    shortDef: "An email address that delivers to a list of recipients — send to team@company.com and everyone in the group receives it.",
     categories: ["Identity"],
     related: ["scim", "least-privilege"],
     content: `A distribution group is an email address that forwards to a list of people — send one message to team@yourdomain.com and everyone in the group receives it. It's the standard way to reach a team, department, or role without maintaining the membership by hand in every message.
@@ -461,7 +461,7 @@ Thinking in groups — for email distribution and for permissions alike — is p
     slug: "mdm",
     term: "MDM",
     aka: ["Mobile Device Management"],
-    shortDef: "MDM — mobile device management — is the system that lets an organization configure, secure, and manage its devices centrally: laptops, phones, and tablets, wherever they physically are. It pushes software, enforces security policies like disk encryption and screen locks, manages certificates, and can remotely lock or wipe a lost or stolen device.",
+    shortDef: "Centrally manages and secures your device fleet — laptops, phones, tablets — enforcing policies and enabling remote wipe regardless of location.",
     categories: ["MDM"],
     related: ["intune", "jumpcloud", "zero-touch", "device-trust"],
     content: `MDM — mobile device management — is the system that lets an organization configure, secure, and manage its devices centrally: laptops, phones, and tablets, wherever they physically are. It pushes software, enforces security policies like disk encryption and screen locks, manages certificates, and can remotely lock or wipe a lost or stolen device.
@@ -473,7 +473,7 @@ Providers include JumpCloud, Microsoft Intune, Jamf, Mosyle, Kandji, and others.
   {
     slug: "zero-touch",
     term: "Zero-Touch Provisioning",
-    shortDef: "Zero-touch provisioning is the experience of a brand-new device configuring itself automatically. An employee peels the plastic off a laptop, powers it on, signs in with their corporate credentials, and the machine enrolls in management, pulls down the apps and policies it needs, and is ready to work — without IT ever physically touching it.",
+    shortDef: "Devices that configure themselves on first boot — enroll in management, pull down policies and apps, and are ready without IT ever touching them.",
     categories: ["MDM"],
     related: ["autopilot", "apple-business", "mdm"],
     content: `Zero-touch provisioning is the experience of a brand-new device configuring itself automatically. An employee peels the plastic off a laptop, powers it on, signs in with their corporate credentials, and the machine enrolls in management, pulls down the apps and policies it needs, and is ready to work — without IT ever physically touching it.
@@ -486,7 +486,7 @@ The payoff is the first onboarding that doesn't require a staff member to babysi
     slug: "apple-business",
     term: "Apple Business",
     aka: ["Apple Business Manager", "ABM"],
-    shortDef: "Apple Business (formerly Apple Business Manager) is Apple's free platform for organizations to manage Apple devices, identities, and apps at scale. It provides managed Apple IDs on your own domain, automated device enrollment, volume app purchasing, and — in its current form — a built-in MDM, while also integrating with third-party MDMs like JumpCloud, Jamf, Intune, and others.",
+    shortDef: "Apple's free platform for managed Apple IDs, zero-touch device enrollment, and corporate app purchasing on your own domain.",
     categories: ["MDM", "Apple"],
     related: ["managed-apple-id", "vpp", "duns", "zero-touch"],
     content: `Apple Business (formerly Apple Business Manager) is Apple's free platform for organizations to manage Apple devices, identities, and apps at scale. It provides managed Apple IDs on your own domain, automated device enrollment, volume app purchasing, and — in its current form — a built-in MDM, while also integrating with third-party MDMs like JumpCloud, Jamf, Intune, and others.
@@ -498,7 +498,7 @@ The strong recommendation is to set it up from the very beginning. Doing so does
   {
     slug: "managed-apple-id",
     term: "Managed Apple ID",
-    shortDef: "A managed Apple ID is an Apple account that your organization creates and controls through Apple Business, on your own domain — as opposed to a personal Apple ID an employee sets up themselves. Because the organization owns it, you can reset it, reassign it, and revoke it when someone leaves.",
+    shortDef: "An Apple account your organization creates and controls through Apple Business on your domain — you can reset, reassign, or revoke it.",
     categories: ["MDM", "Apple"],
     related: ["apple-business", "byod", "device-trust"],
     content: `A managed Apple ID is an Apple account that your organization creates and controls through Apple Business, on your own domain — as opposed to a personal Apple ID an employee sets up themselves. Because the organization owns it, you can reset it, reassign it, and revoke it when someone leaves.
@@ -511,7 +511,7 @@ They're also a prerequisite for more advanced capabilities like device trust on 
     slug: "byod",
     term: "BYOD",
     aka: ["Bring Your Own Device"],
-    shortDef: "BYOD — bring your own device — covers the reality that employees use personal phones and computers for work, most commonly to check email on a personal iPhone or Android. It's convenient and almost universal, but it raises a real question: what happens to company data on a device you don't own when that person leaves, especially under contentious terms?",
+    shortDef: "Bring your own device — the policy and security questions around employees using personal phones and computers for work.",
     categories: ["MDM"],
     related: ["device-trust", "managed-apple-id", "mdm"],
     content: `BYOD — bring your own device — covers the reality that employees use personal phones and computers for work, most commonly to check email on a personal iPhone or Android. It's convenient and almost universal, but it raises a real question: what happens to company data on a device you don't own when that person leaves, especially under contentious terms?
@@ -523,7 +523,7 @@ On Apple, this works through a managed Apple ID, which is one more reason to man
   {
     slug: "device-trust",
     term: "Device Trust",
-    shortDef: "Device trust is the policy that sensitive systems — HR data, financial systems — can only be accessed from devices the organization knows about and trusts. Rather than relying on a correct password alone, the system also checks that the request is coming from a recognized, compliant device.",
+    shortDef: "The policy that sensitive systems can only be accessed from recognized, managed devices — not just a correct password.",
     categories: ["MDM", "Security"],
     related: ["byod", "managed-apple-id", "mdm", "certificate"],
     content: `Device trust is the policy that sensitive systems — HR data, financial systems — can only be accessed from devices the organization knows about and trusts. Rather than relying on a correct password alone, the system also checks that the request is coming from a recognized, compliant device.
@@ -536,7 +536,7 @@ Device trust has good support on both iOS and Android for personally owned devic
     slug: "vpp",
     term: "VPP",
     aka: ["Volume Purchase Program"],
-    shortDef: "VPP — Volume Purchase Program — is the part of Apple Business that lets an organization buy apps centrally and assign them to devices and users, with the licenses owned by the company rather than an individual. When someone leaves, their assigned licenses return to the pool and can be reassigned to the next person.",
+    shortDef: "Apple's Volume Purchase Program — buy apps centrally with licenses owned by the company, not individuals. Licenses return to the pool when someone leaves.",
     categories: ["MDM", "Apple"],
     related: ["apple-business", "managed-apple-id"],
     content: `VPP — Volume Purchase Program — is the part of Apple Business that lets an organization buy apps centrally and assign them to devices and users, with the licenses owned by the company rather than an individual. When someone leaves, their assigned licenses return to the pool and can be reassigned to the next person.
@@ -550,7 +550,7 @@ It's a clear example of why buying and managing within the proper business chann
   {
     slug: "vmware",
     term: "VMware",
-    shortDef: "VMware is the dominant enterprise virtualization platform, now owned by Broadcom. VMware vSphere is the core product — it lets you run multiple virtual machines on a single physical server, each isolated from the others. Instead of one server running one workload, you run dozens of VMs on one host, dramatically improving hardware utilization and operational flexibility.",
+    shortDef: "The dominant enterprise virtualization platform. VMware vSphere runs multiple isolated VMs on a single physical server — maximizing hardware utilization.",
     categories: ["Virtualization"],
     related: ["esxi", "hyper-v"],
     content: `VMware is the dominant enterprise virtualization platform, now owned by Broadcom. VMware vSphere is the core product — it lets you run multiple virtual machines on a single physical server, each isolated from the others. Instead of one server running one workload, you run dozens of VMs on one host, dramatically improving hardware utilization and operational flexibility.
@@ -565,7 +565,7 @@ For organizations still on VMware: understanding your current licensing exposure
     slug: "esxi",
     term: "ESXi",
     aka: ["VMware ESXi"],
-    shortDef: "ESXi is VMware's bare-metal hypervisor — the software that runs directly on server hardware and makes virtualization possible. It's the foundation layer of every VMware vSphere deployment: each physical host runs ESXi, which then hosts the virtual machines on top of it.",
+    shortDef: "VMware's bare-metal hypervisor — runs directly on server hardware and hosts virtual machines on top. The foundation of every vSphere deployment.",
     categories: ["Virtualization"],
     related: ["vmware", "hyper-v"],
     content: `ESXi is VMware's bare-metal hypervisor — the software that runs directly on server hardware and makes virtualization possible. It's the foundation layer of every VMware vSphere deployment: each physical host runs ESXi, which then hosts the virtual machines on top of it.
@@ -579,7 +579,7 @@ Notable change: the free ESXi license was discontinued by Broadcom in 2024. Orga
   {
     slug: "hyper-v",
     term: "Hyper-V",
-    shortDef: "Hyper-V is Microsoft's hypervisor. It ships as a role in Windows Server and provides the same core virtualization capabilities as VMware vSphere — running multiple virtual machines on a single physical host, with live migration, failover clustering, and replication.",
+    shortDef: "Microsoft's built-in hypervisor, included with Windows Server. Runs multiple isolated VMs on a single physical host.",
     categories: ["Virtualization", "Microsoft"],
     related: ["vmware", "esxi", "azure"],
     content: `Hyper-V is Microsoft's hypervisor. It ships as a role in Windows Server and provides the same core virtualization capabilities as VMware vSphere — running multiple virtual machines on a single physical host, with live migration, failover clustering, and replication.
@@ -598,7 +598,7 @@ With the Broadcom/VMware pricing changes, Hyper-V has become an increasingly com
     slug: "azure",
     term: "Azure",
     aka: ["Microsoft Azure"],
-    shortDef: "Microsoft Azure is Microsoft's cloud platform — the infrastructure, platform, and software services that let organizations run workloads in Microsoft's global data centers rather than on-premises hardware.",
+    shortDef: "Microsoft's cloud platform — infrastructure, platform, and software services in Microsoft's global data centers.",
     categories: ["Cloud & Infrastructure", "Microsoft"],
     related: ["hyper-v", "entra-id", "aws"],
     content: `Microsoft Azure is Microsoft's cloud platform — the infrastructure, platform, and software services that let organizations run workloads in Microsoft's global data centers rather than on-premises hardware.
@@ -613,7 +613,7 @@ Migration path: organizations moving on-premises workloads to Azure typically st
     slug: "aws",
     term: "AWS",
     aka: ["Amazon Web Services"],
-    shortDef: "Amazon Web Services is the market-leading cloud platform by revenue, breadth of services, and enterprise adoption. For organizations without a strong Microsoft or Google dependency, AWS is often the default enterprise cloud choice.",
+    shortDef: "The market-leading cloud platform by revenue and breadth — the default enterprise cloud for organizations not anchored to Microsoft or Google.",
     categories: ["Cloud & Infrastructure"],
     related: ["azure", "gcp"],
     content: `Amazon Web Services is the market-leading cloud platform by revenue, breadth of services, and enterprise adoption. For organizations without a strong Microsoft or Google dependency, AWS is often the default enterprise cloud choice.
@@ -628,7 +628,7 @@ The multi-cloud reality: most mid-market organizations aren't running AWS and Az
     slug: "gcp",
     term: "GCP",
     aka: ["Google Cloud Platform", "Google Cloud"],
-    shortDef: "Google Cloud Platform is Google's cloud offering. GCP has historically been strongest in data analytics, machine learning infrastructure, and containerized workloads — BigQuery and Google Kubernetes Engine (GKE) are leading products in their respective categories.",
+    shortDef: "Google's cloud platform — strongest in data analytics, ML infrastructure, and containerized workloads. BigQuery and GKE are leading products.",
     categories: ["Cloud & Infrastructure", "Google"],
     related: ["aws", "azure", "cloud-identity"],
     content: `Google Cloud Platform is Google's cloud offering. GCP has historically been strongest in data analytics, machine learning infrastructure, and containerized workloads — BigQuery and Google Kubernetes Engine (GKE) are leading products in their respective categories.
@@ -643,7 +643,7 @@ The practical guidance: if you don't have a specific reason to be on GCP, you're
     slug: "cloud-identity",
     term: "Cloud Identity",
     aka: ["Cloud Identity Free", "Google Cloud Identity"],
-    shortDef: "Cloud Identity is Google's standalone identity and access management product — Google's identity layer without the rest of Google Workspace. Its free tier, Cloud Identity Free, lets an organization stand up a Google tenant at no cost, with managed user accounts, Google as an identity provider for single sign-on, basic device management, and security reporting.",
+    shortDef: "Google's standalone identity product — managed accounts and SSO without full Workspace. Free tier available for most organizations.",
     categories: ["Cloud & Infrastructure", "Google", "Identity"],
     related: ["tenant", "gcp", "sso"],
     content: `Cloud Identity is Google's standalone identity and access management product — Google's identity layer without the rest of Google Workspace. Its free tier, Cloud Identity Free, lets an organization stand up a Google tenant at no cost, with managed user accounts, Google as an identity provider for single sign-on, basic device management, and security reporting.
@@ -655,7 +655,7 @@ The free tier has limits — it's identity only, with no Gmail or Drive, and cap
   {
     slug: "tenant",
     term: "Tenant",
-    shortDef: "A tenant is your organization's own dedicated space within a cloud provider's platform — your isolated instance of Microsoft 365, Google Workspace, or similar, containing your users, settings, data, and domain. When people talk about \"our Microsoft tenant\" or \"our Google tenant,\" they mean this container.",
+    shortDef: "Your organization's isolated container within a cloud platform — your users, settings, and data in Microsoft 365, Google Workspace, or similar.",
     categories: ["Cloud & Infrastructure"],
     related: ["entra-id", "cloud-identity"],
     content: `A tenant is your organization's own dedicated space within a cloud provider's platform — your isolated instance of Microsoft 365, Google Workspace, or similar, containing your users, settings, data, and domain. When people talk about "our Microsoft tenant" or "our Google tenant," they mean this container.
@@ -668,7 +668,7 @@ Creating a tenant and verifying your domain within it does two valuable things e
     slug: "onedrive-sharepoint",
     term: "OneDrive vs. SharePoint",
     aka: ["OneDrive", "SharePoint"],
-    shortDef: "OneDrive and SharePoint are both Microsoft 365 storage, but they answer different ownership questions. OneDrive is an individual's personal work storage; SharePoint is shared, team- or organization-owned storage. (The Google equivalents are My Drive for the individual and Shared Drives for the team.)",
+    shortDef: "Microsoft 365 storage split by ownership — OneDrive is personal, SharePoint is team-owned. (Google equivalents: My Drive and Shared Drives.)",
     categories: ["Cloud & Infrastructure", "Microsoft"],
     related: ["shared-drive", "team-folder", "tenant"],
     content: `OneDrive and SharePoint are both Microsoft 365 storage, but they answer different ownership questions. OneDrive is an individual's personal work storage; SharePoint is shared, team- or organization-owned storage. (The Google equivalents are My Drive for the individual and Shared Drives for the team.)
@@ -681,7 +681,7 @@ The guidance is to keep as much as possible in the shared context — SharePoint
     slug: "shared-drive",
     term: "Shared Drive vs. My Drive",
     aka: ["Shared Drive", "My Drive", "Google Shared Drive"],
-    shortDef: "In Google Workspace, My Drive is your personal work storage — files you own and manage individually. Shared Drives are organization-owned storage where a team or department owns the content, not any individual. (The Microsoft equivalents are OneDrive for personal and SharePoint for team storage.)",
+    shortDef: "Google Workspace storage split by ownership — My Drive is personal, Shared Drives are team-owned. (Microsoft equivalents: OneDrive and SharePoint.)",
     categories: ["Cloud & Infrastructure", "Google"],
     related: ["onedrive-sharepoint", "team-folder"],
     content: `In Google Workspace, My Drive is your personal work storage — files you own and manage individually. Shared Drives are organization-owned storage where a team or department owns the content, not any individual. (The Microsoft equivalents are OneDrive for personal and SharePoint for team storage.)
@@ -693,7 +693,7 @@ Default to Shared Drives for anything that belongs to the team — project files
   {
     slug: "team-folder",
     term: "Team Folder",
-    shortDef: "A team folder is shared storage owned by a group rather than an individual. The term is most explicit in Dropbox (team folders versus personal folders), but the concept maps directly to Google's Shared Drives and Microsoft's SharePoint.",
+    shortDef: "Team-owned storage — content belongs to the organization, not an individual, and persists when people leave.",
     categories: ["Cloud & Infrastructure"],
     related: ["shared-drive", "onedrive-sharepoint"],
     content: `A team folder is shared storage owned by a group rather than an individual. The term is most explicit in Dropbox (team folders versus personal folders), but the concept maps directly to Google's Shared Drives and Microsoft's SharePoint.
@@ -708,7 +708,7 @@ The rule of thumb is simple: don't put team data in a personal folder. Default t
     slug: "vlan",
     term: "VLAN",
     aka: ["Virtual Local Area Network"],
-    shortDef: "A VLAN (Virtual Local Area Network) is a logical network segment created on a physical switch that isolates traffic between groups of devices. VLANs let you separate networks — say, employee workstations from security cameras — without buying separate switches.",
+    shortDef: "A logical segment on a physical switch that isolates traffic between device groups — separate networks without extra hardware.",
     categories: ["Networking"],
     related: ["vlan-tagging", "vlan-trunking-vtp", "voice-vlan", "svi", "qos"],
     content: `A VLAN (Virtual Local Area Network) is a logical network segment created on a physical switch that isolates traffic between groups of devices. VLANs let you separate networks — say, employee workstations from security cameras — without buying separate switches.
@@ -739,7 +739,7 @@ VLANs by design don't communicate with each other. To let VLAN 10 reach VLAN 20 
     slug: "vlan-tagging",
     term: "VLAN Tagging",
     aka: ["802.1Q", "Dot1Q"],
-    shortDef: "VLAN tagging is the mechanism by which a switch marks an Ethernet frame with a VLAN ID so that other switches know which VLAN the traffic belongs to. The IEEE 802.1Q standard defines how this tag is inserted into the frame header.",
+    shortDef: "The mechanism for labeling Ethernet frames with a VLAN ID so switches know where traffic belongs. Defined by the IEEE 802.1Q standard.",
     categories: ["Networking"],
     related: ["vlan", "vlan-trunking-vtp", "svi"],
     content: `VLAN tagging is the mechanism by which a switch marks an Ethernet frame with a VLAN ID so that other switches know which VLAN the traffic belongs to. The IEEE 802.1Q standard defines how this tag is inserted into the frame header.
@@ -756,7 +756,7 @@ Understanding 802.1Q is important if you're configuring switches manually, troub
     slug: "vlan-trunking-vtp",
     term: "VLAN Trunking & VTP",
     aka: ["VTP", "VLAN Trunking Protocol", "Trunk Port"],
-    shortDef: "A trunk port carries traffic for multiple VLANs across a single link — typically between switches or from a switch to a router. VTP (VLAN Trunking Protocol) is a Cisco-proprietary protocol that propagates VLAN definitions across switches automatically.",
+    shortDef: "Trunk ports carry multiple VLANs on a single link between switches. VTP (Cisco) propagates VLAN definitions across switches automatically.",
     categories: ["Networking"],
     related: ["vlan", "vlan-tagging", "lacp"],
     content: `A trunk port carries traffic for multiple VLANs across a single link — typically between switches or from a switch to a router. VTP (VLAN Trunking Protocol) is a Cisco-proprietary protocol that propagates VLAN definitions across switches automatically.
@@ -776,7 +776,7 @@ The risk: VTP can propagate deletions too. A misconfigured switch added to a dom
   {
     slug: "voice-vlan",
     term: "Voice VLAN",
-    shortDef: "A Voice VLAN is a dedicated VLAN configured on a switch port to carry VoIP traffic separately from data traffic. It ensures phone calls get priority and aren't affected by congestion on the data network.",
+    shortDef: "A dedicated VLAN for VoIP traffic, separate from data — ensures calls get priority and aren't degraded by data network congestion.",
     categories: ["Networking"],
     related: ["vlan", "qos", "lldp"],
     content: `A Voice VLAN is a dedicated VLAN configured on a switch port to carry VoIP traffic separately from data traffic. It ensures phone calls get priority and aren't affected by congestion on the data network.
@@ -793,7 +793,7 @@ If you're running a VoIP system — whether on-premise or hosted — a properly 
     slug: "svi",
     term: "SVI",
     aka: ["Switched Virtual Interface", "VLAN Interface"],
-    shortDef: "An SVI (Switched Virtual Interface) is a virtual Layer 3 interface on a Layer 3 switch that acts as the default gateway for a VLAN. SVIs enable inter-VLAN routing without a separate physical router.",
+    shortDef: "A virtual interface on a Layer 3 switch that serves as the default gateway for a VLAN — enables inter-VLAN routing without a separate router.",
     categories: ["Networking"],
     related: ["vlan", "vlan-tagging", "ipv4"],
     content: `An SVI (Switched Virtual Interface) is a virtual Layer 3 interface on a Layer 3 switch that acts as the default gateway for a VLAN. SVIs enable inter-VLAN routing without a separate physical router.
@@ -810,7 +810,7 @@ SVIs also provide a management address for the switch itself — the interface y
     slug: "dhcp",
     term: "DHCP",
     aka: ["Dynamic Host Configuration Protocol"],
-    shortDef: "DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses and network configuration to devices when they connect to a network. Without it, every device would need a manually configured IP address — which doesn't scale past a handful of devices.",
+    shortDef: "Automatically assigns IP addresses and network configuration to devices when they connect — without it, every device needs a manual IP.",
     categories: ["Networking"],
     related: ["dns", "ipv4", "nat", "vlan"],
     content: `DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses and network configuration to devices when they connect to a network. Without it, every device would need a manually configured IP address — which doesn't scale past a handful of devices.
@@ -839,7 +839,7 @@ DHCP doesn't mean every device gets a random address every time. Most DHCP serve
     slug: "mac-address",
     term: "MAC Address",
     aka: ["Media Access Control Address", "Hardware Address", "Physical Address"],
-    shortDef: "A MAC address is a unique hardware identifier assigned to a network interface at the factory. Where an IP address tells the network where a device is, a MAC address identifies what the device is — permanently, at the hardware level.",
+    shortDef: "A permanent hardware identifier assigned to a network interface at the factory — identifies the device itself, not its location.",
     categories: ["Networking"],
     related: ["vlan", "dhcp", "lacp"],
     content: `A MAC address is a unique hardware identifier assigned to a network interface at the factory. Where an IP address tells the network where a device is, a MAC address identifies what the device is — permanently, at the hardware level.
@@ -862,7 +862,7 @@ Note that modern operating systems increasingly use MAC address randomization fo
     slug: "lan",
     term: "LAN",
     aka: ["Local Area Network"],
-    shortDef: "A LAN (Local Area Network) is a network connecting devices within a defined physical area — a single office, building, or campus. It's the \"inside\" of your network, as opposed to the internet-facing WAN.",
+    shortDef: "A network connecting devices within a defined physical area — a single office, building, or campus.",
     categories: ["Networking"],
     related: ["wan", "vlan", "dhcp"],
     content: `A LAN (Local Area Network) is a network connecting devices within a defined physical area — a single office, building, or campus. It's the "inside" of your network, as opposed to the internet-facing WAN.
@@ -879,7 +879,7 @@ For small organizations, the "LAN" often means a single flat network behind a fi
     slug: "wan",
     term: "WAN",
     aka: ["Wide Area Network"],
-    shortDef: "A WAN (Wide Area Network) is a network that spans multiple locations — typically connecting branch offices to headquarters, or an office to the internet. Your internet connection is a WAN link.",
+    shortDef: "A network spanning multiple locations — branch offices to headquarters, or your office to the internet. Your internet circuit is a WAN link.",
     categories: ["Networking"],
     related: ["lan", "sd-wan"],
     content: `A WAN (Wide Area Network) is a network that spans multiple locations — typically connecting branch offices to headquarters, or an office to the internet. Your internet connection is a WAN link.
@@ -898,7 +898,7 @@ WAN links are typically the performance and reliability bottleneck for multi-sit
     slug: "nat",
     term: "NAT",
     aka: ["Network Address Translation"],
-    shortDef: "NAT (Network Address Translation) allows multiple devices on a private network to share a single public IP address when communicating with the internet. It's how your entire office accesses the internet through one IP assigned by your ISP.",
+    shortDef: "Lets multiple devices share a single public IP — how your entire office accesses the internet through one IP assigned by your ISP.",
     categories: ["Networking"],
     related: ["ipv4", "ipv6", "dhcp"],
     content: `NAT (Network Address Translation) allows multiple devices on a private network to share a single public IP address when communicating with the internet. It's how your entire office accesses the internet through one IP assigned by your ISP.
@@ -917,7 +917,7 @@ IPv6 was designed to eliminate the need for NAT by providing enough addresses fo
     slug: "cidr",
     term: "CIDR",
     aka: ["Classless Inter-Domain Routing", "Slash Notation", "Subnet Notation"],
-    shortDef: "CIDR (Classless Inter-Domain Routing) is the notation used to describe IP address ranges and subnet sizes. A CIDR notation like 192.168.1.0/24 means the first 24 bits are the network address, leaving 8 bits for host addresses — 256 addresses in that subnet.",
+    shortDef: "The notation for IP address ranges — 192.168.1.0/24 means the first 24 bits are the network, leaving 256 host addresses in that block.",
     categories: ["Networking"],
     related: ["ipv4", "ipv6", "nat", "dhcp"],
     content: `CIDR (Classless Inter-Domain Routing) is the notation used to describe IP address ranges and subnet sizes. A CIDR notation like 192.168.1.0/24 means the first 24 bits are the network address, leaving 8 bits for host addresses — 256 addresses in that subnet.
@@ -938,7 +938,7 @@ One quick mental model: each bit you add to the prefix length halves the subnet.
   {
     slug: "ipv4",
     term: "IPv4",
-    shortDef: "IPv4 is the fourth version of the Internet Protocol and the addressing scheme that underlies most networks today. An IPv4 address is a 32-bit number written as four decimal octets separated by dots — like 192.168.1.1.",
+    shortDef: "The standard internet addressing scheme. IPv4 addresses are 32-bit numbers written as four octets — like 192.168.1.1.",
     categories: ["Networking"],
     related: ["ipv6", "dhcp", "nat", "cidr"],
     content: `IPv4 is the fourth version of the Internet Protocol and the addressing scheme that underlies most networks today. An IPv4 address is a 32-bit number written as four decimal octets separated by dots — like 192.168.1.1.
@@ -954,7 +954,7 @@ Despite IPv6 being over 25 years old, the vast majority of enterprise networks r
   {
     slug: "ipv6",
     term: "IPv6",
-    shortDef: "IPv6 is the successor to IPv4, using 128-bit addresses to provide a vastly larger address space — enough for every device on earth to have a unique public IP. IPv6 addresses are written as eight groups of four hexadecimal digits separated by colons.",
+    shortDef: "IPv4's successor — 128-bit addresses providing enough unique IPs for every device on earth. Written as eight groups of hex digits separated by colons.",
     categories: ["Networking"],
     related: ["ipv4", "nat", "cidr"],
     content: `IPv6 is the successor to IPv4, using 128-bit addresses to provide a vastly larger address space — enough for every device on earth to have a unique public IP. IPv6 addresses are written as eight groups of four hexadecimal digits separated by colons.
@@ -979,7 +979,7 @@ Despite being standardized in 1998, IPv6 adoption in enterprise networks has bee
     slug: "acl",
     term: "ACL",
     aka: ["Access Control List"],
-    shortDef: "An ACL (Access Control List) is a set of rules on a network device — switch, router, or firewall — that permits or denies traffic based on source, destination, port, and protocol. ACLs are how you enforce \"VLAN 10 can't reach VLAN 20 except on port 443.\"",
+    shortDef: "Rules on a network device that permit or deny traffic by source, destination, port, and protocol — how you enforce network segmentation policy.",
     categories: ["Networking", "Security"],
     related: ["vlan", "qos", "svi"],
     content: `An ACL (Access Control List) is a set of rules on a network device — switch, router, or firewall — that permits or denies traffic based on source, destination, port, and protocol. ACLs are how you enforce "VLAN 10 can't reach VLAN 20 except on port 443."
@@ -1002,7 +1002,7 @@ Apply ACLs as close to the source as practical — this prevents unwanted traffi
     slug: "qos",
     term: "QoS",
     aka: ["Quality of Service"],
-    shortDef: "QoS (Quality of Service) is the set of techniques used to prioritize network traffic so that latency-sensitive traffic — VoIP calls, video conferencing — isn't degraded when the network is congested.",
+    shortDef: "Techniques that prioritize latency-sensitive traffic — VoIP, video — so it isn't degraded when the network is under load.",
     categories: ["Networking"],
     related: ["voice-vlan", "lacp", "vlan"],
     content: `QoS (Quality of Service) is the set of techniques used to prioritize network traffic so that latency-sensitive traffic — VoIP calls, video conferencing — isn't degraded when the network is congested.
@@ -1025,7 +1025,7 @@ For VoIP deployments, proper QoS configuration on your switches and at the WAN e
     slug: "lacp",
     term: "LACP",
     aka: ["Link Aggregation Control Protocol", "LAG", "Link Aggregation Group", "Port Channel", "NIC Teaming", "Bonding"],
-    shortDef: "LACP (Link Aggregation Control Protocol) combines multiple physical network links between two devices into a single logical link, adding bandwidth and providing redundancy. Two 10Gbps links become one 20Gbps logical connection that survives a single cable failure.",
+    shortDef: "Combines multiple physical links into a single logical link — adding bandwidth and surviving a single cable failure. Two 10Gbps links become one 20Gbps.",
     categories: ["Networking"],
     related: ["vlan", "jumbo-frames", "spanning-tree-protocol"],
     content: `LACP (Link Aggregation Control Protocol) combines multiple physical network links between two devices into a single logical link, adding bandwidth and providing redundancy. Two 10Gbps links become one 20Gbps logical connection that survives a single cable failure.
@@ -1046,7 +1046,7 @@ LACP is defined in IEEE 802.3ad (now 802.1AX). Cisco's older proprietary equival
     slug: "lldp",
     term: "LLDP",
     aka: ["Link Layer Discovery Protocol"],
-    shortDef: "LLDP (Link Layer Discovery Protocol) is a vendor-neutral protocol that lets network devices advertise their identity and capabilities to directly connected neighbors. It's how a switch knows what's plugged into each port — and how a VoIP phone learns which VLAN to use.",
+    shortDef: "Protocol where devices advertise their identity to neighbors — how switches track ports and VoIP phones learn their VLAN.",
     categories: ["Networking"],
     related: ["voice-vlan", "vlan", "qos"],
     content: `LLDP (Link Layer Discovery Protocol) is a vendor-neutral protocol that lets network devices advertise their identity and capabilities to directly connected neighbors. It's how a switch knows what's plugged into each port — and how a VoIP phone learns which VLAN to use.
@@ -1063,7 +1063,7 @@ Cisco gear historically used CDP (Cisco Discovery Protocol) for this purpose; LL
     slug: "spanning-tree-protocol",
     term: "Spanning Tree Protocol",
     aka: ["STP", "RSTP", "Rapid Spanning Tree", "802.1D"],
-    shortDef: "Spanning Tree Protocol (STP) prevents Layer 2 switching loops by automatically blocking redundant paths between switches. Without it, a loop in your switch infrastructure would cause a broadcast storm that brings down the network almost instantly.",
+    shortDef: "Prevents Layer 2 switching loops by blocking redundant paths — without it, a loop causes a broadcast storm that takes down the network.",
     categories: ["Networking"],
     related: ["lacp", "loopback-detection", "vlan"],
     content: `Spanning Tree Protocol (STP) prevents Layer 2 switching loops by automatically blocking redundant paths between switches. Without it, a loop in your switch infrastructure would cause a broadcast storm that brings down the network almost instantly.
@@ -1084,7 +1084,7 @@ Misconfigured STP (wrong root bridge election, incorrect port configurations) ca
     slug: "loopback-detection",
     term: "Loopback Detection",
     aka: ["Loop Guard", "Loop Protection"],
-    shortDef: "Loopback detection is a switch feature that identifies and responds to Layer 2 loops — specifically on access ports where STP may not be running or where a user has accidentally connected two ports together.",
+    shortDef: "A switch feature that detects and blocks Layer 2 loops on access ports — where STP isn't running or a user accidentally connected two ports.",
     categories: ["Networking"],
     related: ["spanning-tree-protocol", "vlan"],
     content: `Loopback detection is a switch feature that identifies and responds to Layer 2 loops — specifically on access ports where STP may not be running or where a user has accidentally connected two ports together.
@@ -1100,7 +1100,7 @@ It's a simple feature to enable and cheap insurance against a class of incidents
   {
     slug: "jumbo-frames",
     term: "Jumbo Frames",
-    shortDef: "Jumbo frames are Ethernet frames larger than the standard 1500-byte MTU (Maximum Transmission Unit), typically set to 9000 bytes. They reduce per-packet overhead for high-throughput workloads like storage and large file transfers.",
+    shortDef: "Ethernet frames larger than the standard 1500-byte MTU — reduces per-packet overhead for high-throughput workloads like storage transfers.",
     categories: ["Networking"],
     related: ["lacp", "vlan"],
     content: `Jumbo frames are Ethernet frames larger than the standard 1500-byte MTU (Maximum Transmission Unit), typically set to 9000 bytes. They reduce per-packet overhead for high-throughput workloads like storage and large file transfers.
@@ -1118,7 +1118,7 @@ Most enterprise switches and server NICs support 9000-byte MTU. Confirm support 
   {
     slug: "multicast",
     term: "Multicast",
-    shortDef: "Multicast is a network addressing method that delivers traffic to multiple specific recipients simultaneously using a single stream. Unlike broadcast (everyone gets it) or unicast (one recipient), multicast sends to a group of subscribed receivers.",
+    shortDef: "Delivers traffic to multiple subscribed recipients using a single stream — between broadcast (everyone) and unicast (one recipient).",
     categories: ["Networking"],
     related: ["vlan", "qos", "vlan-tagging"],
     content: `Multicast is a network addressing method that delivers traffic to multiple specific recipients simultaneously using a single stream. Unlike broadcast (everyone gets it) or unicast (one recipient), multicast sends to a group of subscribed receivers.
@@ -1145,7 +1145,7 @@ For multicast to work across VLANs and switches, IGMP snooping should be enabled
     slug: "8021x",
     term: "802.1X",
     aka: ["IEEE 802.1X", "Port-Based Network Access Control", "PNAC", "Network Access Control", "NAC"],
-    shortDef: "802.1X is a network access control standard that requires devices to authenticate before they can use a switch port or connect to a Wi-Fi network. Until a device authenticates successfully, the port is locked — no IP address, no traffic.",
+    shortDef: "Requires devices to authenticate before network access is granted — the port stays locked until authentication succeeds.",
     categories: ["Networking", "Security", "Identity"],
     related: ["radius", "vlan", "mfa"],
     content: `802.1X is a network access control standard that requires devices to authenticate before they can use a switch port or connect to a Wi-Fi network. Until a device authenticates successfully, the port is locked — no IP address, no traffic.
@@ -1170,7 +1170,7 @@ A powerful extension: dynamic VLAN assignment. The RADIUS server can tell the sw
     slug: "radius",
     term: "RADIUS",
     aka: ["Remote Authentication Dial-In User Service"],
-    shortDef: "RADIUS is an authentication and authorization protocol that centrally validates credentials for network access — VPN connections, Wi-Fi authentication, switch port access via 802.1X. It's the backend that decides who gets in.",
+    shortDef: "Centrally validates credentials for network access — VPNs, Wi-Fi, and 802.1X port authentication. The backend that decides who gets in.",
     categories: ["Networking", "Security", "Identity"],
     related: ["8021x", "sso"],
     content: `RADIUS is an authentication and authorization protocol that centrally validates credentials for network access — VPN connections, Wi-Fi authentication, switch port access via 802.1X. It's the backend that decides who gets in.
@@ -1191,7 +1191,7 @@ In small to mid-market environments, RADIUS is often provided by your directory 
     slug: "ipsec",
     term: "IPsec",
     aka: ["Internet Protocol Security"],
-    shortDef: "IPsec is a suite of protocols that encrypts and authenticates IP traffic at the network layer. It's the foundation of most site-to-site VPN tunnels, providing confidentiality, integrity, and authentication for traffic between networks.",
+    shortDef: "Encrypts and authenticates IP traffic at the network layer — the foundation of site-to-site VPN tunnels.",
     categories: ["Networking", "Security"],
     related: ["ssl-vpn"],
     content: `IPsec is a suite of protocols that encrypts and authenticates IP traffic at the network layer. It's the foundation of most site-to-site VPN tunnels, providing confidentiality, integrity, and authentication for traffic between networks.
@@ -1219,7 +1219,7 @@ IPsec is the standard for site-to-site VPN between firewalls — SonicWall to So
   {
     slug: "ssl-vpn",
     term: "SSL VPN",
-    shortDef: "An SSL VPN provides remote access to a network over HTTPS, using TLS encryption. Unlike traditional IPsec VPNs, SSL VPNs work through standard web traffic ports and don't require special client-side network configuration.",
+    shortDef: "Remote network access over HTTPS using TLS — works through any firewall since it runs on port 443.",
     categories: ["Networking", "Security"],
     related: ["ipsec", "radius"],
     content: `An SSL VPN provides remote access to a network over HTTPS, using TLS encryption. Unlike traditional IPsec VPNs, SSL VPNs work through standard web traffic ports and don't require special client-side network configuration.
@@ -1242,7 +1242,7 @@ IPsec remains the standard for site-to-site VPN (gateway to gateway). SSL VPN is
     slug: "sd-wan",
     term: "SD-WAN",
     aka: ["Software-Defined Wide Area Network"],
-    shortDef: "SD-WAN (Software-Defined WAN) is an approach to managing wide area network connections that uses software to intelligently route traffic across multiple internet circuits — fiber, cable, LTE — rather than relying on a single expensive leased line.",
+    shortDef: "Intelligently routes traffic across multiple internet circuits instead of relying on one expensive leased line.",
     categories: ["Networking", "Cloud & Infrastructure"],
     related: ["wan"],
     content: `SD-WAN (Software-Defined WAN) is an approach to managing wide area network connections that uses software to intelligently route traffic across multiple internet circuits — fiber, cable, LTE — rather than relying on a single expensive leased line.
