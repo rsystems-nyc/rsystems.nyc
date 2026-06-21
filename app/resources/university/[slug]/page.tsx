@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { articles } from "../articles";
 import { caseStudiesData } from "@/app/lib/case-studies-data";
 import { renderMarkdown } from "@/app/lib/renderMarkdown";
+import JsonLd from "@/app/components/JsonLd";
+import { SITE_URL, breadcrumbSchema } from "@/app/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -58,8 +60,36 @@ export default async function UniversityArticlePage({ params }: Props) {
     ?.map((s) => caseStudiesData.find((cs) => cs.slug === s))
     .filter(Boolean) as typeof caseStudiesData;
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: article.title,
+    description: article.description,
+    url: `${SITE_URL}/resources/university/${article.slug}`,
+    mainEntityOfPage: `${SITE_URL}/resources/university/${article.slug}`,
+    about: article.categories,
+    author: { "@type": "Organization", name: "RSystems", url: SITE_URL },
+    publisher: {
+      "@type": "Organization",
+      name: "RSystems",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/assets/RS_Systems_Pulsar_Logo.svg`,
+      },
+    },
+  };
+
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "University", path: "/resources/university" },
+    { name: article.title, path: `/resources/university/${article.slug}` },
+  ]);
+
   return (
     <main className="flex-1 bg-[#F4F2EF]">
+      <JsonLd data={[articleSchema, breadcrumbs]} />
 
       {/* Back link */}
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-10 pb-0">

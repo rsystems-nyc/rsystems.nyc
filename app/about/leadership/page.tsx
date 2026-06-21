@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Leadership — RSystems",
+  alternates: { canonical: "https://rsystems.nyc/about/leadership" },
   description:
     "RSystems is led by Reilly Scull, founder and CTO with 25+ years of experience at the intersection of enterprise infrastructure and organizational strategy.",
 };

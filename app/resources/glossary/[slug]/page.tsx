@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { glossaryTerms } from "@/app/lib/glossary-terms";
 import { renderMarkdown } from "@/app/lib/renderMarkdown";
+import JsonLd from "@/app/components/JsonLd";
+import { SITE_URL, breadcrumbSchema } from "@/app/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -49,8 +51,32 @@ export default async function GlossaryTermPage({ params }: Props) {
 
   const related = getRelated(term);
 
+  const definedTermSchema = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: term.term,
+    ...(term.aka && term.aka.length > 0 && { alternateName: term.aka }),
+    description: term.shortDef,
+    termCode: term.slug,
+    url: `${SITE_URL}/resources/glossary/${term.slug}`,
+    inDefinedTermSet: {
+      "@type": "DefinedTermSet",
+      "@id": `${SITE_URL}/resources/glossary`,
+      name: "RSystems IT Glossary",
+      url: `${SITE_URL}/resources/glossary`,
+    },
+  };
+
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "Glossary", path: "/resources/glossary" },
+    { name: term.term, path: `/resources/glossary/${term.slug}` },
+  ]);
+
   return (
     <main className="flex-1 bg-[#F4F2EF]">
+      <JsonLd data={[definedTermSchema, breadcrumbs]} />
 
       {/* Back link */}
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-10 pb-0">

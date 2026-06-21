@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { industriesData } from "@/app/lib/industries-data";
+import JsonLd from "@/app/components/JsonLd";
+import { breadcrumbSchema } from "@/app/lib/seo";
 
 const SITE_URL = "https://rsystems.nyc";
 
@@ -48,16 +50,20 @@ export default async function IndustryPage({ params }: Props) {
     url: `${SITE_URL}/industries/${slug}`,
     description: industry.seoDescription,
     areaServed: { "@type": "City", name: "New York City" },
+    telephone: "+1-917-765-4968",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "395 S End Ave",
       addressLocality: "New York",
       addressRegion: "NY",
+      postalCode: "10280",
       addressCountry: "US",
     },
     knowsAbout: industry.jsonLdKnowsAbout,
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
+      telephone: "+1-917-765-4968",
       url: `${SITE_URL}/contact`,
     },
   };
@@ -65,8 +71,15 @@ export default async function IndustryPage({ params }: Props) {
   const publishedRelatedWork = industry.relatedWork?.filter((rw) => !rw.placeholder) ?? [];
   const placeholderRelatedWork = industry.relatedWork?.filter((rw) => rw.placeholder) ?? [];
 
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Industries", path: "/industries" },
+    { name: industry.cardName, path: `/industries/${slug}` },
+  ]);
+
   return (
     <main className="flex-1">
+      <JsonLd data={breadcrumbs} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

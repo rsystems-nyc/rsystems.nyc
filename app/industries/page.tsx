@@ -5,6 +5,7 @@ import { industriesData } from "@/app/lib/industries-data";
 
 export const metadata: Metadata = {
   title: { absolute: "Industry Expertise | RSystems NYC" },
+  alternates: { canonical: "https://rsystems.nyc/industries" },
   description:
     "RSystems brings deep technical familiarity to verticals with unique infrastructure challenges — from post-production and quantitative trading to nonprofits, healthcare, education, and event production.",
   openGraph: {

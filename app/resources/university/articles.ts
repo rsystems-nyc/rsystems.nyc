@@ -329,7 +329,7 @@ The cost difference is redundancy (no single points of failure), inspection thro
   {
     slug: "wifi",
     title: "WiFi: How It Works and Why It's Hard",
-    categories: ["Networking"],
+    categories: ["WiFi", "Networking"],
     description: "Radio physics, the consumer vs. enterprise gap, and what good WiFi design looks like.",
     content: `## Why WiFi Is Harder Than It Looks
 
@@ -553,7 +553,7 @@ For most organizations: only after you have DMARC fully enforced. The DMARC work
   {
     slug: "virtualization",
     title: "Virtualization and Cloud",
-    categories: ["Cloud & Infrastructure"],
+    categories: ["Virtualization", "Cloud & Infrastructure"],
     description: "Private vs. public cloud, VMware vs. Azure/AWS/GCP, and where each workload belongs.",
     content: `## The Hypervisor
 
@@ -1464,7 +1464,7 @@ Least privilege isn't a product you buy or a switch you flip. It's a posture: as
   },
   {
     slug: "sonos",
-    title: "Getting Sonos Right: Wiring, SonosNet, and Why Wireless Audio Fails",
+    title: "Sonos",
     categories: ["Networking", "WiFi"],
     description: "Sonos is everywhere, and it fails the same way everywhere — speakers on Wi-Fi. The fix is understanding SonosNet and wiring the system correctly. A practical guide to reliable multi-room audio.",
     related: ["wifi", "network-fundamentals"],
@@ -1528,5 +1528,247 @@ A common failure pattern: someone factory-resets the whole system, carefully reb
 Sonos is reliable when it's wired and meshed over SonosNet, and unreliable when its speakers are on Wi-Fi. The whole discipline of a good installation comes down to maximizing wired connections, using SonosNet for the rest, anchoring the mesh with a solid wired root, and never handing the system your Wi-Fi password. Done that way, it's the excellent product people hope they bought. Done the default way, it's a recurring support ticket.
 
 This is exactly the kind of thing worth getting right during a [buildout](/services/buildout), when running cable to speaker locations costs almost nothing — and a perfect example of why thoughtful [audio system](/services/audio-systems) installation is as much about the network as the speakers.`,
+  },
+  // ── Power & UPS (APC) ────────────────────────────────────────────────────────
+  {
+    slug: "electrical-power",
+    title: "Electrical & Rack Power",
+    categories: ["Power", "Hardware"],
+    description: "Clean, redundant power is the foundation everything else runs on. A practical guide to circuits, voltage, plugs, and UPS sizing — and the hardware we reach for, from a 1U CyberPower to an APC Symmetra.",
+    related: ["network-fundamentals", "fiber-optics"],
+    relatedCaseStudies: ["little-island", "redundancy-by-design"],
+    content: `Every switch, server, access point, and camera in your environment depends on one thing that rarely gets discussed until it fails: clean, uninterrupted power. Get it right and nothing thinks about it for a decade. Get it wrong and you discover the gap at the worst possible moment — during an outage, when the equipment that was supposed to keep running simply doesn't.
+
+This is a practical guide to how rack power works, how to size it, and the hardware we reach for to protect it.
+
+## A Little Electricity
+
+Three quantities describe any electrical circuit: **voltage** (V, the electrical "pressure"), **current** (I, measured in amps, the rate of flow), and **resistance** (R, how much the circuit opposes that flow). They relate through Ohm's law:
+
+V = I × R
+
+Power — the work actually being done, measured in watts — is voltage times current:
+
+P = V × I
+
+You don't need to do the math on site, but it's worth keeping that second equation in mind, because it explains the one place voltage choices come up in a rack.
+
+## Voltage and Phases
+
+Standard North American power is [single-phase](/resources/glossary/single-phase-power) 120V, and that's what the overwhelming majority of equipment we install runs on. A 20-amp 120V circuit delivers roughly 1,920 watts — and you plan to about 80% of that, around 1,500 usable watts. For a typical rack, that's plenty.
+
+Higher-power applications occasionally need more. Because power is voltage times current, you can push more watts over the same wiring by raising the voltage — which is why very large or dense loads sometimes move to 208V or 240V, and why the biggest deployments use two- or [three-phase power](/resources/glossary/three-phase-power). But that's the exception. Unless we're feeding something like a Symmetra, we spec 120V single-phase circuits: almost everything in a normal rack is happiest there, and it keeps the whole installation simpler.
+
+## Plugs Have to Match — All the Way Down the Chain
+
+This is where installations quietly go wrong. A power connection only works if the plug, the receptacle, and the equipment all agree on voltage and amperage — and the [NEMA connector](/resources/glossary/nema-connector) type encodes exactly that.
+
+Say you want a 20-amp circuit. That alone isn't enough information. A 20A 120V receptacle could be a straight-blade 5-20, or it could be a locking L5-20 — a twist-lock connector that physically rotates to latch so a cord can't be pulled or shaken loose. The two are not interchangeable. In a rack, locking connectors are the norm, precisely because nobody wants a power cord backing out of a socket behind a running server.
+
+The rule that keeps this straight is to match each link in the chain:
+
+- The [UPS](/resources/glossary/ups) input must match the wall receptacle it plugs into.
+- The [PDU](/resources/glossary/pdu) must match the UPS output it draws from.
+
+Get either one wrong and you've got equipment you can't plug in, or an adapter quietly introducing a new point of failure into your power chain. Specifying the plugs correctly — wall to UPS to PDU to equipment — is a small detail that prevents a frustrating day on site.
+
+## The Hardware We Reach For
+
+For most rack UPS and PDU needs, APC is our first choice — reliable, well-supported, with a battery-replacement and management ecosystem that holds up over the long life these units actually see. It isn't the only hardware we use: when all we're protecting is a small router and a single switch, a 1U CyberPower does the job for far less, and we reach for one often. But for anything that matters, APC is where we start. The models we use most:
+
+- **Smart-UPS SMX1500** (1500 VA / 1200 W) — a single rack or a small closet, ~$1,000
+- **Smart-UPS SMX2000** (2000 VA / 1600 W) — a well-populated rack, ~$1,750
+- **Smart-UPS SMX3000** (3000 VA / 2700 W) — a dense rack, or headroom to grow, ~$2,500
+- **Symmetra / Smart-UPS Modular Ultra** (modular, scales into many kW) — whole-room, redundant, mission-critical, from ~$10,000+
+
+*(Prices are approximate street prices to show relative cost, not quotes — confirm current pricing at time of purchase.)*
+
+Notice the pattern: capacity and runtime climb steeply in price. Doubling the watts and adding battery runtime doesn't add a little to the cost — it multiplies it. That's why sizing matters. You want enough headroom to carry the load and ride through an outage, without buying a small power plant you'll never fully use.
+
+The Symmetra line — recently succeeded by the Smart-UPS Modular Ultra — is a different class of device, modular and redundant by design. Power and battery modules can be added, and an internal module can fail without dropping the load. This is what you deploy when power simply isn't allowed to fail.
+
+## Protecting Whole Circuits from the Panel
+
+For a small office, a UPS sits in the rack and protects the rack. At scale, the smarter move is to back entire circuits at the electrical panel — so everything downstream is protected, not just the gear in one cabinet.
+
+[Little Island](/case-studies/little-island) is the clearest example we've built. A pair of APC Symmetra units sit on dedicated 100-amp circuits at the electrical panel in the park's server room, feeding every rack across the park. Every switch, every [wireless access point](/resources/glossary/wap), every camera, and every life-safety system draws from them. The result is [redundant power](/resources/glossary/power-redundancy) on everything, with more than six hours of runtime — enough to keep the entire infrastructure and life-safety systems running through an evacuation or an extended emergency. Power there isn't a per-rack afterthought; it's an architecture.
+
+## Don't Forget the Heat
+
+One last thing that's easy to overlook: every watt of power you deliver to a rack comes back out as heat. Electrical sizing and cooling are two halves of the same problem. If you spec the power for a dense rack but not the cooling to carry away the heat that power generates, you've simply moved the failure from "no power" to "too hot to run."
+
+A good buildout specs electrical capacity and HVAC capacity to the same load, together — so the room can both power the equipment and keep it within its operating temperature. We design both as part of any [server room buildout](/services/buildout), and it's a core consideration in our [network infrastructure design](/services/technology-consulting/network-infrastructure-design) work. Power and cooling are where good infrastructure quietly earns its reliability.`,
+  },
+  // ── Wi-Fi Vendors ────────────────────────────────────────────────────────────
+  {
+    slug: "wifi-vendors",
+    title: "Wi-Fi Vendors",
+    categories: ["WiFi", "Networking", "Hardware"],
+    description: "Every wireless vendor is the right answer for some situation and the wrong one for others. An honest, opinionated guide to where Mist, Ruckus, UniFi, Eero, Meraki, Cisco, and Peplink each belong.",
+    related: ["wifi", "network-fundamentals"],
+    relatedCaseStudies: ["little-island", "audubon-corkscrew", "audubon-wireless-tuning", "charity-water-gala"],
+    content: `There is no single best Wi-Fi vendor. There's the right vendor for a given building, budget, client density, and tolerance for maintenance — and a lot of deployments go wrong because someone picked a favorite brand instead of matching the gear to the situation. Here's where each major vendor fits, based on what we actually deploy and live with.
+
+## Mist
+
+Juniper Mist is where we start for most environments. It's cloud-managed from the ground up and genuinely AI-driven — not in the marketing sense, but in the sense that when something is wrong it points you at the cause instead of leaving you to guess. For the majority of offices and venues, Mist delivers strong [Wi-Fi 6](/resources/glossary/wifi-6) performance with the least ongoing maintenance, and that combination is most of why it's our default.
+
+## Ruckus
+
+Ruckus has long made some of the best wireless hardware in the business, and for years it was our default in difficult RF environments. That changed when they retired the ZoneDirector line — the ZD1200 in particular — and stepped away from the small-to-mid venue. What remains is [SmartZone](/resources/glossary/smartzone): excellent, but more expensive and built for deployments of dozens of access points or more. When the scale justifies it, it's the right tool — [Little Island](/case-studies/little-island) runs on Ruckus precisely because its AP count and coverage demands are what SmartZone is built for. For a ten-AP office, it no longer makes the sense it once did.
+
+## UniFi
+
+UniFi is the hardest vendor on this list to place. The hardware is genuinely impressive for the money — roughly a tenth the cost of the enterprise names, with [WAPs](/resources/glossary/wap) that look good and perform well on paper. The catch is reliability: firmware updates break working deployments more often than they should, and stability over time lags the rest of this list. For infrastructure that simply has to stay up, we think carefully before reaching for it.
+
+Even so, UniFi earns a real place in our work, because it's sometimes the best fit for the situation and the budget — as it was at [Audubon Corkscrew](/case-studies/audubon-corkscrew). When we do deploy it, the rules are firm: cloud management is far more reliable than on-premises, so use UniFi's official cloud hosting and avoid the Cloud Key. If you must run on-premises, the Dream Machine is the best of those options — still behind cloud, and still not something to relax about.
+
+## Eero
+
+Eero is limited in features and not an enterprise tool, but for residential settings it's excellent — especially as an easy way to mesh in coverage where running a wired access point isn't practical. We don't put it in offices, but for a home or a small residential-style space, it does its narrow job well.
+
+## Meraki
+
+Cisco Meraki is a solid, easy-to-manage cloud platform. The trade-off is the one that follows the whole Meraki line: you pay a premium, and the licensing is perpetual — stop paying and the hardware stops working. It's a reasonable choice when an organization has already standardized on it, but it's rarely our first recommendation on value.
+
+## Cisco
+
+The classic Cisco wireless line is strong and enterprise-grade, but it's expensive and more involved to administer than the cloud-native platforms. It fits inside large, Cisco-standardized environments and is a hard sell most other places.
+
+## Peplink
+
+Peplink sits at roughly UniFi's quality tier, or a little below — but unlike UniFi, it's reliable. It won't win on a spec sheet, but it does what it promises and keeps doing it. We reach for Peplink when dependable-and-affordable matters more than feature-rich, and it has earned that place.
+
+## The Takeaway
+
+Pick the platform for the job. Mist for most. Ruckus and SmartZone when the scale is there. UniFi when the budget calls for it, and then on cloud. Eero for residential mesh. Meraki and Cisco inside environments already committed to them. Peplink when dependable-and-affordable beats feature-rich.
+
+Getting that match right is most of what makes wireless work — and it's exactly what our [Wi-Fi assessment](/services/technology-consulting/wifi-assessment) is for. For a deeper look at the underlying technology, see our guide to [how Wi-Fi works](/resources/university/wifi). And when the deployment is temporary — a gala, a festival, a pop-up that needs flawless coverage for one night — that's a different discipline again, covered under [ephemeral infrastructure](/services/ephemeral).`,
+  },
+  // ── Cisco Switching ──────────────────────────────────────────────────────────
+  {
+    slug: "cisco-switches",
+    title: "Cisco Switching",
+    categories: ["Networking", "Hardware"],
+    description: "Cisco is the gold standard in switching, and their lineup runs from inexpensive small-business switches to the enterprise hardware in every major datacenter. A guide to which switch fits where.",
+    related: ["network-fundamentals", "wifi-vendors"],
+    relatedCaseStudies: ["little-island", "redundancy-by-design"],
+    content: `Switching is the part of a network that quietly determines whether everything else works, and it's a place where Cisco has earned its reputation as the gold standard over decades. Their gear runs in essentially every datacenter on earth, and the CCNA is the baseline certification the whole industry measures networking skill against. They are, frankly, the best in the world at what they do. The licensing can be a headache — we'll get to that — but the hardware and the track record are unmatched.
+
+Here's how we use their lineup, from the bottom up.
+
+## Unmanaged Switches
+
+We rarely deploy unmanaged switches. They have no [VLAN](/resources/glossary/vlan) support, no management, and no visibility — fine for a few devices on a bench, but they have no place in infrastructure we're responsible for. Almost any real environment is better served by managed switching.
+
+## Catalyst 1200
+
+The Catalyst 1200 is our pick for the most cost-sensitive sites: a single switch, no need for [stacking](/resources/glossary/stacking), and a tight budget. It's a capable managed switch at an entry price. It doesn't offer multi-gigabit uplinks for wireless, so it isn't the switch for a high-end access point deployment — but where one switch covers the whole site, it can be the right call.
+
+## Catalyst 1300
+
+The Catalyst 1300 is the workhorse, and it's in most of the network stacks we build. It's managed, reliable, supports the VLANs and [PoE](/resources/glossary/poe) and uplinks a real office needs, and it's priced so it doesn't blow up a project budget. It does multi-gigabit uplinks, though only up to 5 Gbps — enough for most wireless, but short of the 10 Gbps the highest-density access points can use. When someone asks what switch we put in, the honest answer most of the time is the 1300.
+
+The line has a long pedigree, descending from the CBS350, the SG350X, and the SG300 before it — years of reliable, inexpensive small-business switches. (The Catalyst 1300 was itself known as the Cisco Business 1300 until Cisco folded the small-business line under the Catalyst name.) We still see SG300s running in the field today, dependable for what they cost. That track record is a big part of why we trust the current generation.
+
+## Catalyst 9000
+
+When the environment is genuinely enterprise — high port density, redundancy that can't blink, multi-gigabit uplinks to wireless — we move to the Catalyst 9300 and 9500. Their ports negotiate 1, 2.5, 5, and 10 Gbps and deliver more power per port than the small-business line, which is what high-end wireless and PoE devices increasingly need.
+
+When the reliability justifies the budget, these are the switches we reach for — as we did for a [leading NYC architecture firm](/case-studies/redundancy-by-design) and across [Little Island](/case-studies/little-island).
+
+## Lineage and Licensing
+
+Cisco's small-business heritage traces back through the Linksys era — the affordable, reliable line that evolved into today's Catalyst 1200 and 1300. Its cloud-managed path runs separately through Meraki, the acquisition that became Cisco's browser-managed platform. Two philosophies under one roof: switching you configure directly, and switching you administer from the cloud.
+
+At the top end, Cisco hardware does the heavy lifting of the internet itself — the switching and routing inside major datacenters and cloud providers, and the gear that carries traffic between regions. The same engineering discipline runs all the way down to a 1300 in a ten-person office.
+
+The one real gripe is licensing. Cisco's tiers and subscriptions can be confusing and, at the enterprise level, expensive — the tax you pay for the ecosystem, and for most clients well worth it. From one switch in a closet to a redundant core moving traffic across a building, the discipline doesn't change: match the tier to the job, get the licensing right, and let the hardware disappear into years of quiet reliability. That's the substance of our [network engineering](/services/technology-consulting/network-engineering) and [network infrastructure design](/services/technology-consulting/network-infrastructure-design) work.`,
+  },
+  // ── Firewall Vendors ─────────────────────────────────────────────────────────
+  {
+    slug: "firewall-vendors",
+    title: "Firewall Vendors",
+    categories: ["Security", "Networking", "Hardware"],
+    description: "The firewall is the front door to your network. An honest look at SonicWall, Fortinet, Meraki, Cisco, and the premium names — and which SonicWall model fits which office.",
+    related: ["network-fundamentals", "remote-connectivity"],
+    relatedCaseStudies: ["redundancy-by-design"],
+    content: `The firewall is the front door to your network — the device that decides what gets in, what gets out, and what happens when something hostile comes knocking. Choosing one is a balance of capability, cost, licensing terms, and how much of your life you want to spend maintaining it. Here's where the major vendors land for us.
+
+## SonicWall
+
+SonicWall is what we reach for most, and it comes down to value. The spec-to-price ratio is the best in the category, the support is solid, and — a detail that matters more than people expect — they license high availability generously. Even a low-end license gives you a lot of capability, and standing up a second unit for [HA](/resources/glossary/power-redundancy) doesn't cost a fortune. For most organizations, SonicWall delivers enterprise-grade protection without enterprise pricing.
+
+## Fortinet (FortiGate)
+
+FortiGate is solid hardware, and we deployed it constantly for years. Two things pushed us back toward SonicWall. First, the licensing carries more friction than it should. Second, the port speeds run low for the price: at a given cost tier we want to see more [SFP+](/resources/glossary/layer-1) than Fortinet tends to offer. There's also been a notable run of security issues in the platform recently. It's still capable gear, but the value equation moved.
+
+## Meraki
+
+Cisco Meraki firewalls are easy to manage and dependable, with the same trade-off as the rest of the Meraki line: you pay a premium, and the licensing is perpetual — let it lapse and the box stops protecting you. Fine where an organization is already all-in on Meraki; rarely our value pick.
+
+## Cisco
+
+Traditional Cisco firewalls are extremely strong and built for the largest environments. They're also expensive and high-maintenance to run. This is enterprise-only territory — the right answer for a large, Cisco-standardized organization with the staff to manage it, and overkill almost everywhere else.
+
+## Juniper and Palo Alto
+
+Juniper and Palo Alto are the premium names. They're expensive, but each has a devoted following for good reason — at the high end they're excellent. For most of the small and mid-sized organizations we serve, though, the cost is hard to justify against what SonicWall delivers.
+
+## Which SonicWall
+
+When we do deploy SonicWall — which is often — sizing follows a clear ladder. The right model depends on user count and, especially, on your internet speed, because the firewall has to inspect traffic at your WAN's full rate.
+
+- **TZ280** — most small offices
+- **TZ680** — 100+ users (adds 10 Gb ports)
+- **NSa 2800** — larger environments
+- **NSa 3800** — 5 Gbps WAN
+- **NSa 4800** — 10 Gbps WAN
+
+And one rule across all of them: **always deploy high availability.** A second unit in HA turns the failure of a firewall into a non-event instead of a company-wide outage — and because of how SonicWall licenses HA, it's an affordable kind of insurance. (The architecture firm in [this case study](/case-studies/redundancy-by-design) runs SonicWall for exactly this reason.)
+
+The firewall is also where your [VPN](/resources/glossary/vpn) and [SSL VPN](/resources/glossary/ssl-vpn) remote access live, and where [next-generation firewall](/resources/glossary/ngfw) features — deep packet inspection, intrusion prevention, content filtering — actually get enforced. Specifying, licensing, and maintaining all of it correctly is the substance of our [firewall and network security](/services/technology-consulting/firewall-and-network-security) work.`,
+  },
+  // ── Synology ─────────────────────────────────────────────────────────────────
+  {
+    slug: "synology",
+    title: "Synology",
+    categories: ["Hardware", "Virtualization", "Cloud & Infrastructure"],
+    description: "If on-premises storage makes sense for you, Synology is an outstanding option — a Swiss Army knife of storage, virtualization, backup, and identity at a fraction of the cost of premium vendors. Here's why we recommend it.",
+    related: ["virtualization", "network-fundamentals"],
+    relatedCaseStudies: ["redundancy-by-design", "little-island"],
+    content: `In an era when so much has moved to the cloud, it's fair to ask why on-premises storage is still a thing — and why we recommend [Synology](/resources/glossary/synology) as often as we do. The answer is value, breadth, and a level of reliability that punches well above the price. If you can sensibly move to the cloud, you generally should. But when on-premises genuinely makes sense — for performance, for cost at scale, for data gravity, for control — Synology is, in our view, a phenomenal option.
+
+## Why We Reach For It
+
+Synology occupies a sweet spot that's hard to find elsewhere: enterprise-grade capability at small-business cost, wrapped in a UI that's genuinely easy to operate. The hardware is reliable, the support is solid, and — importantly — it carries legitimate [VMware](/resources/glossary/vmware) support, so it works as proper backing storage for a virtualization environment rather than a consumer afterthought.
+
+It's also a Swiss Army knife. A single Synology can serve as your file server, your [DNS](/resources/glossary/dns), your VM backup target, a sync engine to cloud storage buckets, a Hybrid Share endpoint, a replication target, and even an [LDAP](/resources/university/directory-services) directory or [RADIUS](/resources/glossary/radius) server. The feature set keeps growing, and for a small or mid-sized organization, that consolidation is real value — one well-chosen box covering jobs that would otherwise mean several.
+
+## The Honest Cost Comparison
+
+Here's the trade-off, stated plainly. Moving to Dell, HPE, Quantum, or another premium storage vendor will cost you an arm and a leg — and that's before the annual licenses and support contracts even begin. Synology will typically cost half of that or less.
+
+What do you give up? Response time on failures, mainly. If a drive or controller fails, Dell will show up the next day with a replacement part; Synology's support model isn't built for that. But the math still favors Synology: with the money you save, keep a shelf of spare parts on hand — or even a whole second chassis — and you've built your own next-day (or same-hour) recovery for a fraction of what the premium vendors charge.
+
+Stacked up against the premium vendors, the trade-offs are straightforward:
+
+- **Up-front cost:** half or less than Dell or HPE.
+- **Licensing and support:** minimal, versus significant ongoing contracts.
+- **Failure response:** spares you keep on hand, rather than waiting on a next-day parts contract.
+- **Raw performance:** more than enough for most workloads, though the premium arrays are faster.
+- **Day-to-day operation:** a genuinely simple UI, versus more capable but more complex tooling.
+
+That last advantage — raw performance — is the one real edge the premium vendors hold. Dell and HPE arrays are faster, and for the most demanding, latency-sensitive workloads that gap matters. For the storage needs of most organizations we serve, Synology is more than sufficient, and the savings are substantial.
+
+## Where We Deploy It
+
+We're particular fans of the SA series and UC series as primary and secondary virtualization storage. Both offer dual controllers — so a controller failure doesn't take the storage offline — and both run smoothly under the sustained load of a [VMware](/resources/glossary/vmware) environment using [iSCSI](/resources/glossary/iscsi) shared storage. That dual-controller resilience, at Synology's price, is what makes the value proposition click. The architecture firm in [this case study](/case-studies/redundancy-by-design) runs a Synology UC3200 as exactly this kind of resilient virtualization storage.
+
+## The Bottom Line
+
+If the cloud is the right home for your data, go to the cloud. But if on-premises storage makes sense for your situation — and for many organizations it still does — you don't need an enterprise budget to do it well. Synology delivers most of what the premium vendors offer, at a price that leaves room for the spares, the redundancy, and the backup strategy that actually keep your data safe. It's where we land for on-prem storage more often than not.
+
+This is the substance of our [Synology storage consulting](/services/technology-consulting/synology-storage-consulting) and, paired with it, our [VMware administration and infrastructure design](/services/technology-consulting/vmware-administration-infrastructure-design) and broader [compute and storage](/services/technology-consulting/compute-storage) work.`,
   },
 ]

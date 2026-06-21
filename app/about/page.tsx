@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About RSystems NYC | Executive IT Leadership & Consulting",
+  alternates: { canonical: "https://rsystems.nyc/about" },
   description:
     "RSystems is a New York City-based executive IT leadership and consulting firm — providing technology strategy, infrastructure architecture, and senior-level managed services for organizations that need deep expertise without a full-time hire.",
   openGraph: {

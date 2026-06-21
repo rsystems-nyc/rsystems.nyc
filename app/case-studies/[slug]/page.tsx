@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { caseStudiesData, type Block } from "@/app/lib/case-studies-data";
+import JsonLd from "@/app/components/JsonLd";
+import { breadcrumbSchema } from "@/app/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -178,8 +180,15 @@ export default async function CaseStudyPage({ params }: Props) {
   const cs = caseStudiesData.find((c) => c.slug === slug);
   if (!cs) notFound();
 
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Case Studies", path: "/case-studies" },
+    { name: cs.title, path: cs.canonicalPath ?? `/case-studies/${slug}` },
+  ]);
+
   return (
     <main className="flex-1">
+      <JsonLd data={breadcrumbs} />
       {cs.jsonLd && (
         <script
           type="application/ld+json"

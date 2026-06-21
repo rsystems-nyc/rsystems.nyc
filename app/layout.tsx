@@ -42,17 +42,33 @@ const organizationSchema = {
   "@type": "ProfessionalService",
   name: "RSystems",
   url: SITE_URL,
+  logo: `${SITE_URL}/assets/RS_Systems_Pulsar_Logo.svg`,
+  image: `${SITE_URL}/assets/RS_Systems_Pulsar_Logo.svg`,
+  sameAs: ["https://maps.app.goo.gl/URtpuDTNpba7NuR2A"],
   foundingDate: "2025",
   description:
     "Executive IT Leadership & Consulting — bridging the boardroom and the server room. Strategy, architecture, and implementation. NYC Native.",
   areaServed: { "@type": "City", name: "New York City" },
+  telephone: "+1-917-765-4968",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "395 S End Ave",
     addressLocality: "New York",
     addressRegion: "NY",
+    postalCode: "10280",
     addressCountry: "US",
   },
   priceRange: "$$$",
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Monday", opens: "11:00", closes: "19:00" },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Tuesday", "Wednesday", "Thursday"],
+      opens: "10:00",
+      closes: "19:00",
+    },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "10:00", closes: "16:00" },
+  ],
   knowsAbout: [
     "IT Strategy",
     "Infrastructure Architecture",
@@ -67,6 +83,7 @@ const organizationSchema = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
+    telephone: "+1-917-765-4968",
     url: `${SITE_URL}/contact`,
   },
 };

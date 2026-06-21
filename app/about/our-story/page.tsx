@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Our Story — RSystems",
+  alternates: { canonical: "https://rsystems.nyc/about/our-story" },
   description:
     "The story behind the name RSystems — a personal account of calculating a custom pulsar map, the mathematics behind it, and the philosophy of precision it represents.",
 };

@@ -2372,6 +2372,26 @@ In a properly designed network, the WLAN is a functional extension of the wired 
 The WLAN is typically segmented: a corporate SSID for managed devices (on the corporate VLAN), a guest SSID for visitors (on an isolated VLAN with internet access only), and possibly a separate SSID for IoT devices. Each SSID maps to a VLAN; the AP tags traffic appropriately before it hits the switch.`,
   },
 
+  {
+    slug: "smartzone",
+    term: "SmartZone",
+    aka: ["Ruckus SmartZone"],
+    shortDef: "Ruckus's enterprise wireless LAN controller platform for centrally managing large fleets of access points — handling configuration, RF coordination, roaming, and monitoring across a single deployment.",
+    categories: ["WiFi", "Networking"],
+    related: ["wap", "wlan", "wifi-6"],
+    content: `SmartZone is Ruckus's enterprise wireless LAN controller platform. It provides centralized configuration, RF management, client roaming, and monitoring for fleets of Ruckus access points, presenting an entire wireless deployment through a single management interface. It succeeded the earlier ZoneDirector line, which Ruckus has discontinued.
+
+SmartZone is deployed as a dedicated hardware appliance or as a virtual appliance, and scales to deployments measured in the hundreds or thousands of access points. It is positioned for large, high-density environments — stadiums, campuses, hospitals, and large enterprises — where centralized control and capacity planning across many access points are required.
+
+## Architecture
+
+SmartZone separates the control plane from the data plane. The controller handles management, policy, and RF coordination, while client data traffic can either be tunneled back to the controller or bridged locally at each access point. Controllers can be clustered to provide high availability and to support large access point counts.
+
+## Positioning
+
+SmartZone's feature set and licensing are oriented toward large-scale deployments. Smaller environments running a limited number of access points are more commonly served by cloud-managed wireless platforms, which have largely filled the small-to-mid-venue segment previously served by the discontinued ZoneDirector line.`,
+  },
+
   // ── Deferred Networking ────────────────────────────────────────────────────
   {
     slug: "voip",
@@ -2569,6 +2589,32 @@ PDUs are often mounted vertically in the side channels of a rack rather than occ
   },
 
   // ── Virtualization & Storage ───────────────────────────────────────────────
+  {
+    slug: "synology",
+    term: "Synology",
+    shortDef: "A manufacturer of network-attached storage (NAS) and SAN appliances running the DiskStation Manager (DSM) operating system, used for file serving, backup, virtualization storage, and directory services.",
+    categories: ["Hardware", "Virtualization", "Cloud & Infrastructure"],
+    related: ["vmware", "iscsi", "raid"],
+    content: `Synology is a manufacturer of network-attached storage (NAS) and storage area network (SAN) appliances. Its product range spans desktop units, rackmount systems, and dual-controller arrays, all running DiskStation Manager (DSM) — a web-based operating system that provides storage management and a catalog of installable applications.
+
+## Capabilities
+
+Beyond basic file storage, DSM extends a single appliance into several roles through first-party applications:
+
+- **File services** — SMB, NFS, and AFP shares, with snapshots and versioning.
+- **Block storage** — iSCSI targets that serve as shared datastores for VMware and Hyper-V hosts.
+- **Backup and replication** — agent-based backup of servers, workstations, and virtual machines, plus replication to a second appliance or to cloud storage.
+- **Directory and network services** — LDAP and RADIUS servers, DNS, and DHCP.
+- **Virtualization** — a built-in hypervisor for running virtual machines on the appliance itself.
+
+## Storage and Resilience
+
+Synology appliances support standard RAID levels as well as Synology Hybrid RAID (SHR), which simplifies arrays built from mixed drive sizes. Higher-end models in the SA and UC series include dual controllers, allowing the array to keep serving data if one controller fails.
+
+## Virtualization Storage
+
+Synology maintains certification with VMware vSphere and supports both iSCSI and NFS datastores, which allows its appliances to act as backing storage for production virtualization environments rather than as file storage alone.`,
+  },
   {
     slug: "hyper-v",
     term: "Hyper-V",

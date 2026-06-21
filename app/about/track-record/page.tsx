@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Track Record | RSystems NYC",
+  alternates: { canonical: "https://rsystems.nyc/about/track-record" },
   description:
     "A selection of the organizations Reilly has worked with over 15+ years — through RSystems and through prior engagements — across industries and at every scale.",
 };

@@ -4,6 +4,7 @@ import CaseStudiesFilter from "./CaseStudiesFilter";
 
 export const metadata: Metadata = {
   title: "Case Studies — RSystems",
+  alternates: { canonical: "https://rsystems.nyc/case-studies" },
   description:
     "Infrastructure, network, and identity engagements across architecture, media, culture, manufacturing, and enterprise — from RSystems.",
 };

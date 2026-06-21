@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Careers — RSystems",
+  alternates: { canonical: "https://rsystems.nyc/careers" },
   description:
     "RSystems is a New York City IT consultancy. We hire experienced engineers and strategists who operate at the top of their field.",
 };

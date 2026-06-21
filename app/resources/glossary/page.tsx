@@ -1,6 +1,9 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import GlossaryIndex from "./GlossaryIndex";
+import JsonLd from "@/app/components/JsonLd";
+import { SITE_URL, breadcrumbSchema } from "@/app/lib/seo";
+import { glossaryTerms } from "@/app/lib/glossary-terms";
 
 export const metadata: Metadata = {
   title: "Glossary — RSystems NYC",
@@ -8,9 +11,33 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://rsystems.nyc/resources/glossary" },
 };
 
+const definedTermSetSchema = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": `${SITE_URL}/resources/glossary`,
+  name: "RSystems IT Glossary",
+  url: `${SITE_URL}/resources/glossary`,
+  description:
+    "Plain-language definitions of the infrastructure, networking, security, and cloud terms that come up most often in enterprise IT.",
+  hasDefinedTerm: glossaryTerms.map((t) => ({
+    "@type": "DefinedTerm",
+    name: t.term,
+    description: t.shortDef,
+    termCode: t.slug,
+    url: `${SITE_URL}/resources/glossary/${t.slug}`,
+  })),
+};
+
+const breadcrumbs = breadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Resources", path: "/resources" },
+  { name: "Glossary", path: "/resources/glossary" },
+]);
+
 export default function GlossaryPage() {
   return (
     <main className="flex-1">
+      <JsonLd data={[definedTermSetSchema, breadcrumbs]} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#0F1117] text-white">

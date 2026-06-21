@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { servicesData } from "@/app/lib/services-data";
+import JsonLd from "@/app/components/JsonLd";
+import { breadcrumbSchema } from "@/app/lib/seo";
 
 type Props = {
   params: Promise<{ service: string }>;
@@ -117,10 +119,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: { absolute: `${service.name} | RSystems` },
     description: service.tagline,
+    alternates: { canonical: `https://rsystems.nyc/services/${slug}` },
     openGraph: {
       title: `${service.name} | RSystems`,
       description: service.tagline,
-      url: `https://rsystems.nyc/services/${slug}/`,
+      url: `https://rsystems.nyc/services/${slug}`,
     },
     twitter: {
       title: `${service.name} | RSystems`,
@@ -136,8 +139,15 @@ export default async function ServicePage({ params }: Props) {
 
   const links = relatedLinks[slug] ?? [];
 
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: service.name, path: `/services/${slug}` },
+  ]);
+
   return (
     <main className="flex-1">
+      <JsonLd data={breadcrumbs} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#0F1117] text-white">
