@@ -28,16 +28,16 @@ const engagementModels = [
     linkLabel: "See how we propose work",
   },
   {
-    heading: "Managed Support (Retainer)",
-    body: "For open-ended work that can't be neatly defined in advance, we use a monthly retainer. It's ideal for established relationships, where we understand your environment well enough to forecast and budget accurately.",
-    href: "#managed-support",
-    linkLabel: "How retainers work",
-  },
-  {
     heading: "Managed Services (Subscription)",
     body: "Our ongoing platform and infrastructure administration is billed as a flat monthly subscription, priced per unit — per identity, per endpoint, per site, and so on. Predictable, and scaled to what you actually run.",
     href: "#managed-services",
     linkLabel: "See per-unit pricing",
+  },
+  {
+    heading: "Managed Support (Retainer)",
+    body: "For open-ended work that can't be neatly defined in advance, we use a monthly retainer. It's ideal for established relationships, where we understand your environment well enough to forecast and budget accurately.",
+    href: "#managed-support",
+    linkLabel: "How retainers work",
   },
   {
     heading: "Hourly",
@@ -236,12 +236,12 @@ export default function PricingPage() {
             your costs predictable and contained.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden mb-8">
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
             {engagementModels.map((model) => (
               <a
                 key={model.heading}
                 href={model.href}
-                className="group bg-[#F4F2EF] p-7 hover:bg-white transition-colors block"
+                className="w-full md:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl group bg-[#F4F2EF] p-7 hover:bg-white transition-colors block"
               >
                 <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug mb-3">
                   {model.heading}
@@ -721,8 +721,8 @@ export default function PricingPage() {
           </p>
 
           {/* What can lower pricing */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
-            <div className="bg-white p-7">
+          <div className="flex flex-wrap justify-center gap-4">
+            <div className="w-full md:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7">
               <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-3">Larger environments</h3>
               <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
                 Organizations of 100+ employees often benefit from economies of scale,
@@ -760,11 +760,11 @@ export default function PricingPage() {
                 the hour.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                Rates run from{" "}
-                <span className="font-semibold text-[#1A1A1A]">$150 to $500 an hour</span>,
-                depending on the role and the work. Hands-on installation — running cable or
-                mounting displays in a conference room — sits at one end; senior advisory,
-                like joining a board meeting as your fractional CTO, sits at the other.
+                Rates aren&apos;t fixed — they run anywhere from{" "}
+                <span className="font-semibold text-[#1A1A1A]">$150 to $500 an hour</span>, on
+                a sliding scale set by the role and the work. Hands-on installation — running
+                cable or mounting displays in a conference room — sits at the low end; senior
+                advisory, like joining a board meeting as your fractional CTO, sits at the top.
               </p>
             </div>
           </div>

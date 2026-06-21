@@ -158,9 +158,9 @@ export default function AIEnablementPage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
             What enablement looks like in practice.
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {enablementAreas.map((area) => (
-              <div key={area.name} className="bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
+              <div key={area.name} className="w-full sm:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
                 <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-3 leading-snug">
                   {area.name}
                 </h3>

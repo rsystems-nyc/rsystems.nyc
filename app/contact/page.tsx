@@ -119,9 +119,9 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {rightFitIndicators.map((item, i) => (
-              <div key={i} className="bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
+              <div key={i} className="w-full sm:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#E8500A]/10 flex items-center justify-center">
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true">

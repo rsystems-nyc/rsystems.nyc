@@ -130,13 +130,13 @@ export default function EphemeralPage() {
       {/* Sub-service cards */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {subServices.map((service) => (
               <Link
                 key={service.id}
                 id={service.id}
                 href={`/services/${service.id}`}
-                className="group relative bg-white p-7 flex flex-col hover:bg-[#F4F2EF] transition-colors"
+                className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)] border border-[#1A1A1A]/[0.07] rounded-xl group relative bg-white p-7 flex flex-col hover:bg-[#F4F2EF] transition-colors"
               >
                 <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

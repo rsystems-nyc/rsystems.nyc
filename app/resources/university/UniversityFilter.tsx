@@ -60,12 +60,12 @@ export default function UniversityFilter() {
         </div>
 
         {/* Article grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="flex flex-wrap justify-center gap-8 lg:gap-10">
           {filtered.map((article) => (
             <Link
               key={article.slug}
               href={`/resources/university/${article.slug}`}
-              className="group flex flex-col bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-7"
+              className="group flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.667rem)] bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-7"
             >
               <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${categoryClass(article.categories[0])}`}>
                 {article.categories.join(" · ")}

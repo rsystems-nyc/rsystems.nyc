@@ -115,12 +115,12 @@ export default function AIHubPage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
             Four disciplines. One governance stack.
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {services.map((service) => (
               <Link
                 key={service.href}
                 href={service.href}
-                className="group relative bg-white p-8 flex flex-col hover:bg-[#F4F2EF] transition-colors"
+                className="w-full md:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl group relative bg-white p-8 flex flex-col hover:bg-[#F4F2EF] transition-colors"
               >
                 <span className="absolute top-8 right-8 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

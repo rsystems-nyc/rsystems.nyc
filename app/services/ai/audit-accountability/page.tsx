@@ -124,9 +124,9 @@ export default function AuditAccountabilityPage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
             Four layers of audit infrastructure.
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {buildItems.map((item) => (
-              <div key={item.num} className="bg-white p-7 hover:bg-[#F4F2EF] transition-colors">
+              <div key={item.num} className="w-full sm:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7 hover:bg-[#F4F2EF] transition-colors">
                 <p className="text-[11px] font-semibold text-[#E8500A] mb-3">{item.num}</p>
                 <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">{item.name}</h3>
                 <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">{item.body}</p>

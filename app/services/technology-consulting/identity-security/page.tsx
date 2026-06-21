@@ -162,9 +162,9 @@ export default function IdentitySecurityPage() {
           </div>
 
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-8">Services</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {services.map((service) => (
-              <Link key={service.href} href={service.href} className="group relative bg-[#F4F2EF] p-7 flex flex-col hover:bg-white transition-colors">
+              <Link key={service.href} href={service.href} className="group relative flex flex-col w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
                 <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
@@ -181,9 +181,9 @@ export default function IdentitySecurityPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-8">Related Practice Areas</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {relatedCategories.map((cat) => (
-              <Link key={cat.href} href={cat.href} className="group relative bg-white p-6 flex flex-col hover:bg-[#F4F2EF] transition-colors">
+              <Link key={cat.href} href={cat.href} className="group relative flex flex-col w-full sm:w-[calc(33.333%-0.667rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-6 hover:bg-[#F4F2EF] transition-colors">
                 <span className="absolute top-6 right-6 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>

@@ -52,17 +52,20 @@ const managedAreas = [
   },
 ];
 
-const subPages = [
-  {
-    slug: "core-suite",
-    title: "Core Suite",
-    body: "All five management services in one subscription — identity, endpoint, backup, domain, and network — with consolidated billing.",
-  },
+const bundles = [
   {
     slug: "essentials",
     title: "Management Essentials",
     body: "The foundational layer: identity and endpoint management, MFA enforcement, and back-end infrastructure for smaller teams.",
   },
+  {
+    slug: "core-suite",
+    title: "Core Suite",
+    body: "All five management services in one subscription — identity, endpoint, backup, domain, and network — with consolidated billing.",
+  },
+];
+
+const services = [
   {
     slug: "identity",
     title: "Identity Management",
@@ -97,11 +100,6 @@ const subPages = [
     slug: "awareness",
     title: "Cybersecurity Awareness",
     body: "Security awareness training, policy templates, and staff acknowledgment workflows on an annual subscription.",
-  },
-  {
-    slug: "support",
-    title: "Managed Support",
-    body: "Hands-on, day-to-day help — helpdesk, onboarding, and device support — with access to every level of our team.",
   },
 ];
 
@@ -189,26 +187,84 @@ export default function ManagementIndexPage() {
               Explore each service.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
-            {subPages.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/management/${s.slug}`}
-                className="group relative bg-white p-7 flex flex-col hover:bg-[#F4F2EF] transition-colors"
-              >
-                <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
-                  {s.title}
-                </h3>
-                <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
-                  {s.body}
-                </p>
-              </Link>
-            ))}
+          {/* Zone 1 — Bundles */}
+          <div className="mb-12">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#1A1A1A]/40 mb-4">
+              Bundles
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {bundles.map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/services/management/${s.slug}`}
+                  className="group relative flex flex-col w-full md:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7 hover:bg-[#F4F2EF] transition-colors"
+                >
+                  <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+                    {s.title}
+                  </h3>
+                  <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
+                    {s.body}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Zone 2 — Individual services */}
+          <div className="mb-12">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#1A1A1A]/40 mb-4">
+              Individual Services
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {services.map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/services/management/${s.slug}`}
+                  className="group relative flex flex-col w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7 hover:bg-[#F4F2EF] transition-colors"
+                >
+                  <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+                    {s.title}
+                  </h3>
+                  <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
+                    {s.body}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Zone 3 — Managed Support, full width */}
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#1A1A1A]/40 mb-4">
+              Support
+            </p>
+            <Link
+              href="/services/management/support"
+              className="group relative block border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7 hover:bg-[#F4F2EF] transition-colors"
+            >
+              <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+                Managed Support
+              </h3>
+              <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-3xl">
+                Hands-on, day-to-day help — helpdesk, onboarding, and device support — with
+                access to every level of our team.
+              </p>
+            </Link>
           </div>
         </div>
       </section>

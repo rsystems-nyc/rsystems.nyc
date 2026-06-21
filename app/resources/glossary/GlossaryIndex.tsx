@@ -163,12 +163,12 @@ export default function GlossaryIndex() {
           No terms match — try a different letter or category.
         </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {filtered.map((term) => (
             <Link
               key={term.slug}
               href={`/resources/glossary/${term.slug}`}
-              className="group flex flex-col bg-white rounded-xl border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-7"
+              className="group flex flex-col w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-xl border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-7"
             >
               <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">
                 {term.categories[0]}

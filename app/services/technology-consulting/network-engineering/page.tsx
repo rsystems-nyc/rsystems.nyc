@@ -258,9 +258,9 @@ export default function NetworkEngineeringPage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
             How RSystems approaches network engagements.
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {approach.map((item) => (
-              <div key={item.step} className="bg-white p-7 hover:bg-[#F4F2EF] transition-colors">
+              <div key={item.step} className="w-full sm:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7 hover:bg-[#F4F2EF] transition-colors">
                 <p className="text-[11px] font-semibold text-[#E8500A] mb-3">{item.step}</p>
                 <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">{item.title}</h3>
                 <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">{item.body}</p>

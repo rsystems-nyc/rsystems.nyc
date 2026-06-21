@@ -238,9 +238,9 @@ export default async function ServicePage({ params }: Props) {
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
             Key focus areas and deliverables.
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {service.deliverables.map((item, i) => (
-              <div key={i} className="bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
+              <div key={i} className="w-full sm:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
                 <p className="text-[11px] font-semibold text-[#E8500A] mb-3 tabular-nums">
                   0{i + 1}
                 </p>
@@ -266,12 +266,12 @@ export default async function ServicePage({ params }: Props) {
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
               Explore specific engagements.
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+            <div className="flex flex-wrap justify-center gap-4">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group relative bg-white p-7 flex flex-col hover:bg-[#F4F2EF] transition-colors"
+                  className="group relative flex flex-col w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7 hover:bg-[#F4F2EF] transition-colors"
                 >
                   <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

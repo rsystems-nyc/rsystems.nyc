@@ -72,12 +72,12 @@ export default function ResourcesPage() {
       {/* Card grid */}
       <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+          <div className="flex flex-wrap justify-center gap-8 lg:gap-10">
             {sections.map((s) => (
               <Link
                 key={s.href}
                 href={s.href}
-                className="group flex flex-col bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-7"
+                className="group flex flex-col w-full md:w-[calc(33.333%-1.333rem)] lg:w-[calc(33.333%-1.667rem)] bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-7"
               >
                 <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
                   {s.tag}

@@ -136,9 +136,9 @@ export default function OktaConsultingPage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
             Full-Spectrum Okta Consulting
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4">
             {services.map((service) => (
-              <div key={service.name} className="bg-white p-7 hover:bg-[#F4F2EF] transition-colors">
+              <div key={service.name} className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7 hover:bg-[#F4F2EF] transition-colors">
                 <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-3 leading-snug">
                   {service.name}
                 </h3>
