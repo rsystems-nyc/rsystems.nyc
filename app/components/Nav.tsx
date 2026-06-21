@@ -67,6 +67,13 @@ const managementCategories = [
       { href: "/services/management/awareness", label: "Cybersecurity Awareness" },
     ],
   },
+  {
+    label: "Support",
+    href: "/services/management/support/",
+    links: [
+      { href: "/services/management/support", label: "Managed Support" },
+    ],
+  },
 ];
 
 const techConsultingCategories = [

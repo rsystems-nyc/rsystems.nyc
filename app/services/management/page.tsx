@@ -52,6 +52,59 @@ const managedAreas = [
   },
 ];
 
+const subPages = [
+  {
+    slug: "core-suite",
+    title: "Core Suite",
+    body: "All five management services in one subscription — identity, endpoint, backup, domain, and network — with consolidated billing.",
+  },
+  {
+    slug: "essentials",
+    title: "Management Essentials",
+    body: "The foundational layer: identity and endpoint management, MFA enforcement, and back-end infrastructure for smaller teams.",
+  },
+  {
+    slug: "identity",
+    title: "Identity Management",
+    body: "Managed JumpCloud directory administration — MFA, SSO, and authentication logging. Back-end only, no user-facing support.",
+  },
+  {
+    slug: "endpoint-management",
+    title: "Endpoint Management",
+    body: "Automated patching, antivirus, asset tracking, and security-policy enforcement across your device fleet.",
+  },
+  {
+    slug: "network",
+    title: "Network Management",
+    body: "Continuous infrastructure monitoring, uptime tracking, and health verification — remote and back-end.",
+  },
+  {
+    slug: "server",
+    title: "Server Management",
+    body: "Remote monitoring, security patching, health alerts, and backup verification for on-premises and cloud servers.",
+  },
+  {
+    slug: "backup",
+    title: "Backup Management",
+    body: "Backup monitoring, integrity verification, and cloud backup management for Microsoft 365 and Google Workspace.",
+  },
+  {
+    slug: "domain",
+    title: "Domain Management",
+    body: "Domain and DNS administration — registration, DNS, and SPF, DKIM, and DMARC — set up right and maintained.",
+  },
+  {
+    slug: "awareness",
+    title: "Cybersecurity Awareness",
+    body: "Security awareness training, policy templates, and staff acknowledgment workflows on an annual subscription.",
+  },
+  {
+    slug: "support",
+    title: "Managed Support",
+    body: "Hands-on, day-to-day help — helpdesk, onboarding, and device support — with access to every level of our team.",
+  },
+];
+
 export default function ManagementIndexPage() {
   return (
     <main className="flex-1">
@@ -125,8 +178,43 @@ export default function ManagementIndexPage() {
         </div>
       </section>
 
-      {/* How We Work Best */}
+      {/* Explore the services */}
       <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+          <div className="mb-10">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+              The Services
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight leading-snug">
+              Explore each service.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
+            {subPages.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/management/${s.slug}`}
+                className="group relative bg-white p-7 flex flex-col hover:bg-[#F4F2EF] transition-colors"
+              >
+                <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+                  {s.title}
+                </h3>
+                <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
+                  {s.body}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How We Work Best */}
+      <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
@@ -140,24 +228,28 @@ export default function ManagementIndexPage() {
               </h2>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
                 We&apos;re the right partner for organizations that need senior technical
-                oversight and back-end platform management. When we do provide end-user
-                support, it&apos;s usually for executives and technically complex situations
-                that warrant a senior practitioner — not the basic ticket queue.
+                oversight and back-end platform management — the work that genuinely calls
+                for a senior practitioner.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                For routine help desk and day-to-day end-user support, our honest advice
-                is to hire for it internally. A less experienced, less expensive hire
-                dedicated to that layer will serve your team better than an outside firm
-                billing senior rates to reset passwords. We&apos;d rather help you hire and
-                onboard that person well than take work that isn&apos;t the best use of
-                either of our time.
+                Keeping a team running day to day is a different kind of work. For
+                high-volume, routine help desk, many organizations are best served by a
+                dedicated in-house hire close to their team — and when the volume justifies
+                that role, we&apos;ll help you hire and onboard that person well. For everyone
+                else, our Managed Support retainer covers the day-to-day directly, with the
+                level of our team each request calls for.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                That said, it&apos;s not a hard rule. If you need help across the board while
-                you&apos;re getting the right person in place — or if your situation genuinely
-                calls for it — we&apos;ll be there. We just prefer not to structure engagements
-                that way long-term, and we&apos;ll always tell you when we think there&apos;s a
-                better answer.
+                It&apos;s not a hard rule either way, and we&apos;ll always tell you which fits.
+              </p>
+              <p className="pt-1">
+                <Link
+                  href="/services/management/support"
+                  className="group text-[13px] font-semibold text-[#E8500A] inline-flex items-center gap-1.5"
+                >
+                  Learn about Managed Support
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                </Link>
               </p>
             </div>
           </div>

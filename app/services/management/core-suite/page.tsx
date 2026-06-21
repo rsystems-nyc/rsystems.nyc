@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 };
 
 const bundledServices = [
-  "Identity Management",
-  "Endpoint Management",
-  "Backup Management",
-  "Domain Management",
-  "Network Management",
+  { label: "Identity Management", href: "/services/management/identity" },
+  { label: "Endpoint Management", href: "/services/management/endpoint-management" },
+  { label: "Backup Management", href: "/services/management/backup" },
+  { label: "Domain Management", href: "/services/management/domain" },
+  { label: "Network Management", href: "/services/management/network" },
 ];
 
 const baseLicense = [
@@ -121,9 +121,12 @@ export default function CoreSuitePage() {
                 </h2>
                 <ul className="space-y-3">
                   {bundledServices.map((s) => (
-                    <li key={s} className="flex items-start gap-3 text-base text-[#1A1A1A]/70">
+                    <li key={s.label} className="flex items-start gap-3 text-base text-[#1A1A1A]/70">
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
-                      {s}
+                      <Link href={s.href} className="group inline-flex items-center gap-1.5 hover:text-[#E8500A] transition-colors">
+                        {s.label}
+                        <span aria-hidden="true" className="text-[#E8500A] opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">→</span>
+                      </Link>
                     </li>
                   ))}
                 </ul>

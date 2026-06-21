@@ -38,6 +38,10 @@ const monthlyItems = [
   "Integrated support ticket management",
 ];
 
+const includedServices = [
+  { label: "Identity Management", href: "/services/management/identity" },
+  { label: "Endpoint Management", href: "/services/management/endpoint-management" },
+];
 
 export default function EssentialsPage() {
   return (
@@ -110,6 +114,27 @@ export default function EssentialsPage() {
       {/* Included */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+          {/* Included services — named, linked to their pages */}
+          <div className="mb-14">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              Included Services
+            </p>
+            <h2 className="text-2xl font-bold text-[#1A1A1A] tracking-tight mb-6 max-w-xl">
+              What&apos;s in Management Essentials.
+            </h2>
+            <ul className="space-y-3 max-w-md">
+              {includedServices.map((s) => (
+                <li key={s.label} className="flex items-start gap-3 text-base text-[#1A1A1A]/70">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                  <Link href={s.href} className="group inline-flex items-center gap-1.5 hover:text-[#E8500A] transition-colors">
+                    {s.label}
+                    <span aria-hidden="true" className="text-[#E8500A] opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">

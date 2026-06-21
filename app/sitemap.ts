@@ -34,6 +34,7 @@ const managementRoutes = [
   "/services/management/domain",
   "/services/management/server",
   "/services/management/awareness",
+  "/services/management/support",
 ];
 
 const buildoutRoutes = [
