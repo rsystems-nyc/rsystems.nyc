@@ -65,7 +65,7 @@ function IndustryGroup({ group }: { group: ListGroup }) {
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            className="group mt-1.5 inline-flex items-center gap-1.5 text-[13px] font-medium text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
+            className="group mt-1.5 inline-flex items-center gap-1.5 text-[13px] font-medium text-[#1A1A1A]/70 hover:text-[#E8500A] transition-colors"
           >
             {open
               ? "Show fewer"
