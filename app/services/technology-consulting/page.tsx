@@ -107,11 +107,6 @@ const categories = [
         tagline: "Physical network design and Cisco hardware deployment for reliable, high-performance environments.",
       },
       {
-        name: "Network Infrastructure Design",
-        href: "/services/technology-consulting/network-infrastructure-design",
-        tagline: "Comprehensive review and redesign of your network infrastructure for performance, security, and scalability.",
-      },
-      {
         name: "Firewall & Network Security",
         href: "/services/technology-consulting/firewall-and-network-security",
         tagline: "SonicWall firewall architecture with high availability, multi-site design, and advanced segmentation.",

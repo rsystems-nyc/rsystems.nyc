@@ -1597,7 +1597,7 @@ For a small office, a UPS sits in the rack and protects the rack. At scale, the 
 
 One last thing that's easy to overlook: every watt of power you deliver to a rack comes back out as heat. Electrical sizing and cooling are two halves of the same problem. If you spec the power for a dense rack but not the cooling to carry away the heat that power generates, you've simply moved the failure from "no power" to "too hot to run."
 
-A good buildout specs electrical capacity and HVAC capacity to the same load, together — so the room can both power the equipment and keep it within its operating temperature. We design both as part of any [server room buildout](/services/buildout), and it's a core consideration in our [network infrastructure design](/services/technology-consulting/network-infrastructure-design) work. Power and cooling are where good infrastructure quietly earns its reliability.`,
+A good buildout specs electrical capacity and HVAC capacity to the same load, together — so the room can both power the equipment and keep it within its operating temperature. We design both as part of any [server room buildout](/services/buildout), and it's a core consideration in our [network infrastructure design](/services/technology-consulting/network-engineering) work. Power and cooling are where good infrastructure quietly earns its reliability.`,
   },
   // ── Wi-Fi Vendors ────────────────────────────────────────────────────────────
   {
@@ -1683,7 +1683,7 @@ Cisco's small-business heritage traces back through the Linksys era — the affo
 
 At the top end, Cisco hardware does the heavy lifting of the internet itself — the switching and routing inside major datacenters and cloud providers, and the gear that carries traffic between regions. The same engineering discipline runs all the way down to a 1300 in a ten-person office.
 
-The one real gripe is licensing. Cisco's tiers and subscriptions can be confusing and, at the enterprise level, expensive — the tax you pay for the ecosystem, and for most clients well worth it. From one switch in a closet to a redundant core moving traffic across a building, the discipline doesn't change: match the tier to the job, get the licensing right, and let the hardware disappear into years of quiet reliability. That's the substance of our [network engineering](/services/technology-consulting/network-engineering) and [network infrastructure design](/services/technology-consulting/network-infrastructure-design) work.`,
+The one real gripe is licensing. Cisco's tiers and subscriptions can be confusing and, at the enterprise level, expensive — the tax you pay for the ecosystem, and for most clients well worth it. From one switch in a closet to a redundant core moving traffic across a building, the discipline doesn't change: match the tier to the job, get the licensing right, and let the hardware disappear into years of quiet reliability. That's the substance of our [network engineering](/services/technology-consulting/network-engineering) and [network infrastructure design](/services/technology-consulting/network-engineering) work.`,
   },
   // ── Firewall Vendors ─────────────────────────────────────────────────────────
   {

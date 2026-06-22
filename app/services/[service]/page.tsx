@@ -15,7 +15,6 @@ type RelatedLink = { href: string; label: string; tagline: string };
 const relatedLinks: Record<string, RelatedLink[]> = {
   network: [
     { href: "/services/technology-consulting/network-engineering", label: "Network Engineering", tagline: "Physical network design and Cisco hardware deployment." },
-    { href: "/services/technology-consulting/network-infrastructure-design", label: "Network Infrastructure Design", tagline: "Comprehensive review and redesign for performance, security, and scalability." },
     { href: "/services/technology-consulting/firewall-and-network-security", label: "Firewall & Network Security", tagline: "SonicWall architecture with high availability and advanced segmentation." },
     { href: "/services/technology-consulting/wifi-assessment", label: "WiFi Assessment", tagline: "Professional wireless survey with coverage analysis and recommendations." },
   ],
@@ -39,7 +38,7 @@ const relatedLinks: Record<string, RelatedLink[]> = {
     { href: "/services/technology-consulting/dell-poweredge-server-solutions", label: "Dell PowerEdge Server Solutions", tagline: "Physical server design and deployment for demanding on-premises workloads." },
     { href: "/services/technology-consulting/synology-storage-consulting", label: "Synology Storage Consulting", tagline: "High-performance NAS for creative workflows, virtualization, and DR." },
     { href: "/services/technology-consulting/vmware-administration-infrastructure-design", label: "VMware Administration & Infrastructure Design", tagline: "VMware optimization and licensing guidance in the post-Broadcom landscape." },
-    { href: "/services/technology-consulting/network-infrastructure-design", label: "Network Infrastructure Design", tagline: "Comprehensive review and redesign for performance, security, and scalability." },
+    { href: "/services/technology-consulting/network-engineering", label: "Network Engineering", tagline: "Physical network design and Cisco hardware deployment for on-premises infrastructure." },
     { href: "/services/management/server", label: "Server Management", tagline: "Remote diagnostics, patching, and health monitoring for on-premises servers." },
   ],
   "fractional-cto": [
@@ -54,7 +53,7 @@ const relatedLinks: Record<string, RelatedLink[]> = {
   "structured-cabling": [
     { href: "/services/server-room", label: "Server Room & Rack Buildout", tagline: "Racks, power, cooling, and cable management built to last." },
     { href: "/services/wireless-installation", label: "Wireless & Network Installation", tagline: "Survey-driven access point placement and live network standup." },
-    { href: "/services/technology-consulting/network-infrastructure-design", label: "Network Infrastructure Design", tagline: "The design phase that precedes the physical build." },
+    { href: "/services/technology-consulting/network-engineering", label: "Network Engineering", tagline: "The design phase that precedes the physical build." },
   ],
   "server-room": [
     { href: "/services/structured-cabling", label: "Structured Cabling & Low-Voltage", tagline: "The copper and fiber backbone the room is built on." },
