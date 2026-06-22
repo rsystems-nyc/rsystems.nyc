@@ -20,12 +20,21 @@ const geocoded = allClients.filter(
     typeof c.lat === "number" && typeof c.lng === "number",
 );
 
-export const mapPoints: MapPoint[] = geocoded.map((c, i) => ({
-  id: `p${i}`,
-  lat: c.lat,
-  lng: c.lng,
-  former: c.status === "Former",
-}));
+// "previous" = anything other than a current engagement (Inactive OR Former).
+// These render gray and show only under the "Prior Engagements" toggle; the
+// default map view is current clients only.
+// Previous pins are placed first so they paint BEHIND current pins (SVG has no
+// z-index — paint order is document order). Where a current and a previous
+// client overlap, the active (orange) pin stays on top. Sort is deterministic,
+// so SSR and client render the same order (no hydration mismatch).
+export const mapPoints: MapPoint[] = geocoded
+  .map((c, i) => ({
+    id: `p${i}`,
+    lat: c.lat,
+    lng: c.lng,
+    former: c.status !== "Current",
+  }))
+  .sort((a, b) => Number(b.former) - Number(a.former));
 
 // NYC metro bounding box (the five boroughs). On the zoomed-out world map all of
 // these clients would stack into one illegible blob, so they collapse to a single

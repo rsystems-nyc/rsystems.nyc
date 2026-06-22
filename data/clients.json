@@ -16,8 +16,8 @@
     "hidden": false,
     "industry": "Graphic Design",
     "url": "https://twotwelve.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.747194,
+    "lng": -73.99577
   },
   {
     "code": "4B",
@@ -36,8 +36,8 @@
     "hidden": false,
     "industry": "Graphic Design",
     "url": "https://8pointstudio.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.993141,
+    "lng": -73.874017
   },
   {
     "code": "AAHC",
@@ -66,8 +66,8 @@
     "hidden": false,
     "industry": "Consulting",
     "url": "https://weareacora.com",
-    "lat": 40.75,
-    "lng": -73.98
+    "lat": 41.004585,
+    "lng": -73.795992
   },
   {
     "code": "AG",
@@ -96,8 +96,8 @@
     "hidden": false,
     "industry": "Video",
     "url": "https://aubinpictures.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.720261,
+    "lng": -73.999308
   },
   {
     "code": "BRM",
@@ -106,16 +106,16 @@
     "hidden": false,
     "industry": "Audio",
     "url": "https://bankrobbermusic.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.719633,
+    "lng": -74.00159
   },
   {
     "code": "H1",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.748235,
+    "lng": -73.980812
   },
   {
     "code": "BWA",
@@ -124,8 +124,8 @@
     "hidden": false,
     "industry": "Architecture",
     "url": "https://barliswedlick.com",
-    "lat": 40.739,
-    "lng": -73.99
+    "lat": 40.71206,
+    "lng": -74.009523
   },
   {
     "code": "BATT",
@@ -134,8 +134,8 @@
     "hidden": false,
     "industry": "Parks",
     "url": "https://thebattery.org",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.703797,
+    "lng": -74.011961
   },
   {
     "code": "BFAB",
@@ -164,8 +164,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://wearebgc.org",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.741836,
+    "lng": -74.004336
   },
   {
     "code": "BOND",
@@ -174,13 +174,13 @@
     "hidden": false,
     "industry": "Recruiting",
     "url": "https://bondcreativemgmt.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.725887,
+    "lng": -73.993049
   },
   {
     "code": "BRIL",
     "name": "Brillia Collective",
-    "status": "Current",
+    "status": "Former",
     "hidden": false,
     "industry": "Branding",
     "url": "https://wearebrillia.com",
@@ -204,8 +204,8 @@
     "hidden": false,
     "industry": "Biotech",
     "url": "https://buildsbio.org",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.713495,
+    "lng": -74.009526
   },
   {
     "code": "BEE",
@@ -214,8 +214,8 @@
     "hidden": false,
     "industry": "Architecture",
     "url": "https://buroehring.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.7124,
+    "lng": -74.0083
   },
   {
     "code": "CA1",
@@ -244,8 +244,8 @@
     "hidden": false,
     "industry": "Photography",
     "url": "https://capturethisnyc.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 41.6273,
+    "lng": -75.7849
   },
   {
     "code": "OMNI",
@@ -312,8 +312,8 @@
     "hidden": false,
     "industry": "Video",
     "url": "https://cinereach.org",
-    "lat": 40.72,
-    "lng": -74.003
+    "lat": 40.751915,
+    "lng": -73.97553
   },
   {
     "code": "CO",
@@ -350,8 +350,8 @@
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 41.827044,
+    "lng": -74.222527
   },
   {
     "code": "DEN",
@@ -360,8 +360,8 @@
     "hidden": false,
     "industry": "Arts",
     "url": "https://dennistonhill.org",
-    "lat": 41.7,
-    "lng": -74.45
+    "lat": 40.719633,
+    "lng": -74.00159
   },
   {
     "code": "DP",
@@ -380,8 +380,8 @@
     "hidden": false,
     "industry": "Photography",
     "url": "https://dtestudio.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.748043,
+    "lng": -73.991974
   },
   {
     "code": "EGG",
@@ -390,8 +390,8 @@
     "hidden": false,
     "industry": "Product Design",
     "url": "https://eggcollective.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.721456,
+    "lng": -74.008497
   },
   {
     "code": "ELYS",
@@ -408,8 +408,8 @@
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.702617,
+    "lng": -73.989442
   },
   {
     "code": "FAIR",
@@ -428,8 +428,8 @@
     "hidden": false,
     "industry": "Product Design",
     "url": "https://geigsen.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.747241,
+    "lng": -73.988926
   },
   {
     "code": "GHD",
@@ -446,16 +446,16 @@
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.73,
-    "lng": -74.002
+    "lat": 40.722526,
+    "lng": -74.001212
   },
   {
     "code": "H6",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.75,
-    "lng": -73.98
+    "lat": 40.75118,
+    "lng": -73.980296
   },
   {
     "code": "HI",
@@ -464,8 +464,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://harmonylabs.org",
-    "lat": 40.72,
-    "lng": -73.995
+    "lat": 40.755056,
+    "lng": -73.986423
   },
   {
     "code": "HAA",
@@ -474,8 +474,8 @@
     "hidden": false,
     "industry": "Product Design",
     "url": "https://harryallendesign.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.729678,
+    "lng": -73.98126
   },
   {
     "code": "HC",
@@ -484,8 +484,8 @@
     "hidden": false,
     "industry": "Audio",
     "url": "https://heardcity.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.741046,
+    "lng": -73.99142
   },
   {
     "code": "HFF",
@@ -494,8 +494,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://frankenthalerfoundation.org",
-    "lat": 40.76,
-    "lng": -73.97
+    "lat": 40.745165,
+    "lng": -73.992502
   },
   {
     "code": "HYPE",
@@ -504,8 +504,8 @@
     "hidden": false,
     "industry": "Publishing",
     "url": "https://hypebeast.com",
-    "lat": 40.72,
-    "lng": -73.995
+    "lat": 40.71432,
+    "lng": -73.993485
   },
   {
     "code": "IDD",
@@ -534,8 +534,8 @@
     "hidden": false,
     "industry": "Arts",
     "url": "https://jaimefrankfurt.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.743707,
+    "lng": -73.997251
   },
   {
     "code": "JLGF",
@@ -544,8 +544,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://jlgreene.org",
-    "lat": 40.76,
-    "lng": -73.98
+    "lat": 40.7766,
+    "lng": -73.9749
   },
   {
     "code": "JSM",
@@ -574,8 +574,8 @@
     "hidden": false,
     "industry": "Finance",
     "url": "https://juxtapose.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.728128,
+    "lng": -73.991575
   },
   {
     "code": "H7",
@@ -590,16 +590,16 @@
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.745808,
+    "lng": -73.989434
   },
   {
     "code": "H9",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.738788,
+    "lng": -73.992729
   },
   {
     "code": "LAND",
@@ -608,8 +608,8 @@
     "hidden": false,
     "industry": "Branding",
     "url": "https://thisislandscape.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 37.771322,
+    "lng": -122.430836
   },
   {
     "code": "LANN",
@@ -626,8 +626,8 @@
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.73,
-    "lng": -73.99
+    "lat": 40.718181,
+    "lng": -73.992629
   },
   {
     "code": "LEO",
@@ -646,8 +646,8 @@
     "hidden": false,
     "industry": "Arts",
     "url": "https://leroyneimanfoundation.org",
-    "lat": 40.76,
-    "lng": -73.98
+    "lat": 40.773505,
+    "lng": -73.978872
   },
   {
     "code": "LI",
@@ -676,8 +676,8 @@
     "hidden": false,
     "industry": "Legal",
     "url": "https://lowelawgroup.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 41.162,
+    "lng": -111.954
   },
   {
     "code": "MACH",
@@ -696,24 +696,24 @@
     "hidden": false,
     "industry": "Product Design",
     "url": "https://makerbot.com",
-    "lat": 40.69,
-    "lng": -73.987
+    "lat": 40.746581,
+    "lng": -73.9883
   },
   {
     "code": "H11",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.745808,
+    "lng": -73.989434
   },
   {
     "code": "H12",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.76,
-    "lng": -73.97
+    "lat": 40.768086,
+    "lng": -73.967015
   },
   {
     "code": "MELC",
@@ -732,8 +732,8 @@
     "hidden": false,
     "industry": "Branding",
     "url": "https://memo-ny.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.6855,
+    "lng": -73.9772
   },
   {
     "code": "MEX",
@@ -762,8 +762,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://mapfund.org",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.73778,
+    "lng": -73.988675
   },
   {
     "code": "MWNY",
@@ -772,8 +772,8 @@
     "hidden": false,
     "industry": "Product Design",
     "url": "https://mwny.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.746779,
+    "lng": -73.951688
   },
   {
     "code": "MYTH",
@@ -790,8 +790,8 @@
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.7158,
+    "lng": -74.0063
   },
   {
     "code": "NAS",
@@ -810,16 +810,16 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://oceanriskalliance.org",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 38.920834,
+    "lng": -77.072218
   },
   {
     "code": "H14",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 41.805877,
+    "lng": -73.121032
   },
   {
     "code": "OPE",
@@ -828,16 +828,16 @@
     "hidden": false,
     "industry": "Branding",
     "url": "https://notclosed.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.72745,
+    "lng": -74.005139
   },
   {
     "code": "H15",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.73,
-    "lng": -74
+    "lat": 40.743707,
+    "lng": -73.997251
   },
   {
     "code": "PLNY",
@@ -856,8 +856,8 @@
     "hidden": false,
     "industry": "Food Services",
     "url": "https://ilovepeanutbutter.com",
-    "lat": 40.73,
-    "lng": -74
+    "lat": 40.764332,
+    "lng": -73.983431
   },
   {
     "code": "PI",
@@ -876,8 +876,8 @@
     "hidden": false,
     "industry": "Retail",
     "url": "https://penrosehill.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 38.223783,
+    "lng": -122.272508
   },
   {
     "code": "PEN",
@@ -904,6 +904,14 @@
     "name": "",
     "status": "Current",
     "hidden": true,
+    "lat": 40.774,
+    "lng": -73.962
+  },
+  {
+    "code": "H17",
+    "name": "",
+    "status": "Current",
+    "hidden": true,
     "lat": 37.7749,
     "lng": -122.4194
   },
@@ -914,8 +922,8 @@
     "hidden": false,
     "industry": "Publishing",
     "url": "https://pointedleafpress.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.71868,
+    "lng": -73.998803
   },
   {
     "code": "POPCORN",
@@ -924,8 +932,8 @@
     "hidden": false,
     "industry": "Advertising",
     "url": "https://popcorncomm.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 41.056086,
+    "lng": -73.671421
   },
   {
     "code": "PRIME",
@@ -934,8 +942,8 @@
     "hidden": false,
     "industry": "Product Design",
     "url": "https://primestudio.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.755952,
+    "lng": -73.99206
   },
   {
     "code": "QOG",
@@ -944,11 +952,11 @@
     "hidden": false,
     "industry": "Technology",
     "url": "https://qognitive.io",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 25.801751,
+    "lng": -80.1257
   },
   {
-    "code": "H17",
+    "code": "H18",
     "name": "",
     "status": "Current",
     "hidden": true,
@@ -986,6 +994,14 @@
     "lng": -74.007
   },
   {
+    "code": "H19",
+    "name": "",
+    "status": "Current",
+    "hidden": true,
+    "lat": 40.749,
+    "lng": -73.98
+  },
+  {
     "code": "SAC",
     "name": "Sage and Coombe Architects",
     "status": "Current",
@@ -1002,8 +1018,8 @@
     "hidden": false,
     "industry": "Video",
     "url": "https://saltyfeatures.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.702768,
+    "lng": -73.986828
   },
   {
     "code": "SCO",
@@ -1012,8 +1028,8 @@
     "hidden": false,
     "industry": "Advertising",
     "url": "https://shahidkraus.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.718809,
+    "lng": -74.002574
   },
   {
     "code": "SHR",
@@ -1036,7 +1052,7 @@
     "lng": -73.9366
   },
   {
-    "code": "H18",
+    "code": "H20",
     "name": "",
     "status": "Current",
     "hidden": true,
@@ -1068,8 +1084,8 @@
     "hidden": false,
     "industry": "Real Estate",
     "url": "https://stray.works",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 41.441882,
+    "lng": -74.416686
   },
   {
     "code": "SPR",
@@ -1088,16 +1104,16 @@
     "hidden": false,
     "industry": "Arts",
     "url": "https://starofhopefoundation.org",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.719633,
+    "lng": -74.00159
   },
   {
-    "code": "H19",
+    "code": "H21",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.77,
-    "lng": -73.965
+    "lat": 40.774321,
+    "lng": -73.963763
   },
   {
     "code": "SDG",
@@ -1106,8 +1122,8 @@
     "hidden": false,
     "industry": "Product Design",
     "url": "https://bradleystephens.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.751223,
+    "lng": -74.004484
   },
   {
     "code": "ROD",
@@ -1120,14 +1136,22 @@
     "lng": -73.998
   },
   {
+    "code": "H22",
+    "name": "",
+    "status": "Current",
+    "hidden": true,
+    "lat": 40.7373,
+    "lng": -73.9841
+  },
+  {
     "code": "TMNTY",
     "name": "Techmenity",
     "status": "Current",
     "hidden": false,
     "industry": "Technology",
     "url": "https://techmenity.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.743588,
+    "lng": -73.993336
   },
   {
     "code": "FLEA",
@@ -1146,8 +1170,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://delmas.org",
-    "lat": 40.76,
-    "lng": -73.97
+    "lat": 40.750204,
+    "lng": -73.981355
   },
   {
     "code": "IVA",
@@ -1156,8 +1180,8 @@
     "hidden": false,
     "industry": "Advertising",
     "url": "https://theivaagency.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.674294,
+    "lng": -73.979674
   },
   {
     "code": "LBO",
@@ -1206,16 +1230,16 @@
     "hidden": false,
     "industry": "Consulting",
     "url": "https://threefuries.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.7185,
+    "lng": -73.9898
   },
   {
-    "code": "H20",
+    "code": "H23",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 44.4833,
+    "lng": -64.2667
   },
   {
     "code": "TOBIN",
@@ -1234,8 +1258,8 @@
     "hidden": false,
     "industry": "Branding",
     "url": "https://toda.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.704229,
+    "lng": -73.986682
   },
   {
     "code": "TSC",
@@ -1244,8 +1268,8 @@
     "hidden": false,
     "industry": "Healthcare",
     "url": "https://tribecaskincenter.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.719813,
+    "lng": -74.003898
   },
   {
     "code": "ULTIMAKE",
@@ -1264,8 +1288,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://uniondocs.org",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.708324,
+    "lng": -73.914943
   },
   {
     "code": "USTWO",
@@ -1304,16 +1328,16 @@
     "hidden": false,
     "industry": "Consulting",
     "url": "https://wertco.com",
-    "lat": 40.75,
-    "lng": -73.98
+    "lat": 40.719633,
+    "lng": -74.00159
   },
   {
-    "code": "H21",
+    "code": "H24",
     "name": "",
     "status": "Current",
     "hidden": true,
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.743978,
+    "lng": -73.683857
   },
   {
     "code": "WFSN",
@@ -1440,8 +1464,8 @@
     "hidden": false,
     "industry": "Publishing",
     "url": "https://baueranddean.com",
-    "lat": 40.712728,
-    "lng": -74.006015
+    "lat": 40.755592,
+    "lng": -73.985839
   },
   {
     "code": "BFA",
@@ -1608,8 +1632,8 @@
     "hidden": false,
     "industry": "Advertising",
     "url": "https://craigandco.com",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 41.892555,
+    "lng": -87.627857
   },
   {
     "code": "DSP",
@@ -1732,6 +1756,14 @@
     "lng": -73.990798
   },
   {
+    "code": "H25",
+    "name": "",
+    "status": "Former",
+    "hidden": true,
+    "lat": 40.688906,
+    "lng": -73.994764
+  },
+  {
     "code": "EWF",
     "name": "EyesWideFilms",
     "status": "Former",
@@ -1808,8 +1840,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://friendsofbucksrock.org",
-    "lat": 40.712728,
-    "lng": -74.006015
+    "lat": 40.737171,
+    "lng": -73.956692
   },
   {
     "code": "GAL",
@@ -1822,7 +1854,7 @@
     "lng": -73.979338
   },
   {
-    "code": "H22",
+    "code": "H26",
     "name": "",
     "status": "Former",
     "hidden": true,
@@ -1906,8 +1938,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://heterodoxacademy.org",
-    "lat": 40.710043,
-    "lng": -74.007826
+    "lat": 40.7093,
+    "lng": -74.0084
   },
   {
     "code": "HUMAN",
@@ -1990,7 +2022,7 @@
     "lng": -73.945367
   },
   {
-    "code": "H23",
+    "code": "H27",
     "name": "",
     "status": "Former",
     "hidden": true,
@@ -2172,8 +2204,8 @@
     "hidden": false,
     "industry": "Real Estate",
     "url": "https://goodrich.nyc",
-    "lat": 40.74,
-    "lng": -73.99
+    "lat": 40.748793,
+    "lng": -73.994543
   },
   {
     "code": "III",
@@ -2222,8 +2254,8 @@
     "hidden": false,
     "industry": "Arts",
     "url": "https://mccabefineart.com",
-    "lat": 40.712728,
-    "lng": -74.006015
+    "lat": 40.719633,
+    "lng": -74.00159
   },
   {
     "code": "MIP",
@@ -2254,6 +2286,14 @@
     "url": "https://method.com",
     "lat": 37.787239,
     "lng": -122.397572
+  },
+  {
+    "code": "H28",
+    "name": "",
+    "status": "Former",
+    "hidden": true,
+    "lat": 40.558488,
+    "lng": -111.936711
   },
   {
     "code": "MIL",
@@ -2302,8 +2342,8 @@
     "hidden": false,
     "industry": "Architecture",
     "url": "https://mndpc.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.7124,
+    "lng": -74.0083
   },
   {
     "code": "MR",
@@ -2392,8 +2432,8 @@
     "hidden": false,
     "industry": "Retail",
     "url": "https://nomadeditions.com",
-    "lat": 40.712516,
-    "lng": -74.007768
+    "lat": 40.746356,
+    "lng": -73.982576
   },
   {
     "code": "OL",
@@ -2522,8 +2562,8 @@
     "hidden": false,
     "industry": "Finance",
     "url": "https://radiancapital.com",
-    "lat": 40.75,
-    "lng": -73.98
+    "lat": 40.739782,
+    "lng": -73.989758
   },
   {
     "code": "SMR",
@@ -2542,8 +2582,8 @@
     "hidden": false,
     "industry": "Video",
     "url": "https://rco.tv",
-    "lat": 40.71003,
-    "lng": -74.007838
+    "lat": 40.7092,
+    "lng": -74.0084
   },
   {
     "code": "RSS",
@@ -2800,8 +2840,8 @@
     "hidden": false,
     "industry": "Architecture",
     "url": "https://studiocicetti.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.673716,
+    "lng": -74.016889
   },
   {
     "code": "LIN",
@@ -2830,8 +2870,8 @@
     "hidden": false,
     "industry": "Advertising",
     "url": "https://gosupernatural.ai",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.722703,
+    "lng": -73.997515
   },
   {
     "code": "TBG",
@@ -3074,6 +3114,14 @@
     "lng": -73.992759
   },
   {
+    "code": "H29",
+    "name": "",
+    "status": "Former",
+    "hidden": true,
+    "lat": 40.694837,
+    "lng": -73.967103
+  },
+  {
     "code": "WRK",
     "name": "WORK Architecture Company",
     "status": "Former",
@@ -3270,8 +3318,8 @@
     "hidden": false,
     "industry": "Technology",
     "url": "https://bway.net",
-    "lat": 40.712728,
-    "lng": -74.006015
+    "lat": 40.719633,
+    "lng": -74.00159
   },
   {
     "code": "CHR",
@@ -3314,6 +3362,14 @@
     "lng": -73.993892
   },
   {
+    "code": "H30",
+    "name": "",
+    "status": "Inactive",
+    "hidden": true,
+    "lat": 40.751716,
+    "lng": -73.982088
+  },
+  {
     "code": "CINEF",
     "name": "Cinereach Films, LLC",
     "status": "Inactive",
@@ -3344,12 +3400,10 @@
     "lng": -73.839438
   },
   {
-    "code": "H24",
+    "code": "H31",
     "name": "",
     "status": "Inactive",
-    "hidden": true,
-    "lat": 40.72,
-    "lng": -73.99
+    "hidden": true
   },
   {
     "code": "EFX",
@@ -3460,6 +3514,14 @@
     "url": "https://herterdesigngroup.com",
     "lat": 40.747962,
     "lng": -73.992916
+  },
+  {
+    "code": "H32",
+    "name": "",
+    "status": "Inactive",
+    "hidden": true,
+    "lat": 37.73754,
+    "lng": -122.479545
   },
   {
     "code": "HS",
@@ -3638,8 +3700,16 @@
     "hidden": false,
     "industry": "Interior Design",
     "url": "https://meldmore.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 32.84502,
+    "lng": -117.27384
+  },
+  {
+    "code": "H33",
+    "name": "",
+    "status": "Inactive",
+    "hidden": true,
+    "lat": 40.736147,
+    "lng": -74.004196
   },
   {
     "code": "MGMT",
@@ -3756,8 +3826,8 @@
     "hidden": false,
     "industry": "Advertising",
     "url": "https://potiondesign.com",
-    "lat": 40.72,
-    "lng": -73.99
+    "lat": 40.698585,
+    "lng": -73.971148
   },
   {
     "code": "PMD",
@@ -3976,8 +4046,8 @@
     "hidden": false,
     "industry": "Legal",
     "url": "https://marmurlaw.com",
-    "lat": 40.7128,
-    "lng": -74.006
+    "lat": 40.756172,
+    "lng": -73.982785
   },
   {
     "code": "AVP",
@@ -3986,8 +4056,8 @@
     "hidden": false,
     "industry": "Non-Profit",
     "url": "https://avp.org",
-    "lat": 40.71077,
-    "lng": -74.007006
+    "lat": 40.7106,
+    "lng": -74.0078
   },
   {
     "code": "PLAY",
@@ -4246,7 +4316,7 @@
     "mapOnly": true
   },
   {
-    "code": "H25",
+    "code": "H34",
     "name": "",
     "status": "Current",
     "hidden": true,
@@ -4606,51 +4676,6 @@
     "mapOnly": true
   },
   {
-    "code": "H26",
-    "name": "",
-    "status": "Current",
-    "hidden": true,
-    "lat": 40.72,
-    "lng": -74.005,
-    "mapOnly": true
-  },
-  {
-    "code": "FES",
-    "name": "FES",
-    "status": "Current",
-    "hidden": false,
-    "lat": 40.7128,
-    "lng": -74.006,
-    "mapOnly": true
-  },
-  {
-    "code": "STUDIO",
-    "name": "Studio Group Luxury Interiors, Inc",
-    "status": "Current",
-    "hidden": false,
-    "lat": 40.74,
-    "lng": -73.99,
-    "mapOnly": true
-  },
-  {
-    "code": "H27",
-    "name": "",
-    "status": "Current",
-    "hidden": true,
-    "lat": 40.76,
-    "lng": -73.965,
-    "mapOnly": true
-  },
-  {
-    "code": "FWFA",
-    "name": "FWFA",
-    "status": "Current",
-    "hidden": false,
-    "lat": 40.7128,
-    "lng": -74.006,
-    "mapOnly": true
-  },
-  {
     "code": "CFTH",
     "name": "Coalition for the Homeless",
     "status": "Current",
@@ -4660,39 +4685,12 @@
     "mapOnly": true
   },
   {
-    "code": "TW",
-    "name": "TW",
-    "status": "Current",
-    "hidden": false,
-    "lat": 40.7128,
-    "lng": -74.006,
-    "mapOnly": true
-  },
-  {
     "code": "FHL",
     "name": "Friends of the High Line",
     "status": "Current",
     "hidden": false,
     "lat": 40.7397,
     "lng": -74.0081,
-    "mapOnly": true
-  },
-  {
-    "code": "HIVE",
-    "name": "Hive",
-    "status": "Current",
-    "hidden": false,
-    "lat": 40.72,
-    "lng": -73.99,
-    "mapOnly": true
-  },
-  {
-    "code": "H28",
-    "name": "",
-    "status": "Current",
-    "hidden": true,
-    "lat": 40.75,
-    "lng": -73.98,
     "mapOnly": true
   },
   {
@@ -4743,7 +4741,7 @@
   {
     "code": "GOV",
     "name": "Governors Island",
-    "status": "Current",
+    "status": "Former",
     "hidden": false,
     "lat": 40.6892,
     "lng": -74.0166,
@@ -4756,6 +4754,15 @@
     "hidden": false,
     "lat": 40.7036,
     "lng": -74.0166,
+    "mapOnly": true
+  },
+  {
+    "code": "CHRIS",
+    "name": "Chris",
+    "status": "Current",
+    "hidden": false,
+    "lat": 40.7882,
+    "lng": -73.9681,
     "mapOnly": true
   }
 ]

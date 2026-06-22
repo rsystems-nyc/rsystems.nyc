@@ -43,13 +43,13 @@ export default function ClientMaps({
       {/* Status toggles */}
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Toggle
-          label="Current clients"
+          label="Current Clients"
           color="#E8500A"
           active={showCurrent}
           onClick={() => setShowCurrent((v) => !v)}
         />
         <Toggle
-          label="Previous engagements"
+          label="Prior Engagements"
           color="#808080"
           active={showPrevious}
           onClick={() => setShowPrevious((v) => !v)}
