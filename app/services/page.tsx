@@ -104,10 +104,10 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1A1A1A]/[0.07] border border-[#1A1A1A]/[0.07] rounded-xl overflow-hidden">
             <Link
               href="/services/technology-consulting"
-              className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)] border border-[#1A1A1A]/[0.07] rounded-xl group relative col-span-1 md:col-span-2 lg:col-span-3 bg-[#F4F2EF] px-7 py-4 flex items-center justify-between hover:bg-white transition-colors border-b border-[#1A1A1A]/[0.07]"
+              className="group relative col-span-1 md:col-span-2 lg:col-span-3 bg-[#F4F2EF] px-7 py-4 flex items-center justify-between hover:bg-white transition-colors border-b border-[#1A1A1A]/[0.07]"
             >
               <span className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]">
                 Technology Consulting

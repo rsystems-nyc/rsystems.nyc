@@ -42,7 +42,7 @@ const consultingCategories = [
   },
   {
     href: "/services/technology-consulting/ai/",
-    name: "AI Enablement",
+    name: "AI & Automation",
     description:
       "AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning for teams ready to operationalize AI.",
   },
