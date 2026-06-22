@@ -62,13 +62,30 @@ const inFrame = (point: MapPoint) =>
   point.lng >= FRAME_SW[0] &&
   point.lng <= FRAME_NE[0];
 
-export default function NYCMap({ points }: { points: MapPoint[] }) {
+// New Jersey (Jersey City / Hoboken) falls inside the frame, but no NJ land is
+// drawn — so those pins would float in the Hudson. Drop them from the NYC map;
+// they still appear on the world map and in the directory. The lat cutoff keeps
+// Staten Island, which sits south of the NJ waterfront.
+const inNewJersey = (point: MapPoint) => point.lng < -74.02 && point.lat > 40.67;
+
+export default function NYCMap({
+  points,
+  showCurrent = true,
+  showPrevious = true,
+}: {
+  points: MapPoint[];
+  showCurrent?: boolean;
+  showPrevious?: boolean;
+}) {
   const [ref, inView] = useInView<HTMLDivElement>();
   const reducedMotion = usePrefersReducedMotion();
   const [geo, setGeo] = useState<FeatureCollection | null>(null);
   const [dropped, setDropped] = useState(false);
 
-  const framePoints = useMemo(() => points.filter(inFrame), [points]);
+  const framePoints = useMemo(
+    () => points.filter((p) => inFrame(p) && !inNewJersey(p)),
+    [points],
+  );
 
   // Fetch borough outlines once, on mount.
   useEffect(() => {
@@ -107,10 +124,13 @@ export default function NYCMap({ points }: { points: MapPoint[] }) {
       markers: framePoints
         .map((point) => {
           const xy = projection([point.lng, point.lat]);
-          return xy ? { code: point.code, x: round(xy[0]), y: round(xy[1]) } : null;
+          return xy
+            ? { id: point.id, former: point.former ?? false, x: round(xy[0]), y: round(xy[1]) }
+            : null;
         })
-        .filter((marker): marker is { code: string; x: number; y: number } =>
-          marker !== null,
+        .filter(
+          (marker): marker is { id: string; former: boolean; x: number; y: number } =>
+            marker !== null,
         ),
     };
   }, [geo, framePoints]);
@@ -182,11 +202,12 @@ export default function NYCMap({ points }: { points: MapPoint[] }) {
             </g>
           </g>
           {markers.map((marker, index) => (
-            <g key={marker.code} transform={`translate(${marker.x} ${marker.y})`}>
+            <g key={marker.id} transform={`translate(${marker.x} ${marker.y})`}>
               <Pin
                 delayMs={staggerDelay(index)}
-                inView={dropped}
+                inView={dropped && (marker.former ? showPrevious : showCurrent)}
                 reducedMotion={reducedMotion}
+                former={marker.former}
               />
             </g>
           ))}

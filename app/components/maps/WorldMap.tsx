@@ -78,7 +78,15 @@ const countryPaths = allCountries.features
     d: pathOf(country) ?? "",
   }));
 
-export default function WorldMap({ points }: { points: MapPoint[] }) {
+export default function WorldMap({
+  points,
+  showCurrent = true,
+  showPrevious = true,
+}: {
+  points: MapPoint[];
+  showCurrent?: boolean;
+  showPrevious?: boolean;
+}) {
   const [ref, inView] = useInView<HTMLDivElement>();
   const reducedMotion = usePrefersReducedMotion();
 
@@ -88,11 +96,12 @@ export default function WorldMap({ points }: { points: MapPoint[] }) {
         .map((point) => {
           const xy = projection([point.lng, point.lat]);
           return xy
-            ? { code: point.code, x: round(xy[0]), y: round(xy[1]) }
+            ? { id: point.id, former: point.former ?? false, x: round(xy[0]), y: round(xy[1]) }
             : null;
         })
-        .filter((marker): marker is { code: string; x: number; y: number } =>
-          marker !== null,
+        .filter(
+          (marker): marker is { id: string; former: boolean; x: number; y: number } =>
+            marker !== null,
         ),
     [points],
   );
@@ -161,11 +170,12 @@ export default function WorldMap({ points }: { points: MapPoint[] }) {
           </g>
         </g>
         {markers.map((marker, index) => (
-          <g key={marker.code} transform={`translate(${marker.x} ${marker.y})`}>
+          <g key={marker.id} transform={`translate(${marker.x} ${marker.y})`}>
             <Pin
               delayMs={staggerDelay(index)}
-              inView={inView}
+              inView={inView && (marker.former ? showPrevious : showCurrent)}
               reducedMotion={reducedMotion}
+              former={marker.former}
             />
           </g>
         ))}

@@ -6,15 +6,18 @@ const PIN_PATH =
   "M 0 0 C -2.16 -4.32, -4.5 -6.24, -4.5 -9.6 A 4.5 4.5 0 1 1 4.5 -9.6 C 4.5 -6.24, 2.16 -4.32, 0 0 Z";
 
 // A single dropping pin. `delayMs` staggers the animation; `inView` triggers it;
-// `reducedMotion` skips the motion entirely (pins simply appear).
+// `reducedMotion` skips the motion entirely (pins simply appear). `former`
+// renders the pin in muted gray (a previous engagement) rather than brand orange.
 export function Pin({
   delayMs,
   inView,
   reducedMotion,
+  former = false,
 }: {
   delayMs: number;
   inView: boolean;
   reducedMotion: boolean;
+  former?: boolean;
 }) {
   const style: CSSProperties = reducedMotion
     ? { opacity: inView ? 1 : 0 }
@@ -27,10 +30,13 @@ export function Pin({
         willChange: "transform, opacity",
       };
 
+  const fill = former ? "#808080" : "#E8500A";
+  const stroke = former ? "#4B4B4B" : "#0F1117";
+
   return (
     <g style={style}>
-      <path d={PIN_PATH} fill="#E8500A" stroke="#0F1117" strokeWidth={0.4} />
-      <circle cx={0} cy={-9.6} r={1.8} fill="#0F1117" />
+      <path d={PIN_PATH} fill={fill} stroke={stroke} strokeWidth={0.4} />
+      <circle cx={0} cy={-9.6} r={1.8} fill={stroke} />
     </g>
   );
 }
