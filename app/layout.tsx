@@ -101,7 +101,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <Nav />
-        <div className="flex-1 flex flex-col pt-16 sm:pt-36">{children}</div>
+        <div className="flex-1 flex flex-col pt-[53px] sm:pt-[101px]">{children}</div>
         <Footer />
         <GoogleAnalytics gaId="G-CZHZZS0L48" />
       </body>

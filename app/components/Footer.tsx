@@ -52,8 +52,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about/track-record/" className="text-sm text-white/50 hover:text-white transition-colors">
-                  Track Record
+                <Link href="/our-work/clients/" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Clients
                 </Link>
               </li>
               <li>

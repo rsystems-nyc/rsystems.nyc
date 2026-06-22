@@ -35,6 +35,13 @@ const sections = [
     tag: "10 case studies",
     cta: "Browse Case Studies",
   },
+  {
+    title: "Clients",
+    body: "A selection of the organizations we've worked with over fifteen years — across finance, media, the arts, nonprofits, healthcare, and more — from early-stage startups to multinational companies.",
+    href: "/our-work/clients",
+    tag: "Selected clients",
+    cta: "View Clients",
+  },
 ];
 
 export default function OurWorkPage() {
@@ -69,12 +76,12 @@ export default function OurWorkPage() {
       {/* Sections */}
       <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {sections.map((s) => (
               <Link
                 key={s.href}
                 href={s.href}
-                className="group relative bg-white border border-[#1A1A1A]/[0.07] rounded-xl p-8 flex flex-col hover:shadow-md transition-shadow"
+                className="group relative w-full md:w-[calc(50%-0.75rem)] bg-white border border-[#1A1A1A]/[0.07] rounded-xl p-8 flex flex-col hover:shadow-md transition-shadow"
               >
                 <span className="absolute top-8 right-8 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

@@ -139,6 +139,7 @@ const techConsultingCategories = [
 const ourWorkLinks = [
   { href: "/industries", label: "Industries" },
   { href: "/case-studies", label: "Case Studies" },
+  { href: "/our-work/clients", label: "Clients" },
 ];
 
 const resourcesLinks = [
@@ -150,7 +151,6 @@ const resourcesLinks = [
 
 const aboutLinks = [
   { href: "/about/leadership", label: "Leadership" },
-  { href: "/about/track-record", label: "Track Record" },
   { href: "/about/our-story", label: "Our Story" },
   { href: "/careers", label: "Careers" },
 ];
@@ -176,7 +176,7 @@ export default function Nav() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#F4F2EF]/95 backdrop-blur-sm [transform:translateZ(0)]">
+    <header className="site-nav fixed top-0 left-0 right-0 z-50 bg-[#F4F2EF]/95 backdrop-blur-sm [transform:translateZ(0)]">
       <div className="flex items-center py-1.5 sm:py-[5px] px-4 sm:px-6 border-b border-black/[0.08]">
         <Link href="/" className="flex-shrink-0" onClick={() => setOpen(false)}>
           <Image

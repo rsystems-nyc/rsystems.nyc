@@ -14,6 +14,18 @@ body {
   color: #1A1A1A;
 }
 
+/* The frosted nav keeps its translucent background everywhere, but the
+   backdrop blur is re-rasterized on every scroll frame and triggers iPadOS
+   Safari memory reloads on the large viewport. Drop only the blur on any
+   device with a touchscreen — true for every iPad (even with a trackpad)
+   and false for a mouse-only desktop, which keeps the full frosted effect. */
+@media (any-pointer: coarse) {
+  header.site-nav {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
 /* University article body */
 .prose-article h2 {
   font-size: 1.375rem;
