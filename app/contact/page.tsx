@@ -58,9 +58,9 @@ const steps = [
 ];
 
 const notAFit = [
-  "Tier 1 helpdesk or end-user support",
-  "Day-to-day managed services or break/fix work",
-  "Onboarding individual new hires (we build the systems; your team runs them)",
+  "Lowest-bid, commodity IT where price is the only consideration",
+  "Purely transactional break/fix with no ongoing relationship",
+  "Organizations unwilling to invest the time and budget that good infrastructure requires",
 ];
 
 export default function ContactPage() {

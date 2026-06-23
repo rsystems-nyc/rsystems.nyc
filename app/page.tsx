@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { industriesData } from "@/app/lib/industries-data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "https://rsystems.nyc/" },
@@ -164,7 +165,7 @@ export default function Home() {
             Managed Services
           </h3>
           <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
-            Ongoing back-end infrastructure administration — identity, workstations, servers, network, backup, and domain management on flexible monthly terms. No help desk. No tier 1.
+            Ongoing back-end infrastructure administration — identity, workstations, servers, network, backup, and domain management on flexible monthly terms, with day-to-day help desk and user support available through Managed Support.
           </p>
         </Link>
       </section>
@@ -177,7 +178,7 @@ export default function Home() {
               Who We Serve
             </p>
             <p className="text-base font-semibold text-[#1A1A1A]">
-              Deep familiarity across 13 verticals — from quantitative trading and post-production to nonprofits, healthcare, and event production.
+              Deep familiarity across {industriesData.length} verticals — from quantitative trading and post-production to nonprofits, healthcare, and event production.
             </p>
           </div>
           <Link

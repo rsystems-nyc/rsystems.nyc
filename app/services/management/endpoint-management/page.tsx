@@ -4,16 +4,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: { absolute: "Endpoint Management NYC | RSystems" },
-  description: "Automated patching, antivirus, asset management, and security policy enforcement across your device fleet — back-end only, no help desk.",
+  description: "Automated patching, antivirus, asset management, and security policy enforcement across your device fleet — back-end administration, with day-to-day help desk available through Managed Support.",
   alternates: { canonical: "https://rsystems.nyc/services/management/endpoint-management/" },
   openGraph: {
     title: "Endpoint Management NYC | RSystems",
-    description: "Automated patching, antivirus, asset management, and security policy enforcement across your device fleet — back-end only, no help desk.",
+    description: "Automated patching, antivirus, asset management, and security policy enforcement across your device fleet — back-end administration, with day-to-day help desk available through Managed Support.",
     url: "https://rsystems.nyc/services/management/endpoint-management/",
   },
   twitter: {
     title: "Endpoint Management NYC | RSystems",
-    description: "Automated patching, antivirus, asset management, and security policy enforcement across your device fleet — back-end only, no help desk.",
+    description: "Automated patching, antivirus, asset management, and security policy enforcement across your device fleet — back-end administration, with day-to-day help desk available through Managed Support.",
   },
 };
 
@@ -89,8 +89,9 @@ export default function WorkstationManagementPage() {
                 policy enforcement. Coverage scales with your fleet.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                This service covers back-end fleet administration only. We do not
-                provide end-user or help desk support. Remote access capabilities
+                This service covers back-end fleet administration only; day-to-day
+                end-user and help desk support is handled through our Managed Support
+                retainer. Remote access capabilities
                 are used for back-end diagnostics and patch management, not for
                 user-facing assistance. Major OS version upgrades and third-party
                 application support are project-scoped engagements outside the

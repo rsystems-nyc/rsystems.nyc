@@ -92,11 +92,10 @@ export default function AboutPage() {
                 We also provide ongoing managed services for organizations that need
                 senior-level platform administration and back-end infrastructure
                 management on a retainer basis — identity platforms, cloud infrastructure,
-                server and storage administration, and security tooling. When we do
-                provide end-user support, it&apos;s for executives and technically complex
-                situations that warrant a senior practitioner. Routine help desk and
-                tier 1 requests are better served by a dedicated MSP staffed for that
-                work — and we&apos;re glad to recommend one.
+                server and storage administration, and security tooling. And day-to-day
+                end-user support — from routine help desk requests to the complex issues
+                that warrant a senior practitioner — is handled through our Managed Support
+                retainer, at the level each request calls for.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
                 We work best with organizations tackling high-impact infrastructure

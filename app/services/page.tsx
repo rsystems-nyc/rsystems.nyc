@@ -152,7 +152,7 @@ export default function ServicesPage() {
               Managed Services
             </h3>
             <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
-              Ongoing back-end infrastructure administration — identity, workstations, servers, network, backup, and domain management on flexible monthly terms. No help desk. No tier 1.
+              Ongoing back-end infrastructure administration — identity, workstations, servers, network, backup, and domain management on flexible monthly terms, with day-to-day help desk and user support available through Managed Support.
             </p>
           </Link>
 

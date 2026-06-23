@@ -101,10 +101,10 @@ export default function EssentialsPage() {
                 cloud storage, communication platforms, and credential management tools.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                RSystems can design and implement automated onboarding pipelines, but
-                does not perform the hands-on onboarding and offboarding work. Management
-                Essentials covers the back-end identity and workstation infrastructure —
-                not end-user or help desk support.
+                RSystems can design and implement automated onboarding pipelines; the
+                hands-on onboarding, offboarding, and day-to-day help desk work is handled
+                through our Managed Support retainer. Management Essentials itself covers
+                the back-end identity and workstation infrastructure.
               </p>
             </div>
           </div>
