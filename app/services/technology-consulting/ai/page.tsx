@@ -20,8 +20,23 @@ export const metadata: Metadata = {
 const services = [
   {
     name: "AI Enablement",
-    href: "/services/technology-consulting/ai-transformation",
-    tagline: "AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning — including permissions architecture for agentic deployments.",
+    href: "/services/ai/ai-enablement",
+    tagline: "AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning.",
+  },
+  {
+    name: "MCP Tooling",
+    href: "/services/ai/mcp-tooling",
+    tagline: "Model Context Protocol integrations that connect AI systems to your internal tools, data, and workflows.",
+  },
+  {
+    name: "Agent Governance & PAM",
+    href: "/services/ai/agent-governance",
+    tagline: "Permissions architecture and access controls for agentic AI deployments — least-privilege, by design.",
+  },
+  {
+    name: "Audit & Accountability",
+    href: "/services/ai/audit-accountability",
+    tagline: "Audit trails and accountability frameworks that make agent behavior reviewable and within operational limits.",
   },
 ];
 
@@ -65,10 +80,10 @@ export default function AIPage() {
             <span>/</span>
             <Link href="/services/technology-consulting" className="hover:text-white/60 transition-colors">Technology Consulting</Link>
             <span>/</span>
-            <span className="text-white/50">AI Enablement</span>
+            <span className="text-white/50">AI &amp; Automation</span>
           </div>
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">Technology Consulting</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">AI Enablement</h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">AI &amp; Automation</h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
             AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning for teams ready to operationalize AI.
           </p>

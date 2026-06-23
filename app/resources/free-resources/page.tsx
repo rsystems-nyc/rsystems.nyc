@@ -21,7 +21,7 @@ interface Resource {
   comingSoon?: boolean
 }
 
-const resources: Resource[] = [
+export const resources: Resource[] = [
   {
     id: "cybersecurity-self-assessment",
     title: "Cybersecurity Self-Assessment",

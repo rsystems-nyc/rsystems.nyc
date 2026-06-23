@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { articles } from "./university/articles";
+import { resources as freeResources } from "./free-resources/page";
+import { glossaryTerms } from "@/app/lib/glossary-terms";
 
 export const metadata: Metadata = {
   title: "Resources — RSystems NYC",
@@ -21,21 +24,21 @@ const sections = [
     title: "RSystems University",
     body: "Deep dives on the concepts we explain most often to clients — networking, identity, DNS, cloud, security, and more.",
     href: "/resources/university",
-    tag: "19 articles",
+    tag: `${articles.length} articles`,
     cta: "Read Articles",
   },
   {
     title: "Free Resources",
     body: "No-cost tools and programs every organization should know about — from free identity tiers to nonprofit technology programs.",
     href: "/resources/free-resources",
-    tag: "4 resources",
+    tag: `${freeResources.length} resources`,
     cta: "Browse Resources",
   },
   {
     title: "Glossary",
     body: "Plain-language definitions of the terms that come up most often — organized by topic, not alphabet.",
     href: "/resources/glossary",
-    tag: "51 terms",
+    tag: `${glossaryTerms.length} terms`,
     cta: "Browse Glossary",
   },
 ];
