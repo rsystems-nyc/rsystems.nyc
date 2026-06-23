@@ -168,6 +168,40 @@ export default function Home() {
             Ongoing back-end infrastructure administration — identity, workstations, servers, network, backup, and domain management on flexible monthly terms, with day-to-day help desk and user support available through Managed Support.
           </p>
         </Link>
+
+        <Link
+          href="/services/buildout"
+          className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
+        >
+          <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+            Buildout &amp; Installation
+          </h3>
+          <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
+            Physical infrastructure, installed right. Structured cabling, server rooms, wireless, security and access control, conference and presentation spaces, and audio systems — from multi-room Sonos to reference-grade hi-fi. The hands-on build that turns a design into working infrastructure.
+          </p>
+        </Link>
+
+        <Link
+          href="/services/ephemeral"
+          className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
+        >
+          <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+            Ephemeral Infrastructure
+          </h3>
+          <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
+            Production-grade infrastructure on any timeline — designed, deployed, and removed just as fast. Networks, compute, cloud, and Wi-Fi for galas, festivals, productions, pop-ups, and temporary offices. Built to perform under pressure, then torn down clean.
+          </p>
+        </Link>
       </section>
 
       {/* Industries teaser */}

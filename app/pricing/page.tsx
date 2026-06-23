@@ -249,7 +249,7 @@ export default function PricingPage() {
                 <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
                   {model.body}
                 </p>
-                <p className="mt-4 text-[13px] font-semibold text-[#E8500A] group-hover:underline inline-flex items-center gap-1.5">
+                <p className="mt-4 text-[13px] font-semibold text-[#1A1A1A] group-hover:text-[#E8500A] transition-colors inline-flex items-center gap-1.5">
                   {model.linkLabel}
                   <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
                 </p>

@@ -4,16 +4,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: { absolute: "AI Consulting & Transformation Services | RSystems NYC" },
-  description: "AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning for teams ready to operationalize AI at the enterprise level.",
+  description: "AI readiness, tooling strategy, and workflow automation — plus MCP tooling, agent governance and access control, and audit infrastructure for accountable agentic AI at the enterprise level.",
   alternates: { canonical: "https://rsystems.nyc/services/technology-consulting/ai/" },
   openGraph: {
     title: "AI Consulting & Transformation Services | RSystems NYC",
-    description: "AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning for teams ready to operationalize AI at the enterprise level.",
+    description: "AI readiness, tooling strategy, and workflow automation — plus MCP tooling, agent governance and access control, and audit infrastructure for accountable agentic AI at the enterprise level.",
     url: "https://rsystems.nyc/services/technology-consulting/ai/",
   },
   twitter: {
     title: "AI Consulting & Transformation Services | RSystems NYC",
-    description: "AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning for teams ready to operationalize AI at the enterprise level.",
+    description: "AI readiness, tooling strategy, and workflow automation — plus MCP tooling, agent governance and access control, and audit infrastructure for accountable agentic AI at the enterprise level.",
   },
 };
 
@@ -85,7 +85,7 @@ export default function AIPage() {
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">Technology Consulting</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">AI &amp; Automation</h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
-            AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning for teams ready to operationalize AI.
+            Practical AI adoption and the infrastructure to run it safely — from enablement and MCP tooling to agent governance, access control, and the audit trails that keep agentic systems accountable.
           </p>
         </div>
       </section>
