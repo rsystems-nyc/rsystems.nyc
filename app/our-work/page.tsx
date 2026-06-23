@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { industriesData } from "@/app/lib/industries-data";
+import { caseStudiesData } from "@/app/lib/case-studies-data";
 
 export const metadata: Metadata = {
   title: { absolute: "Our Work — RSystems NYC" },
@@ -25,14 +27,14 @@ const sections = [
     title: "Industries",
     body: "RSystems has developed deep familiarity with verticals that have distinctive infrastructure demands — post-production, quantitative finance, nonprofits, live events, education, and healthcare. That context shapes every engagement.",
     href: "/industries",
-    tag: "9 industries",
+    tag: `${industriesData.length} industries`,
     cta: "View Industries",
   },
   {
     title: "Case Studies",
     body: "Documented engagements from the field — each representing a distinct infrastructure challenge, a clear technical approach, and a measurable outcome. From campus-wide wireless to enterprise identity migrations.",
     href: "/case-studies",
-    tag: "10 case studies",
+    tag: `${caseStudiesData.length} case studies`,
     cta: "Browse Case Studies",
   },
   {
