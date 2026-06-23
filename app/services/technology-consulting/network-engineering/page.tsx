@@ -275,19 +275,21 @@ export default function NetworkEngineeringPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
           <div className="border-t border-[#1A1A1A]/[0.08] divide-y divide-[#1A1A1A]/[0.06]">
             {caseStudies.map((cs) => (
-              <div key={cs.href} className="py-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12">
+              <Link
+                key={cs.href}
+                href={cs.href}
+                className="group flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12 py-8 px-4 sm:px-6 lg:px-8 -mx-4 sm:-mx-6 lg:-mx-8 rounded-xl hover:bg-white transition-colors"
+              >
                 <div className="flex-1 min-w-0">
                   <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">Case Study</p>
-                  <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">{cs.title}</h3>
+                  <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug group-hover:text-[#E8500A] transition-colors">{cs.title}</h3>
                   <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">{cs.body}</p>
                 </div>
-                <Link
-                  href={cs.href}
-                  className="flex-shrink-0 text-sm font-semibold text-[#E8500A] hover:text-[#E8500A]/75 transition-colors whitespace-nowrap"
-                >
-                  Read the Case Study →
-                </Link>
-              </div>
+                <span className="flex-shrink-0 text-sm font-semibold text-[#E8500A] inline-flex items-center gap-1.5 whitespace-nowrap">
+                  Read the Case Study
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                </span>
+              </Link>
             ))}
           </div>
         </div>
