@@ -184,11 +184,14 @@ export default function JumpCloudConsultingPage() {
       {/* Case Study Callout */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="rounded-xl border border-[#1A1A1A]/[0.07] bg-[#F4F2EF] p-8 lg:p-12">
+          <Link
+            href="/case-studies/directory-modernization"
+            className="group block rounded-xl border border-[#1A1A1A]/[0.07] bg-[#F4F2EF] hover:bg-white hover:border-[#E8500A]/20 p-8 lg:p-12 transition-colors"
+          >
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
               Case Study
             </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-4 max-w-2xl">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-4 max-w-2xl group-hover:text-[#E8500A] transition-colors">
               See This In Practice
             </h3>
             <p className="text-base text-[#1A1A1A]/60 leading-relaxed max-w-2xl mb-8">
@@ -197,16 +200,13 @@ export default function JumpCloudConsultingPage() {
               — from initial assessment through SSO federation, MDM rollout, endpoint
               security, and password management.
             </p>
-            <Link
-              href="/case-studies/directory-modernization"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
-            >
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-[#E8500A]">
               Read the Case Study
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
                 <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </Link>
-          </div>
+            </span>
+          </Link>
         </div>
       </section>
 

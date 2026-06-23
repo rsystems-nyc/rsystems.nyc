@@ -119,26 +119,34 @@ export default function WiFiAssessmentPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
           <div className="border-t border-[#1A1A1A]/[0.08] divide-y divide-[#1A1A1A]/[0.06]">
-            <div className="py-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12">
+            <Link
+              href="/case-studies/redundancy-by-design"
+              className="group flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12 py-8 px-4 sm:px-6 lg:px-8 -mx-4 sm:-mx-6 lg:-mx-8 rounded-xl hover:bg-[#F4F2EF] transition-colors"
+            >
               <div className="flex-1 min-w-0">
                 <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">Case Study</p>
-                <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">See This In Practice</h3>
+                <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug group-hover:text-[#E8500A] transition-colors">See This In Practice</h3>
                 <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">This work is documented in our Redundancy by Design case study — a zero-compromise infrastructure covering networking, wireless, compute, and storage, with redundancy as a first-order constraint.</p>
               </div>
-              <a href="https://rsystems.nyc/case-studies/redundancy-by-design" className="flex-shrink-0 text-sm font-semibold text-[#E8500A] hover:text-[#E8500A]/75 transition-colors whitespace-nowrap">
-                Read the Case Study →
-              </a>
-            </div>
-            <div className="py-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12">
+              <span className="flex-shrink-0 text-sm font-semibold text-[#E8500A] inline-flex items-center gap-1.5 whitespace-nowrap">
+                Read the Case Study
+                <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+              </span>
+            </Link>
+            <Link
+              href="/case-studies/fost-fest"
+              className="group flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12 py-8 px-4 sm:px-6 lg:px-8 -mx-4 sm:-mx-6 lg:-mx-8 rounded-xl hover:bg-[#F4F2EF] transition-colors"
+            >
               <div className="flex-1 min-w-0">
                 <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">Case Study</p>
-                <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">Wireless Under Festival Load</h3>
+                <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug group-hover:text-[#E8500A] transition-colors">Wireless Under Festival Load</h3>
                 <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">See how RSystems deployed and coordinated Ruckus enterprise wireless for FoST Fest — designed for overlapping coverage, managed by a local controller, and stress-tested when a thousand devices hit a single auditorium at once.</p>
               </div>
-              <a href="https://rsystems.nyc/case-studies/fost-fest" className="flex-shrink-0 text-sm font-semibold text-[#E8500A] hover:text-[#E8500A]/75 transition-colors whitespace-nowrap">
-                Read the Case Study →
-              </a>
-            </div>
+              <span className="flex-shrink-0 text-sm font-semibold text-[#E8500A] inline-flex items-center gap-1.5 whitespace-nowrap">
+                Read the Case Study
+                <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+              </span>
+            </Link>
           </div>
         </div>
       </section>
