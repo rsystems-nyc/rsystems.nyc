@@ -88,6 +88,10 @@ export const caseStudiesData: CaseStudy[] = [
           "A fully custom Next.js and Tailwind marketing site built with AI-assisted development and maintained by non-developers through a chat interface.",
       },
     },
+    featuredImage: {
+      src: "/assets/vibe-coding.png",
+      alt: "An AI-assisted development session building rsystems.nyc — code edits alongside a live terminal build running in Claude Code.",
+    },
     sections: [
       {
         label: "At a Glance",
