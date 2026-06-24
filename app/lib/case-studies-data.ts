@@ -1159,7 +1159,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "Scalable identity infrastructure for a growing multinational",
     client: "A multinational organization",
-    industry: "Legal",
+    industry: "Cosmetics",
     tags: ["Identity", "Cloud & Infrastructure"],
     summary:
       "Identity infrastructure modernization for a 150-person multinational expanding toward 250+ staff — JumpCloud deployment unifying Google, cloud applications, and workstations, with ongoing AWS integration support and security audits over four years.",
