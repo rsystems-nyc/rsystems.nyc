@@ -410,39 +410,6 @@ export default async function CaseStudyPage({ params }: Props) {
         </section>
       )}
 
-      {/* CTA — compact closing send-off */}
-      {cs.cta && (
-        <section className="bg-[#0F1117] text-white border-t border-white/10">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
-            <div className="max-w-2xl">
-              <h2 className="text-lg sm:text-xl font-bold tracking-tight leading-snug mb-2">
-                {cs.cta.heading}
-              </h2>
-              <p className="text-sm text-white/50 leading-relaxed mb-6">
-                {cs.cta.body}
-              </p>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <Link
-                  href={cs.cta.primary.href}
-                  className="inline-block bg-[#E8500A] text-white text-sm font-semibold px-5 py-2.5 rounded hover:bg-[#E8500A]/85 transition-colors"
-                >
-                  {cs.cta.primary.label}
-                </Link>
-                {cs.cta.secondary && (
-                  <Link
-                    href={cs.cta.secondary.href}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors"
-                  >
-                    {cs.cta.secondary.label}
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
     </main>
   );
 }

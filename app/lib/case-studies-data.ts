@@ -39,12 +39,6 @@ export interface CaseStudy {
   closingImage?: { src: string; alt: string };
   pressCitation?: { label: string; href: string };
   resultsHeading?: string;
-  cta?: {
-    heading: string;
-    body: string;
-    primary: { label: string; href: string };
-    secondary?: { label: string; href: string };
-  };
 }
 
 export const caseStudiesData: CaseStudy[] = [
@@ -241,11 +235,6 @@ export const caseStudiesData: CaseStudy[] = [
       "Agentic automation and augmentation (live and in active development) across time tracking, documentation, network troubleshooting, monitoring, sales and marketing, invoicing and accounting, and HR/compliance",
       "The RSystems website itself, built with Claude Code on the same identity backbone",
     ],
-    cta: {
-      heading: "Thinking about AI for your organization?",
-      body: "Rolling out AI across a business takes more than a subscription — it takes the identity, governance, and architecture to do it safely. It's exactly the kind of work we do. If you're looking to operationalize AI across your organization, we can help.",
-      primary: { label: "Let's Talk", href: "/contact" },
-    },
   },
 
   {
@@ -436,12 +425,6 @@ export const caseStudiesData: CaseStudy[] = [
       "Used Claude Code to build the entire site through conversation",
       "Built a fully custom Next.js + Tailwind site, live on Vercel, maintained through a chat interface",
     ],
-    cta: {
-      heading: "Looking to build something?",
-      body: "If you're looking for help building a new website or internal software tools, we can help. This is exactly the kind of work we do — combining senior technical expertise with AI-assisted development to deliver custom results faster and more affordably than a traditional build.",
-      primary: { label: "Vibe Coding & Custom Development", href: "/services/ai/vibe-coding" },
-      secondary: { label: "Let's Talk", href: "/contact" },
-    },
   },
 
   {
