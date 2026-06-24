@@ -251,7 +251,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "How rsystems.nyc was designed, built, and is maintained using AI-assisted development — and what it takes to do it well",
     client: "RSystems NYC (this website)",
-    industry: "AI-Assisted Development",
+    industry: "Technology Consulting",
     tags: ["AI & Development", "Web Development", "Infrastructure", "DevOps", "Identity"],
     summary:
       "How RSystems designed, built, and maintains rsystems.nyc with AI-assisted development — a fully custom Next.js and Tailwind site on Vercel, with GitHub, JumpCloud SSO, and professional infrastructure underneath — and what it actually takes to vibe code a production website well.",
