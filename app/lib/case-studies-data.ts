@@ -56,7 +56,7 @@ export const caseStudiesData: CaseStudy[] = [
       "How RSystems deployed Claude at every level of the business — with the identity, governance, and architecture to do it safely",
     client: "RSystems NYC (internal)",
     industry: "AI Operations",
-    tags: ["AI & Automation", "Identity & Access", "Governance", "MCP Architecture", "Agentic AI"],
+    tags: ["AI", "Identity", "Security"],
     summary:
       "How RSystems moved beyond AI as a chat assistant to a governed operational layer — AI agents provisioned as managed JumpCloud identities with least-privilege access, custom OAuth-backed MCP servers, and full audit governance through the JumpCloud AI Gateway, automating and augmenting work across every department.",
     seoTitle: "Operationalizing AI Across Every Department | RSystems NYC",
@@ -256,7 +256,7 @@ export const caseStudiesData: CaseStudy[] = [
       "How rsystems.nyc was designed, built, and is maintained using AI-assisted development — and what it takes to do it well",
     client: "RSystems NYC (this website)",
     industry: "Technology Consulting",
-    tags: ["AI & Development", "Web Development", "Infrastructure", "DevOps", "Identity"],
+    tags: ["AI", "Web Development", "Cloud & Infrastructure", "Identity"],
     summary:
       "How RSystems designed, built, and maintains rsystems.nyc with AI-assisted development — a fully custom Next.js and Tailwind site on Vercel, with GitHub, JumpCloud SSO, and professional infrastructure underneath — and what it actually takes to vibe code a production website well.",
     seoTitle: "Vibe Coding, Done Right | RSystems NYC",
