@@ -3344,4 +3344,18 @@ Certbot is the companion tool that automates the process: it requests a certific
 
 Together they made encrypted-by-default the norm. The thing to get right is the auto-renewal: a misconfigured renewal is invisible until the certificate quietly expires and visitors hit security warnings — exactly the kind of failure proper setup prevents.`,
   },
+  {
+    slug: "jumpcloud-ai-gateway",
+    term: "JumpCloud AI Gateway",
+    aka: ["AI Gateway"],
+    shortDef:
+      "JumpCloud's governance and audit layer for AI agents — it routes an organization's AI access to business systems through a single controlled path that can be logged, reviewed, and permissioned, the same way human access is.",
+    categories: ["Identity", "Security"],
+    related: ["jumpcloud", "mcp-api", "oidc", "least-privilege", "zero-trust"],
+    content: `The JumpCloud AI Gateway is a control point for how AI agents access the systems a business runs on. As organizations move from using AI as a chat assistant to deploying agents that actually act inside real systems, those agents need the same controls as a human employee — authentication, scoped permissions, and an audit trail. The AI Gateway is where that governance happens.
+
+The problem it solves: an agent that can read from and write to your business systems is only safe if every action it takes is attributable and reviewable. Without a control point, agentic AI is a black box — useful, but impossible to answer for. Route that access through the Gateway and every connection, every tool call, every action flows through a single governed path where it can be logged, reviewed, and controlled.
+
+Because it sits within JumpCloud's identity platform, agent access is tied to managed identities and least-privilege permissions rather than static API keys buried in config files — and it can be revoked centrally the moment something looks wrong. For any organization that has to answer who, or what, accessed a system and when, this is the control that makes agentic AI defensible rather than reckless. It is the governance layer we built our own AI operations on.`,
+  },
 ]
