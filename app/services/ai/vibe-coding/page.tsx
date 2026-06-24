@@ -164,10 +164,10 @@ export default function VibeCodingPage() {
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-8">
             What We Offer
           </p>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-3.5">
             {offerings.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-base text-[#1A1A1A]/70 leading-relaxed">
-                <span className="mt-[0.55rem] h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+              <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70 leading-relaxed">
+                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
                 {item}
               </li>
             ))}
@@ -178,9 +178,6 @@ export default function VibeCodingPage() {
       {/* Related Work */}
       <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-8">
-            Related Work
-          </p>
           <Link
             href="/case-studies/vibe-coding-done-right"
             className="group block rounded-xl border border-[#1A1A1A]/[0.07] bg-white hover:border-[#E8500A]/20 p-7 lg:p-8 transition-colors"
@@ -206,9 +203,9 @@ export default function VibeCodingPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-white">
+      <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="rounded-xl border border-[#1A1A1A]/[0.07] bg-[#F4F2EF] p-8 lg:p-12">
+          <div className="rounded-xl border border-[#1A1A1A]/[0.07] bg-white p-8 lg:p-12">
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
               Let&apos;s Talk
             </p>
