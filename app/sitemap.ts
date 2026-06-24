@@ -51,6 +51,7 @@ const aiRoutes = [
   "/services/ai/mcp-tooling",
   "/services/ai/agent-governance",
   "/services/ai/audit-accountability",
+  "/services/ai/vibe-coding",
 ];
 
 const techConsultingRoutes = [

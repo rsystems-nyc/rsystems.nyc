@@ -38,6 +38,11 @@ const services = [
     href: "/services/ai/audit-accountability",
     tagline: "Audit trails and accountability frameworks that make agent behavior reviewable and within operational limits.",
   },
+  {
+    name: "Vibe Coding & Custom Development",
+    href: "/services/ai/vibe-coding",
+    tagline: "Custom websites and internal tools built with AI-assisted development, backed by senior technical expertise — we'll build it, teach it, or build it with you.",
+  },
 ];
 
 const appropriateFor = [

@@ -94,6 +94,7 @@ const techConsultingCategories = [
       { href: "/services/ai/mcp-tooling", label: "MCP Tooling" },
       { href: "/services/ai/agent-governance", label: "Agent Governance & PAM" },
       { href: "/services/ai/audit-accountability", label: "Audit & Accountability" },
+      { href: "/services/ai/vibe-coding", label: "Vibe Coding & Custom Development" },
     ],
   },
   {

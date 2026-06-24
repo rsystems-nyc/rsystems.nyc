@@ -41,6 +41,11 @@ const services = [
     body: "When agents act at scale, you need a complete record of what they did, when, and with what authority. We build centralized audit infrastructure for agentic workflows.",
     href: "/services/ai/audit-accountability",
   },
+  {
+    tag: "Vibe Coding & Custom Development",
+    body: "Custom websites and internal tools built with AI-assisted development — plus the infrastructure foundation that lets your team build and run them. We'll build it, teach it, or build it with you.",
+    href: "/services/ai/vibe-coding",
+  },
 ];
 
 export default function AIHubPage() {

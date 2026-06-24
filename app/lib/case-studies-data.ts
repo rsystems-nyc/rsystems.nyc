@@ -226,7 +226,7 @@ export const caseStudiesData: CaseStudy[] = [
     cta: {
       heading: "Looking to build something?",
       body: "If you're looking for help building a new website or internal software tools, we can help. This is exactly the kind of work we do — combining senior technical expertise with AI-assisted development to deliver custom results faster and more affordably than a traditional build.",
-      primary: { label: "Vibe Coding & Custom Development", href: "/services/vibe-coding" },
+      primary: { label: "Vibe Coding & Custom Development", href: "/services/ai/vibe-coding" },
       secondary: { label: "Let's Talk", href: "/contact" },
     },
     glossary: [
