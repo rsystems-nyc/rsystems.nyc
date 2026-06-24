@@ -617,20 +617,16 @@ export default function Nav() {
                 >
                   Overview
                 </Link>
-                <Link
-                  href="/industries"
-                  className="block py-2.5 text-sm text-[#1A1A1A]/40 pl-4 hover:text-[#1A1A1A] transition-colors border-b border-black/[0.05]"
-                  onClick={() => setOpen(false)}
-                >
-                  Industries
-                </Link>
-                <Link
-                  href="/case-studies"
-                  className="block py-2.5 text-sm text-[#1A1A1A]/40 pl-4 hover:text-[#1A1A1A] transition-colors border-b border-black/[0.05]"
-                  onClick={() => setOpen(false)}
-                >
-                  Case Studies
-                </Link>
+                {ourWorkLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block py-2.5 text-sm text-[#1A1A1A]/40 pl-4 hover:text-[#1A1A1A] transition-colors border-b border-black/[0.05]"
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
