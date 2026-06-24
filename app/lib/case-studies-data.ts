@@ -86,6 +86,10 @@ export const caseStudiesData: CaseStudy[] = [
         "name": "Agentic AI operations with managed identity and governance",
       },
     },
+    featuredImage: {
+      src: "/assets/Operationalizing_AI.png",
+      alt: "A human conductor leading an orchestra of humanoid robots — orchestrating AI agents across the business.",
+    },
     sections: [
       {
         label: "At a Glance",
