@@ -199,31 +199,6 @@ export default function MCPToolingPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="rounded-xl border border-[#1A1A1A]/[0.07] bg-white p-8 lg:p-12">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
-              Let&apos;s Talk
-            </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-4 max-w-2xl">
-              Ready to give your agents access to your full stack?
-            </h3>
-            <p className="text-base text-[#1A1A1A]/60 leading-relaxed max-w-2xl mb-8">
-              Let&apos;s talk about what you need.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
-            >
-              Schedule a conversation
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
