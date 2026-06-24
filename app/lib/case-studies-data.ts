@@ -55,7 +55,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "How RSystems deployed Claude at every level of the business — with the identity, governance, and architecture to do it safely",
     client: "RSystems NYC (internal)",
-    industry: "AI Operations",
+    industry: "Technology",
     tags: ["AI", "Identity", "Security"],
     summary:
       "How RSystems moved beyond AI as a chat assistant to a governed operational layer — AI agents provisioned as managed JumpCloud identities with least-privilege access, custom OAuth-backed MCP servers, and full audit governance through the JumpCloud AI Gateway, automating and augmenting work across every department.",
@@ -255,7 +255,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "How rsystems.nyc was designed, built, and is maintained using AI-assisted development — and what it takes to do it well",
     client: "RSystems NYC (this website)",
-    industry: "Technology Consulting",
+    industry: "Technology",
     tags: ["AI", "Cloud & Infrastructure", "Identity"],
     summary:
       "How RSystems designed, built, and maintains rsystems.nyc with AI-assisted development — a fully custom Next.js and Tailwind site on Vercel, with GitHub, JumpCloud SSO, and professional infrastructure underneath — and what it actually takes to vibe code a production website well.",
@@ -500,7 +500,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "A ground-up, zero-compromise infrastructure built with redundancy as a first-order constraint — network, compute, storage, wireless, and access control, with no single point of failure tolerated anywhere in the stack.",
     client: "A leading NYC architecture firm",
-    industry: "Architecture & Design",
+    industry: "Architecture",
     tags: ["Networking", "Cloud & Infrastructure", "Security", "Identity"],
     summary:
       "Ground-up redundant infrastructure for a 100-person architecture firm — Cisco switching, Ruckus Wi-Fi 6, VMware cluster, dual-controller SAN, PDK access control, and 10 Gbps WAN. Zero downtime since deployment.",
@@ -724,7 +724,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "A decade-long infrastructure partnership with a NYC audio engineering firm",
     client: "A NYC-based audio engineering firm",
-    industry: "Media & Entertainment",
+    industry: "Audio",
     tags: ["Cloud & Infrastructure", "Identity"],
     summary:
       "A ten-year infrastructure partnership with a leading NYC audio engineering firm — spanning hybrid cloud migration, pandemic response, and an ongoing fractional CTO engagement that keeps the firm years ahead of industry practice.",
@@ -800,7 +800,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "From a startup office in Chelsea to opening-day infrastructure for 1.7 million visitors",
     client: "Little Island",
-    industry: "Parks & Public Space",
+    industry: "Parks",
     tags: ["Networking", "Cloud & Infrastructure", "Identity"],
     summary:
       "Ground-up IT infrastructure for NYC's most ambitious new public park — network architecture, identity, Dante audio, Genetec, emergency systems, and 1.7M visitors in year one.",
@@ -965,7 +965,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "A ground-up infrastructure overhaul for a leader in industrial 3D printing — embedded for months, rebuilt over a single holiday",
     client: "MakerBot",
-    industry: "Manufacturing & Technology",
+    industry: "Product Design",
     tags: ["Networking", "Cloud & Infrastructure"],
     summary:
       "Months embedded inside MakerBot learning their infrastructure before overhauling it over a single holiday closure — 40 VMs rebuilt, 400% throughput increase, complete redundancy, and offsite backup replication, all executed without disrupting production operations.",
@@ -1159,7 +1159,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "Scalable identity infrastructure for a growing multinational",
     client: "A multinational organization",
-    industry: "Enterprise",
+    industry: "Legal",
     tags: ["Identity", "Cloud & Infrastructure"],
     summary:
       "Identity infrastructure modernization for a 150-person multinational expanding toward 250+ staff — JumpCloud deployment unifying Google, cloud applications, and workstations, with ongoing AWS integration support and security audits over four years.",
@@ -1221,7 +1221,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "Event network infrastructure for the charity:water Gala at the Metropolitan Museum of Art",
     client: "charity:water",
-    industry: "Events & Culture",
+    industry: "Non-Profit",
     tags: ["Networking"],
     summary:
       "Event network for the charity:water Gala at the Metropolitan Museum of Art — Ruckus high-density wireless, FortiGate firewall, and on-site radio coordination supporting 500 devices across two spaces. $4.59 million raised in a single evening; zero network issues.",
@@ -1415,7 +1415,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "GPU-accelerated cloud desktops for Bluebeam and Revit, without a single Windows machine on premises",
     client: "Architecture and design professional corporation, Mac-first, distributed workforce",
-    industry: "Architecture & Design",
+    industry: "Architecture",
     tags: ["Cloud & Infrastructure", "Microsoft"],
     summary:
       "GPU-accelerated Azure Virtual Desktop for a Mac-only architecture firm — Bluebeam Revu and Autodesk Revit at full resolution and full speed, with Entra ID-native identity, Terraform IaC, and no Windows hardware on premises.",
@@ -1606,7 +1606,7 @@ export const caseStudiesData: CaseStudy[] = [
     title: "A Festival Campus, Fully Connected",
     subtitle: "Festival-grade network engineering for FoST Fest at Snug Harbor",
     client: "Future of Storytelling (FoST)",
-    industry: "Events & Culture",
+    industry: "Arts",
     tags: ["Networking"],
     summary:
       "A complete temporary event network for FoST Fest at Snug Harbor — spanning twelve landmarked buildings and a Great Lawn tent across an 83-acre campus, thousands of concurrent high-bandwidth VR/AR devices, self-healing redundant topology, and zero dead air across the full run.",
@@ -1855,7 +1855,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "Redesigning a cloud environment for a quantitative trading firm — from inherited complexity to infrastructure as code",
     client: "Duality Group",
-    industry: "Finance & Trading Technology",
+    industry: "Finance",
     tags: ["Cloud & Infrastructure", "Networking", "Security"],
     summary:
       "A complete rebuild of an overbuilt, incentive-misaligned AWS environment for quantitative trading firm Duality Group — four isolated accounts, every subnet and routing rule defined in Terraform, active/passive FortiGate HA at the network edge, encrypted VPN connectivity to market data and execution partners, and a lower monthly bill than the environment it replaced.",
@@ -2030,7 +2030,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "Building a zero-touch provisioning pipeline for a 45-location healthcare nonprofit — from fully manual to Autopilot at scale",
     client: "Easterseals New Jersey",
-    industry: "Healthcare & Nonprofit",
+    industry: "Healthcare",
     tags: ["MDM", "Identity", "Security", "Microsoft"],
     summary:
       "A complete zero-touch provisioning pipeline for new devices and an automated re-enrollment path for existing ones — across 45 locations, 60+ Wi-Fi networks, and dozens of deployed applications — for a HIPAA-regulated nonprofit with 775 endpoints working toward HITRUST certification.",
@@ -2207,7 +2207,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "A point-to-multipoint wireless network for the National Audubon Society's Corkscrew Swamp Sanctuary — designed in New York, built in Florida, delivering 200 Mbps where major carriers declined to serve.",
     client: "National Audubon Society",
-    industry: "Nonprofits & Conservation",
+    industry: "Non-Profit",
     tags: ["Networking"],
     summary:
       "Campus-wide wireless connectivity for the National Audubon Society's Corkscrew Swamp Sanctuary — remote deployment, zero carriers willing to serve, 200 Mbps delivered.",
@@ -2360,7 +2360,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "Multi-region Azure infrastructure, disaster recovery, and infrastructure-as-code for a nationally distributed conservation organization with a global growth roadmap.",
     client: "National Audubon Society",
-    industry: "Nonprofits & Conservation",
+    industry: "Non-Profit",
     tags: ["Cloud & Infrastructure"],
     summary:
       "Multi-region Azure infrastructure, disaster recovery, and Terraform automation for the National Audubon Society — DR requirements met at a fraction of a hardware refresh.",
@@ -2500,7 +2500,7 @@ export const caseStudiesData: CaseStudy[] = [
     subtitle:
       "Replacing eight aging access points at Audubon's NYC headquarters — and using heat mapping to confirm the new ones were in the right places.",
     client: "National Audubon Society",
-    industry: "Nonprofit · Wireless Infrastructure",
+    industry: "Non-Profit",
     tags: ["Networking"],
     summary:
       "Replaced eight aging access points, surveyed the result, and tuned placement and channel configuration based on what the data showed.",
