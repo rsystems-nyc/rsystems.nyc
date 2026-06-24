@@ -45,7 +45,6 @@ export interface CaseStudy {
     primary: { label: string; href: string };
     secondary?: { label: string; href: string };
   };
-  glossary?: { term: string; definition: string }[];
 }
 
 export const caseStudiesData: CaseStudy[] = [
@@ -443,55 +442,6 @@ export const caseStudiesData: CaseStudy[] = [
       primary: { label: "Vibe Coding & Custom Development", href: "/services/ai/vibe-coding" },
       secondary: { label: "Let's Talk", href: "/contact" },
     },
-    glossary: [
-      {
-        term: "Vibe coding",
-        definition:
-          "A style of software development where you describe what you want in plain language and an AI model writes the code, working iteratively through conversation rather than writing code by hand.",
-      },
-      {
-        term: "GitHub",
-        definition:
-          "A platform for hosting and managing code using Git version control. It stores the project, tracks every change, and serves as the source of truth the hosting platform deploys from.",
-      },
-      {
-        term: "Repo (repository)",
-        definition: "The container for a project's code and its complete change history.",
-      },
-      {
-        term: "SSH key",
-        definition:
-          "A pair of cryptographic keys used to authenticate securely without a password. A deploy key is an SSH key scoped to a single repository.",
-      },
-      {
-        term: "Vercel",
-        definition:
-          "The hosting platform the site runs on. Built by the makers of Next.js, it automatically builds and deploys the site whenever new code is pushed to the connected GitHub repository.",
-      },
-      {
-        term: "DNS (Domain Name System)",
-        definition:
-          "The system that translates a human-readable domain name into the server address browsers connect to.",
-      },
-      {
-        term: "CI/CD (Continuous Integration / Continuous Deployment)",
-        definition: "An automated pipeline where committing code triggers an automatic build and deployment.",
-      },
-      {
-        term: "Let's Encrypt / Certbot",
-        definition:
-          "A free certificate authority and the tool that automatically issues and renews the TLS certificates that serve the site securely over HTTPS.",
-      },
-      {
-        term: "SSO (Single Sign-On)",
-        definition:
-          "An authentication method that lets people log in to multiple systems with one centrally managed identity.",
-      },
-      {
-        term: "VMware",
-        definition: "Virtualization software that runs virtual machines on physical server hardware.",
-      },
-    ],
   },
 
   {

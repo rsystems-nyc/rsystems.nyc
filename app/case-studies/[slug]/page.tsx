@@ -373,35 +373,6 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Glossary */}
-      {cs.glossary && cs.glossary.length > 0 && (
-        <section className="bg-white border-t border-[#1A1A1A]/[0.07]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-              <div className="lg:col-span-3">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
-                  Glossary
-                </p>
-              </div>
-              <div className="lg:col-span-9">
-                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7">
-                  {cs.glossary.map((g) => (
-                    <div key={g.term}>
-                      <dt className="text-[15px] font-semibold text-[#1A1A1A] mb-1.5">
-                        {g.term}
-                      </dt>
-                      <dd className="text-sm text-[#1A1A1A]/60 leading-relaxed">
-                        {g.definition}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Closing image */}
       {cs.closingImage && (
         <section className="bg-[#F4F2EF]">

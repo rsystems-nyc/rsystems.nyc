@@ -3260,4 +3260,88 @@ This leads to a simple way to configure each speaker:
 
 The practical rule: wire as many units as possible with wireless disabled, and make sure at least one wired unit keeps its wireless enabled to anchor the mesh for anything that has to be wireless. A SonosNet mesh with no solid wired root is where reliability problems begin.`,
   },
+
+  // ── Development ──────────────────────────────────────────────────────────────
+  {
+    slug: "vibe-coding",
+    term: "Vibe Coding",
+    aka: ["AI-assisted development"],
+    shortDef:
+      "A style of software development where you describe what you want in plain language and an AI model writes the code — working iteratively through conversation rather than by hand.",
+    categories: ["Development"],
+    related: ["github", "ci-cd", "vercel"],
+    content: `Vibe coding is a recent term for building software by describing what you want in plain language and letting an AI model write the code. Instead of typing every line by hand, you work in a conversation: you describe a change, the model implements it, you review and refine, and you describe the next one. The work happens through dialogue rather than in a text editor.
+
+It is a genuinely new way to build, and it is powerful — complex changes that used to take a developer hours can take minutes. But doing it well still requires knowing what you are doing. The AI writes the code; it cannot decide for you how the infrastructure should be set up, whether the architecture is sound, or when it has taken a wrong turn. Vibe coding lowers the labor of writing code. It does not remove the need to understand systems.
+
+That distinction is what separates a working production site from a fragile experiment: the visible part — software built by describing it — sits on a foundation of decisions (source control, deployment, identity, security) that take real technical fundamentals to get right. It is the approach we used to build this very website, and a service we offer to clients building their own sites and internal tools.`,
+  },
+  {
+    slug: "github",
+    term: "GitHub",
+    aka: ["Git"],
+    shortDef:
+      "A platform for hosting and managing code with Git version control — it stores the project, tracks every change, and serves as the source of truth a hosting platform deploys from.",
+    categories: ["Development"],
+    related: ["repository", "ci-cd", "vercel", "ssh"],
+    content: `GitHub is the most widely used platform for hosting and collaborating on code. Underneath it is Git, the version-control system that records every change to a project as a series of commits — so any change can be reviewed, attributed, and rolled back. GitHub adds the hosting, access control, and collaboration layer on top.
+
+In a modern web stack, GitHub is the source of truth. The code lives in a repository there, and the hosting platform watches that repository: when new code is pushed, the site rebuilds and deploys automatically. Authentication to GitHub is handled with SSH keys or deploy keys rather than passwords, so automated systems can pull and push securely.
+
+For an organization, the value is not just storage — it is that every change to the software is tracked, reversible, and governed. Nothing is edited live on a server with no record of who changed what.`,
+  },
+  {
+    slug: "repository",
+    term: "Repository",
+    aka: ["Repo", "Git repository"],
+    shortDef: "The container for a project's code and its complete change history.",
+    categories: ["Development"],
+    related: ["github", "ci-cd"],
+    content: `A repository — usually shortened to "repo" — is the container for a project's code together with its entire history of changes. Every commit ever made to the project lives in the repo, which means you can see exactly what changed, when, and by whom, and return to any previous state.
+
+A repo also holds branches: parallel lines of work that let changes be developed and reviewed before being merged into the main line. This is what makes collaborative, reversible development possible — multiple changes in flight at once, each tracked independently, none of them overwriting the live system until they are ready.
+
+In practice, the repository is the single authoritative copy of a project. Hosting platforms deploy from it, developers (and AI coding tools) work against it, and its history is the audit trail for the software itself.`,
+  },
+  {
+    slug: "vercel",
+    term: "Vercel",
+    shortDef:
+      "A hosting platform — from the makers of Next.js — that automatically builds and deploys a site whenever new code is pushed to its connected GitHub repository.",
+    categories: ["Development", "Cloud & Infrastructure"],
+    related: ["github", "ci-cd", "dns", "tls"],
+    content: `Vercel is a cloud hosting platform built by the team behind Next.js, the framework many modern sites (including this one) are built on. Its defining feature is continuous deployment: you connect a GitHub repository, and from then on every push of new code triggers an automatic build and deploy of the updated site. There is no manual upload step, no FTP, no "publishing" — saving the code is deploying it.
+
+Vercel also handles the surrounding infrastructure a production site needs: global content delivery, automatic HTTPS with managed TLS certificates, and DNS configuration to point a domain at the platform. That removes a whole class of server-management work that would otherwise have to be set up and maintained by hand.
+
+The result is a deployment pipeline that is fast and hard to break: code is reviewed in the repository, deploys are automatic and atomic, and a bad change can be rolled back to a previous deployment instantly.`,
+  },
+  {
+    slug: "ci-cd",
+    term: "CI/CD",
+    aka: ["Continuous Integration", "Continuous Deployment", "Continuous Delivery"],
+    shortDef:
+      "An automated pipeline where committing code triggers an automatic build, test, and deployment — Continuous Integration / Continuous Deployment.",
+    categories: ["Development"],
+    related: ["github", "vercel", "repository"],
+    content: `CI/CD stands for Continuous Integration and Continuous Deployment (or Delivery) — the practice of automating the path from a code change to a live, deployed update. Instead of a person manually building and uploading the site, the pipeline does it: a commit is pushed, the system builds the project, runs whatever checks are configured, and deploys the result.
+
+Continuous Integration is the first half: changes are merged and built frequently, so problems surface immediately rather than piling up. Continuous Deployment is the second: once a build passes, it ships automatically. The commit is the trigger; the deploy is the consequence.
+
+The payoff is speed with safety. Updates go out the moment they are ready, every deploy is consistent and repeatable, and because each deployment is a discrete, recorded step, a regression can be rolled back cleanly. It is the difference between "saving the code is deploying it" and a manual, error-prone release process.`,
+  },
+  {
+    slug: "lets-encrypt",
+    term: "Let's Encrypt",
+    aka: ["Certbot"],
+    shortDef:
+      "A free certificate authority — paired with the Certbot tool — that automatically issues and renews the TLS certificates that serve a site securely over HTTPS.",
+    categories: ["Security"],
+    related: ["tls", "https", "certificate", "dns"],
+    content: `Let's Encrypt is a free, automated certificate authority. It issues the TLS certificates that put the padlock in the browser and let a site be served over HTTPS — at no cost, and without the manual back-and-forth that obtaining certificates used to require.
+
+Certbot is the companion tool that automates the process: it requests a certificate from Let's Encrypt, proves the server controls the domain, installs the certificate, and — critically — renews it automatically before it expires. Let's Encrypt certificates are short-lived by design (90 days), so automated renewal is not a nicety, it is the whole point. Set up correctly, the site simply stays secured with no human intervention.
+
+Together they made encrypted-by-default the norm. The thing to get right is the auto-renewal: a misconfigured renewal is invisible until the certificate quietly expires and visitors hit security warnings — exactly the kind of failure proper setup prevents.`,
+  },
 ]

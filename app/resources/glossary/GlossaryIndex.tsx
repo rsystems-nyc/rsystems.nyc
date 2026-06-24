@@ -15,6 +15,7 @@ const CATEGORIES_ORDER = [
   "Power",
   "WiFi",
   "Cloud & Infrastructure",
+  "Development",
   "Virtualization",
   "Microsoft",
   "Apple",
