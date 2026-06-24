@@ -37,9 +37,249 @@ export interface CaseStudy {
   jsonLd?: Record<string, unknown>;
   closingImage?: { src: string; alt: string };
   pressCitation?: { label: string; href: string };
+  resultsHeading?: string;
+  cta?: {
+    heading: string;
+    body: string;
+    primary: { label: string; href: string };
+    secondary?: { label: string; href: string };
+  };
+  glossary?: { term: string; definition: string }[];
 }
 
 export const caseStudiesData: CaseStudy[] = [
+  {
+    slug: "vibe-coding-done-right",
+    title: "Vibe Coding, Done Right",
+    subtitle:
+      "How rsystems.nyc was designed, built, and is maintained using AI-assisted development — and what it takes to do it well",
+    client: "RSystems NYC (this website)",
+    industry: "AI-Assisted Development",
+    tags: ["AI & Development", "Web Development", "Infrastructure", "DevOps", "Identity"],
+    summary:
+      "How RSystems designed, built, and maintains rsystems.nyc with AI-assisted development — a fully custom Next.js and Tailwind site on Vercel, with GitHub, JumpCloud SSO, and professional infrastructure underneath — and what it actually takes to vibe code a production website well.",
+    seoTitle: "Vibe Coding, Done Right | RSystems NYC",
+    seoDescription:
+      "How RSystems designed, built, and maintains rsystems.nyc using AI-assisted development — a custom Next.js site on Vercel, with GitHub, JumpCloud SSO, and professional infrastructure — and what it actually takes to vibe code a production website well.",
+    canonicalPath: "/case-studies/vibe-coding-done-right",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Vibe Coding, Done Right — Building rsystems.nyc with AI-Assisted Development",
+      "description":
+        "How RSystems designed, built, and maintains its own website with AI-assisted development — a fully custom Next.js and Tailwind site on Vercel, with GitHub, JumpCloud SSO, automated TLS, and professional virtualized infrastructure underneath.",
+      "url": "https://rsystems.nyc/case-studies/vibe-coding-done-right",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+        "areaServed": { "@type": "City", "name": "New York City" },
+      },
+      "about": {
+        "@type": "WebSite",
+        "name": "rsystems.nyc",
+        "url": "https://rsystems.nyc",
+        "description":
+          "A fully custom Next.js and Tailwind marketing site built with AI-assisted development and maintained by non-developers through a chat interface.",
+      },
+    },
+    sections: [
+      {
+        label: "At a Glance",
+        blocks: [
+          {
+            type: "specs",
+            groups: [
+              {
+                title: "",
+                items: [
+                  ["Client", "RSystems NYC (this website)"],
+                  [
+                    "Problem",
+                    "Build a custom, production-grade marketing site for a technical consulting firm — distinctive design, structured SEO, a growing case study library, and an ongoing content pipeline — without hiring a web developer.",
+                  ],
+                  [
+                    "Approach",
+                    "AI-assisted development using Claude Code, on a purpose-built virtualized dev environment, with professional infrastructure and identity management underneath.",
+                  ],
+                  [
+                    "Outcome",
+                    "A fully custom Next.js and Tailwind site, live on Vercel, maintained by non-developers through a chat interface. Estimated cost to build the same site at agency or senior freelance rates: $25,000–$40,000 for the initial build alone.",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "The Premise",
+        heading: "What \"vibe coding\" actually means",
+        blocks: [
+          {
+            type: "p",
+            text: "Vibe coding is a recent term for a style of software development where, instead of writing code by hand, you describe what you want in plain language and an AI model writes the code for you. You review, you refine, you describe the next change — and the work happens in a conversation rather than a text editor.",
+          },
+          {
+            type: "p",
+            text: "It's a genuinely new way to build software, and it's powerful. But there's a catch that doesn't get said often enough: doing it well still requires knowing what you're doing. You either need to be a developer, or you need solid technical fundamentals — enough to set up the infrastructure correctly, to recognize when the AI has made a wrong turn, and to make the architectural decisions that the model can execute but shouldn't be left to decide on its own. Vibe coding lowers the labor of writing code. It doesn't remove the need to understand systems.",
+          },
+          {
+            type: "p",
+            text: "This site is a case study in that distinction — because the visible part, a website built by describing it, sits on top of a foundation of decisions that required real technical knowledge to get right.",
+          },
+        ],
+      },
+      {
+        label: "The Foundation",
+        heading: "The infrastructure underneath the conversation",
+        blocks: [
+          {
+            type: "p",
+            text: "Before a single line of the site was written, there was infrastructure to stand up — and this is where the fundamentals earn their keep.",
+          },
+          {
+            type: "p",
+            text: "The development environment is a virtual machine, provisioned on our own VMware infrastructure. Spinning it up meant making decisions about resource allocation, networking, and operating system — the kind of routine virtualization work that's invisible when it's done right and a constant obstacle when it isn't.",
+          },
+          {
+            type: "p",
+            text: "Source control runs through GitHub. Setting that up properly meant creating the repository, configuring SSH and deploy keys so the dev environment could authenticate to GitHub securely without passwords living in plaintext, and establishing a git workflow — commits, branches, and a clean history — so that every change is tracked and reversible.",
+          },
+          {
+            type: "p",
+            text: "Hosting runs on Vercel, linked directly to the GitHub repository. This is a continuous deployment pipeline: when a change is committed and pushed, Vercel automatically builds and deploys the updated site. There's no manual upload step, no FTP, no \"publishing\" — the act of saving the code is the act of deploying it.",
+          },
+          {
+            type: "p",
+            text: "DNS was configured to point the domain at Vercel's infrastructure, and TLS certificates — the encryption that puts the padlock in the browser and serves the site over HTTPS — are handled through Let's Encrypt and Certbot, issuing and automatically renewing certificates so the site is always served securely.",
+          },
+          {
+            type: "p",
+            text: "None of this is exotic. All of it is the kind of thing that, done wrong, produces a site that's insecure, can't deploy, or simply doesn't work. The AI can write code beautifully. It can't decide for you how your deployment pipeline should be structured, or notice that your certificate auto-renewal is misconfigured. That's the part that takes fundamentals.",
+          },
+        ],
+      },
+      {
+        label: "Identity",
+        heading: "Built so the whole team can run it",
+        blocks: [
+          {
+            type: "p",
+            text: "One decision turned this from a personal project into a team asset: connecting the development platform to JumpCloud for single sign-on.",
+          },
+          {
+            type: "p",
+            text: "JumpCloud is our identity provider, and wiring the site's management environment into it means access is governed by the same identity system as everything else we run. Team members log in through SSO — no separate credentials, no shared passwords, access granted and revoked centrally. Practically, this is what allows non-technical team members to manage the site and add content. They don't need to be developers. They don't need to touch the infrastructure. They log in through an interface they already have access to and work through a chat interface to make changes.",
+          },
+        ],
+      },
+      {
+        label: "The Payoff",
+        heading: "What it actually changes",
+        blocks: [
+          {
+            type: "p",
+            text: "The headline result is speed, but the specific kind of speed matters.",
+          },
+          {
+            type: "p",
+            text: "Complex edits that would have taken a developer hours — or taken days to schedule, brief, and wait on — now take minutes. A concrete example: as new case studies and content roll out, every related page should cross-link to it. Done by hand, that's tedious, error-prone work that tends to get deferred. Through a conversation, it's a single instruction, executed across the whole site in one pass. Content can be added the moment it's ready instead of waiting for developer availability.",
+          },
+          {
+            type: "p",
+            text: "And because the management layer is behind SSO and driven by chat, the people adding content aren't gated on a developer at all. The site is live. The team is using it. New content goes up when it's written, not when someone has time to hand-code it.",
+          },
+        ],
+      },
+      {
+        label: "The Economics",
+        heading: "What this would have cost",
+        blocks: [
+          {
+            type: "p",
+            text: "A site like this one — custom design system, a dozen-plus case studies, more than a dozen industry pages, structured data and SEO throughout, multi-level navigation, and continuous iteration — is not a template brochure site. Priced conventionally, current market rates put a custom Next.js build of this scope at $25,000–$40,000 with an agency or senior freelancer for the initial build, with senior developers billing $100–$200 per hour. Ongoing iterative work — the constant stream of edits, new pages, and cross-linking — would add several thousand dollars a year on top, at those same rates.",
+          },
+          {
+            type: "p",
+            text: "The point isn't that the site was free to build. Doing it well took real expertise and real time. The point is that the same expertise, paired with AI-assisted development, produced an agency-grade result at a fraction of the cost — and left us with something an agency engagement wouldn't: a site our own team can run, every day, without calling anyone.",
+          },
+        ],
+      },
+    ],
+    resultsHeading: "What we did.",
+    results: [
+      "Provisioned a dedicated development VM on our own VMware infrastructure",
+      "Created and configured a GitHub repository with SSH and deploy keys for secure authentication",
+      "Established a clean git workflow with full version history",
+      "Linked GitHub to Vercel for continuous deployment — commit to deploy, automatically",
+      "Configured DNS and automated TLS via Let's Encrypt and Certbot",
+      "Integrated the management environment with JumpCloud SSO, so non-technical team members can manage the site securely",
+      "Used Claude Code to build the entire site through conversation",
+      "Built a fully custom Next.js + Tailwind site, live on Vercel, maintained through a chat interface",
+    ],
+    cta: {
+      heading: "Looking to build something?",
+      body: "If you're looking for help building a new website or internal software tools, we can help. This is exactly the kind of work we do — combining senior technical expertise with AI-assisted development to deliver custom results faster and more affordably than a traditional build.",
+      primary: { label: "Vibe Coding & Custom Development", href: "/services/vibe-coding" },
+      secondary: { label: "Let's Talk", href: "/contact" },
+    },
+    glossary: [
+      {
+        term: "Vibe coding",
+        definition:
+          "A style of software development where you describe what you want in plain language and an AI model writes the code, working iteratively through conversation rather than writing code by hand.",
+      },
+      {
+        term: "GitHub",
+        definition:
+          "A platform for hosting and managing code using Git version control. It stores the project, tracks every change, and serves as the source of truth the hosting platform deploys from.",
+      },
+      {
+        term: "Repo (repository)",
+        definition: "The container for a project's code and its complete change history.",
+      },
+      {
+        term: "SSH key",
+        definition:
+          "A pair of cryptographic keys used to authenticate securely without a password. A deploy key is an SSH key scoped to a single repository.",
+      },
+      {
+        term: "Vercel",
+        definition:
+          "The hosting platform the site runs on. Built by the makers of Next.js, it automatically builds and deploys the site whenever new code is pushed to the connected GitHub repository.",
+      },
+      {
+        term: "DNS (Domain Name System)",
+        definition:
+          "The system that translates a human-readable domain name into the server address browsers connect to.",
+      },
+      {
+        term: "CI/CD (Continuous Integration / Continuous Deployment)",
+        definition: "An automated pipeline where committing code triggers an automatic build and deployment.",
+      },
+      {
+        term: "Let's Encrypt / Certbot",
+        definition:
+          "A free certificate authority and the tool that automatically issues and renews the TLS certificates that serve the site securely over HTTPS.",
+      },
+      {
+        term: "SSO (Single Sign-On)",
+        definition:
+          "An authentication method that lets people log in to multiple systems with one centrally managed identity.",
+      },
+      {
+        term: "VMware",
+        definition: "Virtualization software that runs virtual machines on physical server hardware.",
+      },
+    ],
+  },
+
   {
     slug: "redundancy-by-design",
     title: "Zero Downtime Since Deployment — Enterprise Infrastructure for a Leading NYC Architecture Firm",
