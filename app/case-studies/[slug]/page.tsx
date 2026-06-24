@@ -54,6 +54,25 @@ function RenderBlock({ block, index }: { block: Block; index: number }) {
         </p>
       );
 
+    case "rich":
+      return (
+        <p key={index} className="text-base text-[#1A1A1A]/60 leading-relaxed">
+          {block.parts.map((part, k) =>
+            typeof part === "string" ? (
+              <span key={k}>{part}</span>
+            ) : (
+              <Link
+                key={k}
+                href={part.href}
+                className="text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
+              >
+                {part.text}
+              </Link>
+            ),
+          )}
+        </p>
+      );
+
     case "h3":
       return (
         <h3 key={index} className="text-[15px] font-semibold text-[#1A1A1A] mt-4 mb-1">
@@ -422,7 +441,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* CTA — full-width closing band */}
       {cs.cta && (
-        <section className="bg-[#0F1117] text-white">
+        <section className="bg-[#0F1117] text-white border-t border-white/10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
             <div className="max-w-2xl">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">

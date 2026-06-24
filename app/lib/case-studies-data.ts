@@ -6,7 +6,8 @@ export type Block =
   | { type: "img"; src: string; alt: string; caption?: string; size?: "small" }
   | { type: "img-pair"; images: { src: string; alt: string; caption?: string }[] }
   | { type: "specs"; groups: { title: string; items: [string, string][] }[] }
-  | { type: "placeholder"; label: string };
+  | { type: "placeholder"; label: string }
+  | { type: "rich"; parts: (string | { text: string; href: string })[] };
 
 export interface CaseStudySection {
   label: string;
@@ -48,6 +49,202 @@ export interface CaseStudy {
 }
 
 export const caseStudiesData: CaseStudy[] = [
+  {
+    slug: "operationalizing-ai",
+    title: "Operationalizing AI Across Every Department",
+    subtitle:
+      "How RSystems deployed Claude at every level of the business — with the identity, governance, and architecture to do it safely",
+    client: "RSystems NYC (internal)",
+    industry: "AI Operations",
+    tags: ["AI & Automation", "Identity & Access", "Governance", "MCP Architecture", "Agentic AI"],
+    summary:
+      "How RSystems moved beyond AI as a chat assistant to a governed operational layer — AI agents provisioned as managed JumpCloud identities with least-privilege access, custom OAuth-backed MCP servers, and full audit governance through the JumpCloud AI Gateway, automating and augmenting work across every department.",
+    seoTitle: "Operationalizing AI Across Every Department | RSystems NYC",
+    seoDescription:
+      "How RSystems deployed Claude across the business — AI agents provisioned as managed JumpCloud identities with least-privilege access, custom OAuth-backed MCP servers, and full audit governance via the JumpCloud AI Gateway — operationalizing AI at every level and in every department.",
+    canonicalPath: "/case-studies/operationalizing-ai",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Operationalizing AI Across Every Department — Governed Agentic AI at RSystems",
+      "description":
+        "How RSystems deployed Claude as a governed operational layer across the business — AI agents as managed JumpCloud identities with least-privilege RBAC, custom OAuth-backed MCP servers via JumpCloud OIDC, and centralized audit governance through the JumpCloud AI Gateway.",
+      "url": "https://rsystems.nyc/case-studies/operationalizing-ai",
+      "author": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSystems NYC",
+        "url": "https://rsystems.nyc",
+        "areaServed": { "@type": "City", "name": "New York City" },
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Agentic AI operations with managed identity and governance",
+      },
+    },
+    sections: [
+      {
+        label: "At a Glance",
+        blocks: [
+          {
+            type: "specs",
+            groups: [
+              {
+                title: "",
+                items: [
+                  ["Client", "RSystems NYC (internal)"],
+                  [
+                    "Problem",
+                    "Move beyond using AI as a chat assistant to deploying it as a genuine operational layer across the business — able to act inside real systems, automate real work, and do it all under the same identity and governance controls that protect everything else.",
+                  ],
+                  [
+                    "Approach",
+                    "A structured Claude rollout built on managed identity, least-privilege role-based access, custom MCP servers, and full audit governance through the JumpCloud AI Gateway.",
+                  ],
+                  [
+                    "Outcome",
+                    "AI agents that operate across the business's systems through natural language — authenticated, permissioned, and audited like any other user — automating work and augmenting the team across every department.",
+                  ],
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "The Opportunity",
+        heading: "Beyond the chat window",
+        blocks: [
+          {
+            type: "p",
+            text: "Most organizations' experience with AI stops at the chat window: a person types a question, gets an answer, and copies the result somewhere useful. That's valuable, but it's a fraction of what's possible. The larger opportunity is to let AI act — to read from and write to the actual systems a business runs on, and to automate or assist with the work that today requires a human to log in, click through, and carry data from one place to another.",
+          },
+          {
+            type: "p",
+            text: "The obstacle isn't the AI's capability. It's everything around it: identity, permissions, security, and governance. An agent that can act inside your business systems is only safe if it's subject to the same controls as a human employee — authenticated through your identity provider, scoped to only what it should access, and audited so every action is attributable. Without that scaffolding, agentic AI is a liability. With it, it's a genuine operational capability.",
+          },
+          {
+            type: "p",
+            text: "We built the scaffolding first, then rolled out the agents. This is how.",
+          },
+        ],
+      },
+      {
+        label: "Identity",
+        heading: "Agents are users too",
+        blocks: [
+          {
+            type: "p",
+            text: "The foundation of the entire rollout is a simple principle: an AI agent is treated as a managed identity, exactly like a person.",
+          },
+          {
+            type: "p",
+            text: "Each agent is a JumpCloud user. It has its own identity, its own role-based access controls at Google, Microsoft, and the other platforms it touches, and its own scoped permissions — granted and revoked centrally, the same way we manage human staff. Every agent is provisioned according to the principle of least privilege: it gets access to exactly what it needs to do its job and nothing more. An agent responsible for documentation has access to the documentation systems and nothing else. An agent that handles invoicing is permissioned for the accounting platform, not HR records. Because these are real managed identities, every action an agent takes is attributable to that identity, and access can be revoked instantly if anything looks wrong.",
+          },
+          {
+            type: "p",
+            text: "This is the difference between \"we gave the AI an API key\" and \"we onboarded the AI like an employee.\" The second is governable. The first is a breach waiting to happen.",
+          },
+        ],
+      },
+      {
+        label: "Governance",
+        heading: "Every action audited",
+        blocks: [
+          {
+            type: "p",
+            text: "All of the agents' access to business systems is routed through the JumpCloud AI Gateway, which gives us centralized auditing and governance over what the agents are doing.",
+          },
+          {
+            type: "p",
+            text: "Every connection, every tool call, every action flows through a single governed path where it can be logged, reviewed, and controlled. AI activity across the business isn't a black box — it's a reviewable audit trail. For any organization that has to answer questions about who, or what, accessed a system and when, this is the control that makes agentic AI defensible rather than reckless.",
+          },
+        ],
+      },
+      {
+        label: "Architecture",
+        heading: "Custom MCPs as the connective tissue",
+        blocks: [
+          {
+            type: "p",
+            text: "What lets the agents actually do things is a set of custom MCP servers — the standardized way modern AI models connect to external tools and systems.",
+          },
+          {
+            type: "p",
+            text: "We host these at mcp.rsystems.nyc, with a dedicated endpoint for each tool and system the agents work with. Each MCP server is backed by OAuth, authenticated through JumpCloud OIDC — so when an agent connects to a system, it does so with proper, revocable, identity-bound authorization, not a static credential buried in a config file. The MCP layer translates an agent's natural-language intent into real, authenticated actions inside real systems.",
+          },
+          {
+            type: "p",
+            text: "The result is that the entire business becomes addressable in natural language. Instead of a person logging into a monitoring dashboard, an accounting system, or a network controller, an agent can be asked — in plain language — to check, retrieve, analyze, or act, carrying that request through the MCP layer into the live system under its own governed identity.",
+          },
+        ],
+      },
+      {
+        label: "In Practice",
+        heading: "What the agents do, across every department",
+        blocks: [
+          {
+            type: "p",
+            text: "With identity, governance, and connectivity in place, the agents take on work across the business. These capabilities are at varying stages — some live in production, others in active development or QA — but all are built on the same governed foundation:",
+          },
+          {
+            type: "ul",
+            items: [
+              "Time tracking — capturing and recording time against work without manual entry.",
+              "Documentation — generating and maintaining technical and operational documentation that historically went stale because no one had time to keep it current.",
+              "Network analysis and troubleshooting — querying network monitoring systems in natural language, surfacing issues, and assisting with diagnosis.",
+              "Monitoring — watching systems and surfacing what matters to a human operator, augmenting the team rather than replacing the human in the loop.",
+              "Sales and marketing — supporting outreach, content, and pipeline work.",
+              "Invoicing and accounting — moving financial data through the systems that handle it, reducing manual reconciliation and entry.",
+              "HR and compliance — assisting with the recurring administrative and compliance work that consumes staff time.",
+            ],
+          },
+          {
+            type: "p",
+            text: "In each case the pattern is the same: work that used to require a human to log in and operate a system can now be initiated in natural language and carried out — or accelerated — by an agent operating under its own permissioned, audited identity.",
+          },
+        ],
+      },
+      {
+        label: "The Throughline",
+        heading: "The same foundation built our website",
+        blocks: [
+          {
+            type: "rich",
+            parts: [
+              "This same approach built our own website. The RSystems site was developed using Claude Code, the agentic coding environment, on infrastructure connected to the same identity backbone — a story we tell in detail in ",
+              { text: "its own case study", href: "/case-studies/vibe-coding-done-right" },
+              ".",
+            ],
+          },
+          {
+            type: "p",
+            text: "AI, deployed properly, isn't a single tool. It's a capability that — once you've built the identity, governance, and connective architecture — extends across everything from how you build your website to how you run your back office.",
+          },
+        ],
+      },
+    ],
+    resultsHeading: "What we built.",
+    results: [
+      "AI agents provisioned as managed JumpCloud identities, with least-privilege RBAC across Google, Microsoft, and other platforms",
+      "Centralized auditing and governance of all agent activity via the JumpCloud AI Gateway",
+      "Custom MCP servers hosted at mcp.rsystems.nyc, one per tool/system",
+      "OAuth-backed MCP authentication via JumpCloud OIDC — identity-bound, revocable authorization, no static credentials",
+      "Natural-language operation across business systems through the MCP layer",
+      "Agentic automation and augmentation (live and in active development) across time tracking, documentation, network troubleshooting, monitoring, sales and marketing, invoicing and accounting, and HR/compliance",
+      "The RSystems website itself, built with Claude Code on the same identity backbone",
+    ],
+    cta: {
+      heading: "Thinking about AI for your organization?",
+      body: "Rolling out AI across a business takes more than a subscription — it takes the identity, governance, and architecture to do it safely. It's exactly the kind of work we do. If you're looking to operationalize AI across your organization, we can help.",
+      primary: { label: "Let's Talk", href: "/contact" },
+    },
+  },
+
   {
     slug: "vibe-coding-done-right",
     title: "Vibe Coding, Done Right",
@@ -181,6 +378,14 @@ export const caseStudiesData: CaseStudy[] = [
           {
             type: "p",
             text: "JumpCloud is our identity provider, and wiring the site's management environment into it means access is governed by the same identity system as everything else we run. Team members log in through SSO — no separate credentials, no shared passwords, access granted and revoked centrally. Practically, this is what allows non-technical team members to manage the site and add content. They don't need to be developers. They don't need to touch the infrastructure. They log in through an interface they already have access to and work through a chat interface to make changes.",
+          },
+          {
+            type: "rich",
+            parts: [
+              "That same identity backbone reaches well beyond this site — it's how we provision and govern AI agents across the entire business, a rollout we detail in ",
+              { text: "Operationalizing AI Across Every Department", href: "/case-studies/operationalizing-ai" },
+              ".",
+            ],
           },
         ],
       },
