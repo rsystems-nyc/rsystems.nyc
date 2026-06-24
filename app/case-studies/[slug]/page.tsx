@@ -354,51 +354,6 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      {/* CTA callout */}
-      {cs.cta && (
-        <section className="bg-[#F4F2EF]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-            <div className="relative overflow-hidden rounded-2xl bg-[#0F1117] text-white px-8 py-12 lg:px-14 lg:py-14">
-              <div className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 pointer-events-none select-none">
-                <Image
-                  src="/assets/RS_Pulsar_Only_Black.svg"
-                  alt=""
-                  width={500}
-                  height={500}
-                  className="w-[380px] h-auto opacity-[0.05]"
-                  aria-hidden="true"
-                />
-              </div>
-              <div className="relative max-w-2xl">
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight leading-snug mb-4">
-                  {cs.cta.heading}
-                </h3>
-                <p className="text-base text-white/60 leading-relaxed mb-8">
-                  {cs.cta.body}
-                </p>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                  <Link
-                    href={cs.cta.primary.href}
-                    className="inline-block bg-[#E8500A] text-white text-sm font-semibold px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
-                  >
-                    {cs.cta.primary.label}
-                  </Link>
-                  {cs.cta.secondary && (
-                    <Link
-                      href={cs.cta.secondary.href}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors"
-                    >
-                      {cs.cta.secondary.label}
-                      <span aria-hidden="true">→</span>
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Glossary */}
       {cs.glossary && cs.glossary.length > 0 && (
         <section className="bg-white border-t border-[#1A1A1A]/[0.07]">
@@ -459,6 +414,42 @@ export default async function CaseStudyPage({ params }: Props) {
                 >
                   {cs.pressCitation.label}
                 </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA — full-width closing band */}
+      {cs.cta && (
+        <section className="bg-[#0F1117] text-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+            <div className="max-w-2xl">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+                Work With Us
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold leading-tight tracking-tight mb-6">
+                {cs.cta.heading}
+              </h2>
+              <p className="text-base text-white/50 leading-relaxed mb-8">
+                {cs.cta.body}
+              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <Link
+                  href={cs.cta.primary.href}
+                  className="inline-block bg-[#E8500A] text-white text-sm font-semibold px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
+                >
+                  {cs.cta.primary.label}
+                </Link>
+                {cs.cta.secondary && (
+                  <Link
+                    href={cs.cta.secondary.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors"
+                  >
+                    {cs.cta.secondary.label}
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

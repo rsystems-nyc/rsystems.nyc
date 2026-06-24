@@ -23,7 +23,7 @@ export interface CaseStudy {
   industry: string;
   tags: string[];
   summary: string;
-  featuredImage?: { src: string; alt: string };
+  featuredImage?: { src: string; alt: string; position?: string };
   featuredImagePair?: {
     before: { src: string; alt: string };
     after: { src: string; alt: string };
@@ -91,6 +91,7 @@ export const caseStudiesData: CaseStudy[] = [
     featuredImage: {
       src: "/assets/vibe-coding.png",
       alt: "An AI-assisted development session building rsystems.nyc — code edits alongside a live terminal build running in Claude Code.",
+      position: "bottom",
     },
     sections: [
       {

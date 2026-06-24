@@ -93,6 +93,7 @@ export default function CaseStudiesFilter() {
                     alt={cs.featuredImage.alt}
                     fill
                     className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                    style={{ objectPosition: cs.featuredImage.position }}
                   />
                 </div>
               ) : null}
