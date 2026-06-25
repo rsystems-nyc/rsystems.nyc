@@ -22,6 +22,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientId: process.env.JUMPCLOUD_CLIENT_ID,
       clientSecret: process.env.JUMPCLOUD_CLIENT_SECRET,
       authorization: { params: { scope: "openid profile email" } },
+      // JumpCloud requires the OAuth `state` parameter; Auth.js defaults to
+      // PKCE-only for OIDC and omits it, which JumpCloud rejects with
+      // invalid_state. Send state (and the OIDC nonce) explicitly.
+      checks: ["pkce", "state", "nonce"],
+      // JumpCloud's OIDC client expects credentials in the POST body; Auth.js
+      // defaults to HTTP Basic (client_secret_basic) → invalid_client. Match it.
+      client: { token_endpoint_auth_method: "client_secret_post" },
     },
   ],
 });
