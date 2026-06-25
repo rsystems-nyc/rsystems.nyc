@@ -134,17 +134,9 @@ export default function Footer() {
           <p className="text-xs text-white/25 sm:flex-1">
             &copy; 2026 rsystems.nyc. All rights reserved.
           </p>
-          <p className="text-xs text-white/25 sm:flex-1 sm:text-center hidden sm:block">
+          <p className="text-xs text-white/25 sm:text-right hidden sm:block">
             rsystems.nyc
           </p>
-          <div className="sm:flex-1 sm:flex sm:justify-end">
-            <Link
-              href="/contact"
-              className="block w-52 text-center text-sm font-medium bg-[#E8500A] text-white px-5 py-2.5 rounded hover:bg-[#E8500A]/85 transition-colors"
-            >
-              Schedule a Conversation
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
