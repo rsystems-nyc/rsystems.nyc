@@ -93,7 +93,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Services + Client Portal pinned to bottom */}
+          {/* Column 4: Services */}
           <div className="flex flex-col">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
@@ -112,16 +112,6 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="mt-auto pt-5 flex justify-start sm:justify-end">
-              <a
-                href="https://support.rsystems.nyc"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="block w-52 text-center text-sm text-white/50 px-5 py-2.5 rounded border border-white/20 hover:bg-white/[0.05] hover:text-white/70 transition-colors"
-              >
-                Client Portal
-              </a>
-            </div>
           </div>
 
         </div>
@@ -134,9 +124,19 @@ export default function Footer() {
           <p className="text-xs text-white/25 sm:flex-1">
             &copy; 2026 rsystems.nyc. All rights reserved.
           </p>
-          <p className="text-xs text-white/25 sm:text-right hidden sm:block">
+          <p className="text-xs text-white/25 sm:flex-1 sm:text-center hidden sm:block">
             rsystems.nyc
           </p>
+          <div className="sm:flex-1 sm:flex sm:justify-end">
+            <a
+              href="https://support.rsystems.nyc"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="block w-52 text-center text-sm text-white/50 px-5 py-2.5 rounded border border-white/20 hover:bg-white/[0.05] hover:text-white/70 transition-colors"
+            >
+              Client Portal
+            </a>
+          </div>
         </div>
       </div>
     </footer>
