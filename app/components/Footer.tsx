@@ -116,6 +116,19 @@ export default function Footer() {
 
         </div>
 
+        {/* Dev-host only: asset upload for site admins. Hidden in prod because
+            PREVIEW_AUTH_ENABLED is never set on Vercel. */}
+        {process.env.PREVIEW_AUTH_ENABLED === "true" && (
+          <div className="mt-10 flex justify-start sm:justify-end">
+            <Link
+              href="/admin/upload"
+              className="block w-52 text-center text-sm text-white/50 px-5 py-2.5 rounded border border-white/20 hover:bg-white/[0.05] hover:text-white/70 transition-colors"
+            >
+              Upload Assets
+            </Link>
+          </div>
+        )}
+
         {/* Divider */}
         <div className="mt-6 mx-[100px] border-t border-white/[0.06]" />
 
