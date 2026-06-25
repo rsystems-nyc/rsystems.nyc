@@ -29,6 +29,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       // JumpCloud's OIDC client expects credentials in the POST body; Auth.js
       // defaults to HTTP Basic (client_secret_basic) → invalid_client. Match it.
       client: { token_endpoint_auth_method: "client_secret_post" },
+      // Auth.js has no bundled JumpCloud logo (its default img 404s). Use the
+      // RSystems mark (same asset as the favicon) on the sign-in button.
+      style: { logo: "/icon.png", brandColor: "#E8500A" },
     },
   ],
 });
