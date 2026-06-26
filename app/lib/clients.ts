@@ -102,6 +102,7 @@ const NOTABLE: NotableDef[] = [
   { industry: "Professional Services", name: "Lowe Law Group", url: "https://www.lowelawgroup.com", codes: ["LOWE"] },
   { industry: "Architecture & Design", name: "Pembrooke & Ives", url: "https://www.pembrookeandives.com/", codes: ["PI"] },
   { industry: "Architecture & Design", name: "Modellus Novus", url: "https://mndpc.com/", codes: ["MN"] },
+  { industry: "Financial Services", name: "Citadel", url: "https://www.citadel.com", codes: ["CTDL"] },
 ];
 
 // Highest-profile clients in industries that have no curated NOTABLE entry,

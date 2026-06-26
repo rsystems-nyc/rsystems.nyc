@@ -2267,5 +2267,13 @@
     "url": "https://www.citadel.com",
     "lat": 40.7601,
     "lng": -73.9712
+  },
+  {
+    "code": "DUAL",
+    "name": "Duality Group",
+    "status": "Current",
+    "hidden": false,
+    "industry": "Financial Services",
+    "subIndustry": "Finance"
   }
 ]
