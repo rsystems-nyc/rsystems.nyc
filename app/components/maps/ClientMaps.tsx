@@ -40,20 +40,26 @@ export default function ClientMaps({
         </div>
       </div>
 
-      {/* Status toggles */}
-      <div className="mt-8 flex flex-wrap justify-center gap-3">
-        <Toggle
-          label="Current Clients"
-          color="#E8500A"
-          active={showCurrent}
-          onClick={() => setShowCurrent((v) => !v)}
-        />
-        <Toggle
-          label="Prior Engagements"
-          color="#808080"
-          active={showPrevious}
-          onClick={() => setShowPrevious((v) => !v)}
-        />
+      {/* Status toggles. Two equal halves meeting at the center so the gap
+          between the pills sits exactly on the 50% line, regardless of the two
+          labels' differing widths. */}
+      <div className="mt-8 grid grid-cols-2 gap-3">
+        <div className="justify-self-end">
+          <Toggle
+            label="Current Clients"
+            color="#E8500A"
+            active={showCurrent}
+            onClick={() => setShowCurrent((v) => !v)}
+          />
+        </div>
+        <div className="justify-self-start">
+          <Toggle
+            label="Prior Engagements"
+            color="#808080"
+            active={showPrevious}
+            onClick={() => setShowPrevious((v) => !v)}
+          />
+        </div>
       </div>
     </div>
   );
