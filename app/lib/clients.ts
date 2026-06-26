@@ -112,7 +112,7 @@ const NOTABLE: NotableDef[] = [
 const FEATURED_CODES = new Set([
   "TF", "BAB",        // Branding — 2 x 4, Baron & Baron
   "PENT", "SW",       // Graphic Design — Pentagram, Sagmeister & Walsh
-  "BWAY", "UNQK",     // Technology & Software — bway.net, Unqork
+  "BWAY", "UNQK", "FAB", // Technology & Software — bway.net, Unqork, fab.com
   "BSS", "GM",        // Consulting — Brightspot Strategy, Greentech Media
   "MELC", "TNC",      // Publishing — Melcher, The New Criterion
   "BFA", "RODN",      // Photography — Billy Farrell Agency, Rodney Smith
