@@ -8,9 +8,17 @@ import type { ListEntry, ListGroup } from "@/app/components/maps/types";
 // below a faint divider, collapsed behind a caret until expanded.
 export default function ClientList({ groups }: { groups: ListGroup[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+    // Flex-wrap (not grid) so a short final row centers instead of being left-
+    // anchored. Item basis matches a 1/2/3-up layout with a 3rem column gap;
+    // full rows fill the width, a partial last row is centered by justify-center.
+    <div className="flex flex-wrap justify-center items-start gap-x-12 gap-y-10">
       {groups.map((group) => (
-        <IndustryGroup key={group.industry} group={group} />
+        <div
+          key={group.industry}
+          className="grow-0 shrink-0 basis-full sm:basis-[calc((100%_-_3rem)/2)] lg:basis-[calc((100%_-_6rem)/3)]"
+        >
+          <IndustryGroup group={group} />
+        </div>
       ))}
     </div>
   );
