@@ -82,8 +82,7 @@ const NOTABLE: NotableDef[] = [
   { industry: "Healthcare & Medical", name: "Easterseals NJ", url: "https://www.eastersealsnj.org", codes: ["ESNJ"] },
   { industry: "Healthcare & Medical", name: "Ecovative", url: "https://ecovative.com/", codes: [] },
   { industry: "Retail & Hospitality", name: "Blue Apron", url: "https://www.blueapron.com", codes: ["BA"] },
-  { industry: "Retail & Hospitality", name: "Peanut Butter & Co", url: "https://www.ilovepeanutbutter.com", codes: ["PBCO"] },
-  { industry: "Retail & Hospitality", name: "Monse", url: "https://www.monse.com", codes: [] },
+  { industry: "Retail & Hospitality", name: "Glossier", url: "https://www.glossier.com", codes: ["GLOS"] },
   { industry: "Retail & Hospitality", name: "Fair Harbor Clothing", url: "https://www.fairharborclothing.com", codes: ["FAIR"] },
   { industry: "Retail & Hospitality", name: "Sol de Janeiro", url: "https://soldejaneiro.com", codes: [] },
   { industry: "Audio Production", name: "Splice", url: "https://splice.com", codes: ["SPLC"] },
@@ -119,7 +118,7 @@ const FEATURED_CODES = new Set([
   "VHI", "RDC",       // Interior Design — Victoria Hagan, Rafael de Cardenas
   "CADRE",            // Finance — Cadre (Citadel leads via NOTABLE)
   "BARK", "HL",       // Retail — Bark & Co, Hautelook
-  "BBHG", "YCNYC",    // Hospitality — Batali & Bastianich, Yale Club
+  "BBHG",             // Hospitality — Batali & Bastianich
   "BHS", "SQFT",      // Real Estate — Brown Harris Stevens, SquareFoot
   "RSSR", "BOND",     // Recruiting — RitaSue Siegel, Bond Creative
   "4B",               // Recycling — 4th Bin
