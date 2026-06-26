@@ -59,8 +59,8 @@
     "name": "Bank Robber Music",
     "status": "Current",
     "hidden": false,
-    "industry": "Audio Production",
-    "subIndustry": "Audio",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://bankrobbermusic.com",
     "lat": 40.719633,
     "lng": -74.00159
@@ -2267,5 +2267,16 @@
     "lat": 40.7882,
     "lng": -73.9681,
     "mapOnly": true
+  },
+  {
+    "code": "CTDL",
+    "name": "Citadel",
+    "status": "Current",
+    "hidden": false,
+    "industry": "Financial Services",
+    "subIndustry": "Finance",
+    "url": "https://www.citadel.com",
+    "lat": 40.7601,
+    "lng": -73.9712
   }
 ]
