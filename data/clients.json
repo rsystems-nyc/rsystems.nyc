@@ -1051,17 +1051,6 @@
     "lng": -74.000532
   },
   {
-    "code": "BSS",
-    "name": "Brightspot Strategy",
-    "status": "Former",
-    "hidden": false,
-    "industry": "Professional Services",
-    "subIndustry": "Consulting",
-    "url": "https://brightspotstrategy.com",
-    "lat": 40.753263,
-    "lng": -73.998239
-  },
-  {
     "code": "BBP",
     "name": "Brooklyn Bridge Park",
     "status": "Former",
@@ -1175,17 +1164,6 @@
     "hidden": true,
     "lat": 40.725651,
     "lng": -74.004916
-  },
-  {
-    "code": "HL",
-    "name": "Hautelook",
-    "status": "Former",
-    "hidden": false,
-    "industry": "Retail & Hospitality",
-    "subIndustry": "Retail",
-    "url": "https://hautelook.com",
-    "lat": 34.048607,
-    "lng": -118.258751
   },
   {
     "code": "JSA",
@@ -1474,17 +1452,6 @@
     "url": "https://bway.net",
     "lat": 40.719633,
     "lng": -74.00159
-  },
-  {
-    "code": "TSE",
-    "name": "Cashmere House Inc. dba TSE",
-    "status": "Inactive",
-    "hidden": false,
-    "industry": "Retail & Hospitality",
-    "subIndustry": "Fashion",
-    "url": "https://tsecashmere.com",
-    "lat": 40.720602,
-    "lng": -73.95612
   },
   {
     "code": "H30",
