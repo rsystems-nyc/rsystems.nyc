@@ -15,8 +15,8 @@ export default function Footer() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 lg:py-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
 
           {/* Column 1: Brand */}
           <div>
@@ -29,18 +29,18 @@ export default function Footer() {
                 className="h-16 w-auto"
               />
             </Link>
-            <p className="mt-4 text-sm text-white/40 leading-relaxed max-w-xs">
+            <p className="mt-3 text-sm text-white/40 leading-relaxed max-w-xs">
               Executive IT Leadership &amp; Consulting — bridging the boardroom and the server room.
             </p>
-            <p className="mt-3 text-sm text-white/30">New York City</p>
+            <p className="mt-2 text-sm text-white/30">New York City</p>
           </div>
 
           {/* Column 2: Company */}
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
               Company
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
                 <Link href="/about/" className="text-sm text-white/50 hover:text-white transition-colors">
                   About
@@ -71,10 +71,10 @@ export default function Footer() {
 
           {/* Column 3: Resources */}
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
               Resources
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
                 <Link href="/resources/" className="text-sm text-white/50 hover:text-white transition-colors">
                   Resources
@@ -96,10 +96,10 @@ export default function Footer() {
           {/* Column 4: Services */}
           <div className="flex flex-col">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
                 Services
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 <li>
                   <Link href="/services/technology-consulting/" className="text-sm text-white/50 hover:text-white transition-colors">
                     Technology Consulting
@@ -110,30 +110,40 @@ export default function Footer() {
                     Managed Services
                   </Link>
                 </li>
+                <li>
+                  <Link href="/services/buildout" className="text-sm text-white/50 hover:text-white transition-colors">
+                    Buildout &amp; Installation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/ephemeral" className="text-sm text-white/50 hover:text-white transition-colors">
+                    Ephemeral Infrastructure
+                  </Link>
+                </li>
               </ul>
             </div>
+            {/* Dev-host only: asset upload for site admins. Hidden in prod
+                because PREVIEW_AUTH_ENABLED is never set on Vercel. Floats to
+                the column bottom-right via mt-auto. */}
+            {process.env.PREVIEW_AUTH_ENABLED === "true" && (
+              <div className="mt-auto pt-5 flex justify-start sm:justify-end">
+                <Link
+                  href="/admin/upload"
+                  className="block w-52 text-center text-sm text-white/50 px-5 py-2.5 rounded border border-white/20 hover:bg-white/[0.05] hover:text-white/70 transition-colors"
+                >
+                  Upload Assets
+                </Link>
+              </div>
+            )}
           </div>
 
         </div>
 
-        {/* Dev-host only: asset upload for site admins. Hidden in prod because
-            PREVIEW_AUTH_ENABLED is never set on Vercel. */}
-        {process.env.PREVIEW_AUTH_ENABLED === "true" && (
-          <div className="mt-10 flex justify-start sm:justify-end">
-            <Link
-              href="/admin/upload"
-              className="block w-52 text-center text-sm text-white/50 px-5 py-2.5 rounded border border-white/20 hover:bg-white/[0.05] hover:text-white/70 transition-colors"
-            >
-              Upload Assets
-            </Link>
-          </div>
-        )}
-
         {/* Divider */}
-        <div className="mt-6 mx-[100px] border-t border-white/[0.06]" />
+        <div className="mt-5 mx-[100px] border-t border-white/[0.06]" />
 
         {/* Bottom bar */}
-        <div className="pt-6 flex flex-col sm:flex-row sm:items-center gap-4">
+        <div className="pt-5 flex flex-col sm:flex-row sm:items-center gap-4">
           <p className="text-xs text-white/25 sm:flex-1">
             &copy; 2026 rsystems.nyc. All rights reserved.
           </p>
