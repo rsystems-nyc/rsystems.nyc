@@ -45,3 +45,6 @@ next-env.d.ts
 .claude/
 CLAUDE.md
 AGENTS.md
+
+# admin-only client data export (never commit — public repo)
+/public/clients.csv
