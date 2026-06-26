@@ -285,7 +285,7 @@ export default function Nav() {
             </div>
           </div>
 
-          <Link href="/contact" className="text-sm font-medium bg-[#E8500A] text-white px-4 py-2 rounded hover:bg-[#E8500A]/85 transition-colors">
+          <Link href="/contact" className="text-sm font-medium bg-[#FE6305] text-white px-4 py-2 rounded hover:bg-[#FE6305]/85 transition-colors">
             Contact
           </Link>
         </nav>
@@ -722,7 +722,7 @@ export default function Nav() {
 
           <Link
             href="/contact"
-            className="mt-4 text-center text-sm font-medium bg-[#E8500A] text-white px-4 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
+            className="mt-4 text-center text-sm font-medium bg-[#FE6305] text-white px-4 py-3 rounded hover:bg-[#FE6305]/85 transition-colors"
             onClick={() => setOpen(false)}
           >
             Contact
