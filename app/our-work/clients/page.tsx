@@ -61,7 +61,7 @@ export default function ClientsPage() {
       <section className="relative overflow-hidden bg-[#F4F2EF]">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 lg:pt-12 pb-20 lg:pb-24">
           <ClientList groups={listGroups} />
-          <p className="mt-16 text-sm text-[#1A1A1A]/40">
+          <p className="mt-16 text-center text-sm text-[#1A1A1A]/40">
             Organizations we&apos;ve worked with across 15+ years — current,
             inactive, and former engagements. Not a complete list.
           </p>
