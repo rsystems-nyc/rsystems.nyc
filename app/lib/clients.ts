@@ -168,12 +168,33 @@ for (const g of groupMap.values()) {
   g.others.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// Industries with curated notable entries lead (in their listed order); the
-// remaining industries follow, largest roster first.
-const NOTABLE_ORDER = [...new Set(NOTABLE.map((n) => n.industry))];
+// Explicit display order for the industry groups on the Clients page (a 3-up
+// grid, so this reads as rows of three). Industries not listed here fall to the
+// end, largest roster first.
+const INDUSTRY_ORDER = [
+  // Row 1
+  "Product Design & Manufacturing",
+  "Financial Services",
+  "Design & Advertising",
+  // Row 2
+  "Nonprofits",
+  "Parks & Recreation",
+  "Arts & Culture",
+  // Rows 3+
+  "Healthcare & Medical",
+  "Retail & Hospitality",
+  "Audio Production",
+  "Education",
+  "Video & Post-Production",
+  "Professional Services",
+  "Architecture & Design",
+  "Technology & Software",
+  "Publishing & Media",
+  "Logistics & Operations",
+];
 export const listGroups: ListGroup[] = [...groupMap.values()].sort((a, b) => {
-  const ai = NOTABLE_ORDER.indexOf(a.industry);
-  const bi = NOTABLE_ORDER.indexOf(b.industry);
+  const ai = INDUSTRY_ORDER.indexOf(a.industry);
+  const bi = INDUSTRY_ORDER.indexOf(b.industry);
   if (ai !== -1 || bi !== -1) {
     if (ai === -1) return 1;
     if (bi === -1) return -1;
