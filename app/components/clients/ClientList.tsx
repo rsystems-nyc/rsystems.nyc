@@ -8,7 +8,7 @@ import type { ListEntry, ListGroup } from "@/app/components/maps/types";
 // below a faint divider, collapsed behind a caret until expanded.
 export default function ClientList({ groups }: { groups: ListGroup[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
       {groups.map((group) => (
         <IndustryGroup key={group.industry} group={group} />
       ))}

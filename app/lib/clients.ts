@@ -122,7 +122,7 @@ const FEATURED_CODES = new Set([
   "BHS", "SQFT",      // Real Estate — Brown Harris Stevens, SquareFoot
   "RSSR", "BOND",     // Recruiting — RitaSue Siegel, Bond Creative
   "4B",               // Recycling — 4th Bin
-  "TOBIN",            // Logistics — Tobin & Sons
+  "TOBIN",            // Logistics — Tobin Scientific
   "NOS",              // Landscape Design — Nancy Owens Studio
   "HEN",              // Talent Management — The Hendra Agency
   "MGL",              // Industrial — Megado Gold
