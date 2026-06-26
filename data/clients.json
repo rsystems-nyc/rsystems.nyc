@@ -1586,12 +1586,13 @@
     "code": "24W40",
     "name": "Sonic 24W40, LLC",
     "status": "Inactive",
-    "hidden": false,
     "industry": "Audio Production",
     "subIndustry": "Audio",
     "url": "https://jfosound.com",
     "lat": 40.752475,
-    "lng": -73.982632
+    "lng": -73.982632,
+    "hidden": false,
+    "mapOnly": true
   },
   {
     "code": "SPLC",
