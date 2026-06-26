@@ -30,7 +30,7 @@ export function Pin({
         willChange: "transform, opacity",
       };
 
-  const fill = former ? "#808080" : "#E8500A";
+  const fill = former ? "#808080" : "#FE6305";
   const stroke = former ? "#4B4B4B" : "#0F1117";
 
   return (

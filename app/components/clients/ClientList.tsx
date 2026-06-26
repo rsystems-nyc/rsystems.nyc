@@ -47,7 +47,7 @@ function IndustryGroup({ group }: { group: ListGroup }) {
 
   return (
     <div className="text-center">
-      <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+      <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
         {industry}
       </p>
 
@@ -73,7 +73,7 @@ function IndustryGroup({ group }: { group: ListGroup }) {
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            className="group mt-1.5 inline-flex items-center gap-1.5 text-[13px] font-medium text-[#1A1A1A]/70 hover:text-[#E8500A] transition-colors"
+            className="group mt-1.5 inline-flex items-center gap-1.5 text-[13px] font-medium text-[#1A1A1A]/70 hover:text-[#FE6305] transition-colors"
           >
             {open
               ? "Show fewer"

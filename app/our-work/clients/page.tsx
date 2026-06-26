@@ -20,7 +20,7 @@ export default function ClientsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <Link
             href="/our-work"
-            className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-6 hover:text-[#E8500A]/75 transition-colors"
+            className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-6 hover:text-[#FE6305]/75 transition-colors"
           >
             <span aria-hidden="true">←</span> Our Work
           </Link>
@@ -39,7 +39,7 @@ export default function ClientsPage() {
       {/* Client locations */}
       <section className="bg-gradient-to-b from-white from-[80%] to-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24 pb-10 lg:pb-12">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
             Our Reach
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1A1A1A] max-w-2xl">

@@ -27,13 +27,13 @@ export default function ClientMaps({
           viewBox, so both render at identical heights. */}
       <div className="grid grid-cols-1 lg:grid-cols-[422fr_800fr] gap-8 items-start">
         <div>
-          <p className="text-center text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+          <p className="text-center text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
             New York City
           </p>
           <NYCMap points={nycPoints} showCurrent={showCurrent} showPrevious={showPrevious} />
         </div>
         <div>
-          <p className="text-center text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+          <p className="text-center text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
             Worldwide
           </p>
           <WorldMap points={worldPoints} showCurrent={showCurrent} showPrevious={showPrevious} />
@@ -47,7 +47,7 @@ export default function ClientMaps({
         <div className="justify-self-end">
           <Toggle
             label="Current Clients"
-            color="#E8500A"
+            color="#FE6305"
             active={showCurrent}
             onClick={() => setShowCurrent((v) => !v)}
           />
