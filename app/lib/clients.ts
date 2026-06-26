@@ -187,9 +187,9 @@ const INDUSTRY_ORDER = [
   "Video & Post-Production",
   "Professional Services",
   "Architecture & Design",
+  "Logistics & Operations", // position 14 → bottom of column 2 in the 3-up grid
   "Technology & Software",
   "Publishing & Media",
-  "Logistics & Operations",
 ];
 export const listGroups: ListGroup[] = [...groupMap.values()].sort((a, b) => {
   const ai = INDUSTRY_ORDER.indexOf(a.industry);
