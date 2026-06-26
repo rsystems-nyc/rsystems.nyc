@@ -38,7 +38,7 @@ function IndustryGroup({ group }: { group: ListGroup }) {
   const hasOthers = others.length > 0;
 
   return (
-    <div>
+    <div className="text-center">
       <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
         {industry}
       </p>
