@@ -2287,5 +2287,15 @@
     "url": "https://www.glossier.com",
     "lat": 40.7236,
     "lng": -74.0021
+  },
+  {
+    "code": "FOST",
+    "name": "Future of Storytelling",
+    "status": "Current",
+    "hidden": false,
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
+    "lat": 40.725,
+    "lng": -74.005
   }
 ]
