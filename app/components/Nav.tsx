@@ -215,20 +215,23 @@ export default function Nav() {
             </Link>
           </div>
 
-          <div className="relative group">
+          <div className="relative" onMouseEnter={() => openDesktopDropdown('ourwork')} onMouseLeave={closeDesktopDropdown}>
             <Link
               href="/our-work"
-              className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setActiveDesktopDropdown(null)}
+              className={`flex items-center gap-1 text-sm transition-colors ${
+                activeDesktopDropdown === 'ourwork' ? "text-[#1A1A1A]" : "text-[#1A1A1A]/50 hover:text-[#1A1A1A]"
+              }`}
             >
               Our Work
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px transition-transform duration-150 group-hover:rotate-180">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px" style={{ transform: activeDesktopDropdown === 'ourwork' ? "rotate(180deg)" : undefined, transition: "transform 0.15s" }}>
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className="absolute top-full left-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
+            <div className={`absolute top-full left-0 z-50 pt-2 transition-opacity duration-150 ${activeDesktopDropdown === 'ourwork' ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
               <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
                 {ourWorkLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
+                  <Link key={link.href} href={link.href} onClick={() => setActiveDesktopDropdown(null)} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
                     {link.label}
                   </Link>
                 ))}
@@ -243,20 +246,23 @@ export default function Nav() {
             Pricing
           </Link>
 
-          <div className="relative group">
+          <div className="relative" onMouseEnter={() => openDesktopDropdown('resources')} onMouseLeave={closeDesktopDropdown}>
             <Link
               href="/resources"
-              className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setActiveDesktopDropdown(null)}
+              className={`flex items-center gap-1 text-sm transition-colors ${
+                activeDesktopDropdown === 'resources' ? "text-[#1A1A1A]" : "text-[#1A1A1A]/50 hover:text-[#1A1A1A]"
+              }`}
             >
               Resources
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px transition-transform duration-150 group-hover:rotate-180">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px" style={{ transform: activeDesktopDropdown === 'resources' ? "rotate(180deg)" : undefined, transition: "transform 0.15s" }}>
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className="absolute top-full left-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
+            <div className={`absolute top-full left-0 z-50 pt-2 transition-opacity duration-150 ${activeDesktopDropdown === 'resources' ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
               <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[160px]">
                 {resourcesLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
+                  <Link key={link.href} href={link.href} onClick={() => setActiveDesktopDropdown(null)} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
                     {link.label}
                   </Link>
                 ))}
@@ -264,20 +270,23 @@ export default function Nav() {
             </div>
           </div>
 
-          <div className="relative group">
+          <div className="relative" onMouseEnter={() => openDesktopDropdown('about')} onMouseLeave={closeDesktopDropdown}>
             <Link
               href="/about"
-              className="flex items-center gap-1 text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A] group-hover:text-[#1A1A1A] transition-colors"
+              onClick={() => setActiveDesktopDropdown(null)}
+              className={`flex items-center gap-1 text-sm transition-colors ${
+                activeDesktopDropdown === 'about' ? "text-[#1A1A1A]" : "text-[#1A1A1A]/50 hover:text-[#1A1A1A]"
+              }`}
             >
               About
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px transition-transform duration-150 group-hover:rotate-180">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="mt-px" style={{ transform: activeDesktopDropdown === 'about' ? "rotate(180deg)" : undefined, transition: "transform 0.15s" }}>
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className="absolute top-full right-0 z-50 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150">
+            <div className={`absolute top-full right-0 z-50 pt-2 transition-opacity duration-150 ${activeDesktopDropdown === 'about' ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
               <div className="bg-[#F4F2EF] border border-black/[0.08] rounded-lg shadow-lg py-1.5 min-w-[148px]">
                 {aboutLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
+                  <Link key={link.href} href={link.href} onClick={() => setActiveDesktopDropdown(null)} className="block px-4 py-2 text-sm text-[#1A1A1A]/60 hover:text-[#1A1A1A] hover:bg-black/[0.04] transition-colors">
                     {link.label}
                   </Link>
                 ))}
