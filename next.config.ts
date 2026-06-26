@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
       { source: '/about/pulsar-map/', destination: '/about/our-story', permanent: true },
       { source: '/services/management/workstation', destination: '/services/management/endpoint-management', permanent: true },
       { source: '/services/management/workstation/', destination: '/services/management/endpoint-management', permanent: true },
+      { source: '/industries/software-engineering', destination: '/industries/technology-software', permanent: true },
+      { source: '/industries/software-engineering/', destination: '/industries/technology-software', permanent: true },
+      { source: '/industries/advertising-marketing', destination: '/industries/design-advertising', permanent: true },
+      { source: '/industries/advertising-marketing/', destination: '/industries/design-advertising', permanent: true },
     ];
   },
   devIndicators: false,

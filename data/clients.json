@@ -4,7 +4,8 @@
     "name": "2 x 4, Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://2x4.org",
     "lat": 40.7178,
     "lng": -74.0027
@@ -14,7 +15,8 @@
     "name": "212Harakawa Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://twotwelve.com",
     "lat": 40.747194,
     "lng": -73.99577
@@ -24,7 +26,8 @@
     "name": "4th Bin",
     "status": "Current",
     "hidden": false,
-    "industry": "Recycling",
+    "industry": "Logistics & Operations",
+    "subIndustry": "Recycling",
     "url": "https://4thbin.com",
     "lat": 40.746759,
     "lng": -73.993623
@@ -34,7 +37,8 @@
     "name": "8 Point Studio, Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://8pointstudio.com",
     "lat": 40.993141,
     "lng": -73.874017
@@ -44,7 +48,8 @@
     "name": "AAH Construction Corporation",
     "status": "Current",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://aahconstruction.com",
     "lat": 40.776524,
     "lng": -73.910114
@@ -54,7 +59,8 @@
     "name": "ABS Partners Real Estate, LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Real Estate",
+    "industry": "Professional Services",
+    "subIndustry": "Real Estate",
     "url": "https://absre.com",
     "lat": 40.736635,
     "lng": -73.989046
@@ -64,7 +70,8 @@
     "name": "Acora Partners",
     "status": "Current",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://weareacora.com",
     "lat": 41.004585,
     "lng": -73.795992
@@ -74,7 +81,8 @@
     "name": "Alexandre Gallery",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://alexandregallery.com",
     "lat": 40.774,
     "lng": -73.965
@@ -84,7 +92,8 @@
     "name": "Ashe Leandro, LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://asheleandro.com",
     "lat": 40.723,
     "lng": -73.993
@@ -94,7 +103,8 @@
     "name": "Aubin Pictures",
     "status": "Current",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://aubinpictures.com",
     "lat": 40.720261,
     "lng": -73.999308
@@ -104,7 +114,8 @@
     "name": "Bank Robber Music",
     "status": "Current",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://bankrobbermusic.com",
     "lat": 40.719633,
     "lng": -74.00159
@@ -122,7 +133,8 @@
     "name": "Barlis Wedlick Architects, LLC.",
     "status": "Current",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://barliswedlick.com",
     "lat": 40.71206,
     "lng": -74.009523
@@ -132,7 +144,8 @@
     "name": "Battery Conservancy",
     "status": "Current",
     "hidden": false,
-    "industry": "Parks",
+    "industry": "Parks & Recreation",
+    "subIndustry": "Parks",
     "url": "https://thebattery.org",
     "lat": 40.703797,
     "lng": -74.011961
@@ -142,7 +155,8 @@
     "name": "BFAB, LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://brantfoundation.org",
     "lat": 40.726247,
     "lng": -73.985648
@@ -152,7 +166,8 @@
     "name": "BioLite",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://bioliteenergy.com",
     "lat": 40.705,
     "lng": -73.934
@@ -162,7 +177,8 @@
     "name": "Black Girls Code",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://wearebgc.org",
     "lat": 40.741836,
     "lng": -74.004336
@@ -172,7 +188,8 @@
     "name": "Bond Creative Management",
     "status": "Current",
     "hidden": false,
-    "industry": "Recruiting",
+    "industry": "Professional Services",
+    "subIndustry": "Recruiting",
     "url": "https://bondcreativemgmt.com",
     "lat": 40.725887,
     "lng": -73.993049
@@ -182,7 +199,8 @@
     "name": "Brillia Collective",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://wearebrillia.com",
     "lat": 19.643177,
     "lng": -155.989549
@@ -193,6 +211,7 @@
     "status": "Current",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://bucksrockcamp.org",
     "lat": 41.21266,
     "lng": -73.009141
@@ -202,7 +221,8 @@
     "name": "Builds Bio+",
     "status": "Current",
     "hidden": false,
-    "industry": "Biotech",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Biotech",
     "url": "https://buildsbio.org",
     "lat": 40.713495,
     "lng": -74.009526
@@ -212,7 +232,8 @@
     "name": "Buro Ehring Engineering P.C.",
     "status": "Current",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://buroehring.com",
     "lat": 40.7124,
     "lng": -74.0083
@@ -222,7 +243,8 @@
     "name": "CA1 CA2",
     "status": "Current",
     "hidden": false,
-    "industry": "Interior Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Interior Design",
     "url": "https://corneliaadams.com",
     "lat": 40.71238,
     "lng": -73.9446
@@ -232,7 +254,8 @@
     "name": "Cadillac Uniform",
     "status": "Current",
     "hidden": false,
-    "industry": "Retail",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Retail",
     "url": "https://cadillacuniform.com",
     "lat": 18.344958,
     "lng": -66.168374
@@ -242,7 +265,8 @@
     "name": "Capture This",
     "status": "Current",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://capturethisnyc.com",
     "lat": 41.6273,
     "lng": -75.7849
@@ -252,7 +276,8 @@
     "name": "Captured Tracks LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://omnianmusicgroup.com",
     "lat": 40.711113,
     "lng": -73.935004
@@ -262,7 +287,8 @@
     "name": "Carbone Smolan Agency",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://carbonesmolan.com",
     "lat": 41.011179,
     "lng": -73.91346
@@ -272,7 +298,8 @@
     "name": "Castor Key Partners",
     "status": "Current",
     "hidden": false,
-    "industry": "Finance",
+    "industry": "Financial Services",
+    "subIndustry": "Finance",
     "url": "https://castorkey.com",
     "lat": 40.747118,
     "lng": -73.983338
@@ -282,7 +309,8 @@
     "name": "Charity Navigator",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://charitynavigator.org",
     "lat": 40.896745,
     "lng": -74.093781
@@ -300,7 +328,8 @@
     "name": "Chinati Foundation",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://chinati.org",
     "lat": 30.311762,
     "lng": -104.023146
@@ -310,7 +339,8 @@
     "name": "Cinereach",
     "status": "Current",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://cinereach.org",
     "lat": 40.751915,
     "lng": -73.97553
@@ -320,7 +350,8 @@
     "name": "co:collective",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://cocollective.com",
     "lat": 40.745929,
     "lng": -73.994233
@@ -330,7 +361,8 @@
     "name": "Corita Art Center",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://corita.org",
     "lat": 34.045181,
     "lng": -118.235624
@@ -340,7 +372,8 @@
     "name": "Creative Capital",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://creative-capital.org",
     "lat": 40.748,
     "lng": -73.993
@@ -358,7 +391,8 @@
     "name": "Denniston Hill",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://dennistonhill.org",
     "lat": 40.719633,
     "lng": -74.00159
@@ -368,7 +402,8 @@
     "name": "Domino Park Conservancy LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Parks",
+    "industry": "Parks & Recreation",
+    "subIndustry": "Parks",
     "url": "https://twotreesny.com",
     "lat": 40.714,
     "lng": -73.968
@@ -378,7 +413,8 @@
     "name": "DTE Studio",
     "status": "Current",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://dtestudio.com",
     "lat": 40.748043,
     "lng": -73.991974
@@ -388,7 +424,8 @@
     "name": "Egg Collective LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://eggcollective.com",
     "lat": 40.721456,
     "lng": -74.008497
@@ -398,7 +435,8 @@
     "name": "Elysium Health",
     "status": "Current",
     "hidden": false,
-    "industry": "Healthcare",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Healthcare",
     "url": "https://elysiumhealth.com",
     "lat": 40.728,
     "lng": -73.994
@@ -416,7 +454,8 @@
     "name": "Fair Harbor Clothing",
     "status": "Current",
     "hidden": false,
-    "industry": "Fashion",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Fashion",
     "url": "https://fairharborclothing.com",
     "lat": 40.721,
     "lng": -74.005
@@ -426,7 +465,8 @@
     "name": "Geigsen",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://geigsen.com",
     "lat": 40.747241,
     "lng": -73.988926
@@ -436,7 +476,8 @@
     "name": "GHD Partners, LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://ghdp.com",
     "lat": 40.704435,
     "lng": -74.01149
@@ -462,7 +503,8 @@
     "name": "Harmony Labs",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://harmonylabs.org",
     "lat": 40.755056,
     "lng": -73.986423
@@ -472,7 +514,8 @@
     "name": "Harry Allen & Associates",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://harryallendesign.com",
     "lat": 40.729678,
     "lng": -73.98126
@@ -482,7 +525,8 @@
     "name": "Heard City",
     "status": "Current",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://heardcity.com",
     "lat": 40.741046,
     "lng": -73.99142
@@ -492,7 +536,8 @@
     "name": "Helen Frankenthaler Foundation",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://frankenthalerfoundation.org",
     "lat": 40.745165,
     "lng": -73.992502
@@ -502,7 +547,8 @@
     "name": "Hypebeast Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://hypebeast.com",
     "lat": 40.71432,
     "lng": -73.993485
@@ -512,7 +558,8 @@
     "name": "Idriss Dermatology",
     "status": "Current",
     "hidden": false,
-    "industry": "Healthcare",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Healthcare",
     "url": "https://idrissderm.com",
     "lat": 40.753235,
     "lng": -73.984434
@@ -522,7 +569,8 @@
     "name": "Innerchapter US",
     "status": "Current",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://innerchapter.co",
     "lat": 37.911342,
     "lng": -122.066813
@@ -532,7 +580,8 @@
     "name": "Jaime Frankfurt, LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://jaimefrankfurt.com",
     "lat": 40.743707,
     "lng": -73.997251
@@ -542,7 +591,8 @@
     "name": "Jerome L. Greene Foundation",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://jlgreene.org",
     "lat": 40.7766,
     "lng": -73.9749
@@ -552,7 +602,8 @@
     "name": "JSM Music, Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://jsmmusic.com",
     "lat": 40.745,
     "lng": -73.988
@@ -562,7 +613,8 @@
     "name": "Judd Foundation",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://juddfoundation.org",
     "lat": 40.725,
     "lng": -73.999
@@ -572,7 +624,8 @@
     "name": "Juxtapose",
     "status": "Current",
     "hidden": false,
-    "industry": "Finance",
+    "industry": "Financial Services",
+    "subIndustry": "Finance",
     "url": "https://juxtapose.com",
     "lat": 40.728128,
     "lng": -73.991575
@@ -606,7 +659,8 @@
     "name": "Landscape",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://thisislandscape.com",
     "lat": 37.771322,
     "lng": -122.430836
@@ -616,7 +670,8 @@
     "name": "Lannan Impact Fund",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://lannan.org",
     "lat": 35.687,
     "lng": -105.9378
@@ -634,7 +689,8 @@
     "name": "Leong Leong LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://leong-leong.com",
     "lat": 40.718,
     "lng": -73.995
@@ -644,7 +700,8 @@
     "name": "LeRoy Neiman Foundation",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://leroyneimanfoundation.org",
     "lat": 40.773505,
     "lng": -73.978872
@@ -654,7 +711,8 @@
     "name": "Little Island",
     "status": "Current",
     "hidden": false,
-    "industry": "Parks",
+    "industry": "Parks & Recreation",
+    "subIndustry": "Parks",
     "url": "https://littleisland.org",
     "lat": 40.7424,
     "lng": -74.0107
@@ -664,7 +722,8 @@
     "name": "Longstead Holdings",
     "status": "Current",
     "hidden": false,
-    "industry": "Finance",
+    "industry": "Financial Services",
+    "subIndustry": "Finance",
     "url": "https://longsteadholdings.com",
     "lat": 25.772688,
     "lng": -80.187542
@@ -674,7 +733,8 @@
     "name": "Lowe Law Group",
     "status": "Current",
     "hidden": false,
-    "industry": "Legal",
+    "industry": "Professional Services",
+    "subIndustry": "Legal",
     "url": "https://lowelawgroup.com",
     "lat": 41.162,
     "lng": -111.954
@@ -684,7 +744,8 @@
     "name": "Machine IO",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://machine.io",
     "lat": 40.705,
     "lng": -73.99
@@ -694,7 +755,8 @@
     "name": "Makerbot",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://makerbot.com",
     "lat": 40.746581,
     "lng": -73.9883
@@ -720,7 +782,8 @@
     "name": "Melcher",
     "status": "Current",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://melcher.com",
     "lat": 40.725,
     "lng": -74.005
@@ -730,7 +793,8 @@
     "name": "MEMO Productions",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://memo-ny.com",
     "lat": 40.6855,
     "lng": -73.9772
@@ -740,7 +804,8 @@
     "name": "Mexican Summer",
     "status": "Current",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://mexicansummer.com",
     "lat": 40.722,
     "lng": -73.958
@@ -750,7 +815,8 @@
     "name": "Mike Kelley Foundation for the Arts",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://mikekelleyfoundation.org",
     "lat": 34.129689,
     "lng": -118.1882
@@ -760,7 +826,8 @@
     "name": "Multi-Arts Production Fund",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://mapfund.org",
     "lat": 40.73778,
     "lng": -73.988675
@@ -770,7 +837,8 @@
     "name": "MWNY LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://mwny.com",
     "lat": 40.746779,
     "lng": -73.951688
@@ -780,7 +848,8 @@
     "name": "Mythology",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://mythology.com",
     "lat": 40.725,
     "lng": -74.002
@@ -798,7 +867,8 @@
     "name": "National Audubon Society",
     "status": "Current",
     "hidden": false,
-    "industry": "Parks",
+    "industry": "Parks & Recreation",
+    "subIndustry": "Parks",
     "url": "https://audubon.org",
     "lat": 40.7282,
     "lng": -74.0042
@@ -808,7 +878,8 @@
     "name": "Ocean Risk and Resilience Action Alliance",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://oceanriskalliance.org",
     "lat": 38.920834,
     "lng": -77.072218
@@ -826,7 +897,8 @@
     "name": "Open",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://notclosed.com",
     "lat": 40.72745,
     "lng": -74.005139
@@ -844,7 +916,8 @@
     "name": "Parents League of New York",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://parentsleague.org",
     "lat": 40.774,
     "lng": -73.962
@@ -854,7 +927,8 @@
     "name": "Peanut Butter & Co.",
     "status": "Current",
     "hidden": false,
-    "industry": "Food Services",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Food Services",
     "url": "https://ilovepeanutbutter.com",
     "lat": 40.764332,
     "lng": -73.983431
@@ -864,7 +938,8 @@
     "name": "Pembrooke & Ives",
     "status": "Current",
     "hidden": false,
-    "industry": "Interior Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Interior Design",
     "url": "https://pembrookeandives.com",
     "lat": 40.743,
     "lng": -74.005
@@ -874,7 +949,8 @@
     "name": "Penrose Hill, Ltd.",
     "status": "Current",
     "hidden": false,
-    "industry": "Retail",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Retail",
     "url": "https://penrosehill.com",
     "lat": 38.223783,
     "lng": -122.272508
@@ -884,7 +960,8 @@
     "name": "Pensa",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://pensa.co",
     "lat": 40.692,
     "lng": -73.989
@@ -894,7 +971,8 @@
     "name": "People's Television, Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://peoples.tv",
     "lat": 40.748683,
     "lng": -73.993118
@@ -920,7 +998,8 @@
     "name": "Pointed Leaf Press",
     "status": "Current",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://pointedleafpress.com",
     "lat": 40.71868,
     "lng": -73.998803
@@ -930,7 +1009,8 @@
     "name": "Popcorn Communications",
     "status": "Current",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://popcorncomm.com",
     "lat": 41.056086,
     "lng": -73.671421
@@ -940,7 +1020,8 @@
     "name": "Prime Studio",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://primestudio.com",
     "lat": 40.755952,
     "lng": -73.99206
@@ -950,7 +1031,8 @@
     "name": "Qognitive",
     "status": "Current",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://qognitive.io",
     "lat": 25.801751,
     "lng": -80.1257
@@ -968,7 +1050,8 @@
     "name": "Rafael de Cardenas, Ltd",
     "status": "Current",
     "hidden": false,
-    "industry": "Interior Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Interior Design",
     "url": "https://rafaeldecardenas.com",
     "lat": 40.723,
     "lng": -73.995
@@ -978,7 +1061,8 @@
     "name": "Red Antler, LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://redantler.com",
     "lat": 40.704195,
     "lng": -73.98665
@@ -988,7 +1072,8 @@
     "name": "Robert Rauschenberg Foundation",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://rauschenbergfoundation.org",
     "lat": 40.739,
     "lng": -74.007
@@ -1006,7 +1091,8 @@
     "name": "Sage and Coombe Architects",
     "status": "Current",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://sageandcoombe.com",
     "lat": 40.719,
     "lng": -74.002
@@ -1016,7 +1102,8 @@
     "name": "Salty Features",
     "status": "Current",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://saltyfeatures.com",
     "lat": 40.702768,
     "lng": -73.986828
@@ -1026,7 +1113,8 @@
     "name": "Shahid / Kraus & Company",
     "status": "Current",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://shahidkraus.com",
     "lat": 40.718809,
     "lng": -74.002574
@@ -1036,7 +1124,8 @@
     "name": "Sharehold",
     "status": "Current",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://loyal.is",
     "lat": 40.67156,
     "lng": -73.974464
@@ -1046,7 +1135,8 @@
     "name": "Socrates Sculpture Park, Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Parks",
+    "industry": "Parks & Recreation",
+    "subIndustry": "Parks",
     "url": "https://socratessculpturepark.org",
     "lat": 40.7686,
     "lng": -73.9366
@@ -1064,7 +1154,8 @@
     "name": "Solid Agency",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://solidagency.com"
   },
   {
@@ -1072,7 +1163,8 @@
     "name": "Sonic Union",
     "status": "Current",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://sonicunion.com",
     "lat": 40.7505,
     "lng": -73.981
@@ -1082,7 +1174,8 @@
     "name": "Spring Street Properties LLC",
     "status": "Current",
     "hidden": false,
-    "industry": "Real Estate",
+    "industry": "Professional Services",
+    "subIndustry": "Real Estate",
     "url": "https://stray.works",
     "lat": 41.441882,
     "lng": -74.416686
@@ -1092,7 +1185,8 @@
     "name": "Springfield Funds",
     "status": "Current",
     "hidden": false,
-    "industry": "Finance",
+    "industry": "Financial Services",
+    "subIndustry": "Finance",
     "url": "https://springfieldfunds.com",
     "lat": 40.726755,
     "lng": -74.005531
@@ -1102,7 +1196,8 @@
     "name": "Star of Hope Foundation",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://starofhopefoundation.org",
     "lat": 40.719633,
     "lng": -74.00159
@@ -1120,7 +1215,8 @@
     "name": "Stephens Design Group, Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://bradleystephens.com",
     "lat": 40.751223,
     "lng": -74.004484
@@ -1130,7 +1226,8 @@
     "name": "Studio Rodrigo",
     "status": "Current",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://studiorodrigo.com",
     "lat": 40.718,
     "lng": -73.998
@@ -1148,7 +1245,8 @@
     "name": "Techmenity",
     "status": "Current",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://techmenity.com",
     "lat": 40.743588,
     "lng": -73.993336
@@ -1158,7 +1256,8 @@
     "name": "The Flea Theater, Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://theflea.org",
     "lat": 40.717,
     "lng": -74.007
@@ -1168,7 +1267,8 @@
     "name": "The Gladys Krieble Delmas Foundation",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://delmas.org",
     "lat": 40.750204,
     "lng": -73.981355
@@ -1178,7 +1278,8 @@
     "name": "The Iva Agency",
     "status": "Current",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://theivaagency.com",
     "lat": 40.674294,
     "lng": -73.979674
@@ -1188,7 +1289,8 @@
     "name": "The Leonard Bernstein Office, Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://leonardbernstein.com",
     "lat": 40.756,
     "lng": -73.981
@@ -1198,7 +1300,8 @@
     "name": "The New Criterion",
     "status": "Current",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://newcriterion.com",
     "lat": 40.739108,
     "lng": -73.989705
@@ -1208,7 +1311,8 @@
     "name": "The Willem de Kooning Foundation",
     "status": "Current",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://dekooning.org",
     "lat": 40.768521,
     "lng": -73.967899
@@ -1218,7 +1322,8 @@
     "name": "The Yale Club of New York City",
     "status": "Current",
     "hidden": false,
-    "industry": "Hospitality",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Hospitality",
     "url": "https://yaleclubnyc.org",
     "lat": 40.753942,
     "lng": -73.977358
@@ -1228,7 +1333,8 @@
     "name": "Three Furies Consulting",
     "status": "Current",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://threefuries.com",
     "lat": 40.7185,
     "lng": -73.9898
@@ -1246,7 +1352,8 @@
     "name": "Tobin & Sons Moving and Storage, Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Logistics",
+    "industry": "Logistics & Operations",
+    "subIndustry": "Logistics",
     "url": "https://tobinscientific.com",
     "lat": 42.571185,
     "lng": -70.883237
@@ -1256,7 +1363,8 @@
     "name": "TODA New York",
     "status": "Current",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://toda.com",
     "lat": 40.704229,
     "lng": -73.986682
@@ -1266,7 +1374,8 @@
     "name": "Tribeca Skin Center",
     "status": "Current",
     "hidden": false,
-    "industry": "Healthcare",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Healthcare",
     "url": "https://tribecaskincenter.com",
     "lat": 40.719813,
     "lng": -74.003898
@@ -1276,7 +1385,8 @@
     "name": "UltiMaker",
     "status": "Current",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://ultimaker.com",
     "lat": 52.090701,
     "lng": 5.121563
@@ -1286,7 +1396,8 @@
     "name": "UnionDocs",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://uniondocs.org",
     "lat": 40.708324,
     "lng": -73.914943
@@ -1296,7 +1407,8 @@
     "name": "ustwo",
     "status": "Current",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://ustwo.com",
     "lat": 40.704195,
     "lng": -73.98665
@@ -1306,7 +1418,8 @@
     "name": "Van Alen Institute",
     "status": "Current",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://vanalen.org",
     "lat": 40.738,
     "lng": -73.989
@@ -1317,6 +1430,7 @@
     "status": "Current",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://victorianweb.org",
     "lat": 41.843243,
     "lng": -71.384707
@@ -1326,7 +1440,8 @@
     "name": "Wert & Company Inc.",
     "status": "Current",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://wertco.com",
     "lat": 40.719633,
     "lng": -74.00159
@@ -1344,7 +1459,8 @@
     "name": "WorkFusion",
     "status": "Current",
     "hidden": false,
-    "industry": "Finance",
+    "industry": "Financial Services",
+    "subIndustry": "Finance",
     "url": "https://workfusion.com",
     "lat": 40.706,
     "lng": -74.009
@@ -1355,6 +1471,7 @@
     "status": "Former",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://achievementfirst.org"
   },
   {
@@ -1362,7 +1479,8 @@
     "name": "Alibi Music",
     "status": "Former",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://alibimusic.com",
     "lat": 40.641645,
     "lng": -75.429844
@@ -1372,7 +1490,8 @@
     "name": "Alley Interactive",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://alleyinteractive.com",
     "lat": 40.743981,
     "lng": -73.988897
@@ -1382,7 +1501,8 @@
     "name": "And Partners",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://andpartnersny.com",
     "lat": 40.740746,
     "lng": -73.985474
@@ -1392,7 +1512,8 @@
     "name": "Andr√©s Escobar & Associ√©s",
     "status": "Former",
     "hidden": false,
-    "industry": "Interior Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Interior Design",
     "url": "https://escobardesign.com",
     "lat": 45.503182,
     "lng": -73.569806
@@ -1402,7 +1523,8 @@
     "name": "Architectural League of New York",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://archleague.org",
     "lat": 40.757935,
     "lng": -73.975452
@@ -1412,7 +1534,8 @@
     "name": "Atlas Productions",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://atlaspro.com",
     "lat": 40.755067,
     "lng": -73.992322
@@ -1422,7 +1545,8 @@
     "name": "Axcess Luxury & Lifestyle",
     "status": "Former",
     "hidden": false,
-    "industry": "Hospitality",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Hospitality",
     "url": "https://axcessluxurylifestyle.com",
     "lat": 33.838754,
     "lng": -84.386555
@@ -1432,7 +1556,8 @@
     "name": "Baron & Baron, Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://baron-baron.com",
     "lat": 40.7309,
     "lng": -74.006822
@@ -1442,7 +1567,8 @@
     "name": "Baseline Group NY",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://baselinedesign.com",
     "lat": 40.738342,
     "lng": -73.982142
@@ -1452,7 +1578,8 @@
     "name": "Batali and Bastianich Hospitality Group",
     "status": "Former",
     "hidden": false,
-    "industry": "Hospitality",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Hospitality",
     "url": "https://bandbhg.com",
     "lat": 40.738925,
     "lng": -73.98901
@@ -1462,7 +1589,8 @@
     "name": "Bauer and Dean Publishers",
     "status": "Former",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://baueranddean.com",
     "lat": 40.755592,
     "lng": -73.985839
@@ -1472,7 +1600,8 @@
     "name": "Billy Farrell Agency",
     "status": "Former",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://bfa.com",
     "lat": 40.739893,
     "lng": -73.991628
@@ -1482,7 +1611,8 @@
     "name": "Bogdanow Partners Architects, PC",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://bogdanow.com",
     "lat": 40.721696,
     "lng": -74.002228
@@ -1492,7 +1622,8 @@
     "name": "Braley Design",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://braleydesign.com"
   },
   {
@@ -1500,7 +1631,8 @@
     "name": "Brandgenuity LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://brandgenuity.com",
     "lat": 40.755906,
     "lng": -74.000532
@@ -1510,7 +1642,8 @@
     "name": "Bratskeir & Company",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://bratskeir.com",
     "lat": 40.746605,
     "lng": -73.983887
@@ -1520,7 +1653,8 @@
     "name": "Brightspot Strategy",
     "status": "Former",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://brightspotstrategy.com",
     "lat": 40.753263,
     "lng": -73.998239
@@ -1530,7 +1664,8 @@
     "name": "Brooklyn Bridge Park",
     "status": "Former",
     "hidden": false,
-    "industry": "Parks",
+    "industry": "Parks & Recreation",
+    "subIndustry": "Parks",
     "url": "https://brooklynbridgepark.org",
     "lat": 40.693942,
     "lng": -73.999248
@@ -1541,6 +1676,7 @@
     "status": "Former",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://brooklynlearningcenter.com",
     "lat": 40.692862,
     "lng": -73.993617
@@ -1550,7 +1686,8 @@
     "name": "BuroHappold Consulting Engineers",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://burohappold.com",
     "lat": 40.713882,
     "lng": -73.993029
@@ -1560,7 +1697,8 @@
     "name": "Cadre",
     "status": "Former",
     "hidden": false,
-    "industry": "Finance",
+    "industry": "Financial Services",
+    "subIndustry": "Finance",
     "url": "https://cadre.com",
     "lat": 40.724425,
     "lng": -73.995779
@@ -1570,7 +1708,8 @@
     "name": "Canary Connect, Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://canary.is",
     "lat": 40.751838,
     "lng": -73.975049
@@ -1580,7 +1719,8 @@
     "name": "Carbon CG",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://carboncg.com",
     "lat": 40.740746,
     "lng": -73.985474
@@ -1590,7 +1730,8 @@
     "name": "Center for Reproductive Rights",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://reproductiverights.org",
     "lat": 40.70472,
     "lng": -74.006697
@@ -1600,7 +1741,8 @@
     "name": "Chelsea Foot and Ankle, P.C.",
     "status": "Former",
     "hidden": false,
-    "industry": "Healthcare",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Healthcare",
     "url": "https://chelseafootandankle.com",
     "lat": 40.740227,
     "lng": -73.99211
@@ -1610,7 +1752,8 @@
     "name": "Convo Relay",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://convorelay.com",
     "lat": 37.699175,
     "lng": -121.910107
@@ -1620,7 +1763,8 @@
     "name": "Conway & Conway",
     "status": "Former",
     "hidden": false,
-    "industry": "Legal",
+    "industry": "Professional Services",
+    "subIndustry": "Legal",
     "url": "https://conwaysecuritieslaw.com",
     "lat": 40.756286,
     "lng": -73.978748
@@ -1630,7 +1774,8 @@
     "name": "Craig & Company LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://craigandco.com",
     "lat": 41.892555,
     "lng": -87.627857
@@ -1640,7 +1785,8 @@
     "name": "Daniela Stallinger",
     "status": "Former",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://danielastallinger.com",
     "lat": 40.723921,
     "lng": -74.00425
@@ -1650,7 +1796,8 @@
     "name": "David Kohn Architects",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://davidkohn.co.uk",
     "lat": 51.500021,
     "lng": -0.192442
@@ -1660,7 +1807,8 @@
     "name": "David Weeks Lighting",
     "status": "Former",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://davidweeksstudio.com",
     "lat": 40.719061,
     "lng": -74.003341
@@ -1670,7 +1818,8 @@
     "name": "DJI",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://dji.com",
     "lat": 40.726192,
     "lng": -73.996037
@@ -1680,7 +1829,8 @@
     "name": "Domani Studios",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://domanistudios.com",
     "lat": 40.702716,
     "lng": -73.990616
@@ -1690,7 +1840,8 @@
     "name": "Don Morris Design",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://dmdnyc.com",
     "lat": 40.939875,
     "lng": -73.767625
@@ -1700,7 +1851,8 @@
     "name": "Easterseals New Jersey",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://nj.easterseals.com",
     "lat": 40.2989,
     "lng": -74.521
@@ -1710,7 +1862,8 @@
     "name": "Eden Technologies Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://eden.io",
     "lat": 37.774,
     "lng": -122.403432
@@ -1720,7 +1873,8 @@
     "name": "Edge Lab, Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://edgelabinc.com",
     "lat": 40.715944,
     "lng": -74.012035
@@ -1730,7 +1884,8 @@
     "name": "eight, Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://eightinc.com",
     "lat": 40.734707,
     "lng": -73.990859
@@ -1740,7 +1895,8 @@
     "name": "Eis Design Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://eisdesigninc.com",
     "lat": 37.762173,
     "lng": -122.471627
@@ -1750,7 +1906,8 @@
     "name": "Elizabeth Roberts Architecture & Design",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://elizabethroberts.com",
     "lat": 40.672979,
     "lng": -73.990798
@@ -1768,7 +1925,8 @@
     "name": "EyesWideFilms",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://eyeswidefilms.com",
     "lat": 40.738409,
     "lng": -73.993551
@@ -1778,7 +1936,8 @@
     "name": "fab.com",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://fab.com",
     "lat": 40.731131,
     "lng": -74.008072
@@ -1788,7 +1947,8 @@
     "name": "Fernlund + Logan",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://fernlundlogan.com",
     "lat": 40.719168,
     "lng": -74.001985
@@ -1798,7 +1958,8 @@
     "name": "Film Movement",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://filmmovement.com",
     "lat": 40.745634,
     "lng": -73.991318
@@ -1808,7 +1969,8 @@
     "name": "Fleurs Bella",
     "status": "Former",
     "hidden": false,
-    "industry": "Hospitality",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Hospitality",
     "url": "https://fleursbella.com",
     "lat": 40.734458,
     "lng": -73.994222
@@ -1818,7 +1980,8 @@
     "name": "Fohr Card Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://fohr.co",
     "lat": 40.718828,
     "lng": -73.990338
@@ -1828,7 +1991,8 @@
     "name": "Free Range Studios",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://freerange.com",
     "lat": 38.907949,
     "lng": -77.031878
@@ -1838,7 +2002,8 @@
     "name": "Friends of Buck‚Äôs Rock, Inc",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://friendsofbucksrock.org",
     "lat": 40.737171,
     "lng": -73.956692
@@ -1848,7 +2013,8 @@
     "name": "Galerie Magazine",
     "status": "Former",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://galeriemagazine.com",
     "lat": 40.764277,
     "lng": -73.979338
@@ -1866,7 +2032,8 @@
     "name": "Gomez Associates",
     "status": "Former",
     "hidden": false,
-    "industry": "Interior Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Interior Design",
     "url": "https://gomezassociates.com",
     "lat": 40.768058,
     "lng": -73.95267
@@ -1876,7 +2043,8 @@
     "name": "goTenna",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://gotenna.com",
     "lat": 40.718019,
     "lng": -74.034503
@@ -1886,7 +2054,8 @@
     "name": "Great Big Circle",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://greatbigcircle.com",
     "lat": 40.73891,
     "lng": -74.000379
@@ -1896,7 +2065,8 @@
     "name": "Greentech Media",
     "status": "Former",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://greentechmedia.com",
     "lat": 40.744772,
     "lng": -73.993409
@@ -1906,7 +2076,8 @@
     "name": "Hautelook",
     "status": "Former",
     "hidden": false,
-    "industry": "Retail",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Retail",
     "url": "https://hautelook.com",
     "lat": 34.048607,
     "lng": -118.258751
@@ -1916,7 +2087,8 @@
     "name": "Heist Projects",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://heistprojects.com",
     "lat": 37.764544,
     "lng": -122.412254
@@ -1926,7 +2098,8 @@
     "name": "Hello Eko",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://eko.com",
     "lat": 40.737758,
     "lng": -73.988054
@@ -1936,7 +2109,8 @@
     "name": "Heterodox Academy",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://heterodoxacademy.org",
     "lat": 40.7093,
     "lng": -74.0084
@@ -1946,7 +2120,8 @@
     "name": "Humantific",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://humantific.com",
     "lat": 40.749118,
     "lng": -74.003726
@@ -1957,6 +2132,7 @@
     "status": "Former",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://hyperisland.se",
     "lat": 40.725125,
     "lng": -74.007604
@@ -1966,7 +2142,8 @@
     "name": "IDEO New York",
     "status": "Former",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://ideo.com",
     "lat": 40.720571,
     "lng": -74.000979
@@ -1976,7 +2153,8 @@
     "name": "Imprint Projects",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://imprintprojects.com",
     "lat": 40.722146,
     "lng": -73.999461
@@ -1986,7 +2164,8 @@
     "name": "Industrial Graphics Corporation",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://industrialgraphics.com",
     "lat": 43.461891,
     "lng": -87.949179
@@ -1996,7 +2175,8 @@
     "name": "InsideUS",
     "status": "Former",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://insideus.com",
     "lat": 40.753673,
     "lng": -73.978555
@@ -2006,7 +2186,8 @@
     "name": "Jane Smith Agency",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://janesmithagency.com",
     "lat": 34.090801,
     "lng": -118.324599
@@ -2016,7 +2197,8 @@
     "name": "Jennifer Mirsky Photography",
     "status": "Former",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://jennifermirsky.com",
     "lat": 40.777777,
     "lng": -73.945367
@@ -2034,7 +2216,8 @@
     "name": "Jigsaw Productions",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://jigsawprods.com",
     "lat": 40.706196,
     "lng": -74.012891
@@ -2044,7 +2227,8 @@
     "name": "JMP Wood",
     "status": "Former",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://jmpwood.com",
     "lat": 40.650931,
     "lng": -73.910239
@@ -2054,7 +2238,8 @@
     "name": "Joey Spector Design",
     "status": "Former",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://joeyspectordesign.com"
   },
   {
@@ -2062,7 +2247,8 @@
     "name": "John B. Murray Architect, LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://jbmarchitect.com",
     "lat": 40.750947,
     "lng": -73.984759
@@ -2072,7 +2258,8 @@
     "name": "John Houshmand",
     "status": "Former",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://johnhoushmand.com",
     "lat": 40.719628,
     "lng": -74.000918
@@ -2083,6 +2270,7 @@
     "status": "Former",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://kidzlovesoccer.com",
     "lat": 37.925481,
     "lng": -122.527475
@@ -2092,7 +2280,8 @@
     "name": "Kinder Modern",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://kindermodern.com",
     "lat": 40.717775,
     "lng": -74.004034
@@ -2102,7 +2291,8 @@
     "name": "Knoll Graphics Department",
     "status": "Former",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://knoll.com",
     "lat": 40.762318,
     "lng": -73.97857
@@ -2112,7 +2302,8 @@
     "name": "Kuhn Projects",
     "status": "Former",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://kuhnprojects.com",
     "lat": 40.74058,
     "lng": -73.991116
@@ -2122,7 +2313,8 @@
     "name": "Ligament, Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://ligament.de",
     "lat": 40.720277,
     "lng": -73.999692
@@ -2132,7 +2324,8 @@
     "name": "Lina Srivastava Consulting, LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://linasrivastava.com",
     "lat": 40.744012,
     "lng": -73.97632
@@ -2142,7 +2335,8 @@
     "name": "Lindsey Adelman Studio",
     "status": "Former",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://lindseyadelman.com",
     "lat": 40.725618,
     "lng": -73.994985
@@ -2153,6 +2347,7 @@
     "status": "Former",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://lrei.org",
     "lat": 40.72704,
     "lng": -74.004902
@@ -2163,6 +2358,7 @@
     "status": "Former",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://littlebits.cc",
     "lat": 40.732951,
     "lng": -73.992635
@@ -2172,7 +2368,8 @@
     "name": "Local Theory LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://localtheory.com",
     "lat": 40.670909,
     "lng": -74.431886
@@ -2182,7 +2379,8 @@
     "name": "Lutz & Patmos",
     "status": "Former",
     "hidden": false,
-    "industry": "Fashion",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Fashion",
     "url": "https://lutzandpatmos.com",
     "lat": 40.740807,
     "lng": -74.00701
@@ -2192,7 +2390,8 @@
     "name": "M & Co",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://mairakalman.com",
     "lat": 40.735523,
     "lng": -73.996443
@@ -2202,7 +2401,8 @@
     "name": "M Goodrich Company LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Real Estate",
+    "industry": "Professional Services",
+    "subIndustry": "Real Estate",
     "url": "https://goodrich.nyc",
     "lat": 40.748793,
     "lng": -73.994543
@@ -2212,7 +2412,8 @@
     "name": "m ss ng p eces",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://mssngpeces.com",
     "lat": 40.728639,
     "lng": -73.953473
@@ -2222,7 +2423,8 @@
     "name": "Magazzino NYC",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://olnickspanu.com",
     "lat": 40.76228,
     "lng": -73.962332
@@ -2232,7 +2434,8 @@
     "name": "Mah Ze Dahr Bakery",
     "status": "Former",
     "hidden": false,
-    "industry": "Food Services",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Food Services",
     "url": "https://mahzedahrbakery.com",
     "lat": 40.735134,
     "lng": -74.000168
@@ -2242,7 +2445,8 @@
     "name": "Market Partners International",
     "status": "Former",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://mpi-us.com",
     "lat": 40.749748,
     "lng": -73.981603
@@ -2252,7 +2456,8 @@
     "name": "McCabe Fine Art",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://mccabefineart.com",
     "lat": 40.719633,
     "lng": -74.00159
@@ -2262,7 +2467,8 @@
     "name": "MeetInPlace",
     "status": "Former",
     "hidden": false,
-    "industry": "Hospitality",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Hospitality",
     "url": "https://meetinplace.com",
     "lat": 40.793506,
     "lng": -74.235247
@@ -2272,7 +2478,8 @@
     "name": "MetaDesign",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://metadesign.com",
     "lat": 37.79693,
     "lng": -122.400786
@@ -2282,7 +2489,8 @@
     "name": "Method",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://method.com",
     "lat": 37.787239,
     "lng": -122.397572
@@ -2300,7 +2508,8 @@
     "name": "Miller Theatre at Columbia University",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://millertheatre.com",
     "lat": 40.808495,
     "lng": -73.96346
@@ -2310,7 +2519,8 @@
     "name": "MKTG, Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://mktg.com",
     "lat": 40.719893,
     "lng": -74.005111
@@ -2320,7 +2530,8 @@
     "name": "MM.LaFleur",
     "status": "Former",
     "hidden": false,
-    "industry": "Fashion",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Fashion",
     "url": "https://mmlafleur.com",
     "lat": 40.725793,
     "lng": -73.996555
@@ -2330,7 +2541,8 @@
     "name": "MODCo MEDIA",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://modcomedia.com",
     "lat": 40.744772,
     "lng": -73.985224
@@ -2340,7 +2552,8 @@
     "name": "Modellus Novus",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://mndpc.com",
     "lat": 40.7124,
     "lng": -74.0083
@@ -2350,7 +2563,8 @@
     "name": "MontaRosa, LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Recruiting",
+    "industry": "Professional Services",
+    "subIndustry": "Recruiting",
     "url": "https://montarosa.com",
     "lat": 40.751503,
     "lng": -73.976349
@@ -2360,7 +2574,8 @@
     "name": "Mother",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://mothernewyork.com",
     "lat": 40.762631,
     "lng": -73.99709
@@ -2370,7 +2585,8 @@
     "name": "motive",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://the-motive.com",
     "lat": 40.74437,
     "lng": -73.990226
@@ -2380,7 +2596,8 @@
     "name": "Moxie Firecracker Films",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://moxiefirecracker.com",
     "lat": 40.702716,
     "lng": -73.990616
@@ -2390,7 +2607,8 @@
     "name": "MTWTF",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://mtwtf.com",
     "lat": 40.719913,
     "lng": -73.994128
@@ -2400,7 +2618,8 @@
     "name": "Nancy Owens Studio, LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Landscape Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Landscape Design",
     "url": "https://nancyowensstudio.com",
     "lat": 40.718599,
     "lng": -74.005876
@@ -2410,7 +2629,8 @@
     "name": "NeedWire",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://needwire.com",
     "lat": 40.749541,
     "lng": -73.981424
@@ -2420,7 +2640,8 @@
     "name": "New York State Association of Criminal Defense Lawyers",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://nysacdl.org",
     "lat": 42.649739,
     "lng": -73.75293
@@ -2430,7 +2651,8 @@
     "name": "Nomad Editions LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Retail",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Retail",
     "url": "https://nomadeditions.com",
     "lat": 40.746356,
     "lng": -73.982576
@@ -2440,7 +2662,8 @@
     "name": "Oscilloscope Laboratories",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://oscilloscope.net",
     "lat": 40.72519,
     "lng": -74.009905
@@ -2450,7 +2673,8 @@
     "name": "Pacific Shoe Company",
     "status": "Former",
     "hidden": false,
-    "industry": "Fashion",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Fashion",
     "url": "https://mezlan.com",
     "lat": 33.748468,
     "lng": -118.025585
@@ -2460,7 +2684,8 @@
     "name": "Peggy Siegal Company",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://peggysiegal.com",
     "lat": 40.762832,
     "lng": -73.96783
@@ -2470,7 +2695,8 @@
     "name": "Pentagram",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://pentagram.com",
     "lat": 40.738299,
     "lng": -73.987828
@@ -2480,7 +2706,8 @@
     "name": "Perrin Studio",
     "status": "Former",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://perrinstudio.com",
     "lat": 40.725793,
     "lng": -73.996555
@@ -2490,7 +2717,8 @@
     "name": "PictureBox",
     "status": "Former",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://pictureboxinc.com",
     "lat": 40.652601,
     "lng": -73.949721
@@ -2500,7 +2728,8 @@
     "name": "Pizza Vinoteca",
     "status": "Former",
     "hidden": false,
-    "industry": "Food Services",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Food Services",
     "url": "https://pizzavinoteca.com",
     "lat": 40.740944,
     "lng": -73.992293
@@ -2510,7 +2739,8 @@
     "name": "Point One Percent",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://point-one-percent.com",
     "lat": 40.724803,
     "lng": -73.997215
@@ -2520,7 +2750,8 @@
     "name": "Print & Contact",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://printandcontact.com",
     "lat": 40.713283,
     "lng": -73.954898
@@ -2530,7 +2761,8 @@
     "name": "Q Collection",
     "status": "Former",
     "hidden": false,
-    "industry": "Interior Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Interior Design",
     "url": "https://qcollection.com",
     "lat": 40.74685,
     "lng": -74.002018
@@ -2540,7 +2772,8 @@
     "name": "Q Department",
     "status": "Former",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://qdepartment.com",
     "lat": 40.719506,
     "lng": -74.000367
@@ -2550,7 +2783,8 @@
     "name": "Q Prime",
     "status": "Former",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://qprime.com",
     "lat": 40.760383,
     "lng": -73.983699
@@ -2560,7 +2794,8 @@
     "name": "Radian Capital",
     "status": "Former",
     "hidden": false,
-    "industry": "Finance",
+    "industry": "Financial Services",
+    "subIndustry": "Finance",
     "url": "https://radiancapital.com",
     "lat": 40.739782,
     "lng": -73.989758
@@ -2570,7 +2805,8 @@
     "name": "Rafaj Group",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://rafaj.com",
     "lat": 40.759646,
     "lng": -73.969978
@@ -2580,7 +2816,8 @@
     "name": "RCO Color and Finishing",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://rco.tv",
     "lat": 40.7092,
     "lng": -74.0084
@@ -2590,7 +2827,8 @@
     "name": "ReadeStreetSTUDIO llc",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://readestreetstudio.com",
     "lat": 40.719194,
     "lng": -73.955342
@@ -2600,7 +2838,8 @@
     "name": "Red Umbrella Project",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://redumbrellaproject.org",
     "lat": 40.694571,
     "lng": -73.982572
@@ -2610,7 +2849,8 @@
     "name": "Reddish-Blue",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://reddish-blue.com",
     "lat": 40.717617,
     "lng": -74.000083
@@ -2620,7 +2860,8 @@
     "name": "RitaSue Siegel Resources",
     "status": "Former",
     "hidden": false,
-    "industry": "Recruiting",
+    "industry": "Professional Services",
+    "subIndustry": "Recruiting",
     "url": "https://ritasue.com",
     "lat": 40.739034,
     "lng": -73.987451
@@ -2630,7 +2871,8 @@
     "name": "RoAndCo",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://roandcostudio.com",
     "lat": 40.719134,
     "lng": -73.996919
@@ -2640,7 +2882,8 @@
     "name": "ROART",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://roart.com",
     "lat": 40.746594,
     "lng": -73.992004
@@ -2650,7 +2893,8 @@
     "name": "Robert Charbonnet Photography",
     "status": "Former",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://robertcharbonnet.com",
     "lat": 40.702988,
     "lng": -73.985038
@@ -2660,7 +2904,8 @@
     "name": "Robin Rice Gallery",
     "status": "Former",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://robinricegallery.com",
     "lat": 40.735701,
     "lng": -74.007362
@@ -2670,7 +2915,8 @@
     "name": "Runyon",
     "status": "Former",
     "hidden": false,
-    "industry": "Real Estate",
+    "industry": "Professional Services",
+    "subIndustry": "Real Estate",
     "url": "https://runyongroup.com",
     "lat": 40.723822,
     "lng": -73.996455
@@ -2680,7 +2926,8 @@
     "name": "Russell Design Associates",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://russelldesign.com",
     "lat": 40.738887,
     "lng": -73.991432
@@ -2690,7 +2937,8 @@
     "name": "Saffron Brand Consultants, Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://saffron-consultants.com",
     "lat": 40.726755,
     "lng": -74.005531
@@ -2700,7 +2948,8 @@
     "name": "Sagmeister & Walsh",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://sagmeisterwalsh.com",
     "lat": 40.739108,
     "lng": -73.989705
@@ -2710,7 +2959,8 @@
     "name": "Scenic Art Studio",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://scenicartstudios.com",
     "lat": 41.511615,
     "lng": -74.006712
@@ -2720,7 +2970,8 @@
     "name": "Seaside Party Celebrations, LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Hospitality",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Hospitality",
     "url": "https://seasidecelebrations.com",
     "lat": 41.454291,
     "lng": -70.603803
@@ -2730,7 +2981,8 @@
     "name": "Selim Koder",
     "status": "Former",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://selimkoder.com"
   },
   {
@@ -2738,7 +2990,8 @@
     "name": "Shout It Out Loud Music",
     "status": "Former",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://shoutitoutloudmusic.com",
     "lat": 40.75154,
     "lng": -73.983953
@@ -2748,7 +3001,8 @@
     "name": "Simons Foundation",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://simonsfoundation.org",
     "lat": 40.740242,
     "lng": -73.990622
@@ -2758,7 +3012,8 @@
     "name": "SOHO Experiential LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://sohoexp.com",
     "lat": 40.720071,
     "lng": -74.009184
@@ -2768,7 +3023,8 @@
     "name": "SoMad Art Gallery",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://somad.nyc",
     "lat": 40.740698,
     "lng": -73.987719
@@ -2778,7 +3034,8 @@
     "name": "Spectra",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://spectra-ny.com",
     "lat": 40.740377,
     "lng": -73.990944
@@ -2788,7 +3045,8 @@
     "name": "Sportority Inc. (Minute Media)",
     "status": "Former",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://minutemedia.com",
     "lat": 40.751736,
     "lng": -73.990164
@@ -2798,7 +3056,8 @@
     "name": "St. Sebastian RC Church",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://saintsebastianwoodside.org",
     "lat": 40.746709,
     "lng": -73.906809
@@ -2808,7 +3067,8 @@
     "name": "Starfish Company",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://starfishco.com",
     "lat": 40.741262,
     "lng": -73.991138
@@ -2818,7 +3078,8 @@
     "name": "Stephen J. Dubner",
     "status": "Former",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://stephenjdubner.com",
     "lat": 40.791811,
     "lng": -73.96488
@@ -2828,7 +3089,8 @@
     "name": "Studio Cahs",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://studiocahs.com",
     "lat": 40.778054,
     "lng": -73.960034
@@ -2838,7 +3100,8 @@
     "name": "Studio Cicetti Architect PC",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://studiocicetti.com",
     "lat": 40.673716,
     "lng": -74.016889
@@ -2848,7 +3111,8 @@
     "name": "Studio Lin",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://studiolin.org",
     "lat": 40.744912,
     "lng": -73.99374
@@ -2858,7 +3122,8 @@
     "name": "Studio of Tauba Auerbach",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://taubaauerbach.com",
     "lat": 40.719108,
     "lng": -73.992409
@@ -2868,7 +3133,8 @@
     "name": "Supernatural AI",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://gosupernatural.ai",
     "lat": 40.722703,
     "lng": -73.997515
@@ -2878,7 +3144,8 @@
     "name": "Tanya Bonakdar Gallery",
     "status": "Former",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://tanyabonakdargallery.com",
     "lat": 40.746693,
     "lng": -74.005644
@@ -2888,7 +3155,8 @@
     "name": "The Delve Group, Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://delvegroup.com",
     "lat": 40.745037,
     "lng": -73.992131
@@ -2898,7 +3166,8 @@
     "name": "the dtx company",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://thedtxcompany.com",
     "lat": 40.722439,
     "lng": -74.004023
@@ -2908,7 +3177,8 @@
     "name": "The Film Sales Company",
     "status": "Former",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://filmsalescorp.com",
     "lat": 40.746943,
     "lng": -73.983466
@@ -2918,7 +3188,8 @@
     "name": "The Fledgling Fund",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://thefledglingfund.org",
     "lat": 40.735878,
     "lng": -73.989448
@@ -2928,7 +3199,8 @@
     "name": "The Friends of Governors Island",
     "status": "Former",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://govisland.com",
     "lat": 40.701695,
     "lng": -74.011875
@@ -2938,7 +3210,8 @@
     "name": "The Happy Corp Global",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://thehappycorp.com",
     "lat": 40.720981,
     "lng": -73.998167
@@ -2948,7 +3221,8 @@
     "name": "The Hendra Agency Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Talent Management",
+    "industry": "Professional Services",
+    "subIndustry": "Talent Management",
     "url": "https://thehendraagency.com",
     "lat": 40.676978,
     "lng": -73.973594
@@ -2958,7 +3232,8 @@
     "name": "The Lodge",
     "status": "Former",
     "hidden": false,
-    "industry": "Hospitality",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Hospitality",
     "url": "https://thelodge.com",
     "lat": 40.729865,
     "lng": -73.992931
@@ -2968,7 +3243,8 @@
     "name": "The Moderns",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://themoderns.com",
     "lat": 40.739108,
     "lng": -73.989705
@@ -2979,6 +3255,7 @@
     "status": "Former",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://packer.edu",
     "lat": 40.692677,
     "lng": -73.992322
@@ -2988,7 +3265,8 @@
     "name": "The Polenta Group",
     "status": "Former",
     "hidden": false,
-    "industry": "Food Services",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Food Services",
     "url": "https://pasanellaandson.com",
     "lat": 40.707446,
     "lng": -74.001146
@@ -2998,7 +3276,8 @@
     "name": "The Rooster Design Group",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://theroostergroup.com",
     "lat": 40.719417,
     "lng": -74.000466
@@ -3008,7 +3287,8 @@
     "name": "The Thomas Collective, LLC",
     "status": "Former",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://thethomascollective.com",
     "lat": 40.745533,
     "lng": -73.989163
@@ -3018,7 +3298,8 @@
     "name": "The Valentine Group",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://valentinegroup.com",
     "lat": 40.754032,
     "lng": -73.993664
@@ -3028,7 +3309,8 @@
     "name": "Today Tix",
     "status": "Former",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://todaytix.com",
     "lat": 40.719893,
     "lng": -74.005111
@@ -3038,7 +3320,8 @@
     "name": "Todd McNiff, MD",
     "status": "Former",
     "hidden": false,
-    "industry": "Healthcare",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Healthcare",
     "url": "https://toddmcniff.com",
     "lat": 40.728009,
     "lng": -73.993577
@@ -3048,7 +3331,8 @@
     "name": "Trust for Governors Island",
     "status": "Former",
     "hidden": false,
-    "industry": "Parks",
+    "industry": "Parks & Recreation",
+    "subIndustry": "Parks",
     "url": "https://govisland.org",
     "lat": 40.701695,
     "lng": -74.011875
@@ -3058,7 +3342,8 @@
     "name": "TuneCore, Inc.",
     "status": "Former",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://tunecore.com",
     "lat": 40.702698,
     "lng": -73.987568
@@ -3068,7 +3353,8 @@
     "name": "Ullmayer Sylvester",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://ullmayersylvester.com",
     "lat": 51.500021,
     "lng": -0.192442
@@ -3078,7 +3364,8 @@
     "name": "Vensette",
     "status": "Former",
     "hidden": false,
-    "industry": "Fashion",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Fashion",
     "url": "https://vensette.com",
     "lat": 40.734833,
     "lng": -73.994383
@@ -3088,7 +3375,8 @@
     "name": "Victoria Hagan Interiors",
     "status": "Former",
     "hidden": false,
-    "industry": "Interior Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Interior Design",
     "url": "https://victoriahagan.com",
     "lat": 40.767048,
     "lng": -73.981651
@@ -3098,7 +3386,8 @@
     "name": "Vignelli Associates",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://vignelli.com",
     "lat": 40.766969,
     "lng": -73.964054
@@ -3108,7 +3397,8 @@
     "name": "Weil Studio",
     "status": "Former",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://weilstudio.com",
     "lat": 40.733135,
     "lng": -73.992759
@@ -3126,7 +3416,8 @@
     "name": "WORK Architecture Company",
     "status": "Former",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://work.ac",
     "lat": 40.721075,
     "lng": -73.987767
@@ -3136,7 +3427,8 @@
     "name": "Yoga Sutra NYC",
     "status": "Former",
     "hidden": false,
-    "industry": "Healthcare",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Healthcare",
     "url": "https://yogasutranyc.com",
     "lat": 40.751362,
     "lng": -73.98192
@@ -3146,7 +3438,8 @@
     "name": "Zachary Shuster Harmsworth",
     "status": "Former",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://zshliterary.com",
     "lat": 40.74058,
     "lng": -73.991116
@@ -3156,7 +3449,8 @@
     "name": "Zago",
     "status": "Former",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://zagollc.com",
     "lat": 40.718398,
     "lng": -74.002644
@@ -3166,7 +3460,8 @@
     "name": "100 People",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://100people.org",
     "lat": 40.744089,
     "lng": -73.98956
@@ -3176,7 +3471,8 @@
     "name": "50,000feet, Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://50000feet.com",
     "lat": 41.954314,
     "lng": -87.671519
@@ -3187,6 +3483,7 @@
     "status": "Inactive",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://achievementfirst.org",
     "lat": 40.672247,
     "lng": -73.893894
@@ -3196,7 +3493,8 @@
     "name": "Affirm",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://affirm.com",
     "lat": 40.743981,
     "lng": -73.988897
@@ -3206,7 +3504,8 @@
     "name": "Alice Soloway Design",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://alicesoloway.com",
     "lat": 40.636151,
     "lng": -73.962597
@@ -3216,7 +3515,8 @@
     "name": "ARAPC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://arapc.net",
     "lat": 40.725249,
     "lng": -73.999232
@@ -3226,7 +3526,8 @@
     "name": "Argo Design LLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://argodesign.com",
     "lat": 30.236341,
     "lng": -97.762831
@@ -3236,7 +3537,8 @@
     "name": "Assembly OSM, Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://assemblyosm.com",
     "lat": 40.705769,
     "lng": -74.009966
@@ -3246,7 +3548,8 @@
     "name": "Azzurro Brands Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Fashion",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Fashion",
     "url": "https://devikroell.com",
     "lat": 40.747528,
     "lng": -73.978263
@@ -3256,7 +3559,8 @@
     "name": "Bark & Co",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Retail",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Retail",
     "url": "https://barkbox.com",
     "lat": 40.71763,
     "lng": -73.999315
@@ -3266,7 +3570,8 @@
     "name": "Blue Apron",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Food Services",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Food Services",
     "url": "https://blueapron.com",
     "lat": 40.707874,
     "lng": -74.00856
@@ -3276,7 +3581,8 @@
     "name": "Bone & Black",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://boneandblack.com",
     "lat": 41.43039,
     "lng": -74.024102
@@ -3286,7 +3592,8 @@
     "name": "Book Architecture",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://bookarchitecture.com",
     "lat": 41.827538,
     "lng": -71.382896
@@ -3296,7 +3603,8 @@
     "name": "Bottom Line Bookkeeping Services",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Finance",
+    "industry": "Financial Services",
+    "subIndustry": "Finance",
     "url": "https://bottomlinebrooklyn.com",
     "lat": 40.685495,
     "lng": -73.996725
@@ -3306,7 +3614,8 @@
     "name": "Brown Harris Stevens Development Marketing",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Real Estate",
+    "industry": "Professional Services",
+    "subIndustry": "Real Estate",
     "url": "https://brownharrisstevens.com",
     "lat": 40.761152,
     "lng": -73.971
@@ -3316,7 +3625,8 @@
     "name": "bway.net, Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://bway.net",
     "lat": 40.719633,
     "lng": -74.00159
@@ -3326,7 +3636,8 @@
     "name": "Carlton House Restoration",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Interior Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Interior Design",
     "url": "https://carltonhouse.net",
     "lat": 40.695086,
     "lng": -73.901002
@@ -3336,7 +3647,8 @@
     "name": "Carolyn Jones Studio",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://carolynjones.com",
     "lat": 40.667073,
     "lng": -73.976827
@@ -3346,7 +3658,8 @@
     "name": "Cashmere House Inc. dba TSE",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Fashion",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Fashion",
     "url": "https://tsecashmere.com",
     "lat": 40.720602,
     "lng": -73.95612
@@ -3356,7 +3669,8 @@
     "name": "Change.org",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://change.org",
     "lat": 40.742423,
     "lng": -73.993892
@@ -3374,7 +3688,8 @@
     "name": "Cinereach Films, LLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://cinereach.org",
     "lat": 40.738478,
     "lng": -73.9919
@@ -3384,7 +3699,8 @@
     "name": "Clinton Vineyards",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Food Services",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Food Services",
     "url": "https://clintonvineyards.com",
     "lat": 41.851054,
     "lng": -73.780693
@@ -3394,7 +3710,8 @@
     "name": "Cross Creative Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://crosscreative.design",
     "lat": 40.718126,
     "lng": -73.839438
@@ -3410,7 +3727,8 @@
     "name": "e-flux",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://e-flux.com",
     "lat": 40.694793,
     "lng": -73.961345
@@ -3420,7 +3738,8 @@
     "name": "Elizabeth Benator Consulting, Ltd",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://ebenatorconsulting.com",
     "lat": 33.788524,
     "lng": -84.381543
@@ -3430,7 +3749,8 @@
     "name": "Food New York",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://food-newyork.com",
     "lat": 40.713543,
     "lng": -73.997748
@@ -3440,7 +3760,8 @@
     "name": "Four Eleven Agency",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://foureleven.agency",
     "lat": 40.735049,
     "lng": -73.987398
@@ -3450,7 +3771,8 @@
     "name": "Gardiner Koch Weisberg & Wrona",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Legal",
+    "industry": "Professional Services",
+    "subIndustry": "Legal",
     "url": "https://gkwwlaw.com",
     "lat": 41.878105,
     "lng": -87.629637
@@ -3460,7 +3782,8 @@
     "name": "Global Press Institute",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Publishing",
+    "industry": "Publishing & Media",
+    "subIndustry": "Publishing",
     "url": "https://globalpress.co",
     "lat": 38.965838,
     "lng": -77.076197
@@ -3470,7 +3793,8 @@
     "name": "Gold Crest Films",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://goldcrestfilms.com",
     "lat": 40.738815,
     "lng": -74.008021
@@ -3480,7 +3804,8 @@
     "name": "Goldman Lockey Consulting",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://goldmanlockey.com",
     "lat": 37.797278,
     "lng": -122.405714
@@ -3490,7 +3815,8 @@
     "name": "Gray Scalable",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://grayscalable.com",
     "lat": 40.740458,
     "lng": -73.991137
@@ -3500,7 +3826,8 @@
     "name": "Greater Good Studio LLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://greatergoodstudio.com",
     "lat": 41.931804,
     "lng": -87.72138
@@ -3510,7 +3837,8 @@
     "name": "Herter Design Group",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://herterdesigngroup.com",
     "lat": 40.747962,
     "lng": -73.992916
@@ -3528,7 +3856,8 @@
     "name": "HomeStories",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Retail",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Retail",
     "url": "https://homestories.com",
     "lat": 40.694465,
     "lng": -73.993341
@@ -3538,7 +3867,8 @@
     "name": "Hungryroot",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Food Services",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Food Services",
     "url": "https://hungryroot.com",
     "lat": 40.741034,
     "lng": -73.990288
@@ -3548,7 +3878,8 @@
     "name": "HXMXN Inc. d/b/a Grey Horse Communications",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://greyhorse.com",
     "lat": 40.708898,
     "lng": -73.96855
@@ -3558,7 +3889,8 @@
     "name": "Hyperakt Design Group. Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://hyperakt.com",
     "lat": 40.673348,
     "lng": -73.989535
@@ -3568,7 +3900,8 @@
     "name": "Institute of Play",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://instituteofplay.org",
     "lat": 40.745178,
     "lng": -73.992463
@@ -3578,7 +3911,8 @@
     "name": "Intend Creative, LLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://intendcreative.com",
     "lat": 40.939031,
     "lng": -73.751098
@@ -3588,7 +3922,8 @@
     "name": "JaegerSloan",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://jaegersloan.com",
     "lat": 40.718156,
     "lng": -74.001339
@@ -3598,7 +3933,8 @@
     "name": "Jukin Media",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://jukinmedia.com",
     "lat": 34.026652,
     "lng": -118.374244
@@ -3608,7 +3944,8 @@
     "name": "JUUL Labs, Inc",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Retail",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Retail",
     "url": "https://juul.com",
     "lat": 37.760872,
     "lng": -122.412048
@@ -3618,7 +3955,8 @@
     "name": "Keywee",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://keywee.co",
     "lat": 40.740227,
     "lng": -73.99211
@@ -3628,7 +3966,8 @@
     "name": "Linked By Air",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://linkedbyair.net",
     "lat": 40.72188,
     "lng": -73.991997
@@ -3638,7 +3977,8 @@
     "name": "Lower Manhattan Cultural Council",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://lmcc.net",
     "lat": 40.70651,
     "lng": -74.006396
@@ -3648,7 +3988,8 @@
     "name": "Lucy Sisman",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://lucysisman.com",
     "lat": 51.502995,
     "lng": -0.00146
@@ -3658,7 +3999,8 @@
     "name": "Malka Media Group",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://malkamediagroup.com",
     "lat": 40.71682,
     "lng": -74.037746
@@ -3668,7 +4010,8 @@
     "name": "Managed by Q",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://managedbyq.com",
     "lat": 40.725651,
     "lng": -74.004916
@@ -3678,7 +4021,8 @@
     "name": "Mann Consulting",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://mann.com",
     "lat": 37.785647,
     "lng": -122.39694
@@ -3688,7 +4032,8 @@
     "name": "Megado Gold Limited",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Industrial",
+    "industry": "Logistics & Operations",
+    "subIndustry": "Industrial",
     "url": "https://megadominerals.com",
     "lat": -31.95566,
     "lng": 115.858148
@@ -3698,7 +4043,8 @@
     "name": "MELD, LLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Interior Design",
+    "industry": "Architecture & Design",
+    "subIndustry": "Interior Design",
     "url": "https://meldmore.com",
     "lat": 32.84502,
     "lng": -117.27384
@@ -3716,7 +4062,8 @@
     "name": "MGMT. Design",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://mgmtdesign.com",
     "lat": 40.715503,
     "lng": -73.993687
@@ -3726,7 +4073,8 @@
     "name": "Michael Moran Photography, Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://moranstudio.com",
     "lat": 40.676896,
     "lng": -73.993658
@@ -3736,7 +4084,8 @@
     "name": "Models.com, Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Fashion",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Fashion",
     "url": "https://models.com",
     "lat": 40.695822,
     "lng": -73.989978
@@ -3746,7 +4095,8 @@
     "name": "No√´ & Associates",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://noeassociates.com",
     "lat": 40.723909,
     "lng": -74.000741
@@ -3756,7 +4106,8 @@
     "name": "Oleria",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://oleria.com"
   },
   {
@@ -3764,7 +4115,8 @@
     "name": "Omnivore",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://omnivorous.org",
     "lat": 40.687078,
     "lng": -73.983321
@@ -3774,7 +4126,8 @@
     "name": "One Thousand Birds, LLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://otbirds.com",
     "lat": 40.723345,
     "lng": -74.001731
@@ -3784,7 +4137,8 @@
     "name": "Onna Technologies, Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://onna.com",
     "lat": 40.730279,
     "lng": -74.008141
@@ -3794,7 +4148,8 @@
     "name": "Oscar Insurance",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Healthcare",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Healthcare",
     "url": "https://hioscar.com",
     "lat": 40.724425,
     "lng": -73.995779
@@ -3804,7 +4159,8 @@
     "name": "Paul Warchol Photography Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://warcholphotography.com",
     "lat": 40.719592,
     "lng": -73.998598
@@ -3814,7 +4170,8 @@
     "name": "Playwrights Horizons",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://playwrightshorizons.org",
     "lat": 40.758668,
     "lng": -73.993361
@@ -3824,7 +4181,8 @@
     "name": "Potion Design",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://potiondesign.com",
     "lat": 40.698585,
     "lng": -73.971148
@@ -3834,7 +4192,8 @@
     "name": "Poulin + Morris Inc",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://poulinmorris.com",
     "lat": 41.830034,
     "lng": -73.762184
@@ -3844,7 +4203,8 @@
     "name": "Purple Gate Design",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://purplegatedesign.com",
     "lat": 40.682145,
     "lng": -73.989172
@@ -3854,7 +4214,8 @@
     "name": "RocketFuel, Inc",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://rocketfuel.com",
     "lat": 40.710491,
     "lng": -74.009496
@@ -3864,7 +4225,8 @@
     "name": "Rodney Smith Photography",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Photography",
+    "industry": "Arts & Culture",
+    "subIndustry": "Photography",
     "url": "https://rodneysmith.com",
     "lat": 41.009778,
     "lng": -73.905418
@@ -3874,7 +4236,8 @@
     "name": "Roger Black Studio",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://rogerblack.com",
     "lat": 30.34638,
     "lng": -97.935662
@@ -3884,7 +4247,8 @@
     "name": "Roulette Intermedium",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://roulette.org",
     "lat": 40.685446,
     "lng": -73.980859
@@ -3894,7 +4258,8 @@
     "name": "RVNG Intl.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://igetrvng.com",
     "lat": 40.705736,
     "lng": -73.933342
@@ -3904,7 +4269,8 @@
     "name": "Snug Harbor Cultural Center",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://snug-harbor.org",
     "lat": 40.644827,
     "lng": -74.100918
@@ -3914,7 +4280,8 @@
     "name": "Sonic 24W40, LLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://jfosound.com",
     "lat": 40.752475,
     "lng": -73.982632
@@ -3924,7 +4291,8 @@
     "name": "Spagnola & Associates",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://spagnolaandassociates.com",
     "lat": 41.32952,
     "lng": -72.914126
@@ -3934,7 +4302,8 @@
     "name": "Splice",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://splice.com",
     "lat": 40.739034,
     "lng": -73.987451
@@ -3944,7 +4313,8 @@
     "name": "Spring Design Partners",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Product Design",
+    "industry": "Product Design & Manufacturing",
+    "subIndustry": "Product Design",
     "url": "https://springdesignpartners.com",
     "lat": 40.738478,
     "lng": -73.9919
@@ -3954,7 +4324,8 @@
     "name": "SquareFoot",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Real Estate",
+    "industry": "Professional Services",
+    "subIndustry": "Real Estate",
     "url": "https://squarefoot.com",
     "lat": 40.747517,
     "lng": -73.990033
@@ -3965,6 +4336,7 @@
     "status": "Inactive",
     "hidden": false,
     "industry": "Education",
+    "subIndustry": "Education",
     "url": "https://sva.edu",
     "lat": 40.778324,
     "lng": -73.563939
@@ -3974,7 +4346,8 @@
     "name": "Talmor & Talmor & Talmor",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://andtalmor.com",
     "lat": 40.729909,
     "lng": -73.957892
@@ -3984,7 +4357,8 @@
     "name": "Tascent, Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://tascent.com",
     "lat": 37.22827,
     "lng": -121.971067
@@ -3994,7 +4368,8 @@
     "name": "Temporary Residence Ltd.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Audio",
+    "industry": "Audio Production",
+    "subIndustry": "Audio",
     "url": "https://temporaryresidence.com",
     "lat": 40.707565,
     "lng": -73.929274
@@ -4004,7 +4379,8 @@
     "name": "Tend Dental",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Healthcare",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Healthcare",
     "url": "https://hellotend.com",
     "lat": 40.727379,
     "lng": -73.993957
@@ -4014,7 +4390,8 @@
     "name": "The Apartment",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://theapt.com",
     "lat": 44.462813,
     "lng": 11.261137
@@ -4024,7 +4401,8 @@
     "name": "The Brant Foundation Art Study Center",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Arts",
+    "industry": "Arts & Culture",
+    "subIndustry": "Arts",
     "url": "https://brantfoundation.org",
     "lat": 41.132212,
     "lng": -73.637928
@@ -4034,7 +4412,8 @@
     "name": "The Herban Alchemist",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Retail",
+    "industry": "Retail & Hospitality",
+    "subIndustry": "Retail",
     "url": "https://theherbanalchemist.com",
     "lat": 40.724365,
     "lng": -74.001404
@@ -4044,7 +4423,8 @@
     "name": "The Law Offices of Nathaniel Z. Marmur, PLLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Legal",
+    "industry": "Professional Services",
+    "subIndustry": "Legal",
     "url": "https://marmurlaw.com",
     "lat": 40.756172,
     "lng": -73.982785
@@ -4054,7 +4434,8 @@
     "name": "The New York City Anti-Violence Project",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://avp.org",
     "lat": 40.7106,
     "lng": -74.0078
@@ -4064,7 +4445,8 @@
     "name": "The Office of PlayLab",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Parks",
+    "industry": "Parks & Recreation",
+    "subIndustry": "Parks",
     "url": "https://pluspool.org",
     "lat": 40.718206,
     "lng": -74.000329
@@ -4074,7 +4456,8 @@
     "name": "Thumb LLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Graphic Design",
+    "industry": "Design & Advertising",
+    "subIndustry": "Graphic Design",
     "url": "https://thumbprojects.com",
     "lat": 40.656621,
     "lng": -74.008357
@@ -4084,7 +4467,8 @@
     "name": "Tierra-Innovation",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://tierra-innovation.com",
     "lat": 40.683857,
     "lng": -73.980894
@@ -4094,7 +4478,8 @@
     "name": "TrialSpark, Inc.",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Biotech",
+    "industry": "Healthcare & Medical",
+    "subIndustry": "Biotech",
     "url": "https://trialspark.com",
     "lat": 40.748118,
     "lng": -73.983959
@@ -4104,7 +4489,8 @@
     "name": "Unqork",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://unqork.com",
     "lat": 40.737894,
     "lng": -73.992328
@@ -4114,7 +4500,8 @@
     "name": "VCCP, LLC",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://vccp.com",
     "lat": 51.495882,
     "lng": -0.136836
@@ -4124,7 +4511,8 @@
     "name": "Vector Media Group",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Advertising",
+    "industry": "Design & Advertising",
+    "subIndustry": "Advertising",
     "url": "https://vectormediagroup.com",
     "lat": 40.740458,
     "lng": -73.991137
@@ -4134,7 +4522,8 @@
     "name": "Vendeloo",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Technology",
+    "industry": "Technology & Software",
+    "subIndustry": "Technology",
     "url": "https://vendeloo.com",
     "lat": 29.928809,
     "lng": -90.080122
@@ -4144,7 +4533,8 @@
     "name": "vonDALWIG Architecture",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Architecture",
+    "industry": "Architecture & Design",
+    "subIndustry": "Architecture",
     "url": "https://vondalwig.com",
     "lat": 40.697279,
     "lng": -73.968723
@@ -4154,7 +4544,8 @@
     "name": "Wildlife Conservation Society",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Non-Profit",
+    "industry": "Nonprofits",
+    "subIndustry": "Non-Profit",
     "url": "https://wcs.org",
     "lat": 40.851619,
     "lng": -73.882086
@@ -4164,7 +4555,8 @@
     "name": "Work Order",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Branding",
+    "industry": "Design & Advertising",
+    "subIndustry": "Branding",
     "url": "https://work-order.co",
     "lat": 40.716022,
     "lng": -73.992976
@@ -4174,7 +4566,8 @@
     "name": "Your Other Half",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Consulting",
+    "industry": "Professional Services",
+    "subIndustry": "Consulting",
     "url": "https://yourotherhalfsolutions.com",
     "lat": 40.92397,
     "lng": -75.393749
@@ -4184,7 +4577,8 @@
     "name": "Yoxi",
     "status": "Inactive",
     "hidden": false,
-    "industry": "Video",
+    "industry": "Video & Post-Production",
+    "subIndustry": "Video",
     "url": "https://yoxi.tv",
     "lat": 40.727982,
     "lng": -73.999121

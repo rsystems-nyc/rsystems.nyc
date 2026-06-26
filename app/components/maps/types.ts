@@ -8,6 +8,9 @@ export type Client = {
   status: ClientStatus;
   hidden: boolean;
   industry?: string;
+  // The original granular tag, retained when `industry` is rolled up to one of
+  // the canonical 16 (see docs/industries-taxonomy). Makes the re-map reversible.
+  subIndustry?: string;
   url?: string;
   class?: string;
   lat?: number;

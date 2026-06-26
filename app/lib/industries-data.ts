@@ -405,12 +405,12 @@ export const industriesData: Industry[] = [
     jsonLdKnowsAbout: ["Educational Technology", "1:1 Device Programs", "E-rate Program", "Campus Wireless", "Chromebook Management", "Google Workspace for Education"],
   },
   {
-    slug: "software-engineering",
-    cardName: "Software Engineering",
-    cardDescriptor: "Infrastructure that speaks your engineering team's language",
-    headline: "Software Engineering",
+    slug: "technology-software",
+    cardName: "Technology & Software",
+    cardDescriptor: "Infrastructure for technology and software companies",
+    headline: "Technology & Software",
     subtitle: "Infrastructure that speaks the same language as your engineering team",
-    lead: "Software engineering organizations have specific expectations for their infrastructure — version-controlled, reproducible, automated, and as consistent across environments as the code that runs on it. We're comfortable working with engineering teams using the tools they already use, from Terraform and GitHub to containerized workloads and cloud-native architectures across AWS, Azure, and GCP.",
+    lead: "Technology and software organizations have specific expectations for their infrastructure — version-controlled, reproducible, automated, and as consistent across environments as the code that runs on it. We're comfortable working with engineering teams using the tools they already use, from Terraform and GitHub to containerized workloads and cloud-native architectures across AWS, Azure, and GCP. The people we support here are technical, so we meet them at that level — including the endpoints they actually run, from GPU-equipped laptops to Linux workstations and Linux on Windows (WSL).",
     sections: [
       {
         eyebrow: "Infrastructure as Code",
@@ -433,6 +433,13 @@ export const industriesData: Industry[] = [
           "Modern data stacks — Snowflake, RDS, DynamoDB, BigQuery — need the right access controls, backup posture, and network design to be both useful and secure. We're familiar with these systems and the infrastructure decisions around them.",
         ],
       },
+      {
+        eyebrow: "Environments & Access",
+        heading: "Dev, UAT, prod — and the access model around them",
+        paragraphs: [
+          "Technical organizations promote changes through environments — dev to UAT to prod — and expect change management, integrations, and API access to be first-class concerns rather than afterthoughts. Identity and access matter even more here: granular IAM and role-based access control across environments, services, and integrations, scoped so engineers move fast without handing everyone the keys to production.",
+        ],
+      },
     ],
     whatWeBring: [
       "Terraform and CloudFormation infrastructure as code experience",
@@ -443,11 +450,15 @@ export const industriesData: Industry[] = [
       "Snowflake and data warehouse infrastructure knowledge",
       "Secrets management and developer access controls",
       "Network security for development environments",
+      "Change-management environments (dev / UAT / prod) and promotion workflows",
+      "Granular IAM and RBAC across environments, services, and integrations",
+      "API access management and third-party integrations",
+      "GPU-equipped laptops and Linux workstations, including Linux on Windows (WSL)",
     ],
-    platforms: ["AWS", "Azure", "GCP", "Terraform", "CloudFormation", "GitHub", "Kubernetes", "Docker", "Snowflake", "1Password"],
-    seoTitle: "IT Infrastructure for Software Engineering | RSystems NYC",
-    seoDescription: "RSystems builds and manages infrastructure for software engineering teams — Terraform IaC, multi-account AWS, Azure, and GCP architecture, containers, CI/CD, Snowflake, and developer tooling.",
-    jsonLdKnowsAbout: ["Software Engineering Infrastructure", "Infrastructure as Code", "Terraform", "Kubernetes", "CI/CD Pipelines", "Cloud Architecture", "Developer Tooling"],
+    platforms: ["AWS", "Azure", "GCP", "Terraform", "CloudFormation", "GitHub", "Kubernetes", "Docker", "Snowflake", "Linux", "WSL", "1Password"],
+    seoTitle: "IT Infrastructure for Technology & Software Companies | RSystems NYC",
+    seoDescription: "RSystems builds and manages infrastructure for technology and software teams — Terraform IaC, multi-account AWS, Azure, and GCP architecture, containers, CI/CD, Snowflake, and developer tooling.",
+    jsonLdKnowsAbout: ["Technology & Software Infrastructure", "Infrastructure as Code", "Terraform", "Kubernetes", "CI/CD Pipelines", "Cloud Architecture", "Developer Tooling"],
   },
   {
     slug: "audio-production",
@@ -501,12 +512,12 @@ export const industriesData: Industry[] = [
     jsonLdKnowsAbout: ["Audio Production Infrastructure", "Pro Tools", "Dante Audio Networking", "PTP Timing", "Studio LAN Design", "iLok License Management"],
   },
   {
-    slug: "advertising-marketing",
-    cardName: "Advertising & Marketing",
-    cardDescriptor: "Contractor-heavy agencies, Adobe licensing, and client data management",
-    headline: "Advertising & Marketing",
+    slug: "design-advertising",
+    cardName: "Design & Advertising",
+    cardDescriptor: "Design studios, brand and signage firms, and advertising agencies",
+    headline: "Design & Advertising",
     subtitle: "Infrastructure for creative organizations that run on contractors, campaigns, and client data",
-    lead: "Advertising and marketing agencies have a distinct operational profile: a core permanent team, a rotating cast of contractors and freelancers, multiple simultaneous client relationships with strict data separation requirements, and a software stack built around Adobe, Figma, and a constantly evolving set of campaign and analytics tools. We're familiar with the IT environment these organizations operate in.",
+    lead: "Design studios, brand and graphic design firms, signage and environmental graphics shops, and advertising agencies share a distinct operational profile: a core permanent team, a rotating cast of contractors and freelancers, multiple simultaneous client relationships with strict data separation requirements, and a software stack built around Adobe, Figma, and a constantly evolving set of production tools. This is where graphic design meets advertising — creative, sales, and business disciplines sitting side by side, usually on large-display iMac workstations. We're familiar with the IT environment these organizations operate in.",
     sections: [
       {
         eyebrow: "Contractor Lifecycle",
@@ -529,6 +540,13 @@ export const industriesData: Industry[] = [
           "Client data — campaign assets, analytics, briefs, strategy documents — needs to be organized, accessible during the engagement, and handled correctly when it ends. Data lifecycle management, metadata discipline, and access control across concurrent client relationships are infrastructure concerns we understand in the agency context.",
         ],
       },
+      {
+        eyebrow: "Enterprise Client Security",
+        heading: "The security posture that wins big-brand work",
+        paragraphs: [
+          "The contracts that matter most — the master service agreements behind work for clients like Nike, Disney, and Apple — increasingly come with security requirements attached: vendor security questionnaires, data-handling commitments, and controls those brands won't sign without. We help creative firms get their security posture and documentation in order, so that passing a client's vendor review is routine rather than a fire drill that puts the engagement at risk.",
+        ],
+      },
     ],
     whatWeBring: [
       "Contractor and freelancer onboarding and offboarding process design",
@@ -539,11 +557,13 @@ export const industriesData: Industry[] = [
       "Google Analytics and campaign infrastructure awareness",
       "Data lifecycle policy design",
       "Google Workspace and Microsoft 365 for creative agencies",
+      "Large-display iMac workstations for creative teams",
+      "Security posture and documentation to satisfy enterprise-client MSAs and vendor reviews",
     ],
-    platforms: ["Adobe Creative Cloud", "Figma", "Google Workspace", "Microsoft 365", "JumpCloud", "Entra ID", "1Password", "Notion", "Slack"],
-    seoTitle: "IT for Advertising & Marketing Agencies | RSystems NYC",
-    seoDescription: "RSystems understands the IT environment of advertising and marketing agencies — contractor onboarding and offboarding, Adobe Creative Cloud licensing, client data separation, Figma administration, BYOD, and data lifecycle management.",
-    jsonLdKnowsAbout: ["Advertising Agency IT", "Adobe Creative Cloud Licensing", "Contractor Lifecycle Management", "BYOD Policies", "Client Data Separation", "Figma Administration"],
+    platforms: ["Adobe Creative Cloud", "Figma", "Apple", "Google Workspace", "Microsoft 365", "JumpCloud", "Entra ID", "1Password", "Notion", "Slack"],
+    seoTitle: "IT for Design & Advertising Studios | RSystems NYC",
+    seoDescription: "RSystems understands the IT environment of design studios, brand and signage firms, and advertising agencies — contractor onboarding and offboarding, Adobe Creative Cloud licensing, client data separation, Figma administration, BYOD, and data lifecycle management.",
+    jsonLdKnowsAbout: ["Design Studio IT", "Advertising Agency IT", "Adobe Creative Cloud Licensing", "Contractor Lifecycle Management", "BYOD Policies", "Client Data Separation", "Figma Administration"],
   },
   {
     slug: "healthcare",
@@ -643,5 +663,245 @@ export const industriesData: Industry[] = [
     seoTitle: "IT for Product Design & Manufacturing | RSystems NYC",
     seoDescription: "RSystems has experience supporting product design and manufacturing organizations — SolidWorks and CAD infrastructure, PDM system storage, GPU workstations, and the IT layer behind additive manufacturing and industrial 3D printing.",
     jsonLdKnowsAbout: ["Product Design IT", "Manufacturing IT", "SolidWorks Infrastructure", "PDM Systems", "Additive Manufacturing", "Engineering Workstations", "Industrial 3D Printing"],
+  },
+  {
+    slug: "arts-culture",
+    cardName: "Arts & Culture",
+    cardDescriptor: "Asset-heavy creative workflows, collections, and gallery-grade spaces",
+    headline: "Arts & Culture",
+    subtitle: "Infrastructure for galleries, foundations, filmmakers, and the asset libraries at their core",
+    lead: "Arts and cultural organizations — galleries, artist foundations, filmmakers, and the studios around them — run on enormous, irreplaceable libraries of high-resolution images, video, and scanned works, accessed by a rotating mix of staff and freelancers, often in spaces where the technology has to disappear into a high-finish environment. We understand the infrastructure these organizations depend on, and the discipline required to keep decades of cultural assets organized, secure, and retrievable.",
+    sections: [
+      {
+        eyebrow: "Digital Asset Management",
+        heading: "Libraries that stay findable as they grow",
+        paragraphs: [
+          "A foundation's archive or a gallery's inventory of works is the organization's most valuable asset, and it only grows. We help structure digital asset management — consistent metadata, naming, and folder discipline, with the right storage tier for active versus archival material — so that a specific image, edit, or scan can be found years later by someone who wasn't there when it was created.",
+        ],
+      },
+      {
+        eyebrow: "Production Pipelines",
+        heading: "From the shoot to the archive",
+        paragraphs: [
+          "Photo and film shoots generate terabytes fast, and that footage has to move cleanly from capture through editing to final delivery and long-term storage. We design the pipeline — fast local storage and networking for editorial, reliable ingest and backup, and large, resilient data stores sized for high-resolution media — so the work flows without bottlenecks and nothing is lost between stages. This matters most for filmmakers, where the volume and the stakes are highest.",
+        ],
+      },
+      {
+        eyebrow: "Collections & Access",
+        heading: "Collections management and freelance access",
+        paragraphs: [
+          "Foundations and galleries manage their holdings through specialized collections systems, and the people touching those assets are often freelancers, guest curators, or production crews who need scoped, temporary access. We set up access that's easy to grant and clean to revoke, integrated with the collections and asset tools, so the right people reach the right material without the archive becoming a free-for-all — all while keeping the technology discreet enough to fit a high-finish space.",
+        ],
+      },
+    ],
+    whatWeBring: [
+      "Digital asset management structure — metadata, naming, and storage tiering for growing media libraries",
+      "Photo and video shoot pipelines: ingest, fast editorial storage, backup, and delivery",
+      "Large, resilient data stores sized for high-resolution image and film archives",
+      "Collections management system support for foundations and galleries",
+      "Scoped, revocable access for freelancers, guest curators, and production crews",
+      "Discreet, gallery-grade technology that fits high-finish spaces",
+      "Resilient backup and archival strategy for irreplaceable cultural assets",
+      "Networking and storage tuned for film and post-production workflows",
+    ],
+    platforms: ["Synology", "Adobe Creative Cloud", "Lightroom", "Capture One", "Google Workspace", "Microsoft 365", "1Password", "Backblaze"],
+    relatedWork: [
+      { href: "/case-studies/fost-fest", label: "A Festival Campus, Fully Connected — FoST Fest" },
+    ],
+    seoTitle: "IT for Arts & Culture — Galleries, Foundations & Filmmakers | RSystems NYC",
+    seoDescription: "RSystems builds infrastructure for arts and cultural organizations — digital asset management, photo and film shoot pipelines, large media archives, collections management, and scoped freelance access for galleries, foundations, and filmmakers.",
+    jsonLdKnowsAbout: ["Arts & Culture IT", "Digital Asset Management", "Media Archives", "Film and Photo Production Pipelines", "Collections Management", "Gallery and Foundation Infrastructure"],
+  },
+  {
+    slug: "publishing-media",
+    cardName: "Publishing & Media",
+    cardDescriptor: "Licensing, rights, and the lifecycle of media campaigns",
+    headline: "Publishing & Media",
+    subtitle: "Infrastructure for organizations that license, manage, and move content at scale",
+    lead: "Publishing and media organizations sit on top of valuable content and the rights to use it, managing licensing arrangements, partner and contributor relationships, and campaigns that move through a defined lifecycle from commission to distribution. We understand the systems these organizations run on and the access and data discipline that keeps rights, relationships, and content organized.",
+    sections: [
+      {
+        eyebrow: "Licensing & Rights",
+        heading: "Keeping track of what you can use, and when",
+        paragraphs: [
+          "Licensing is where publishing and media value is made and lost — who owns what, what's been licensed to whom, and when rights expire. We help structure the systems and access around licensing and rights data so it stays accurate, secure, and available to the people who need it, without exposing sensitive contract terms more widely than they should be.",
+        ],
+      },
+      {
+        eyebrow: "Relationship Management",
+        heading: "Contributors, partners, and the data behind them",
+        paragraphs: [
+          "Media organizations run on relationships — contributors, syndication partners, advertisers, subscribers — and the CRM and contact data that tracks them. We make sure that data lives in well-integrated systems with the right access controls, so relationship history is preserved and reachable as teams and tools change.",
+        ],
+      },
+      {
+        eyebrow: "Campaign Lifecycle",
+        heading: "From commission to distribution",
+        paragraphs: [
+          "Content and campaigns move through stages — planning, production, review, publication, and distribution across channels — and each stage has its own tools and handoffs. We help connect that lifecycle with sound infrastructure: shared storage, access that follows the workflow, and integrations that reduce the manual carrying of files and data between stages.",
+        ],
+      },
+    ],
+    whatWeBring: [
+      "Access control and data structure for licensing and rights information",
+      "CRM and relationship-data infrastructure and integration",
+      "Campaign and editorial workflow support across the content lifecycle",
+      "Shared storage and asset organization for media production",
+      "Integration between content, distribution, and analytics tools",
+      "Subscriber and contributor data protection",
+      "Google Workspace and Microsoft 365 administration",
+      "Backup and retention for published archives",
+    ],
+    platforms: ["Google Workspace", "Microsoft 365", "Adobe Creative Cloud", "WordPress", "Airtable", "Salesforce", "1Password", "Slack"],
+    seoTitle: "IT for Publishing & Media | RSystems NYC",
+    seoDescription: "RSystems supports publishing and media organizations — licensing and rights data, contributor and partner relationship management, campaign-lifecycle workflows, and the integrations and access controls that hold them together.",
+    jsonLdKnowsAbout: ["Publishing IT", "Media Infrastructure", "Licensing and Rights Management", "CRM Integration", "Campaign Lifecycle", "Editorial Workflows"],
+  },
+  {
+    slug: "professional-services",
+    cardName: "Professional Services",
+    cardDescriptor: "Consultants, firms, and the client relationships their business runs on",
+    headline: "Professional Services",
+    subtitle: "Infrastructure for firms whose product is their people, their judgment, and their client relationships",
+    lead: "Consulting firms, law practices, recruiters, and advisory businesses don't have a wildly different technology stack from everyone else — what sets them apart is the business model. Their value is their people, their judgment, and their client relationships, and their obligations around confidentiality and responsiveness are central, not incidental. We understand this firsthand, because it's our business too.",
+    sections: [
+      {
+        eyebrow: "We Speak Your Language",
+        heading: "We run the same kind of business",
+        paragraphs: [
+          "RSystems is a professional services firm. We bill our time, we live and die by client relationships and trust, and we carry the same obligation to protect what clients share with us. So we don't approach your IT as a generic ticket queue — we approach it the way an advisor approaches a client's business, starting from how you actually make money and what would damage the relationships that sustain you.",
+        ],
+      },
+      {
+        eyebrow: "Confidentiality & Trust",
+        heading: "Client confidentiality is the whole game",
+        paragraphs: [
+          "For a professional services firm, a breach of client confidentiality isn't an IT incident — it's an existential threat to the relationship and the reputation behind it. We build access controls, data separation between client engagements, and a security posture around that reality, so sensitive client material is protected to the standard your clients assume you already meet.",
+        ],
+      },
+      {
+        eyebrow: "Continuity & Responsiveness",
+        heading: "Always reachable, always working",
+        paragraphs: [
+          "Your clients expect responsiveness, and your people work from the office, from home, and on the road. We build the identity, device, and access infrastructure that lets a small or mid-sized firm operate everywhere — reliably and securely — so the technology is never the reason a client had to wait.",
+        ],
+      },
+    ],
+    whatWeBring: [
+      "Infrastructure designed around your business model, not a generic template",
+      "Client-confidentiality-grade access controls and data separation",
+      "Identity and device management for a mobile, always-on workforce",
+      "Security posture that meets client and regulatory expectations",
+      "Document and engagement organization",
+      "Secure remote access and collaboration",
+      "Business continuity and backup for client-critical data",
+      "A consultant's-eye view — we run the same kind of firm",
+    ],
+    platforms: ["Google Workspace", "Microsoft 365", "JumpCloud", "Entra ID", "1Password", "Egnyte", "NetDocuments", "Slack"],
+    seoTitle: "IT for Professional Services Firms | RSystems NYC",
+    seoDescription: "RSystems understands professional services firms because we are one — consulting, legal, recruiting, and advisory practices whose value is their people and client relationships. Confidentiality-grade security, identity, and infrastructure built around your business model.",
+    jsonLdKnowsAbout: ["Professional Services IT", "Client Confidentiality", "Identity and Access Management", "Document Management", "Business Continuity", "Advisory Firm Infrastructure"],
+  },
+  {
+    slug: "retail-hospitality",
+    cardName: "Retail & Hospitality",
+    cardDescriptor: "Point of sale, inventory, and PCI compliance across locations",
+    headline: "Retail & Hospitality",
+    subtitle: "Infrastructure for businesses that sell, serve, and take payment across locations",
+    lead: "Retail and hospitality businesses run on the floor: point-of-sale systems that can't go down during service, inventory that has to be accurate across locations, and payment handling that carries real compliance obligations. We understand the infrastructure behind the storefront and the dining room, and what it takes to keep it reliable, connected, and compliant.",
+    sections: [
+      {
+        eyebrow: "Point of Sale",
+        heading: "Systems that can't go down at the register",
+        paragraphs: [
+          "When the POS is down, the business stops — no sales, no service, no exceptions. We build the networking, redundancy, and support around point-of-sale systems so transactions keep flowing, and so one location's outage doesn't take down the others. Reliable connectivity and a clear escalation path matter more here than almost anywhere.",
+        ],
+      },
+      {
+        eyebrow: "Inventory & Operations",
+        heading: "Accurate inventory across every location",
+        paragraphs: [
+          "Inventory and operations data has to stay consistent across stores, the warehouse, and the back office, which means the systems tracking them need sound integration and reliable connectivity at every site. We help connect POS, inventory, and operations tools so the numbers reconcile and staff aren't fighting the systems they depend on.",
+        ],
+      },
+      {
+        eyebrow: "In-Store Analytics",
+        heading: "Seeing how customers move through the space",
+        paragraphs: [
+          "Modern retail increasingly instruments the floor itself: traffic-counting cameras at the door, Bluetooth beacons that follow how shoppers move through the aisles, captive-portal guest Wi-Fi platforms like Purple that tie network access to customer insight, and heatmapping that shows where people dwell and where they don't. Each of these is a sensor-and-network problem before it's a marketing one — the cameras, beacons, and access points need reliable connectivity, somewhere to send their data, and a privacy posture that's actually been thought through. We deploy and integrate this kind of in-store analytics so the foot-traffic and behavior data is trustworthy and the systems behind it are sound.",
+        ],
+      },
+      {
+        eyebrow: "PCI Compliance",
+        heading: "Taking payment, safely and by the book",
+        paragraphs: [
+          "Handling card payments brings PCI DSS obligations — network segmentation, access control, and security practices that protect cardholder data and keep the business compliant. We design payment environments and the surrounding network with PCI in mind, so compliance is built into the infrastructure rather than bolted on under audit pressure.",
+        ],
+      },
+    ],
+    whatWeBring: [
+      "Point-of-sale networking, redundancy, and support",
+      "Multi-location connectivity and centralized management",
+      "Inventory and operations system integration",
+      "PCI DSS-aware network segmentation and access control",
+      "Secure payment environment design",
+      "Reliable in-store and back-office Wi-Fi",
+      "In-store analytics: people-counting cameras, Bluetooth beacons, and heatmapping",
+      "Captive-portal guest Wi-Fi and location analytics (e.g., Purple)",
+      "Identity and device management across locations",
+      "Backup and continuity for operations-critical systems",
+    ],
+    platforms: ["Square", "Toast", "Shopify", "Lightspeed", "Meraki", "Ubiquiti", "FortiGate", "Purple", "1Password"],
+    relatedWork: [
+      { href: "/case-studies/directory-modernization", label: "Directory Modernization" },
+    ],
+    seoTitle: "IT for Retail & Hospitality | RSystems NYC",
+    seoDescription: "RSystems builds infrastructure for retail and hospitality — reliable point-of-sale networking, multi-location inventory and operations integration, in-store analytics (foot-traffic cameras, Bluetooth beacons, captive-portal guest Wi-Fi, and heatmapping), and PCI-compliant payment environments.",
+    jsonLdKnowsAbout: ["Retail IT", "Hospitality IT", "Point of Sale Systems", "Inventory Management", "PCI DSS Compliance", "Multi-Location Networking", "In-Store Analytics", "Foot Traffic Counting"],
+  },
+  {
+    slug: "logistics-operations",
+    cardName: "Logistics & Operations",
+    cardDescriptor: "Databases, data warehouses, and automation behind physical operations",
+    headline: "Logistics & Operations",
+    subtitle: "Infrastructure for businesses that move, track, and recover things in the physical world",
+    lead: "Logistics and operations companies — specialized transport, fulfillment, industrial, and recovery businesses — run on data and automation: databases tracking everything in motion, data warehouses aggregating it, and the scripts and integrations that keep it flowing without manual intervention. We understand the infrastructure behind physical operations, where software and the real world meet.",
+    sections: [
+      {
+        eyebrow: "Data Infrastructure",
+        heading: "Databases and warehouses that keep up with operations",
+        paragraphs: [
+          "Operations generate constant data — shipments, inventory, sensor readings, transactions — and it has to land somewhere queryable and reliable. We're experienced with the databases and data-lake / data-warehouse architectures that aggregate operational data, and the access controls and backup posture that keep it both useful and protected.",
+        ],
+      },
+      {
+        eyebrow: "Automation & Scripting",
+        heading: "The scripts that run the operation",
+        paragraphs: [
+          "These businesses lean hard on automation: scripts that move data between systems, trigger actions, generate reports, and remove the manual steps that don't scale. We build and maintain that automation and the infrastructure beneath it — scheduled jobs, integrations, and APIs — so the operation runs with fewer hands and fewer errors.",
+        ],
+      },
+      {
+        eyebrow: "Integration & Reliability",
+        heading: "Systems that talk to each other, reliably",
+        paragraphs: [
+          "Logistics runs on many systems — tracking, telematics, ERP, customer portals — that only deliver value when they're integrated and dependable. We design the connectivity, integrations, and monitoring that keep these systems talking, because in operations a broken integration is a stalled shipment, not just a software bug.",
+        ],
+      },
+    ],
+    whatWeBring: [
+      "Database and data-warehouse / data-lake architecture and administration",
+      "Automation and scripting to eliminate manual operational steps",
+      "System integration across tracking, ERP, and operational tools",
+      "API access design and management",
+      "Access control and backup for operational data stores",
+      "Monitoring and alerting for operations-critical systems",
+      "Reliable connectivity across facilities and fleets",
+      "Cloud infrastructure for data aggregation and reporting",
+    ],
+    platforms: ["AWS", "Azure", "PostgreSQL", "Snowflake", "Python", "Airflow", "Terraform", "1Password"],
+    seoTitle: "IT for Logistics & Operations | RSystems NYC",
+    seoDescription: "RSystems builds infrastructure for logistics and operations businesses — databases and data warehouses, heavy automation and scripting, system integration, and the reliable connectivity behind physical operations.",
+    jsonLdKnowsAbout: ["Logistics IT", "Operations Infrastructure", "Databases", "Data Warehousing", "Automation and Scripting", "System Integration"],
   },
 ];

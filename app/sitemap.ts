@@ -16,11 +16,16 @@ const industryRoutes = [
   "/industries/event-production",
   "/industries/parks-recreation",
   "/industries/education",
-  "/industries/software-engineering",
+  "/industries/technology-software",
   "/industries/audio-production",
-  "/industries/advertising-marketing",
+  "/industries/design-advertising",
   "/industries/healthcare",
   "/industries/product-design",
+  "/industries/arts-culture",
+  "/industries/publishing-media",
+  "/industries/professional-services",
+  "/industries/retail-hospitality",
+  "/industries/logistics-operations",
 ];
 
 const managementRoutes = [
