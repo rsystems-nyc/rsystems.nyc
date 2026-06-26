@@ -206,7 +206,10 @@ export default function Home() {
 
       {/* Industries teaser */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10 lg:pb-12">
-        <div className="border border-[#1A1A1A]/[0.07] rounded-xl p-6 lg:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-[#F4F2EF]">
+        <Link
+          href="/industries"
+          className="group border border-[#1A1A1A]/[0.07] rounded-xl p-6 lg:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-[#F4F2EF] hover:border-[#FE6305]/40 transition-colors"
+        >
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-1">
               Who We Serve
@@ -215,16 +218,13 @@ export default function Home() {
               Deep familiarity across {industriesData.length} verticals — from quantitative trading and post-production to nonprofits, healthcare, and event production.
             </p>
           </div>
-          <Link
-            href="/industries"
-            className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[#FE6305] hover:text-[#FE6305]/75 transition-colors"
-          >
+          <span className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[#FE6305] group-hover:text-[#FE6305]/75 transition-colors">
             Explore industry expertise
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
               <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </Link>
-        </div>
+          </span>
+        </Link>
       </section>
 
       {/* Technology Platforms */}
