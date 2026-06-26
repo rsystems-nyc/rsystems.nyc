@@ -22,7 +22,7 @@ const reasons = [
   {
     title: "Depth over breadth",
     description:
-      "15+ years focused exclusively on infrastructure strategy and executive-level IT consulting. We don't spread across every technology trend — we go deep where it matters.",
+      "Established in 2011 and focused exclusively on infrastructure strategy and executive-level IT consulting. We don't spread across every technology trend — we go deep where it matters.",
   },
   {
     title: "Executive-level engagement",
@@ -49,7 +49,7 @@ export default function AboutPage() {
       <section className="bg-[#0F1117] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
-            RSystems &nbsp;·&nbsp; New York City &nbsp;·&nbsp; Est. 2025
+            RSystems &nbsp;·&nbsp; New York City &nbsp;·&nbsp; Est. 2011
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
             Senior infrastructure expertise, without the overhead.

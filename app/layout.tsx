@@ -45,7 +45,7 @@ const organizationSchema = {
   logo: `${SITE_URL}/assets/RS_Systems_Pulsar_Logo.svg`,
   image: `${SITE_URL}/assets/RS_Systems_Pulsar_Logo.svg`,
   sameAs: ["https://maps.app.goo.gl/URtpuDTNpba7NuR2A"],
-  foundingDate: "2025",
+  foundingDate: "2011",
   description:
     "Executive IT Leadership & Consulting — bridging the boardroom and the server room. Strategy, architecture, and implementation. NYC Native.",
   areaServed: { "@type": "City", name: "New York City" },

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Clients | RSystems NYC",
   alternates: { canonical: "https://rsystems.nyc/our-work/clients" },
   description:
-    "A selection of the organizations Reilly has worked with over 15+ years — through RSystems and through prior engagements — across industries and at every scale.",
+    "A selection of the organizations Reilly has worked with over 20+ years — through RSystems and through prior engagements — across industries and at every scale.",
 };
 
 export default function ClientsPage() {
@@ -28,7 +28,7 @@ export default function ClientsPage() {
             Clients
           </h1>
           <p className="mt-5 text-lg text-white/50 max-w-2xl leading-relaxed">
-            Over 15 years, Reilly has worked with hundreds of organizations
+            Over 20 years, Reilly has worked with hundreds of organizations
             across industries — through RSystems and through prior engagements —
             from early-stage startups to multinational companies. A selection
             is listed below.
@@ -62,7 +62,7 @@ export default function ClientsPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 lg:pt-12 pb-20 lg:pb-24">
           <ClientList groups={listGroups} />
           <p className="mt-16 text-center text-sm text-[#1A1A1A]/40">
-            Organizations we&apos;ve worked with across 15+ years — current,
+            Organizations we&apos;ve worked with across 20+ years — current,
             inactive, and former engagements. Not a complete list.
           </p>
         </div>

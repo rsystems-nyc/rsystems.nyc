@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Leadership — RSystems",
   alternates: { canonical: "https://rsystems.nyc/about/leadership" },
   description:
-    "RSystems is led by Reilly Scull, founder and CTO with 25+ years of experience at the intersection of enterprise infrastructure and organizational strategy.",
+    "RSystems is led by Reilly Scull, founder and CTO with 20+ years of experience at the intersection of enterprise infrastructure and organizational strategy.",
 };
 
 export default function LeadershipPage() {
@@ -57,14 +57,14 @@ export default function LeadershipPage() {
                 </p>
               </div>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                Reilly Scull has spent more than 25 years at the intersection of enterprise
+                Reilly Scull has spent more than 20 years at the intersection of enterprise
                 infrastructure and organizational strategy. Trained as a mechanical engineer,
                 he brings a systems-level discipline to technology work — focused on how
                 components interact under load, where failure points emerge, and what it
                 takes to build infrastructure that performs consistently at scale.
               </p>
               <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
-                Based in New York City, Reilly founded RSystems in 2025 to focus exclusively
+                Based in New York City, Reilly founded RSystems in 2011 to focus exclusively
                 on the work he does best: engaging at the executive level to define
                 infrastructure strategy, design complex environments, and help organizations
                 translate technology investments into operational advantage. He has led
