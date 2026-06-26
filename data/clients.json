@@ -2264,7 +2264,8 @@
     "status": "Current",
     "hidden": false,
     "industry": "Financial Services",
-    "subIndustry": "Finance"
+    "subIndustry": "Finance",
+    "url": "https://www.linkedin.com/company/dualitygroup"
   },
   {
     "code": "MNSE",
@@ -2295,6 +2296,7 @@
     "hidden": false,
     "industry": "Arts & Culture",
     "subIndustry": "Arts",
+    "url": "https://futureofstorytelling.org",
     "lat": 40.725,
     "lng": -74.005
   }
