@@ -729,7 +729,7 @@ export default function PricingPage() {
                 which can bring per-unit pricing down.
               </p>
             </div>
-            <div className="bg-white p-7">
+            <div className="w-full md:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7">
               <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-3">Co-managed environments</h3>
               <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
                 When we work alongside your internal IT team and share responsibilities,
