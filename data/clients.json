@@ -2294,6 +2294,8 @@
     "status": "Current",
     "hidden": false,
     "industry": "Retail & Hospitality",
-    "subIndustry": "Retail"
+    "subIndustry": "Retail",
+    "lat": 40.7535,
+    "lng": -73.9913
   }
 ]
