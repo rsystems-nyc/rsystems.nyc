@@ -2,7 +2,7 @@
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
-  --color-brand-orange: #E8500A;
+  --color-brand-orange: #FE6305;
   --color-brand-gray: #808080;
   --color-brand-dark: #0F1117;
   --color-brand-light: #F4F2EF;
@@ -105,13 +105,13 @@ body {
 }
 
 .prose-article a {
-  color: #E8500A;
+  color: #FE6305;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .prose-article a:hover {
-  color: rgba(232, 80, 10, 0.75);
+  color: rgba(254, 99, 5, 0.75);
 }
 
 /* ── Glossary inline tooltip ─────────────────────────────────────── */
@@ -121,21 +121,21 @@ body {
 }
 
 .gl-link {
-  color: #E8500A;
-  border-bottom: 1px dashed #E8500A60;
+  color: #FE6305;
+  border-bottom: 1px dashed #FE630560;
   text-decoration: none;
   cursor: pointer;
 }
 
 .gl-link:visited {
-  color: #E8500A;
-  border-bottom-color: #E8500A60;
+  color: #FE6305;
+  border-bottom-color: #FE630560;
 }
 
 .gl-link:hover,
 .gl-link:visited:hover {
-  color: rgba(232, 80, 10, 0.75);
-  border-bottom-color: #E8500A;
+  color: rgba(254, 99, 5, 0.75);
+  border-bottom-color: #FE6305;
 }
 
 .gl-tip {

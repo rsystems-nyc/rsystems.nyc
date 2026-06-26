@@ -72,7 +72,7 @@ export default function CloudPage() {
             <span>/</span>
             <span className="text-white/50">Cloud</span>
           </div>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">Technology Consulting</p>
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">Technology Consulting</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">Cloud</h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl leading-relaxed">
             Azure architecture, cloud storage strategy, and hybrid infrastructure design — connecting your cloud environment to your business goals with minimal disruption.
@@ -85,7 +85,7 @@ export default function CloudPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">Overview</p>
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">Overview</p>
             </div>
             <div className="lg:col-span-7 space-y-5">
               <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight leading-snug">
@@ -110,13 +110,13 @@ export default function CloudPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">Appropriate For</p>
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">Appropriate For</p>
             </div>
             <div className="lg:col-span-7">
               <ul className="space-y-5">
                 {appropriateFor.map((item) => (
                   <li key={item} className="flex items-start gap-4 text-base text-[#1A1A1A]/70 leading-relaxed">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -132,10 +132,10 @@ export default function CloudPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-20">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">Our Approach</p>
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">Our Approach</p>
             </div>
             <div className="lg:col-span-7">
-              <div className="border-l-2 border-[#E8500A] pl-6 space-y-4">
+              <div className="border-l-2 border-[#FE6305] pl-6 space-y-4">
                 <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
                   RSystems evaluates cloud vs. on-premises economics honestly — we model total cost of ownership before recommending any configuration, and we&apos;re willing to tell clients when cloud isn&apos;t the right answer for a specific workload. Our primary cloud platform is Microsoft Azure, with deep hands-on experience across virtual machines, Azure Virtual Desktop, hub-and-spoke WAN, Site Recovery, and hybrid identity configurations.
                 </p>
@@ -146,14 +146,14 @@ export default function CloudPage() {
             </div>
           </div>
 
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-8">Services</p>
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-8">Services</p>
           <div className="flex flex-wrap justify-center gap-4">
             {services.map((service) => (
               <Link key={service.href} href={service.href} className="group relative flex flex-col w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
-                <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+                <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
-                <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">{service.name}</h3>
+                <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#FE6305] transition-colors">{service.name}</h3>
                 <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">{service.tagline}</p>
               </Link>
             ))}
@@ -165,14 +165,14 @@ export default function CloudPage() {
       {/* Related Categories */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-8">Related Practice Areas</p>
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-8">Related Practice Areas</p>
           <div className="flex flex-wrap justify-center gap-4">
             {relatedCategories.map((cat) => (
               <Link key={cat.href} href={cat.href} className="group relative flex flex-col w-full sm:w-[calc(33.333%-0.667rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-6 hover:bg-[#F4F2EF] transition-colors">
-                <span className="absolute top-6 right-6 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+                <span className="absolute top-6 right-6 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
-                <h3 className="text-[14px] font-semibold text-[#1A1A1A] pr-6 mb-2 group-hover:text-[#E8500A] transition-colors">{cat.name}</h3>
+                <h3 className="text-[14px] font-semibold text-[#1A1A1A] pr-6 mb-2 group-hover:text-[#FE6305] transition-colors">{cat.name}</h3>
                 <p className="text-sm text-[#1A1A1A]/45 leading-relaxed">{cat.description}</p>
               </Link>
             ))}
@@ -185,7 +185,7 @@ export default function CloudPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">Case Study</p>
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">Case Study</p>
             </div>
             <div className="lg:col-span-7 flex flex-col gap-8">
               <div>
@@ -194,7 +194,7 @@ export default function CloudPage() {
                 <p className="text-sm text-[#1A1A1A]/55 leading-relaxed mb-5">
                   Rebuilding a quantitative trading firm&apos;s AWS environment from first principles — four isolated accounts, every resource defined in Terraform, active/passive FortiGate HA, and a lower monthly bill than the environment it replaced.
                 </p>
-                <Link href="/case-studies/duality-group" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] transition-colors">
+                <Link href="/case-studies/duality-group" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]/70 hover:text-[#FE6305] transition-colors">
                   Read Case Study
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -207,7 +207,7 @@ export default function CloudPage() {
                 <p className="text-sm text-[#1A1A1A]/55 leading-relaxed mb-5">
                   Multi-region Azure infrastructure, disaster recovery, and Terraform automation for the National Audubon Society — DR requirements met at a fraction of a hardware refresh.
                 </p>
-                <Link href="/case-studies/audubon-azure" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] transition-colors">
+                <Link href="/case-studies/audubon-azure" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]/70 hover:text-[#FE6305] transition-colors">
                   Read Case Study
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

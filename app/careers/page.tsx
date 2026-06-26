@@ -24,7 +24,7 @@ export default function CareersPage() {
       {/* Hero */}
       <section className="bg-[#0F1117] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Careers
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -42,7 +42,7 @@ export default function CareersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 About RSystems
               </p>
             </div>
@@ -64,7 +64,7 @@ export default function CareersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 About You
               </p>
             </div>
@@ -76,7 +76,7 @@ export default function CareersPage() {
                 {qualities.map((quality, i) => (
                   <li key={i} className="flex gap-4">
                     <span
-                      className="mt-[9px] flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#E8500A]"
+                      className="mt-[9px] flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#FE6305]"
                       aria-hidden="true"
                     />
                     <p className="text-base text-[#1A1A1A]/60 leading-relaxed">{quality}</p>
@@ -93,7 +93,7 @@ export default function CareersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 What Working Here Looks Like
               </p>
             </div>
@@ -123,7 +123,7 @@ export default function CareersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Open Positions
               </p>
             </div>
@@ -141,7 +141,7 @@ export default function CareersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Not Seeing a Fit?
               </p>
             </div>
@@ -152,7 +152,7 @@ export default function CareersPage() {
                 Send a note to{" "}
                 <a
                   href="mailto:careers@rsystems.nyc"
-                  className="text-white underline underline-offset-2 hover:text-[#E8500A] transition-colors"
+                  className="text-white underline underline-offset-2 hover:text-[#FE6305] transition-colors"
                 >
                   careers@rsystems.nyc
                 </a>{" "}

@@ -73,7 +73,7 @@ export default function ServicesPage() {
           />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             RSystems
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -92,7 +92,7 @@ export default function ServicesPage() {
       <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="mb-12">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
               Technology Consulting
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight leading-snug max-w-lg">
@@ -109,10 +109,10 @@ export default function ServicesPage() {
               href="/services/technology-consulting"
               className="group relative col-span-1 md:col-span-2 lg:col-span-3 bg-[#F4F2EF] px-7 py-4 flex items-center justify-between hover:bg-white transition-colors border-b border-[#1A1A1A]/[0.07]"
             >
-              <span className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]">
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]">
                 Technology Consulting
               </span>
-              <span className="text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+              <span className="text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -124,12 +124,12 @@ export default function ServicesPage() {
                 href={cat.href}
                 className="group relative bg-[#F4F2EF] p-7 flex flex-col hover:bg-white transition-colors"
               >
-                <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+                <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-                <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+                <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#FE6305] transition-colors">
                   {cat.name}
                 </h3>
                 <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
@@ -143,12 +143,12 @@ export default function ServicesPage() {
             href="/services/management/"
             className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
           >
-            <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+            <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
-            <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+            <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#FE6305] transition-colors">
               Managed Services
             </h3>
             <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
@@ -160,12 +160,12 @@ export default function ServicesPage() {
             href="/services/buildout"
             className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
           >
-            <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+            <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
-            <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+            <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#FE6305] transition-colors">
               Buildout &amp; Installation
             </h3>
             <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
@@ -177,12 +177,12 @@ export default function ServicesPage() {
             href="/services/ephemeral"
             className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
           >
-            <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+            <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
-            <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+            <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#FE6305] transition-colors">
               Ephemeral Infrastructure
             </h3>
             <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
@@ -197,7 +197,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 How it works
               </p>
             </div>

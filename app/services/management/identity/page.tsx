@@ -58,7 +58,7 @@ export default function IdentityManagementPage() {
             <span>/</span>
             <span className="text-white/50">Identity Management</span>
           </div>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Managed Services
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -76,7 +76,7 @@ export default function IdentityManagementPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Overview
               </p>
             </div>
@@ -107,26 +107,26 @@ export default function IdentityManagementPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 Initial Setup
               </p>
               <ul className="space-y-3">
                 {setupItems.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 Ongoing Monthly Services
               </p>
               <ul className="space-y-3">
                 {monthlyItems.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}

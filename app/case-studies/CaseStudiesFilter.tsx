@@ -43,8 +43,8 @@ export default function CaseStudiesFilter() {
               onClick={() => setActive(tag)}
               className={`px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-widest border transition-colors ${
                 active === tag
-                  ? "bg-[#E8500A] text-white border-[#E8500A]"
-                  : "bg-[#F4F2EF] text-[#1A1A1A] border-[#1A1A1A]/20 hover:border-[#E8500A]/40"
+                  ? "bg-[#FE6305] text-white border-[#FE6305]"
+                  : "bg-[#F4F2EF] text-[#1A1A1A] border-[#1A1A1A]/20 hover:border-[#FE6305]/40"
               }`}
             >
               {tag}
@@ -58,7 +58,7 @@ export default function CaseStudiesFilter() {
             <Link
               key={cs.slug}
               href={`/case-studies/${cs.slug}`}
-              className="group flex flex-col bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors"
+              className="group flex flex-col bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#FE6305]/20 transition-colors"
             >
               {cs.featuredImagePair ? (
                 <div
@@ -99,10 +99,10 @@ export default function CaseStudiesFilter() {
               ) : null}
 
               <div className="flex flex-col flex-1 p-7">
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
                   {cs.industry}
                 </p>
-                <h2 className="text-xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-1 group-hover:text-[#E8500A] transition-colors">
+                <h2 className="text-xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-1 group-hover:text-[#FE6305] transition-colors">
                   {cs.title}
                 </h2>
                 <p className="text-[13px] text-[#1A1A1A]/40 mb-4">{cs.client}</p>
@@ -115,7 +115,7 @@ export default function CaseStudiesFilter() {
                       key={tag}
                       className={`text-[11px] border px-2.5 py-1 rounded-full transition-colors ${
                         tag === active && active !== "All"
-                          ? "text-[#E8500A] border-[#E8500A]/30 bg-[#E8500A]/[0.06]"
+                          ? "text-[#FE6305] border-[#FE6305]/30 bg-[#FE6305]/[0.06]"
                           : "text-[#1A1A1A]/40 border-[#1A1A1A]/10"
                       }`}
                     >
@@ -123,7 +123,7 @@ export default function CaseStudiesFilter() {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/60 group-hover:text-[#E8500A] transition-colors">
+                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]/60 group-hover:text-[#FE6305] transition-colors">
                   Read Case Study
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <path

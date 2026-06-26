@@ -91,7 +91,7 @@ export default function Home() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 pb-12">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-8">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-8">
             Executive IT Leadership &amp; Consulting<br />Bridging the boardroom and the server room.
           </p>
           <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold text-[#1A1A1A] leading-[1.05] tracking-tight max-w-4xl">
@@ -105,7 +105,7 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="inline-block text-sm font-medium bg-[#E8500A] text-white px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
+              className="inline-block text-sm font-medium bg-[#FE6305] text-white px-6 py-3 rounded hover:bg-[#FE6305]/85 transition-colors"
             >
               Schedule a Conversation
             </Link>
@@ -122,7 +122,7 @@ export default function Home() {
       {/* Services */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16 pb-6 lg:pb-8">
         <div className="mb-14">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
             What We Do
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A1A] tracking-tight max-w-xl">
@@ -137,12 +137,12 @@ export default function Home() {
               href={cat.href}
               className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)] border border-[#1A1A1A]/[0.07] rounded-xl group relative bg-[#F4F2EF] p-7 flex flex-col hover:bg-white transition-colors"
             >
-              <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+              <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
-              <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+              <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#FE6305] transition-colors">
                 {cat.name}
               </h3>
               <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
@@ -156,12 +156,12 @@ export default function Home() {
           href="/services/management/"
           className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
         >
-          <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+          <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
-          <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+          <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#FE6305] transition-colors">
             Managed Services
           </h3>
           <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
@@ -173,12 +173,12 @@ export default function Home() {
           href="/services/buildout"
           className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
         >
-          <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+          <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
-          <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+          <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#FE6305] transition-colors">
             Buildout &amp; Installation
           </h3>
           <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
@@ -190,12 +190,12 @@ export default function Home() {
           href="/services/ephemeral"
           className="group mt-4 relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
         >
-          <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+          <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
-          <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#E8500A] transition-colors">
+          <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-3 group-hover:text-[#FE6305] transition-colors">
             Ephemeral Infrastructure
           </h3>
           <p className="text-sm text-[#1A1A1A]/50 leading-relaxed max-w-2xl">
@@ -208,7 +208,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10 lg:pb-12">
         <div className="border border-[#1A1A1A]/[0.07] rounded-xl p-6 lg:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-[#F4F2EF]">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-1">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-1">
               Who We Serve
             </p>
             <p className="text-base font-semibold text-[#1A1A1A]">
@@ -217,7 +217,7 @@ export default function Home() {
           </div>
           <Link
             href="/industries"
-            className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[#E8500A] hover:text-[#E8500A]/75 transition-colors"
+            className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[#FE6305] hover:text-[#FE6305]/75 transition-colors"
           >
             Explore industry expertise
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -231,7 +231,7 @@ export default function Home() {
       <section className="border-t border-[#1A1A1A]/[0.07] pt-10 pb-10 lg:pt-12 lg:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-14 text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
               Platforms
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight">

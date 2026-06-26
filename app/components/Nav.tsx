@@ -323,7 +323,7 @@ export default function Nav() {
               <div className="p-5">
                 <Link
                   href="/services/technology-consulting"
-                  className="block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3 hover:text-[#E8500A]/70 transition-colors"
+                  className="block text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3 hover:text-[#FE6305]/70 transition-colors"
                   onClick={() => setActiveDesktopDropdown(null)}
                 >
                   Technology Consulting
@@ -333,7 +333,7 @@ export default function Nav() {
                     <div key={cat.label} className={i > 0 ? "mt-4" : ""}>
                       <Link
                         href={cat.href}
-                        className="block text-[9px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] hover:underline px-2 pb-1 transition-colors"
+                        className="block text-[9px] font-semibold uppercase tracking-widest text-[#FE6305]/70 hover:text-[#FE6305] hover:underline px-2 pb-1 transition-colors"
                         onClick={() => setActiveDesktopDropdown(null)}
                       >
                         {cat.label}
@@ -359,7 +359,7 @@ export default function Nav() {
               <div className="p-5">
                 <Link
                   href="/services/management"
-                  className="block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3 hover:text-[#E8500A]/70 transition-colors"
+                  className="block text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3 hover:text-[#FE6305]/70 transition-colors"
                   onClick={() => setActiveDesktopDropdown(null)}
                 >
                   Managed Services
@@ -369,7 +369,7 @@ export default function Nav() {
                     <div key={cat.label} className={i > 0 ? "mt-4" : ""}>
                       <Link
                         href={cat.href}
-                        className="block text-[9px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] hover:underline px-2 pb-1 transition-colors"
+                        className="block text-[9px] font-semibold uppercase tracking-widest text-[#FE6305]/70 hover:text-[#FE6305] hover:underline px-2 pb-1 transition-colors"
                         onClick={() => setActiveDesktopDropdown(null)}
                       >
                         {cat.label}
@@ -397,7 +397,7 @@ export default function Nav() {
                 <div>
                   <Link
                     href="/services/buildout"
-                    className="block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3 hover:text-[#E8500A]/70 transition-colors"
+                    className="block text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3 hover:text-[#FE6305]/70 transition-colors"
                     onClick={() => setActiveDesktopDropdown(null)}
                   >
                     Buildout &amp; Installation
@@ -423,7 +423,7 @@ export default function Nav() {
                 <div>
                   <Link
                     href="/services/ephemeral"
-                    className="block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3 hover:text-[#E8500A]/70 transition-colors"
+                    className="block text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3 hover:text-[#FE6305]/70 transition-colors"
                     onClick={() => setActiveDesktopDropdown(null)}
                   >
                     Ephemeral Infrastructure
@@ -485,7 +485,7 @@ export default function Nav() {
               <div className="pb-2">
                 <Link
                   href="/services/technology-consulting"
-                  className="block py-2.5 text-sm text-[#E8500A] font-semibold border-b border-black/[0.05]"
+                  className="block py-2.5 text-sm text-[#FE6305] font-semibold border-b border-black/[0.05]"
                   onClick={() => setOpen(false)}
                 >
                   Overview
@@ -494,7 +494,7 @@ export default function Nav() {
                   <div key={cat.label}>
                     <Link
                       href={cat.href}
-                      className="block pt-3 pb-1 text-[9px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] hover:underline transition-colors"
+                      className="block pt-3 pb-1 text-[9px] font-semibold uppercase tracking-widest text-[#FE6305]/70 hover:text-[#FE6305] hover:underline transition-colors"
                       onClick={() => setOpen(false)}
                     >
                       {cat.label}
@@ -538,7 +538,7 @@ export default function Nav() {
               <div className="pb-2">
                 <Link
                   href="/services/management"
-                  className="block py-2.5 text-sm text-[#E8500A] font-semibold border-b border-black/[0.05]"
+                  className="block py-2.5 text-sm text-[#FE6305] font-semibold border-b border-black/[0.05]"
                   onClick={() => setOpen(false)}
                 >
                   Overview
@@ -547,7 +547,7 @@ export default function Nav() {
                   <div key={cat.label}>
                     <Link
                       href={cat.href}
-                      className="block pt-3 pb-1 text-[9px] font-semibold uppercase tracking-widest text-[#E8500A]/70 hover:text-[#E8500A] hover:underline transition-colors"
+                      className="block pt-3 pb-1 text-[9px] font-semibold uppercase tracking-widest text-[#FE6305]/70 hover:text-[#FE6305] hover:underline transition-colors"
                       onClick={() => setOpen(false)}
                     >
                       {cat.label}
@@ -613,7 +613,7 @@ export default function Nav() {
               <div className="pb-2">
                 <Link
                   href="/our-work"
-                  className="block py-2.5 text-sm text-[#E8500A] font-semibold border-b border-black/[0.05]"
+                  className="block py-2.5 text-sm text-[#FE6305] font-semibold border-b border-black/[0.05]"
                   onClick={() => setOpen(false)}
                 >
                   Overview
@@ -666,7 +666,7 @@ export default function Nav() {
               <div className="pb-2">
                 <Link
                   href="/resources"
-                  className="block py-2.5 text-sm text-[#E8500A] font-semibold border-b border-black/[0.05]"
+                  className="block py-2.5 text-sm text-[#FE6305] font-semibold border-b border-black/[0.05]"
                   onClick={() => setOpen(false)}
                 >
                   Overview

@@ -66,7 +66,7 @@ export default function EssentialsPage() {
             <span>/</span>
             <span className="text-white/50">Management Essentials</span>
           </div>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Managed Services
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -84,7 +84,7 @@ export default function EssentialsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Overview
               </p>
             </div>
@@ -116,7 +116,7 @@ export default function EssentialsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           {/* Included services — named, linked to their pages */}
           <div className="mb-14">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
               Included Services
             </p>
             <h2 className="text-2xl font-bold text-[#1A1A1A] tracking-tight mb-6 max-w-xl">
@@ -125,10 +125,10 @@ export default function EssentialsPage() {
             <ul className="space-y-3 max-w-md">
               {includedServices.map((s) => (
                 <li key={s.label} className="flex items-start gap-3 text-base text-[#1A1A1A]/70">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
-                  <Link href={s.href} className="group inline-flex items-center gap-1.5 hover:text-[#E8500A] transition-colors">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
+                  <Link href={s.href} className="group inline-flex items-center gap-1.5 hover:text-[#FE6305] transition-colors">
                     {s.label}
-                    <span aria-hidden="true" className="text-[#E8500A] opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">→</span>
+                    <span aria-hidden="true" className="text-[#FE6305] opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">→</span>
                   </Link>
                 </li>
               ))}
@@ -137,26 +137,26 @@ export default function EssentialsPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 Initial Setup
               </p>
               <ul className="space-y-3">
                 {setupItems.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 Ongoing Monthly Services
               </p>
               <ul className="space-y-3">
                 {monthlyItems.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}

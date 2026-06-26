@@ -43,9 +43,9 @@ export default function UploadForm() {
     }
   }
 
-  const labelCls = "block text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2";
+  const labelCls = "block text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-2";
   const fieldCls =
-    "w-full rounded border border-white/15 bg-white/[0.03] px-4 py-2.5 text-sm text-white/90 placeholder:text-white/30 focus:border-[#E8500A]/60 focus:outline-none";
+    "w-full rounded border border-white/15 bg-white/[0.03] px-4 py-2.5 text-sm text-white/90 placeholder:text-white/30 focus:border-[#FE6305]/60 focus:outline-none";
 
   return (
     <form onSubmit={onSubmit} className="space-y-8">
@@ -59,7 +59,7 @@ export default function UploadForm() {
           type="file"
           multiple
           required
-          className="block w-full text-sm text-white/70 file:mr-4 file:rounded file:border-0 file:bg-[#E8500A] file:px-4 file:py-2.5 file:text-sm file:font-semibold file:text-white hover:file:bg-[#E8500A]/90"
+          className="block w-full text-sm text-white/70 file:mr-4 file:rounded file:border-0 file:bg-[#FE6305] file:px-4 file:py-2.5 file:text-sm file:font-semibold file:text-white hover:file:bg-[#FE6305]/90"
         />
         <p className="mt-2 text-xs text-white/30">
           Drops into <code className="text-white/50">/public/assets/</code>. Select one or more files.
@@ -86,7 +86,7 @@ export default function UploadForm() {
         <input
           type="checkbox"
           name="overwrite"
-          className="h-4 w-4 rounded border-white/30 bg-white/[0.03] accent-[#E8500A]"
+          className="h-4 w-4 rounded border-white/30 bg-white/[0.03] accent-[#FE6305]"
         />
         Overwrite files that already exist
       </label>
@@ -94,7 +94,7 @@ export default function UploadForm() {
       <button
         type="submit"
         disabled={busy}
-        className="rounded bg-[#E8500A] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#E8500A]/90 disabled:opacity-50"
+        className="rounded bg-[#FE6305] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#FE6305]/90 disabled:opacity-50"
       >
         {busy ? "Uploading…" : "Upload"}
       </button>
@@ -109,7 +109,7 @@ export default function UploadForm() {
         <div className="space-y-4">
           {result.written.length > 0 && (
             <div className="rounded border border-white/10 bg-white/[0.03] px-4 py-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
                 Uploaded ({result.written.length})
               </p>
               <ul className="space-y-2">
@@ -119,7 +119,7 @@ export default function UploadForm() {
                       href={f.path}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/90 underline decoration-white/20 hover:decoration-[#E8500A]"
+                      className="text-white/90 underline decoration-white/20 hover:decoration-[#FE6305]"
                     >
                       {f.path}
                     </a>

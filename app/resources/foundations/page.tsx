@@ -29,7 +29,7 @@ export default function FoundationsPage() {
           />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Resources
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -59,7 +59,7 @@ export default function FoundationsPage() {
       {/* CTA */}
       <section className="bg-[#0F1117] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Ready to build it right
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 max-w-2xl mx-auto">
@@ -71,7 +71,7 @@ export default function FoundationsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#E8500A] text-white text-[13px] font-semibold uppercase tracking-widest px-8 py-4 rounded-lg hover:bg-[#E8500A]/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-[#FE6305] text-white text-[13px] font-semibold uppercase tracking-widest px-8 py-4 rounded-lg hover:bg-[#FE6305]/90 transition-colors"
           >
             Schedule a Conversation
           </Link>

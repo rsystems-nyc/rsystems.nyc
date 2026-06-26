@@ -68,7 +68,7 @@ export default function EntraIntuneConsultingPage() {
             <span>/</span>
             <span className="text-white/50">Entra & Intune Consulting</span>
           </div>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Technology Consulting
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -86,7 +86,7 @@ export default function EntraIntuneConsultingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Overview
               </p>
             </div>
@@ -117,26 +117,26 @@ export default function EntraIntuneConsultingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 Identity & Directory Management
               </p>
               <ul className="space-y-3">
                 {identityServices.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 Modern Device Management
               </p>
               <ul className="space-y-3">
                 {deviceServices.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -149,7 +149,7 @@ export default function EntraIntuneConsultingPage() {
       {/* Approach */}
       <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
             Our Approach
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
@@ -158,7 +158,7 @@ export default function EntraIntuneConsultingPage() {
           <div className="flex flex-wrap justify-center gap-4">
             {approach.map((item) => (
               <div key={item.step} className="w-full sm:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
-                <p className="text-[11px] font-semibold text-[#E8500A] mb-3">{item.step}</p>
+                <p className="text-[11px] font-semibold text-[#FE6305] mb-3">{item.step}</p>
                 <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">{item.title}</h3>
                 <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">{item.body}</p>
               </div>
@@ -172,7 +172,7 @@ export default function EntraIntuneConsultingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]">
                 Case Study
               </p>
             </div>
@@ -187,7 +187,7 @@ export default function EntraIntuneConsultingPage() {
               </div>
               <Link
                 href="/case-studies/windows-tools-for-a-mac-design-firm"
-                className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
+                className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] hover:text-[#FE6305]/70 transition-colors"
               >
                 Read Case Study
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

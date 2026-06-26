@@ -64,7 +64,7 @@ function RenderBlock({ block, index }: { block: Block; index: number }) {
               <Link
                 key={k}
                 href={part.href}
-                className="text-[#E8500A] hover:text-[#E8500A]/70 transition-colors"
+                className="text-[#FE6305] hover:text-[#FE6305]/70 transition-colors"
               >
                 {part.text}
               </Link>
@@ -85,7 +85,7 @@ function RenderBlock({ block, index }: { block: Block; index: number }) {
         <ul key={index} className="space-y-3">
           {block.items.map((item, j) => (
             <li key={j} className="flex items-start gap-3 text-base text-[#1A1A1A]/60 leading-relaxed">
-              <span className="mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+              <span className="mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
               {item}
             </li>
           ))}
@@ -94,7 +94,7 @@ function RenderBlock({ block, index }: { block: Block; index: number }) {
 
     case "quote":
       return (
-        <blockquote key={index} className="border-l-2 border-[#E8500A] pl-5 my-2">
+        <blockquote key={index} className="border-l-2 border-[#FE6305] pl-5 my-2">
           <p className="text-lg text-[#1A1A1A]/75 italic leading-relaxed">
             &ldquo;{block.text}&rdquo;
           </p>
@@ -136,7 +136,7 @@ function RenderBlock({ block, index }: { block: Block; index: number }) {
           {block.groups.map((group, j) => (
             <div key={j}>
               {group.title && (
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                   {group.title}
                 </p>
               )}
@@ -243,7 +243,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </svg>
             Case Studies
           </Link>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             {cs.industry}
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -259,7 +259,7 @@ export default async function CaseStudyPage({ params }: Props) {
             {cs.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs font-medium text-[#E8500A]/70 border border-[#E8500A]/20 px-3 py-1.5 rounded-full"
+                className="text-xs font-medium text-[#FE6305]/70 border border-[#FE6305]/20 px-3 py-1.5 rounded-full"
               >
                 {tag}
               </span>
@@ -328,7 +328,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div className="lg:col-span-3">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                   {section.label}
                 </p>
               </div>
@@ -352,7 +352,7 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Outcomes
               </p>
             </div>
@@ -363,7 +363,7 @@ export default async function CaseStudyPage({ params }: Props) {
               <ul className="space-y-5">
                 {cs.results.map((result, i) => (
                   <li key={i} className="flex items-start gap-4 text-base text-white/60 leading-relaxed">
-                    <span className="mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {result}
                   </li>
                 ))}

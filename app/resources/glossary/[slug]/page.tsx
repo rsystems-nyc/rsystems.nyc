@@ -82,7 +82,7 @@ export default async function GlossaryTermPage({ params }: Props) {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-10 pb-0">
         <Link
           href="/resources/glossary"
-          className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/60 hover:text-[#E8500A] transition-colors"
+          className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]/60 hover:text-[#FE6305] transition-colors"
         >
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <path
@@ -100,7 +100,7 @@ export default async function GlossaryTermPage({ params }: Props) {
       {/* Term header */}
       <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
         <header className="mb-10">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
             {term.categories.join(" · ")}
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A1A] leading-[1.1] tracking-tight">
@@ -134,7 +134,7 @@ export default async function GlossaryTermPage({ params }: Props) {
       {related.length > 0 && (
         <section className="border-t border-[#1A1A1A]/[0.08] bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-8">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-8">
               Related Terms
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -142,18 +142,18 @@ export default async function GlossaryTermPage({ params }: Props) {
                 <Link
                   key={rel.slug}
                   href={`/resources/glossary/${rel.slug}`}
-                  className="group flex flex-col bg-[#F4F2EF] rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-6"
+                  className="group flex flex-col bg-[#F4F2EF] rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#FE6305]/20 transition-colors p-6"
                 >
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-2">
                     {rel.categories[0]}
                   </p>
-                  <h3 className="text-base font-bold text-[#1A1A1A] leading-snug mb-3 group-hover:text-[#E8500A] transition-colors flex-1">
+                  <h3 className="text-base font-bold text-[#1A1A1A] leading-snug mb-3 group-hover:text-[#FE6305] transition-colors flex-1">
                     {rel.term}
                   </h3>
                   <p className="text-xs text-[#1A1A1A]/50 leading-relaxed mb-4 line-clamp-3">
                     {rel.shortDef.slice(0, 100)}{rel.shortDef.length > 100 ? "…" : ""}
                   </p>
-                  <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/60 group-hover:text-[#E8500A] transition-colors">
+                  <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]/60 group-hover:text-[#FE6305] transition-colors">
                     Read
                     <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                       <path

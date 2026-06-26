@@ -113,7 +113,7 @@ export default async function IndustryPage({ params }: Props) {
             </svg>
             Industry Expertise
           </Link>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Who We Serve
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -130,7 +130,7 @@ export default async function IndustryPage({ params }: Props) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Overview
               </p>
             </div>
@@ -152,7 +152,7 @@ export default async function IndustryPage({ params }: Props) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div className="lg:col-span-3">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                   {section.eyebrow}
                 </p>
               </div>
@@ -176,7 +176,7 @@ export default async function IndustryPage({ params }: Props) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 What We Bring
               </p>
             </div>
@@ -184,7 +184,7 @@ export default async function IndustryPage({ params }: Props) {
               <ul className="space-y-5">
                 {industry.whatWeBring.map((item, i) => (
                   <li key={i} className="flex items-start gap-4 text-base text-[#1A1A1A]/70 leading-relaxed">
-                    <span className="mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -199,7 +199,7 @@ export default async function IndustryPage({ params }: Props) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Platforms &amp; Tools We Know
               </p>
             </div>
@@ -218,7 +218,7 @@ export default async function IndustryPage({ params }: Props) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div className="lg:col-span-3">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                   Related Work
                 </p>
               </div>
@@ -227,9 +227,9 @@ export default async function IndustryPage({ params }: Props) {
                   <Link
                     key={rw.href}
                     href={rw.href}
-                    className="group flex items-center gap-3 text-base font-medium text-[#1A1A1A] hover:text-[#E8500A] transition-colors"
+                    className="group flex items-center gap-3 text-base font-medium text-[#1A1A1A] hover:text-[#FE6305] transition-colors"
                   >
-                    <span className="text-[#E8500A] group-hover:translate-x-0.5 transition-transform">→</span>
+                    <span className="text-[#FE6305] group-hover:translate-x-0.5 transition-transform">→</span>
                     {rw.label}
                   </Link>
                 ))}
@@ -240,7 +240,7 @@ export default async function IndustryPage({ params }: Props) {
                     className="flex items-center gap-3 text-base font-medium text-[#1A1A1A]/30 cursor-default"
                     aria-disabled="true"
                   >
-                    <span className="text-[#E8500A]/30">→</span>
+                    <span className="text-[#FE6305]/30">→</span>
                     {rw.label}
                   </span>
                 ))}

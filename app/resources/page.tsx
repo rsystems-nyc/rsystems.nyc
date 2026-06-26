@@ -60,7 +60,7 @@ export default function ResourcesPage() {
           />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             RSystems
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -80,18 +80,18 @@ export default function ResourcesPage() {
               <Link
                 key={s.href}
                 href={s.href}
-                className="group flex flex-col w-full md:w-[calc(33.333%-1.333rem)] lg:w-[calc(33.333%-1.667rem)] bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-7"
+                className="group flex flex-col w-full md:w-[calc(33.333%-1.333rem)] lg:w-[calc(33.333%-1.667rem)] bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#FE6305]/20 transition-colors p-7"
               >
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
                   {s.tag}
                 </p>
-                <h2 className="text-xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-3 group-hover:text-[#E8500A] transition-colors">
+                <h2 className="text-xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-3 group-hover:text-[#FE6305] transition-colors">
                   {s.title}
                 </h2>
                 <p className="text-sm text-[#1A1A1A]/55 leading-relaxed flex-1 mb-6">
                   {s.body}
                 </p>
-                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/60 group-hover:text-[#E8500A] transition-colors">
+                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]/60 group-hover:text-[#FE6305] transition-colors">
                   {s.cta}
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <path

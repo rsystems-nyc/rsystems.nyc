@@ -5,7 +5,7 @@ import Link from "next/link";
 import { articles } from "./articles";
 
 function categoryClass(_category: string): string {
-  return "text-[#E8500A]";
+  return "text-[#FE6305]";
 }
 
 const CATEGORY_ORDER = [
@@ -50,8 +50,8 @@ export default function UniversityFilter() {
               onClick={() => setActive(cat)}
               className={`px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-widest border transition-colors ${
                 active === cat
-                  ? "bg-[#E8500A] text-white border-[#E8500A]"
-                  : "bg-[#F4F2EF] text-[#1A1A1A] border-[#1A1A1A]/20 hover:border-[#E8500A]/40"
+                  ? "bg-[#FE6305] text-white border-[#FE6305]"
+                  : "bg-[#F4F2EF] text-[#1A1A1A] border-[#1A1A1A]/20 hover:border-[#FE6305]/40"
               }`}
             >
               {cat}
@@ -65,18 +65,18 @@ export default function UniversityFilter() {
             <Link
               key={article.slug}
               href={`/resources/university/${article.slug}`}
-              className="group flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.667rem)] bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-7"
+              className="group flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.667rem)] bg-white rounded-xl overflow-hidden border border-[#1A1A1A]/[0.07] hover:border-[#FE6305]/20 transition-colors p-7"
             >
               <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${categoryClass(article.categories[0])}`}>
                 {article.categories.join(" · ")}
               </p>
-              <h2 className="text-lg font-bold text-[#1A1A1A] tracking-tight leading-snug mb-3 group-hover:text-[#E8500A] transition-colors flex-1">
+              <h2 className="text-lg font-bold text-[#1A1A1A] tracking-tight leading-snug mb-3 group-hover:text-[#FE6305] transition-colors flex-1">
                 {article.title}
               </h2>
               <p className="text-sm text-[#1A1A1A]/55 leading-relaxed mb-6">
                 {article.description}
               </p>
-              <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/60 group-hover:text-[#E8500A] transition-colors">
+              <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]/60 group-hover:text-[#FE6305] transition-colors">
                 Read Article
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                   <path

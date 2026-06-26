@@ -49,7 +49,7 @@ export default function FAQAccordion({ data }: { data: FAQCategory[] }) {
                       viewBox="0 0 10 10"
                       fill="none"
                       aria-hidden="true"
-                      className="flex-shrink-0 text-[#E8500A]"
+                      className="flex-shrink-0 text-[#FE6305]"
                       style={{
                         transform: isOpen ? "rotate(180deg)" : undefined,
                         transition: "transform 0.2s",

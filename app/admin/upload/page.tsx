@@ -18,7 +18,7 @@ export default function UploadPage() {
   return (
     <main className="min-h-screen bg-[#0F1117]">
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-        <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+        <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
           Dev Host — Site Admins
         </p>
         <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">

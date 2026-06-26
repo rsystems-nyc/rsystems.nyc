@@ -65,7 +65,7 @@ export default function ManagedSupportPage() {
             <span>/</span>
             <span className="text-white/50">Managed Support</span>
           </div>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Managed Services
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -85,7 +85,7 @@ export default function ManagedSupportPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Overview
               </p>
             </div>
@@ -107,7 +107,7 @@ export default function ManagedSupportPage() {
                 already on your account step in — the people who design infrastructure for a
                 living, not a tier-1 queue.
               </p>
-              <div className="border-l-2 border-[#E8500A] pl-6 py-1">
+              <div className="border-l-2 border-[#FE6305] pl-6 py-1">
                 <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
                   For most clients, our team is exactly the way to cover this work, with
                   every level of our bench available on each request. If your routine volume
@@ -126,7 +126,7 @@ export default function ManagedSupportPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 The Full Team
               </p>
             </div>
@@ -140,7 +140,7 @@ export default function ManagedSupportPage() {
               <ul className="space-y-4">
                 {teamLevels.map((t) => (
                   <li key={t.label} className="flex items-start gap-3">
-                    <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     <p className="text-base text-[#1A1A1A]/60 leading-relaxed">
                       <span className="font-semibold text-[#1A1A1A]">{t.label}</span>
                       {" — "}
@@ -163,7 +163,7 @@ export default function ManagedSupportPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 What&apos;s Covered
               </p>
             </div>
@@ -175,7 +175,7 @@ export default function ManagedSupportPage() {
                 <ul className="space-y-3">
                   {covered.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-base text-[#1A1A1A]/70">
-                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -191,7 +191,7 @@ export default function ManagedSupportPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 How It Works
               </p>
             </div>
@@ -221,7 +221,7 @@ export default function ManagedSupportPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 What to Expect
               </p>
             </div>

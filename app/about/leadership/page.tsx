@@ -18,7 +18,7 @@ export default function LeadershipPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <Link
             href="/about"
-            className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-6 hover:text-[#E8500A]/75 transition-colors"
+            className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-6 hover:text-[#FE6305]/75 transition-colors"
           >
             <span aria-hidden="true">←</span> About
           </Link>
@@ -52,7 +52,7 @@ export default function LeadershipPage() {
                 <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight">
                   Reilly Scull
                 </h2>
-                <p className="mt-1.5 text-base text-[#E8500A] font-medium">
+                <p className="mt-1.5 text-base text-[#FE6305] font-medium">
                   Founder &amp; CTO
                 </p>
               </div>

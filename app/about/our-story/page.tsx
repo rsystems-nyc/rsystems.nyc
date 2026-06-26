@@ -18,7 +18,7 @@ export default function OurStoryPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <Link
             href="/about"
-            className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-6 hover:text-[#E8500A]/75 transition-colors"
+            className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-6 hover:text-[#FE6305]/75 transition-colors"
           >
             <span aria-hidden="true">←</span> About
           </Link>
@@ -160,7 +160,7 @@ export default function OurStoryPage() {
             you&apos;re right. There should be. Yes. There&apos;s the f₀ term.&rdquo;
           </p>
 
-          <blockquote className="mt-8 border-l-2 border-[#E8500A] pl-6">
+          <blockquote className="mt-8 border-l-2 border-[#FE6305] pl-6">
             <p className="text-base text-[#1A1A1A] leading-relaxed">
               That moment was everything. I wasn&apos;t just following along. I was contributing.
               I&apos;d mastered this enough to catch an astrophysicist&apos;s mistake. I understood
@@ -225,7 +225,7 @@ export default function OurStoryPage() {
             time — makes every moment matter.
           </p>
 
-          <blockquote className="mt-8 border-l-2 border-[#E8500A] pl-6">
+          <blockquote className="mt-8 border-l-2 border-[#FE6305] pl-6">
             <p className="text-base text-[#1A1A1A] leading-relaxed">
               This is how I approach my work at RSystems. Not just the technical details,
               but the entire practice of engineering with intention. Rigor. Ownership.
@@ -267,7 +267,7 @@ export default function OurStoryPage() {
           <div className="mt-14 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
             <Link
               href="/prospective-client"
-              className="inline-block text-sm font-medium bg-[#E8500A] text-white px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
+              className="inline-block text-sm font-medium bg-[#FE6305] text-white px-6 py-3 rounded hover:bg-[#FE6305]/85 transition-colors"
             >
               Work With Us
             </Link>

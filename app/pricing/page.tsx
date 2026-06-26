@@ -207,7 +207,7 @@ export default function PricingPage() {
           />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             RSystems
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -224,7 +224,7 @@ export default function PricingPage() {
       {/* ── Section 2: Engagement models ────────────────────────────── */}
       <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
             How we work
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight leading-snug max-w-xl mb-4">
@@ -249,7 +249,7 @@ export default function PricingPage() {
                 <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
                   {model.body}
                 </p>
-                <p className="mt-4 text-[13px] font-semibold text-[#1A1A1A] group-hover:text-[#E8500A] transition-colors inline-flex items-center gap-1.5">
+                <p className="mt-4 text-[13px] font-semibold text-[#1A1A1A] group-hover:text-[#FE6305] transition-colors inline-flex items-center gap-1.5">
                   {model.linkLabel}
                   <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
                 </p>
@@ -258,7 +258,7 @@ export default function PricingPage() {
           </div>
 
           {/* "Keep it lean" callout */}
-          <div className="border border-[#E8500A]/25 rounded-xl p-7 bg-white">
+          <div className="border border-[#FE6305]/25 rounded-xl p-7 bg-white">
             <p className="text-sm text-[#1A1A1A]/70 leading-relaxed">
               <span className="font-semibold text-[#1A1A1A]">Our guiding principle:</span>{" "}
               whenever a piece of work can be defined as a project, we pull it out and
@@ -276,7 +276,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Where we start
               </p>
             </div>
@@ -300,7 +300,7 @@ export default function PricingPage() {
                 of your team.
               </p>
               {/* Pricing emphasis */}
-              <div className="border-l-2 border-[#E8500A] pl-6 py-1">
+              <div className="border-l-2 border-[#FE6305] pl-6 py-1">
                 <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
                   An assessment runs between{" "}
                   <span className="font-semibold text-[#1A1A1A]">$3,000 and $5,000</span>{" "}
@@ -321,7 +321,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-14">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 How we propose work
               </p>
             </div>
@@ -356,7 +356,7 @@ export default function PricingPage() {
               >
                 {/* Header — always visible; click to expand the full document */}
                 <summary className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 cursor-pointer list-none [&::-webkit-details-marker]:hidden p-8 sm:p-10">
-                  <h3 className="text-[13px] font-semibold text-[#E8500A] uppercase tracking-widest">
+                  <h3 className="text-[13px] font-semibold text-[#FE6305] uppercase tracking-widest">
                     {ex.title}
                   </h3>
                   <span className="flex items-center gap-3 font-mono text-xs text-[#1A1A1A]/40">
@@ -365,7 +365,7 @@ export default function PricingPage() {
                     </span>
                     {ex.summary}
                     <svg
-                      className="h-3.5 w-3.5 text-[#1A1A1A]/30 transition group-hover:text-[#E8500A] group-open:rotate-180"
+                      className="h-3.5 w-3.5 text-[#1A1A1A]/30 transition group-hover:text-[#FE6305] group-open:rotate-180"
                       viewBox="0 0 20 20"
                       fill="none"
                       stroke="currentColor"
@@ -487,7 +487,7 @@ export default function PricingPage() {
       {/* ── Section 5: Managed services pricing ─────────────────────── */}
       <section id="managed-services" className="scroll-mt-24 sm:scroll-mt-32 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
             Managed services
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight leading-snug max-w-xl mb-4">
@@ -519,15 +519,15 @@ export default function PricingPage() {
                 {aLaCarteRows.map((row, i) => (
                   <tr
                     key={row.service}
-                    className={`group border-b border-[#1A1A1A]/[0.05] transition-colors hover:bg-[#E8500A]/[0.05] ${i % 2 === 0 ? "bg-white" : "bg-[#F4F2EF]/40"}`}
+                    className={`group border-b border-[#1A1A1A]/[0.05] transition-colors hover:bg-[#FE6305]/[0.05] ${i % 2 === 0 ? "bg-white" : "bg-[#F4F2EF]/40"}`}
                   >
                     <td className="px-6 py-4 font-medium">
                       <Link
                         href={row.href}
-                        className="inline-flex items-center gap-1.5 text-[#1A1A1A] hover:text-[#E8500A] transition-colors"
+                        className="inline-flex items-center gap-1.5 text-[#1A1A1A] hover:text-[#FE6305] transition-colors"
                       >
                         {row.service}
-                        <span aria-hidden="true" className="text-[#E8500A] opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">→</span>
+                        <span aria-hidden="true" className="text-[#FE6305] opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">→</span>
                       </Link>
                     </td>
                     <td className="px-6 py-4 text-right font-mono font-semibold text-[#1A1A1A]">{row.price}</td>
@@ -548,7 +548,7 @@ export default function PricingPage() {
             {/* Essentials */}
             <Link
               href="/services/management/essentials"
-              className="group border border-[#1A1A1A]/10 rounded-xl p-8 bg-[#F4F2EF] flex flex-col gap-4 transition-all duration-200 hover:-translate-y-1 hover:border-[#E8500A]/40 hover:bg-white hover:shadow-lg"
+              className="group border border-[#1A1A1A]/10 rounded-xl p-8 bg-[#F4F2EF] flex flex-col gap-4 transition-all duration-200 hover:-translate-y-1 hover:border-[#FE6305]/40 hover:bg-white hover:shadow-lg"
             >
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-widest text-[#1A1A1A]/40 mb-1">
@@ -572,7 +572,7 @@ export default function PricingPage() {
                 The right starting point for smaller teams, and very often paired with a
                 Managed Support retainer.
               </p>
-              <p className="mt-auto text-[13px] font-semibold text-[#E8500A] inline-flex items-center gap-1.5">
+              <p className="mt-auto text-[13px] font-semibold text-[#FE6305] inline-flex items-center gap-1.5">
                 Explore Essentials
                 <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </p>
@@ -581,10 +581,10 @@ export default function PricingPage() {
             {/* Core Suite — recommended */}
             <Link
               href="/services/management/core-suite"
-              className="group border-2 border-[#E8500A] rounded-xl p-8 bg-white flex flex-col gap-4 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_40px_-10px_rgba(232,80,10,0.45)]"
+              className="group border-2 border-[#FE6305] rounded-xl p-8 bg-white flex flex-col gap-4 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_40px_-10px_rgba(254, 99, 5,0.45)]"
             >
               <div className="absolute -top-3 left-6">
-                <span className="bg-[#E8500A] text-white text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full">
+                <span className="bg-[#FE6305] text-white text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full">
                   Most common
                 </span>
               </div>
@@ -612,7 +612,7 @@ export default function PricingPage() {
                 à la carte. For most clients, Core Suite paired with Managed Support is
                 exactly the right fit.
               </p>
-              <p className="mt-auto text-[13px] font-semibold text-[#E8500A] inline-flex items-center gap-1.5">
+              <p className="mt-auto text-[13px] font-semibold text-[#FE6305] inline-flex items-center gap-1.5">
                 Explore Core Suite
                 <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </p>
@@ -627,7 +627,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Managed support
               </p>
             </div>
@@ -662,7 +662,7 @@ export default function PricingPage() {
               <p className="pt-1">
                 <Link
                   href="/services/management/support"
-                  className="group text-[13px] font-semibold text-[#E8500A] inline-flex items-center gap-1.5"
+                  className="group text-[13px] font-semibold text-[#FE6305] inline-flex items-center gap-1.5"
                 >
                   Learn about Managed Support
                   <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -676,7 +676,7 @@ export default function PricingPage() {
       {/* ── Section 7: Setup costs & what affects pricing ───────────── */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
             Getting started
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight leading-snug max-w-xl mb-4">
@@ -745,7 +745,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Hourly
               </p>
             </div>
@@ -785,7 +785,7 @@ export default function PricingPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block text-sm font-medium bg-[#E8500A] text-white px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
+              className="inline-block text-sm font-medium bg-[#FE6305] text-white px-6 py-3 rounded hover:bg-[#FE6305]/85 transition-colors"
             >
               Start a Conversation
             </Link>

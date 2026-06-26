@@ -70,7 +70,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="bg-[#0F1117] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             RSystems &nbsp;·&nbsp; New York City
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
@@ -88,7 +88,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-14">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 The Right Fit
               </p>
             </div>
@@ -123,9 +123,9 @@ export default function ContactPage() {
             {rightFitIndicators.map((item, i) => (
               <div key={i} className="w-full sm:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-[#F4F2EF] p-7 hover:bg-white transition-colors">
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#E8500A]/10 flex items-center justify-center">
+                  <div className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#FE6305]/10 flex items-center justify-center">
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true">
-                      <path d="M1 4L3.5 6.5L9 1" stroke="#E8500A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M1 4L3.5 6.5L9 1" stroke="#FE6305" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                   <div>
@@ -148,7 +148,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Setting Expectations
               </p>
             </div>
@@ -189,7 +189,7 @@ export default function ContactPage() {
       <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="mb-14">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
               How It Works
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight max-w-xl">
@@ -201,7 +201,7 @@ export default function ContactPage() {
             {steps.map((step, i) => (
               <div key={i} className="bg-[#F4F2EF] p-7 hover:bg-white transition-colors grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-8">
                 <div className="sm:col-span-1">
-                  <span className="text-[13px] font-semibold text-[#E8500A] tabular-nums">
+                  <span className="text-[13px] font-semibold text-[#FE6305] tabular-nums">
                     0{i + 1}
                   </span>
                 </div>
@@ -229,7 +229,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Investment
               </p>
             </div>
@@ -264,7 +264,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
 
           <div className="max-w-2xl mb-12">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
               Schedule a Conversation
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-6">
@@ -282,10 +282,10 @@ export default function ContactPage() {
           {/* Callouts */}
           <div className="flex flex-col sm:flex-row gap-6 mb-12">
             <div className="flex gap-3 items-start">
-              <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-[#E8500A]/10 flex items-center justify-center">
+              <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-[#FE6305]/10 flex items-center justify-center">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <circle cx="7" cy="7" r="6" stroke="#E8500A" strokeWidth="1.25" />
-                  <path d="M7 4v3.5l2 1.5" stroke="#E8500A" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="7" cy="7" r="6" stroke="#FE6305" strokeWidth="1.25" />
+                  <path d="M7 4v3.5l2 1.5" stroke="#FE6305" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <div>
@@ -295,10 +295,10 @@ export default function ContactPage() {
             </div>
 
             <div className="flex gap-3 items-start">
-              <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-[#E8500A]/10 flex items-center justify-center">
+              <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-[#FE6305]/10 flex items-center justify-center">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M2 4.5C2 3.67 2.67 3 3.5 3h7C11.33 3 12 3.67 12 4.5v5c0 .83-.67 1.5-1.5 1.5h-7C2.67 11 2 10.33 2 9.5v-5Z" stroke="#E8500A" strokeWidth="1.25" />
-                  <path d="M2 5.5l5 3 5-3" stroke="#E8500A" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M2 4.5C2 3.67 2.67 3 3.5 3h7C11.33 3 12 3.67 12 4.5v5c0 .83-.67 1.5-1.5 1.5h-7C2.67 11 2 10.33 2 9.5v-5Z" stroke="#FE6305" strokeWidth="1.25" />
+                  <path d="M2 5.5l5 3 5-3" stroke="#FE6305" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <div>
@@ -308,10 +308,10 @@ export default function ContactPage() {
             </div>
 
             <div className="flex gap-3 items-start">
-              <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-[#E8500A]/10 flex items-center justify-center">
+              <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-[#FE6305]/10 flex items-center justify-center">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1.5C4.51 1.5 2.5 3.51 2.5 6c0 3.18 4.5 6.5 4.5 6.5s4.5-3.32 4.5-6.5c0-2.49-2.01-4.5-4.5-4.5Z" stroke="#E8500A" strokeWidth="1.25" />
-                  <circle cx="7" cy="6" r="1.25" stroke="#E8500A" strokeWidth="1.25" />
+                  <path d="M7 1.5C4.51 1.5 2.5 3.51 2.5 6c0 3.18 4.5 6.5 4.5 6.5s4.5-3.32 4.5-6.5c0-2.49-2.01-4.5-4.5-4.5Z" stroke="#FE6305" strokeWidth="1.25" />
+                  <circle cx="7" cy="6" r="1.25" stroke="#FE6305" strokeWidth="1.25" />
                 </svg>
               </div>
               <div>

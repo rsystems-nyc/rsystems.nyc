@@ -48,7 +48,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-[#0F1117] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             RSystems &nbsp;·&nbsp; New York City &nbsp;·&nbsp; Est. 2025
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -67,7 +67,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Who We Are
               </p>
             </div>
@@ -114,7 +114,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Our Approach
               </p>
             </div>
@@ -149,7 +149,7 @@ export default function AboutPage() {
       {/* Why RSystems */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
             Why RSystems
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
@@ -158,7 +158,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap justify-center gap-4">
             {reasons.map((reason, i) => (
               <div key={i} className="w-full sm:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7 hover:bg-[#F4F2EF] transition-colors">
-                <p className="text-[11px] font-semibold text-[#E8500A] mb-3 tabular-nums">
+                <p className="text-[11px] font-semibold text-[#FE6305] mb-3 tabular-nums">
                   0{i + 1}
                 </p>
                 <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">

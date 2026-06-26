@@ -78,7 +78,7 @@ export default function JumpCloudConsultingPage() {
             <span>/</span>
             <span className="text-white/50">JumpCloud Consulting</span>
           </div>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Technology Consulting
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -98,7 +98,7 @@ export default function JumpCloudConsultingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Why JumpCloud
               </p>
             </div>
@@ -130,7 +130,7 @@ export default function JumpCloudConsultingPage() {
       {/* What We Do */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
             What We Do
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
@@ -154,7 +154,7 @@ export default function JumpCloudConsultingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Microsoft Integration
               </p>
             </div>
@@ -186,12 +186,12 @@ export default function JumpCloudConsultingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <Link
             href="/case-studies/directory-modernization"
-            className="group block rounded-xl border border-[#1A1A1A]/[0.07] bg-[#F4F2EF] hover:bg-white hover:border-[#E8500A]/20 p-8 lg:p-12 transition-colors"
+            className="group block rounded-xl border border-[#1A1A1A]/[0.07] bg-[#F4F2EF] hover:bg-white hover:border-[#FE6305]/20 p-8 lg:p-12 transition-colors"
           >
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
               Case Study
             </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-4 max-w-2xl group-hover:text-[#E8500A] transition-colors">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-4 max-w-2xl group-hover:text-[#FE6305] transition-colors">
               See This In Practice
             </h3>
             <p className="text-base text-[#1A1A1A]/60 leading-relaxed max-w-2xl mb-8">
@@ -200,7 +200,7 @@ export default function JumpCloudConsultingPage() {
               — from initial assessment through SSO federation, MDM rollout, endpoint
               security, and password management.
             </p>
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-[#E8500A]">
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-[#FE6305]">
               Read the Case Study
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
                 <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -215,12 +215,12 @@ export default function JumpCloudConsultingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Our Approach
               </p>
             </div>
             <div className="lg:col-span-7">
-              <div className="border-l-2 border-[#E8500A] pl-6 space-y-4">
+              <div className="border-l-2 border-[#FE6305] pl-6 space-y-4">
                 <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
                   We don&apos;t just turn on features — we design environments with intent.
                   Every JumpCloud implementation RSystems delivers is documented, tested,

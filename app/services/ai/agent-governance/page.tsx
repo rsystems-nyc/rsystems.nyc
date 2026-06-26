@@ -43,7 +43,7 @@ export default function AgentGovernancePage() {
             <span>/</span>
             <span className="text-white/50">Agent Governance &amp; PAM</span>
           </div>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             AI &amp; Automation
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -63,7 +63,7 @@ export default function AgentGovernancePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 The Problem
               </p>
             </div>
@@ -100,7 +100,7 @@ export default function AgentGovernancePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Our Approach
               </p>
             </div>
@@ -169,7 +169,7 @@ export default function AgentGovernancePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 In Practice
               </p>
             </div>
@@ -194,7 +194,7 @@ export default function AgentGovernancePage() {
                     "Execution on a dedicated host with no network route to internal systems beyond the APIs in its scope.",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                      <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                       <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">{item}</p>
                     </li>
                   ))}
@@ -219,12 +219,12 @@ export default function AgentGovernancePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 A Note on Models
               </p>
             </div>
             <div className="lg:col-span-7">
-              <div className="border-l-2 border-[#E8500A] pl-6 space-y-4">
+              <div className="border-l-2 border-[#FE6305] pl-6 space-y-4">
                 <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
                   Agent governance principles apply regardless of which model powers
                   the agent. We&apos;ve implemented agent identity architectures for Claude,
@@ -246,12 +246,12 @@ export default function AgentGovernancePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <Link
             href="/case-studies/operationalizing-ai"
-            className="group block rounded-xl border border-[#1A1A1A]/[0.07] bg-white hover:border-[#E8500A]/20 p-7 lg:p-8 transition-colors"
+            className="group block rounded-xl border border-[#1A1A1A]/[0.07] bg-white hover:border-[#FE6305]/20 p-7 lg:p-8 transition-colors"
           >
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
               Case Study
             </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-3 group-hover:text-[#E8500A] transition-colors max-w-2xl">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-3 group-hover:text-[#FE6305] transition-colors max-w-2xl">
               Operationalizing AI Across Every Department
             </h3>
             <p className="text-base text-[#1A1A1A]/60 leading-relaxed mb-6 max-w-2xl">
@@ -259,7 +259,7 @@ export default function AgentGovernancePage() {
               JumpCloud identities with least-privilege access, custom OAuth-backed MCP servers,
               and full audit governance through the JumpCloud AI Gateway.
             </p>
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#E8500A]">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#FE6305]">
               Read the case study
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
                 <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

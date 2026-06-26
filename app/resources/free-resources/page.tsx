@@ -290,7 +290,7 @@ function ResourceCard({ resource, seen }: { resource: Resource; seen: Set<string
           Coming Soon
         </p>
       ) : (
-        <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-3">
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
           {resource.label ?? "Resource"}
         </p>
       )}
@@ -308,7 +308,7 @@ function ResourceCard({ resource, seen }: { resource: Resource; seen: Set<string
               <ul key={i} className="space-y-2 pl-1">
                 {block.items.map((item, j) => (
                   <li key={j} className="flex items-start gap-3 text-sm text-[#1A1A1A]/60 leading-relaxed">
-                    <span className="mt-[7px] flex-shrink-0 w-1 h-1 rounded-full bg-[#E8500A]" />
+                    <span className="mt-[7px] flex-shrink-0 w-1 h-1 rounded-full bg-[#FE6305]" />
                     <span dangerouslySetInnerHTML={{ __html: renderInline(item, seen) }} />
                   </li>
                 ))}
@@ -331,7 +331,7 @@ function ResourceCard({ resource, seen }: { resource: Resource; seen: Set<string
           <a
             href={resource.downloadUrl}
             download
-            className="inline-flex items-center gap-2.5 bg-[#E8500A] text-white text-sm font-semibold px-5 py-3 rounded-lg hover:bg-[#D04508] transition-colors"
+            className="inline-flex items-center gap-2.5 bg-[#FE6305] text-white text-sm font-semibold px-5 py-3 rounded-lg hover:bg-[#E0560A] transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -375,7 +375,7 @@ export default function FreeResourcesPage() {
           />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Resources
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">

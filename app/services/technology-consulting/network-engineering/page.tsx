@@ -136,7 +136,7 @@ export default function NetworkEngineeringPage() {
             <span>/</span>
             <span className="text-white/50">Network Design &amp; Engineering</span>
           </div>
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Technology Consulting
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -154,7 +154,7 @@ export default function NetworkEngineeringPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
                 Overview
               </p>
             </div>
@@ -186,26 +186,26 @@ export default function NetworkEngineeringPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 Physical Network Design
               </p>
               <ul className="space-y-3">
                 {physicalDesign.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 Cisco Hardware &amp; Deployment
               </p>
               <ul className="space-y-3">
                 {ciscoServices.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -220,26 +220,26 @@ export default function NetworkEngineeringPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 What Improves
               </p>
               <ul className="space-y-3">
                 {whatImproves.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 What We Deliver
               </p>
               <ul className="space-y-3">
                 {whatWeDeliver.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-[#1A1A1A]/70">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#E8500A] flex-shrink-0" />
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FE6305] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -252,7 +252,7 @@ export default function NetworkEngineeringPage() {
       {/* Our Approach */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
             Our Approach
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-12 max-w-xl">
@@ -261,7 +261,7 @@ export default function NetworkEngineeringPage() {
           <div className="flex flex-wrap justify-center gap-4">
             {approach.map((item) => (
               <div key={item.step} className="w-full sm:w-[calc(50%-0.5rem)] border border-[#1A1A1A]/[0.07] rounded-xl bg-white p-7 hover:bg-[#F4F2EF] transition-colors">
-                <p className="text-[11px] font-semibold text-[#E8500A] mb-3">{item.step}</p>
+                <p className="text-[11px] font-semibold text-[#FE6305] mb-3">{item.step}</p>
                 <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">{item.title}</h3>
                 <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">{item.body}</p>
               </div>
@@ -281,11 +281,11 @@ export default function NetworkEngineeringPage() {
                 className="group flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12 py-8 px-4 sm:px-6 lg:px-8 -mx-4 sm:-mx-6 lg:-mx-8 rounded-xl hover:bg-white transition-colors"
               >
                 <div className="flex-1 min-w-0">
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">Case Study</p>
-                  <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug group-hover:text-[#E8500A] transition-colors">{cs.title}</h3>
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-2">Case Study</p>
+                  <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug group-hover:text-[#FE6305] transition-colors">{cs.title}</h3>
                   <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">{cs.body}</p>
                 </div>
-                <span className="flex-shrink-0 text-sm font-semibold text-[#E8500A] inline-flex items-center gap-1.5 whitespace-nowrap">
+                <span className="flex-shrink-0 text-sm font-semibold text-[#FE6305] inline-flex items-center gap-1.5 whitespace-nowrap">
                   Read the Case Study
                   <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
                 </span>

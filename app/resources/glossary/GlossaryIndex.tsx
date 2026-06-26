@@ -73,9 +73,9 @@ export default function GlossaryIndex() {
     "px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-widest border transition-colors";
   const pillBaseAZ =
     "px-2 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide border transition-colors";
-  const pillActive = "bg-[#E8500A] text-white border-[#E8500A]";
+  const pillActive = "bg-[#FE6305] text-white border-[#FE6305]";
   const pillInactive =
-    "bg-[#F4F2EF] text-[#1A1A1A] border-[#1A1A1A]/20 hover:border-[#E8500A]/40";
+    "bg-[#F4F2EF] text-[#1A1A1A] border-[#1A1A1A]/20 hover:border-[#FE6305]/40";
 
   return (
     <div>
@@ -85,7 +85,7 @@ export default function GlossaryIndex() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search terms…"
-        className="w-full border border-[#1A1A1A]/20 rounded-xl px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-[#E8500A]/40 mb-6"
+        className="w-full border border-[#1A1A1A]/20 rounded-xl px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-[#FE6305]/40 mb-6"
       />
 
       {/* A-Z strip */}
@@ -169,12 +169,12 @@ export default function GlossaryIndex() {
             <Link
               key={term.slug}
               href={`/resources/glossary/${term.slug}`}
-              className="group flex flex-col w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-xl border border-[#1A1A1A]/[0.07] hover:border-[#E8500A]/20 transition-colors p-7"
+              className="group flex flex-col w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white rounded-xl border border-[#1A1A1A]/[0.07] hover:border-[#FE6305]/20 transition-colors p-7"
             >
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-2">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-2">
                 {term.categories[0]}
               </p>
-              <h2 className="text-base font-bold text-[#1A1A1A] leading-snug mb-1 group-hover:text-[#E8500A] transition-colors">
+              <h2 className="text-base font-bold text-[#1A1A1A] leading-snug mb-1 group-hover:text-[#FE6305] transition-colors">
                 {term.term}
               </h2>
               {term.aka && term.aka.length > 0 && (
@@ -183,7 +183,7 @@ export default function GlossaryIndex() {
               <p className="text-sm text-[#1A1A1A]/55 leading-relaxed flex-1 mb-4 line-clamp-2">
                 {term.shortDef}
               </p>
-              <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#E8500A]/60 group-hover:text-[#E8500A] transition-colors mt-auto">
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]/60 group-hover:text-[#FE6305] transition-colors mt-auto">
                 Read definition
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                   <path

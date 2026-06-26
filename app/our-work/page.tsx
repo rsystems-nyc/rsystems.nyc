@@ -63,7 +63,7 @@ export default function OurWorkPage() {
           />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             RSystems
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
@@ -85,21 +85,21 @@ export default function OurWorkPage() {
                 href={s.href}
                 className="group relative w-full md:w-[calc(50%-0.75rem)] bg-white border border-[#1A1A1A]/[0.07] rounded-xl p-8 flex flex-col hover:shadow-md transition-shadow"
               >
-                <span className="absolute top-8 right-8 text-[#1A1A1A]/20 group-hover:text-[#E8500A] transition-colors">
+                <span className="absolute top-8 right-8 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-                <span className="inline-block text-[10px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+                <span className="inline-block text-[10px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                   {s.tag}
                 </span>
-                <h2 className="text-xl font-bold text-[#1A1A1A] mb-3 group-hover:text-[#E8500A] transition-colors pr-6">
+                <h2 className="text-xl font-bold text-[#1A1A1A] mb-3 group-hover:text-[#FE6305] transition-colors pr-6">
                   {s.title}
                 </h2>
                 <p className="text-sm text-[#1A1A1A]/55 leading-relaxed mb-6 flex-1">
                   {s.body}
                 </p>
-                <span className="text-sm font-semibold text-[#E8500A] group-hover:underline">
+                <span className="text-sm font-semibold text-[#FE6305] group-hover:underline">
                   {s.cta} →
                 </span>
               </Link>
@@ -112,7 +112,7 @@ export default function OurWorkPage() {
       <section className="bg-[#0F1117] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-5">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
               Work With Us
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold leading-tight tracking-tight mb-6">
@@ -123,7 +123,7 @@ export default function OurWorkPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-[#E8500A] text-white text-sm font-semibold px-6 py-3 rounded hover:bg-[#E8500A]/85 transition-colors"
+              className="inline-block bg-[#FE6305] text-white text-sm font-semibold px-6 py-3 rounded hover:bg-[#FE6305]/85 transition-colors"
             >
               Schedule a Conversation
             </Link>

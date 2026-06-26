@@ -37,7 +37,7 @@ export default function Footer() {
 
           {/* Column 2: Company */}
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
               Company
             </p>
             <ul className="space-y-2">
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Column 3: Resources */}
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
               Resources
             </p>
             <ul className="space-y-2">
@@ -96,7 +96,7 @@ export default function Footer() {
           {/* Column 4: Services */}
           <div className="flex flex-col">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#E8500A] mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
                 Services
               </p>
               <ul className="space-y-2">
