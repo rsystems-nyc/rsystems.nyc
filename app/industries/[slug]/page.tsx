@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { industriesData } from "@/app/lib/industries-data";
 import JsonLd from "@/app/components/JsonLd";
+import PageEndCTA from "@/app/components/PageEndCTA";
 import { breadcrumbSchema } from "@/app/lib/seo";
 
 const SITE_URL = "https://rsystems.nyc";
@@ -67,9 +68,6 @@ export default async function IndustryPage({ params }: Props) {
       url: `${SITE_URL}/contact`,
     },
   };
-
-  const publishedRelatedWork = industry.relatedWork?.filter((rw) => !rw.placeholder) ?? [];
-  const placeholderRelatedWork = industry.relatedWork?.filter((rw) => rw.placeholder) ?? [];
 
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", path: "/" },
@@ -212,43 +210,10 @@ export default async function IndustryPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Related Work */}
-      {(publishedRelatedWork.length > 0 || placeholderRelatedWork.length > 0) && (
-        <section className="bg-[#F4F2EF]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-              <div className="lg:col-span-3">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
-                  Related Work
-                </p>
-              </div>
-              <div className="lg:col-span-7 space-y-4">
-                {publishedRelatedWork.map((rw) => (
-                  <Link
-                    key={rw.href}
-                    href={rw.href}
-                    className="group flex items-center gap-3 text-base font-medium text-[#1A1A1A] hover:text-[#FE6305] transition-colors"
-                  >
-                    <span className="text-[#FE6305] group-hover:translate-x-0.5 transition-transform">→</span>
-                    {rw.label}
-                  </Link>
-                ))}
-                {/* Placeholder links — published when case study goes live */}
-                {placeholderRelatedWork.map((rw) => (
-                  <span
-                    key={rw.href}
-                    className="flex items-center gap-3 text-base font-medium text-[#1A1A1A]/30 cursor-default"
-                    aria-disabled="true"
-                  >
-                    <span className="text-[#FE6305]/30">→</span>
-                    {rw.label}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+      <PageEndCTA
+        pageKey={`industry:${slug}`}
+        precedingBg={industry.sections.length % 2 !== 0 ? "bg-white" : "bg-[#F4F2EF]"}
+      />
 
     </main>
   );
