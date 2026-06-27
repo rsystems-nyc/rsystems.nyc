@@ -24,27 +24,27 @@ const services = [
   {
     tag: "AI Enablement",
     body: "The right models, the right tools, the right workflows for your organization. We help teams adopt AI practically — identifying use cases, configuring enterprise accounts, and building habits that stick.",
-    href: "/services/ai/ai-enablement",
+    href: "/services/technology-consulting/ai-enablement",
   },
   {
     tag: "MCP Tooling",
     body: "Any platform with a documented API can become a tool your AI agents use reliably. We build MCP servers that expose the full API surface — not just the subset an official integration provides.",
-    href: "/services/ai/mcp-tooling",
+    href: "/services/technology-consulting/mcp-tooling",
   },
   {
     tag: "Agent Governance & PAM",
     body: "Agents need identities, permissions, and blast-radius containment — just like employees. We design access architectures that give agents exactly what they need and nothing more.",
-    href: "/services/ai/agent-governance",
+    href: "/services/technology-consulting/agent-governance",
   },
   {
     tag: "Audit & Accountability",
     body: "When agents act at scale, you need a complete record of what they did, when, and with what authority. We build centralized audit infrastructure for agentic workflows.",
-    href: "/services/ai/audit-accountability",
+    href: "/services/technology-consulting/audit-accountability",
   },
   {
     tag: "Vibe Coding & Custom Development",
     body: "Custom websites and internal tools built with AI-assisted development — plus the infrastructure foundation that lets your team build and run them. We'll build it, teach it, or build it with you.",
-    href: "/services/ai/vibe-coding",
+    href: "/services/technology-consulting/vibe-coding",
   },
 ];
 

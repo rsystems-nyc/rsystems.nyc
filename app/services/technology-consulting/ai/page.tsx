@@ -20,27 +20,27 @@ export const metadata: Metadata = {
 const services = [
   {
     name: "AI Enablement",
-    href: "/services/ai/ai-enablement",
+    href: "/services/technology-consulting/ai-enablement",
     tagline: "AI readiness assessments, tooling strategy, workflow automation, and organizational adoption planning.",
   },
   {
     name: "MCP Tooling",
-    href: "/services/ai/mcp-tooling",
+    href: "/services/technology-consulting/mcp-tooling",
     tagline: "Model Context Protocol integrations that connect AI systems to your internal tools, data, and workflows.",
   },
   {
     name: "Agent Governance & PAM",
-    href: "/services/ai/agent-governance",
+    href: "/services/technology-consulting/agent-governance",
     tagline: "Permissions architecture and access controls for agentic AI deployments — least-privilege, by design.",
   },
   {
     name: "Audit & Accountability",
-    href: "/services/ai/audit-accountability",
+    href: "/services/technology-consulting/audit-accountability",
     tagline: "Audit trails and accountability frameworks that make agent behavior reviewable and within operational limits.",
   },
   {
     name: "Vibe Coding & Custom Development",
-    href: "/services/ai/vibe-coding",
+    href: "/services/technology-consulting/vibe-coding",
     tagline: "Custom websites and internal tools built with AI-assisted development, backed by senior technical expertise — we'll build it, teach it, or build it with you.",
   },
 ];

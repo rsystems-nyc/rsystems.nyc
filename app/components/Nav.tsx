@@ -90,11 +90,11 @@ const techConsultingCategories = [
     label: "AI & Automation",
     href: "/services/ai",
     links: [
-      { href: "/services/ai/ai-enablement", label: "AI Enablement" },
-      { href: "/services/ai/mcp-tooling", label: "MCP Tooling" },
-      { href: "/services/ai/agent-governance", label: "Agent Governance & PAM" },
-      { href: "/services/ai/audit-accountability", label: "Audit & Accountability" },
-      { href: "/services/ai/vibe-coding", label: "Vibe Coding & Custom Development" },
+      { href: "/services/technology-consulting/ai-enablement", label: "AI Enablement" },
+      { href: "/services/technology-consulting/mcp-tooling", label: "MCP Tooling" },
+      { href: "/services/technology-consulting/agent-governance", label: "Agent Governance & PAM" },
+      { href: "/services/technology-consulting/audit-accountability", label: "Audit & Accountability" },
+      { href: "/services/technology-consulting/vibe-coding", label: "Vibe Coding & Custom Development" },
     ],
   },
   {

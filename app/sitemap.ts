@@ -52,11 +52,11 @@ const ephemeralRoutes = [
 
 const aiRoutes = [
   "/services/ai",
-  "/services/ai/ai-enablement",
-  "/services/ai/mcp-tooling",
-  "/services/ai/agent-governance",
-  "/services/ai/audit-accountability",
-  "/services/ai/vibe-coding",
+  "/services/technology-consulting/ai-enablement",
+  "/services/technology-consulting/mcp-tooling",
+  "/services/technology-consulting/agent-governance",
+  "/services/technology-consulting/audit-accountability",
+  "/services/technology-consulting/vibe-coding",
 ];
 
 const techConsultingRoutes = [
