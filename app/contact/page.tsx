@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact — RSystems NYC",
@@ -322,16 +323,29 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Calendar embed */}
-          <div className="w-full max-w-[700px] mx-auto">
-            <div className="bg-white rounded-xl border border-[#1A1A1A]/[0.07] overflow-hidden shadow-sm">
-              <iframe
-                src="https://calendar.google.com/calendar/appointments/AcZssZ2xNQpbkd6I9lnMHUgvdFvUmEYvZSIXYuYjvNs=?gv=true"
-                style={{ border: 0 }}
-                width="100%"
-                height="480"
-                title="Schedule a conversation with RSystems"
-              />
+          {/* Write in or book a call — side by side at xl+, stacked below */}
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 items-start">
+            {/* Write in */}
+            <div className="flex flex-col">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
+                Write in
+              </p>
+              <ContactForm />
+            </div>
+            {/* Book a call */}
+            <div className="flex flex-col">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
+                Book a call
+              </p>
+              <div className="bg-white rounded-xl border border-[#1A1A1A]/[0.07] overflow-hidden shadow-sm">
+                <iframe
+                  src="https://calendar.google.com/calendar/appointments/AcZssZ2xNQpbkd6I9lnMHUgvdFvUmEYvZSIXYuYjvNs=?gv=true"
+                  style={{ border: 0 }}
+                  width="100%"
+                  height="480"
+                  title="Schedule a conversation with RSystems"
+                />
+              </div>
             </div>
           </div>
 
