@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Pricing & How We Work | RSystems NYC" },
@@ -772,26 +773,7 @@ export default function PricingPage() {
       </section>
 
       {/* ── Section 8: CTA ───────────────────────────────────────────── */}
-      <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold leading-snug tracking-tight mb-4">
-              Let&apos;s find the right fit.
-            </h2>
-            <p className="text-base text-white/50 leading-relaxed mb-8">
-              Tell us about your environment and what you&apos;re trying to accomplish. We&apos;ll
-              start with an honest conversation about how to structure the work — and what
-              it should cost.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block text-sm font-medium bg-[#FE6305] text-white px-6 py-3 rounded hover:bg-[#FE6305]/85 transition-colors"
-            >
-              Start a Conversation
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PageEndCTA pageKey="/pricing" precedingBg="bg-[#F4F2EF]" />
 
     </main>
   );

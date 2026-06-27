@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { foundationsContent } from "./content";
 import { renderMarkdown } from "@/app/lib/renderMarkdown";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: "IT Foundations: What to Get Right Before It Gets Expensive — RSystems NYC",
@@ -57,26 +58,7 @@ export default function FoundationsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
-            Ready to build it right
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 max-w-2xl mx-auto">
-            Start with a conversation
-          </h2>
-          <p className="text-white/50 max-w-xl mx-auto mb-10 leading-relaxed">
-            We work with organizations that are ready to do the foundation work properly. If that
-            sounds like you, let&apos;s talk.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-[#FE6305] text-white text-[13px] font-semibold uppercase tracking-widest px-8 py-4 rounded-lg hover:bg-[#FE6305]/90 transition-colors"
-          >
-            Schedule a Conversation
-          </Link>
-        </div>
-      </section>
+      <PageEndCTA pageKey="/resources/foundations" precedingBg="bg-[#F4F2EF]" />
 
     </main>
   );
