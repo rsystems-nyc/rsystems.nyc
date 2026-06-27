@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { caseStudiesData, type Block } from "@/app/lib/case-studies-data";
 import JsonLd from "@/app/components/JsonLd";
+import PageEndCTA from "@/app/components/PageEndCTA";
 import { breadcrumbSchema } from "@/app/lib/seo";
 
 type Props = {
@@ -409,6 +410,11 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      <PageEndCTA
+        pageKey={`casestudy:${cs.slug}`}
+        precedingBg={cs.pressCitation || cs.closingImage ? "bg-[#F4F2EF]" : "bg-[#0F1117]"}
+      />
 
     </main>
   );
