@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "VMware Consulting & Infrastructure Design | RSystems" },
@@ -148,37 +149,7 @@ export default function VMwarePage() {
         </div>
       </section>
 
-      {/* Related Case Study */}
-      <section className="bg-white border-t border-[#1A1A1A]/[0.07]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
-            <div className="lg:col-span-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305]">
-                Case Study
-              </p>
-            </div>
-            <div className="lg:col-span-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <p className="text-base font-semibold text-[#1A1A1A] leading-snug mb-1">
-                  Untangling the Spaghetti Monster
-                </p>
-                <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
-                  40 VMs rebuilt on a properly architected VMware foundation — after months embedded inside a 3D printing company learning infrastructure no one had ever documented.
-                </p>
-              </div>
-              <Link
-                href="/case-studies/makerbot-overhaul"
-                className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] hover:text-[#FE6305]/70 transition-colors"
-              >
-                Read Case Study
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/vmware-administration-infrastructure-design" precedingBg="bg-white" />
+</main>
   );
 }

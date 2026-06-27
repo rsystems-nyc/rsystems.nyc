@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Managed Network Monitoring & Administration | RSystems" },
@@ -135,6 +136,7 @@ export default function NetworkManagementPage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/management/network" precedingBg="bg-white" />
+</main>
   );
 }

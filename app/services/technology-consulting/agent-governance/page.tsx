@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Agent Governance & PAM — RSystems NYC" },
@@ -269,6 +270,7 @@ export default function AgentGovernancePage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/agent-governance" precedingBg="bg-[#F4F2EF]" />
+</main>
   );
 }

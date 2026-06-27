@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Cloud Storage & Hybrid Infrastructure Consulting | RSystems" },
@@ -130,6 +131,7 @@ export default function CloudStorageComputingPage() {
           </div>
         </div>
       </section>
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/cloud-storage-and-computing-solutions" precedingBg="bg-white" />
+</main>
   );
 }

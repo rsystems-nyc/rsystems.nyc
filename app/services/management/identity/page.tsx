@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Managed Identity Administration (JumpCloud) | RSystems" },
@@ -136,6 +137,7 @@ export default function IdentityManagementPage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/management/identity" precedingBg="bg-white" />
+</main>
   );
 }

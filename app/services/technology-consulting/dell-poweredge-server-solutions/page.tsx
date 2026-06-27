@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Dell PowerEdge Server Consulting & Deployment | RSystems" },
@@ -168,6 +169,7 @@ export default function DellPowerEdgePage() {
           </Link>
         </div>
       </section>
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/dell-poweredge-server-solutions" precedingBg="bg-white" />
+</main>
   );
 }

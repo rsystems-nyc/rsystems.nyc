@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Ephemeral Infrastructure — Event, Festival & Temporary IT | RSystems NYC" },
@@ -211,6 +212,7 @@ export default function EphemeralPage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/ephemeral" precedingBg="bg-[#0F1117]" />
+</main>
   );
 }

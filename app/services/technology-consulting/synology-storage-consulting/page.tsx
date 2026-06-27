@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Synology NAS Consulting & Deployment | RSystems" },
@@ -170,6 +171,7 @@ export default function SynologyStorageConsultingPage() {
           </Link>
         </div>
       </section>
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/synology-storage-consulting" precedingBg="bg-white" />
+</main>
   );
 }

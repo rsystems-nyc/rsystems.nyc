@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "AI Enablement — RSystems NYC" },
@@ -239,6 +240,7 @@ export default function AIEnablementPage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/ai-enablement" precedingBg="bg-[#F4F2EF]" />
+</main>
   );
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "IT Management Essentials — Identity & Infrastructure | RSystems" },
@@ -166,6 +167,7 @@ export default function EssentialsPage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/management/essentials" precedingBg="bg-white" />
+</main>
   );
 }

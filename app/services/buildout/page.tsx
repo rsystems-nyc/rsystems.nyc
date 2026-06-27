@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Buildout & Installation — Structured Cabling, Server Rooms, AV & Audio | RSystems NYC" },
@@ -217,6 +218,7 @@ export default function BuildoutPage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/buildout" precedingBg="bg-[#0F1117]" />
+</main>
   );
 }

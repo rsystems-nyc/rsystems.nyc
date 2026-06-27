@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Okta Consulting for Enterprise SSO & SCIM | RSystems" },
@@ -215,6 +216,7 @@ export default function OktaConsultingPage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/okta-consulting" precedingBg="bg-white" />
+</main>
   );
 }

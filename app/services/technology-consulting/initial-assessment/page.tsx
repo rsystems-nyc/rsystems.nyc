@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "IT Assessment & Technology Audit | RSystems NYC" },
@@ -126,6 +127,7 @@ export default function InitialAssessmentPage() {
           </div>
         </div>
       </section>
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/initial-assessment" precedingBg="bg-white" />
+</main>
   );
 }

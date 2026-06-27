@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "MCP Tooling — RSystems NYC" },
@@ -227,6 +228,7 @@ export default function MCPToolingPage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/mcp-tooling" precedingBg="bg-[#F4F2EF]" />
+</main>
   );
 }

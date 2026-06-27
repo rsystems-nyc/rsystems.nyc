@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import JsonLd from "@/app/components/JsonLd";
 import { breadcrumbSchema } from "@/app/lib/seo";
+import PageEndCTA from "@/app/components/PageEndCTA";
 
 export const metadata: Metadata = {
   title: { absolute: "Vibe Coding & Custom Development | RSystems NYC" },
@@ -202,6 +203,7 @@ export default function VibeCodingPage() {
         </div>
       </section>
 
-    </main>
+          <PageEndCTA pageKey="/services/technology-consulting/vibe-coding" precedingBg="bg-[#F4F2EF]" />
+</main>
   );
 }
