@@ -25,6 +25,14 @@ const methods = [
     href: "mailto:support@rsystems.nyc",
     external: false,
   },
+  {
+    eyebrow: "Phone",
+    title: "Call if it's urgent",
+    body: "Can't wait for a reply? Reach the line and we'll jump on it.",
+    detail: "917.765.4968",
+    href: "tel:9177654968",
+    external: false,
+  },
 ];
 
 export default function SupportPage() {
@@ -49,7 +57,7 @@ export default function SupportPage() {
       {/* Ways to reach us */}
       <section className="bg-[#F4F2EF]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {methods.map((m) => (
               <a
                 key={m.href}
