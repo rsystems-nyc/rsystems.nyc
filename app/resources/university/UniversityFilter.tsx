@@ -40,7 +40,7 @@ export default function UniversityFilter() {
 
   return (
     <section className="bg-[#F4F2EF]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
 
         {/* Category filter pills */}
         <div className="flex flex-wrap gap-2 mb-10">

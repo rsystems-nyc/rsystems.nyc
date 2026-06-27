@@ -15,7 +15,7 @@ export default function LeadershipPage() {
 
       {/* Hero */}
       <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <Link
             href="/about"
             className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-6 hover:text-[#FE6305]/75 transition-colors"
@@ -33,7 +33,7 @@ export default function LeadershipPage() {
 
       {/* Leadership */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-4">
               <div className="aspect-square rounded-xl overflow-hidden max-w-xs">

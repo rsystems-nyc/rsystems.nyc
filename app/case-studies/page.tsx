@@ -25,7 +25,7 @@ export default function CaseStudiesPage() {
             aria-hidden="true"
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             RSystems
           </p>

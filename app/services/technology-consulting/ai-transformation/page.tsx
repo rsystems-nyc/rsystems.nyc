@@ -61,7 +61,7 @@ export default function AITransformationPage() {
             aria-hidden="true"
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-white/30 mb-10 flex-wrap">
             <Link href="/services" className="hover:text-white/60 transition-colors">Services</Link>
             <span>/</span>
@@ -86,7 +86,7 @@ export default function AITransformationPage() {
 
       {/* Challenge */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
@@ -125,7 +125,7 @@ export default function AITransformationPage() {
 
       {/* Approach */}
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
@@ -165,7 +165,7 @@ export default function AITransformationPage() {
 
       {/* Deliverables */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
             What&apos;s Included
           </p>

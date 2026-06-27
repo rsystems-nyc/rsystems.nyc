@@ -17,7 +17,7 @@ export default function ClientsPage() {
 
       {/* Hero */}
       <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <Link
             href="/our-work"
             className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-6 hover:text-[#FE6305]/75 transition-colors"

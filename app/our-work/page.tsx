@@ -62,7 +62,7 @@ export default function OurWorkPage() {
             aria-hidden="true"
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             RSystems
           </p>
@@ -77,7 +77,7 @@ export default function OurWorkPage() {
 
       {/* Sections */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="flex flex-wrap justify-center gap-6">
             {sections.map((s) => (
               <Link
@@ -110,7 +110,7 @@ export default function OurWorkPage() {
 
       {/* CTA */}
       <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="max-w-2xl">
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
               Work With Us

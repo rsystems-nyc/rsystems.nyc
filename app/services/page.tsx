@@ -72,7 +72,7 @@ export default function ServicesPage() {
             aria-hidden="true"
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             RSystems
           </p>
@@ -90,7 +90,7 @@ export default function ServicesPage() {
 
       {/* Services */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="mb-12">
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
               Technology Consulting
@@ -194,7 +194,7 @@ export default function ServicesPage() {
 
       {/* How services work together */}
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">

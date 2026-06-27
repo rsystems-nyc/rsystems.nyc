@@ -69,7 +69,7 @@ export default function ComputeStoragePage() {
         <div className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 pointer-events-none select-none">
           <Image src="/assets/RS_Pulsar_Only_Black.svg" alt="" width={700} height={700} className="w-[560px] h-auto opacity-[0.04]" aria-hidden="true" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-white/30 mb-10 flex-wrap">
             <Link href="/services" className="hover:text-white/60 transition-colors">Services</Link>
             <span>/</span>
@@ -87,7 +87,7 @@ export default function ComputeStoragePage() {
 
       {/* Overview */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">Overview</p>
@@ -112,7 +112,7 @@ export default function ComputeStoragePage() {
 
       {/* Appropriate For */}
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">Appropriate For</p>
@@ -133,7 +133,7 @@ export default function ComputeStoragePage() {
 
       {/* Our Approach + Services */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-20">
             <div className="lg:col-span-3">
@@ -169,7 +169,7 @@ export default function ComputeStoragePage() {
 
       {/* Related Categories */}
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-8">Related Practice Areas</p>
           <div className="flex flex-wrap justify-center gap-4">
             {relatedCategories.map((cat) => (

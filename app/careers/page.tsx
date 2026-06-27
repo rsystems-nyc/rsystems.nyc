@@ -23,7 +23,7 @@ export default function CareersPage() {
 
       {/* Hero */}
       <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-5">
             Careers
           </p>
@@ -39,7 +39,7 @@ export default function CareersPage() {
 
       {/* About RSystems */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
@@ -61,7 +61,7 @@ export default function CareersPage() {
 
       {/* About You */}
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
@@ -90,7 +90,7 @@ export default function CareersPage() {
 
       {/* What Working Here Looks Like */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
@@ -120,7 +120,7 @@ export default function CareersPage() {
 
       {/* Open Positions */}
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
@@ -138,7 +138,7 @@ export default function CareersPage() {
 
       {/* Speculative Applications */}
       <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">

@@ -78,7 +78,7 @@ export default function EphemeralPage() {
             aria-hidden="true"
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <Link
             href="/services"
             className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-white/30 hover:text-white/60 transition-colors mb-10"
@@ -104,7 +104,7 @@ export default function EphemeralPage() {
 
       {/* Intro */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] pt-1">
@@ -130,7 +130,7 @@ export default function EphemeralPage() {
 
       {/* Sub-service cards */}
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="flex flex-wrap justify-center gap-4">
             {subServices.map((service) => (
               <Link
@@ -158,7 +158,7 @@ export default function EphemeralPage() {
 
       {/* Case studies */}
       <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="mb-10">
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
               Proof
@@ -193,7 +193,7 @@ export default function EphemeralPage() {
 
       {/* CTA */}
       <section className="bg-[#0F1117] text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="max-w-2xl">
             <h2 className="text-2xl sm:text-3xl font-bold leading-snug tracking-tight mb-4">
               Have a date on the calendar?
