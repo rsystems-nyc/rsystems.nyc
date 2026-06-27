@@ -162,37 +162,6 @@ export default function DisasterRecoveryPage() {
         </div>
       </section>
 
-      {/* Case Study Callout */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
-          <div className="border-t border-[#1A1A1A]/[0.08] py-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12">
-            <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-2">Case Study</p>
-              <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">Redundancy by Design</h3>
-              <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">A zero-compromise infrastructure covering networking, wireless, compute, and storage — with redundancy as a first-order constraint.</p>
-            </div>
-            <Link href="/case-studies/redundancy-by-design" className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] hover:text-[#FE6305]/70 transition-colors whitespace-nowrap">
-              Read Case Study
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-          </div>
-          <div className="border-t border-b border-[#1A1A1A]/[0.08] py-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12">
-            <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-2">Case Study</p>
-              <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug">Replacing a 10-Year-Old Data Center — Without Replacing the Hardware</h3>
-              <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">Multi-region Azure infrastructure, disaster recovery, and Terraform automation for the National Audubon Society — DR requirements met at a fraction of a hardware refresh.</p>
-            </div>
-            <Link href="/case-studies/audubon-azure" className="flex-shrink-0 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] hover:text-[#FE6305]/70 transition-colors whitespace-nowrap">
-              Read Case Study
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
           <PageEndCTA pageKey="/services/technology-consulting/disaster-recovery-plan-development" precedingBg="bg-white" />
 </main>
   );

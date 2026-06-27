@@ -54,18 +54,6 @@ const subServices = [
   },
 ];
 
-const caseStudies = [
-  {
-    href: "/case-studies/redundancy-by-design",
-    title: "Zero Downtime Since Deployment",
-    description: "Enterprise infrastructure for a leading NYC architecture firm.",
-  },
-  {
-    href: "/case-studies/little-island",
-    title: "Built from the Waterline Up",
-    description: "Infrastructure for one of NYC's most ambitious public spaces.",
-  },
-];
 
 export default function BuildoutPage() {
   return (
@@ -162,40 +150,6 @@ export default function BuildoutPage() {
         </div>
       </section>
 
-      {/* Case studies */}
-      <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-          <div className="mb-10">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
-              Proof
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight leading-snug">
-              Built to last.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {caseStudies.map((cs) => (
-              <Link
-                key={cs.href}
-                href={cs.href}
-                className="group relative flex flex-col p-7 border border-[#808080]/30 rounded-xl bg-[#F4F2EF] hover:bg-white transition-colors"
-              >
-                <span className="absolute top-7 right-7 text-[#1A1A1A]/20 group-hover:text-[#FE6305] transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-snug pr-6 mb-2 group-hover:text-[#FE6305] transition-colors">
-                  {cs.title}
-                </h3>
-                <p className="text-sm text-[#1A1A1A]/50 leading-relaxed">
-                  {cs.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="bg-[#0F1117] text-white">

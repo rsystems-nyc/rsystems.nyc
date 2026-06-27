@@ -182,34 +182,6 @@ export default function JumpCloudConsultingPage() {
         </div>
       </section>
 
-      {/* Case Study Callout */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-          <Link
-            href="/case-studies/directory-modernization"
-            className="group block rounded-xl border border-[#1A1A1A]/[0.07] bg-[#F4F2EF] hover:bg-white hover:border-[#FE6305]/20 p-8 lg:p-12 transition-colors"
-          >
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
-              Case Study
-            </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-4 max-w-2xl group-hover:text-[#FE6305] transition-colors">
-              See This In Practice
-            </h3>
-            <p className="text-base text-[#1A1A1A]/60 leading-relaxed max-w-2xl mb-8">
-              Our identity and device management work for a growing law firm
-              shows what a complete JumpCloud deployment looks like in a real environment
-              — from initial assessment through SSO federation, MDM rollout, endpoint
-              security, and password management.
-            </p>
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-[#FE6305]">
-              Read the Case Study
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
-                <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </Link>
-        </div>
-      </section>
 
       {/* Our Approach */}
       <section className="bg-[#F4F2EF]">

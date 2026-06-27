@@ -129,25 +129,6 @@ export default function VMwarePage() {
         </div>
       </section>
 
-      {/* Case Study Callout */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
-          <Link
-            href="/case-studies/redundancy-by-design"
-            className="group border-t border-b border-[#1A1A1A]/[0.08] py-8 px-4 sm:px-6 lg:px-8 -mx-4 sm:-mx-6 lg:-mx-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12 hover:bg-[#F4F2EF] transition-colors"
-          >
-            <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-2">Case Study</p>
-              <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug group-hover:text-[#FE6305] transition-colors">See This In Practice</h3>
-              <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">This work is documented in our Redundancy by Design case study — a zero-compromise infrastructure covering networking, wireless, compute, and storage, with redundancy as a first-order constraint.</p>
-            </div>
-            <span className="flex-shrink-0 text-sm font-semibold text-[#FE6305] inline-flex items-center gap-1.5 whitespace-nowrap">
-              Read the Case Study
-              <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-            </span>
-          </Link>
-        </div>
-      </section>
 
           <PageEndCTA pageKey="/services/technology-consulting/vmware-administration-infrastructure-design" precedingBg="bg-white" />
 </main>

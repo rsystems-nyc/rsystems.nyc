@@ -200,33 +200,6 @@ export default function MCPToolingPage() {
         </div>
       </section>
 
-      {/* Related Work */}
-      <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-          <Link
-            href="/case-studies/operationalizing-ai"
-            className="group block rounded-xl border border-[#1A1A1A]/[0.07] bg-white hover:border-[#FE6305]/20 p-7 lg:p-8 transition-colors"
-          >
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-3">
-              Case Study
-            </p>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A] tracking-tight leading-snug mb-3 group-hover:text-[#FE6305] transition-colors max-w-2xl">
-              Operationalizing AI Across Every Department
-            </h3>
-            <p className="text-base text-[#1A1A1A]/60 leading-relaxed mb-6 max-w-2xl">
-              How RSystems deployed Claude across the business — agents provisioned as managed
-              JumpCloud identities with least-privilege access, custom OAuth-backed MCP servers,
-              and full audit governance through the JumpCloud AI Gateway.
-            </p>
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#FE6305]">
-              Read the case study
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
-                <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </Link>
-        </div>
-      </section>
 
           <PageEndCTA pageKey="/services/technology-consulting/mcp-tooling" precedingBg="bg-[#F4F2EF]" />
 </main>

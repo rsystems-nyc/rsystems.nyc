@@ -89,28 +89,6 @@ const approach = [
   },
 ];
 
-const caseStudies = [
-  {
-    title: "Redundancy by Design",
-    body: "Zero-compromise infrastructure covering networking, wireless, compute, and storage — with redundancy as a first-order constraint.",
-    href: "/case-studies/redundancy-by-design",
-  },
-  {
-    title: "Untangling the Spaghetti Monster",
-    body: "Complete network remediation for a 3D printing company — VLANs rationalized and documented, 10G capacity fully utilized, 400% throughput increase on day one.",
-    href: "/case-studies/makerbot-overhaul",
-  },
-  {
-    title: "Festival-Grade Network Engineering",
-    body: "A self-healing temporary network for FoST Fest at Snug Harbor — twelve landmarked buildings, a Great Lawn tent 600 feet from the nearest switch, thousands of concurrent devices.",
-    href: "/case-studies/fost-fest",
-  },
-  {
-    title: "The Night $4.6 Million Moved Over Wi-Fi",
-    body: "Event network design for the charity:water Gala at the Metropolitan Museum of Art — traffic-modeled for peak load, tested before the night, invisible on the night.",
-    href: "/case-studies/charity-water-gala",
-  },
-];
 
 export default function NetworkEngineeringPage() {
   return (
@@ -271,30 +249,6 @@ export default function NetworkEngineeringPage() {
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="bg-[#F4F2EF]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
-          <div className="border-t border-[#1A1A1A]/[0.08] divide-y divide-[#1A1A1A]/[0.06]">
-            {caseStudies.map((cs) => (
-              <Link
-                key={cs.href}
-                href={cs.href}
-                className="group flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12 py-8 px-4 sm:px-6 lg:px-8 -mx-4 sm:-mx-6 lg:-mx-8 rounded-xl hover:bg-white transition-colors"
-              >
-                <div className="flex-1 min-w-0">
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-2">Case Study</p>
-                  <h3 className="text-[15px] font-semibold text-[#1A1A1A] mb-2 leading-snug group-hover:text-[#FE6305] transition-colors">{cs.title}</h3>
-                  <p className="text-sm text-[#1A1A1A]/60 leading-relaxed">{cs.body}</p>
-                </div>
-                <span className="flex-shrink-0 text-sm font-semibold text-[#FE6305] inline-flex items-center gap-1.5 whitespace-nowrap">
-                  Read the Case Study
-                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
           <PageEndCTA pageKey="/services/technology-consulting/network-engineering" precedingBg="bg-[#F4F2EF]" />
 </main>
   );
