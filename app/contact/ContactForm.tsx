@@ -66,7 +66,7 @@ export default function ContactForm() {
   const busy = status === "submitting";
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-1 flex-col space-y-5" noValidate>
+    <form onSubmit={onSubmit} className="flex flex-1 flex-col space-y-5">
       {/* Honeypot: hidden from people, tempting to bots. Submissions with this
           filled are silently dropped server-side. */}
       <div aria-hidden="true" className="absolute left-[-9999px] top-[-9999px] h-0 w-0 overflow-hidden">
