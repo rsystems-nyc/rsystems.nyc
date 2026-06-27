@@ -23,6 +23,7 @@ export interface CaseStudy {
   client: string;
   industry: string;
   tags: string[];
+  topics?: string[]; // optional cross-link matching tags (see docs/cta-crosslink-map)
   summary: string;
   featuredImage?: { src: string; alt: string; position?: string };
   featuredImagePair?: {

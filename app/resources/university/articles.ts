@@ -6,6 +6,7 @@ export interface Article {
   content: string // markdown string — rendered via renderMarkdown in [slug]/page.tsx
   related?: string[] // optional array of slugs
   relatedCaseStudies?: string[]
+  topics?: string[] // optional cross-link matching tags (see docs/cta-crosslink-map)
 }
 
 export const articles: Article[] = [

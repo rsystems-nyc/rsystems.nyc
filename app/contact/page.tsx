@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact — RSystems NYC",
@@ -334,6 +335,24 @@ export default function ContactPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Current clients */}
+      <section className="bg-white border-t border-[#1A1A1A]/[0.08]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 text-center">
+          <p className="text-sm text-[#1A1A1A]/50 mb-4">
+            Already an RSystems client looking for support?
+          </p>
+          <Link
+            href="/support"
+            className="inline-flex items-center gap-2 text-sm font-semibold bg-[#FE6305] text-white px-6 py-2.5 rounded hover:bg-[#FE6305]/85 transition-colors"
+          >
+            Visit the Support page
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M4 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
         </div>
       </section>
 

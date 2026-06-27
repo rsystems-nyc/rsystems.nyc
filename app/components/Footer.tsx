@@ -157,7 +157,7 @@ export default function Footer() {
               rel="noopener noreferrer nofollow"
               className="block w-52 text-center text-sm text-white/50 px-5 py-2.5 rounded border border-white/20 hover:bg-white/[0.05] hover:text-white/70 transition-colors"
             >
-              Client Portal
+              Support Portal
             </a>
           </div>
         </div>

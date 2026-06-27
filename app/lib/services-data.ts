@@ -11,6 +11,7 @@ export type ServiceData = {
   challenge: string[];
   approach: string[];
   deliverables: Deliverable[];
+  topics?: string[]; // optional cross-link matching tags (see docs/cta-crosslink-map)
 };
 
 export const servicesData: ServiceData[] = [
