@@ -323,8 +323,10 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Write in or book a call — side by side at xl+, stacked below */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 items-start">
+          {/* Write in or book a call — side by side at xl+, stacked below.
+              items-stretch makes both columns equal height so the form's
+              flex-grow textarea pushes Send to the bottom of the booking box. */}
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 items-stretch">
             {/* Write in */}
             <div className="flex flex-col">
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FE6305] mb-4">
